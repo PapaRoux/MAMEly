@@ -1,0 +1,97 @@
+# base path for all relative directories below
+emulatorBasePath = /home/mame/.mame/
+romSnapDirectory = snap/
+romDirectory = roms/
+compareXMLtoRoms = True
+emulatorExecutable = mame
+romExtension = .zip
+snapExtension = .png
+
+showXMLprogressBar = False
+
+#skin image
+backgroundImage = background_retrocade_MAME_1080x1920.png
+
+
+# skinnable colors in the script
+defaultFontForegroundColor = FFFFFF
+defaultHighlightFontForegroundColor = FFFF00
+defaultRomNameDisplayLineShadowColor = 000000
+defaultRomNameDisplayLineHighlightShadowColor = 777777
+defaultRomNameDisplayBoxShadowColor = 000000
+defaultRomNameDisplayBoxColor = FFFFFF
+defaultTitleBarColor = FFFFFF
+defaultTitleBarShadowColor = 000000
+defaultRomCountColor = FFFFFF
+defaultRomCountShadowColor = 000000
+defaultMessageColor = FFFF00
+defaultGameSetBarColor = FFFFFF
+defaultGameSetBarShadowColor = 000000
+defaultRomFileNameShadowColor = 000000
+defaultRomFileNameColor = FFFFFF
+
+# technically these are now stroke instead of shadow
+romCountShadow = False
+romGenreShadow = False
+romFileNameShadow = False
+genreSetShadow = False
+romListDisplayHighlightShadow = False
+romListDisplayShadow = False
+messageShadow = False
+
+# area for scrolling list of games
+romListDisplayAreaX1 = 50
+romListDisplayAreaY1 = 455
+romListDisplayAreaX2 = 730
+romListDisplayAreaY2 = 1680
+romListDisplayFont = Continuum-Bold-Regular.ttf
+romListDisplayFontSize = 30
+romListDisplaySpacing = 30
+romListDisplayTruncateLen = 50
+
+# area for genre of current rom and rating, and also messages
+romGenreX1 = 50
+romGenreY1 = 1770
+romGenreX2 = 740
+romGenreY2 = 1810
+romGenreFont = Continuum-Bold-Regular.ttf
+romGenreFontSize = 30
+romGenreTruncateLen = 60
+genreRatingOffset = 15
+messageFont = Continuum-Bold-Regular.ttf
+messageFontSize = 40
+messageTime = 1
+messageTruncateLen = 30
+
+# area for file name of current rom
+romFileNameDisplayBoxX1 = 790
+romFileNameDisplayBoxY1 = 1385
+romFileNameDisplayBoxX2 = 1040
+romFileNameDisplayBoxY2 = 1450
+romFileNameDisplayBoxFont = Continuum-Bold-Regular.ttf
+romFileNameDisplayBoxFontSize = 40
+romFileNameDisplayBoxTruncateLen = 12
+
+# area for "favorites" etc
+genreSetX1 = 50
+genreSetY1 = 330
+genreSetX2 = 745
+genreSetY2 = 405
+genreSetFont = Continuum-Bold-Regular.ttf
+genreSetFontSize = 50
+genreSetTruncateLen = 30
+
+# area for rom snap image
+romSnapX1 = 791
+romSnapY1 = 834
+romSnapX2 = 1041
+romSnapY2 = 1372
+
+# area for "# of ###"
+romCountX1 = 790
+romCountY1 = 760
+romCountX2 = 1040
+romCountY2 = 820
+romCountFont = Continuum-Bold-Regular.ttf
+romCountFontSize = 35
+romCountTruncateLen = 14

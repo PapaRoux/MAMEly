@@ -1,0 +1,4694 @@
+<?xml version="1.0"?>
+<menu>
+  <header>
+    <listname>MAMEly</listname>
+    <lastlistupdate>2021-06-09 22:55:50.941817</lastlistupdate>
+    <listgeneratorversion>dumpMAMElyXML (MAMEly.py v3.0)</listgeneratorversion>
+  </header>
+  <game name="3 Ninjas Kick Back (U).smc">
+     <description>3 Ninjas Kick Back (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="7th Saga, The (U).smc">
+     <description>7Th Saga, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>1</favorite>
+  </game>
+  <game name="AAAHH!!! Real Monsters (U).smc">
+     <description>Aaahh!!! Real Monsters (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>1</favorite>
+  </game>
+  <game name="ABC Monday Night Football (U).smc">
+     <description>Abc Monday Night Football (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>1</favorite>
+  </game>
+  <game name="Act Raiser (U).smc">
+     <description>Act Raiser (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>1</favorite>
+  </game>
+  <game name="Act Raiser 2 (U).smc">
+     <description>Act Raiser 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Addams Family Values (U).smc">
+     <description>Addams Family Values (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Addams Family, The (U).smc">
+     <description>Addams Family, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Addams Family, The - Pugsley's Scavenger Hunt (U).smc">
+     <description>Addams Family, The - Pugsley'S Scavenger Hunt (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Adventures of Batman and Robin, The (U).smc">
+     <description>Adventures Of Batman And Robin, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Adventures of Dr. Franken, The (U).smc">
+     <description>Adventures Of Dr. Franken, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Adventures of Kid Kleets, The (U).smc">
+     <description>Adventures Of Kid Kleets, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Adventures of Rocky and Bullwinkle (U).smc">
+     <description>Adventures Of Rocky And Bullwinkle (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Aero Fighters (U).smc">
+     <description>Aero Fighters (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Aero the Acro-Bat (U).smc">
+     <description>Aero The Acro-Bat (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Aero the Acro-Bat 2 (U).smc">
+     <description>Aero The Acro-Bat 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Aerobiz (U).smc">
+     <description>Aerobiz (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Aerobiz Supersonic (U).smc">
+     <description>Aerobiz Supersonic (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Air Cavalry (U).smc">
+     <description>Air Cavalry (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Air Strike Patrol (U).smc">
+     <description>Air Strike Patrol (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Al Unser Jr's Road to the Top (U).smc">
+     <description>Al Unser Jr'S Road To The Top (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Aladdin (U) [!].smc">
+     <description>Aladdin (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Alfred Chicken (U).smc">
+     <description>Alfred Chicken (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Alien 3 (U).smc">
+     <description>Alien 3 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Alien vs. Predator (U).smc">
+     <description>Alien Vs. Predator (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="American Gladiators (U).smc">
+     <description>American Gladiators (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="An American Tale - Fievel Goes West (U).smc">
+     <description>An American Tale - Fievel Goes West (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Andre Agassi Tennis (U).smc">
+     <description>Andre Agassi Tennis (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Animaniacs (U) [!].smc">
+     <description>Animaniacs (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Arcana (U).smc">
+     <description>Arcana (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ardy Lightfoot (U).smc">
+     <description>Ardy Lightfoot (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Arkanoid - Doh it Again (U).smc">
+     <description>Arkanoid - Doh It Again (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Art of Fighting (U).smc">
+     <description>Art Of Fighting (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Axelay (U).smc">
+     <description>Axelay (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="B.O.B. (U).smc">
+     <description>B.O.B. (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ballz 3D (U) [!].smc">
+     <description>Ballz 3D (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ballz 3D - Instore Demo (U) [!].smc">
+     <description>Ballz 3D - Instore Demo (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Barbie Super Model (U).smc">
+     <description>Barbie Super Model (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Barbie Vacation Adventure (U).smc">
+     <description>Barbie Vacation Adventure (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Barkley Shut Up and Jam! (U).smc">
+     <description>Barkley Shut Up And Jam! (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bass Masters Classic (U).smc">
+     <description>Bass Masters Classic (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bass Masters Classic Pro Edition (U).smc">
+     <description>Bass Masters Classic Pro Edition (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bassins' Black Bass Fishing with Hank Parker (U).smc">
+     <description>Bassins' Black Bass Fishing With Hank Parker (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Batman Forever (U).smc">
+     <description>Batman Forever (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Batman Returns (U).smc">
+     <description>Batman Returns (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Batman Revenge of the Joker (U).smc">
+     <description>Batman Revenge Of The Joker (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Battle Blaze (U).smc">
+     <description>Battle Blaze (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Battle Cars (U).smc">
+     <description>Battle Cars (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Battle Clash (U).smc">
+     <description>Battle Clash (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Battle Grand Prix (U).smc">
+     <description>Battle Grand Prix (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Battletoads and Double Dragon - The Ultimate Team (U) [!].smc">
+     <description>Battletoads And Double Dragon - The Ultimate Team (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Battletoads in Battlemaniacs (U)(26454).smc">
+     <description>Battletoads In Battlemaniacs (U)(26454)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bazooka Blitzkrieg (U).smc">
+     <description>Bazooka Blitzkrieg (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Beauty and the Beast (U).smc">
+     <description>Beauty And The Beast (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Beavis and Butthead (U).smc">
+     <description>Beavis And Butthead (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bebe's Kids (U).smc">
+     <description>Bebe'S Kids (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Beethoven's 2nd (U).smc">
+     <description>Beethoven'S 2Nd (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Best of the Best (U).smc">
+     <description>Best Of The Best (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Big Sky Trooper (U).smc">
+     <description>Big Sky Trooper (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Biker Mice From Mars (U).smc">
+     <description>Biker Mice From Mars (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bill Laimbeer's Combat Basketball (U) [!].smc">
+     <description>Bill Laimbeer'S Combat Basketball (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bill Walsh College Football (U).smc">
+     <description>Bill Walsh College Football (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bio Metal (U).smc">
+     <description>Bio Metal (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Black Thorne (U).smc">
+     <description>Black Thorne (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Blackthorne (U) (CES Pre-Release).smc">
+     <description>Blackthorne (U) (Ces Pre-Release)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Blazeon (U).smc">
+     <description>Blazeon (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Blues Brothers, The (U).smc">
+     <description>Blues Brothers, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bobby's World (U).smc">
+     <description>Bobby'S World (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bonkers (U).smc">
+     <description>Bonkers (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Boogerman - A Pick and Flick Adventure (U).smc">
+     <description>Boogerman - A Pick And Flick Adventure (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Boxing Legends of the Ring (U).smc">
+     <description>Boxing Legends Of The Ring (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Brain Lord (U).smc">
+     <description>Brain Lord (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Brainies, The (U).smc">
+     <description>Brainies, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bram Stoker's Dracula (U).smc">
+     <description>Bram Stoker'S Dracula (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Brandish (U) [!].smc">
+     <description>Brandish (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Brawl Brothers (U) [!].smc">
+     <description>Brawl Brothers (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="BreakThru! (U).smc">
+     <description>Breakthru! (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Breath of Fire (U) [!].smc">
+     <description>Breath Of Fire (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Breath of Fire II (U) [!].smc">
+     <description>Breath Of Fire Ii (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Brett Hull Hockey '95 (U).smc">
+     <description>Brett Hull Hockey '95 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Brett Hull Hockey (U).smc">
+     <description>Brett Hull Hockey (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bronkie Health Hero (U).smc">
+     <description>Bronkie Health Hero (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Brunswick Bowling (U).smc">
+     <description>Brunswick Bowling (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Brutal - Paws of Fury (U).smc">
+     <description>Brutal - Paws Of Fury (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bubsy II (U).smc">
+     <description>Bubsy Ii (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bubsy in Claws Encounters of the Furred Kind (U).smc">
+     <description>Bubsy In Claws Encounters Of The Furred Kind (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bugs Bunny in Rabbit Rampage (U) [!].smc">
+     <description>Bugs Bunny In Rabbit Rampage (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bulls Vs. Blazers and the NBA Playoffs (V1.0) (U).smc">
+     <description>Bulls Vs. Blazers And The Nba Playoffs (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bulls Vs. Blazers and the NBA Playoffs (V1.1) (U) [!].smc">
+     <description>Bulls Vs. Blazers And The Nba Playoffs (V1.1) (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Bust-A-Move (U).smc">
+     <description>Bust-A-Move (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Cacoma Knight (U).smc">
+     <description>Cacoma Knight (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Cal Ripken Jr. Baseball (U) [!].smc">
+     <description>Cal Ripken Jr. Baseball (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="California Games 2 (U).smc">
+     <description>California Games 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Cannondale Cup (U).smc">
+     <description>Cannondale Cup (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Capcom MVP Football (U).smc">
+     <description>Capcom Mvp Football (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Capcom's Soccer Shootout (U).smc">
+     <description>Capcom'S Soccer Shootout (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Captain America and the Avengers (U).smc">
+     <description>Captain America And The Avengers (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Captain Commando (U).smc">
+     <description>Captain Commando (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Captain Novolin (U).smc">
+     <description>Captain Novolin (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Carrier Aces (U).smc">
+     <description>Carrier Aces (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Casper (U).smc">
+     <description>Casper (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Castlevania - Dracula X (U).smc">
+     <description>Castlevania - Dracula X (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Champions World Class Soccer (U).smc">
+     <description>Champions World Class Soccer (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Championship Pool (U).smc">
+     <description>Championship Pool (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Championship Soccer '94 (U).smc">
+     <description>Championship Soccer '94 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Chavez Boxing (U).smc">
+     <description>Chavez Boxing (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Chavez Boxing 2 (U).smc">
+     <description>Chavez Boxing 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Chessmaster, The (U).smc">
+     <description>Chessmaster, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Chester Cheetah - Too Cool to Fool (U).smc">
+     <description>Chester Cheetah - Too Cool To Fool (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Chester Cheetah - Wild Wild Quest (U)(14145).smc">
+     <description>Chester Cheetah - Wild Wild Quest (U)(14145)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Chester Cheetah - Wild Wild Quest (U)(59734).smc">
+     <description>Chester Cheetah - Wild Wild Quest (U)(59734)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Choplifter 3 (U)(30545).smc">
+     <description>Choplifter 3 (U)(30545)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Choplifter 3 (U)(54553).smc">
+     <description>Choplifter 3 (U)(54553)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Chrono Trigger (U).smc">
+     <description>Chrono Trigger (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Chuck Rock (U).smc">
+     <description>Chuck Rock (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Civilization (U).smc">
+     <description>Civilization (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Clay Fighter (U).smc">
+     <description>Clay Fighter (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Clay Fighter 2 (U).smc">
+     <description>Clay Fighter 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Clay Fighter TE (U).smc">
+     <description>Clay Fighter Te (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Claymates (U).smc">
+     <description>Claymates (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Claymates Demo (U).smc">
+     <description>Claymates Demo (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Cliffhanger (U).smc">
+     <description>Cliffhanger (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Clue (U) [!].smc">
+     <description>Clue (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="College Slam Basketball (U) [!].smc">
+     <description>College Slam Basketball (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Combatribes (U).smc">
+     <description>Combatribes (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Congo's Caper (U).smc">
+     <description>Congo'S Caper (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Contra III - The Alien Wars (U) [!].smc">
+     <description>Contra Iii - The Alien Wars (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Cool Spot (U).smc">
+     <description>Cool Spot (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Cool World (U).smc">
+     <description>Cool World (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Cutthroat Island (U).smc">
+     <description>Cutthroat Island (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Cyber Spin (U).smc">
+     <description>Cyber Spin (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Cybernator (U).smc">
+     <description>Cybernator (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Cybernator - With Sound Test (U).smc">
+     <description>Cybernator - With Sound Test (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="D-Force (U).smc">
+     <description>D-Force (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Daffy Duck - The Marvin Missions (U).smc">
+     <description>Daffy Duck - The Marvin Missions (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Darius Twin (U).smc">
+     <description>Darius Twin (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="David Crane's Amazing Tennis (U) [!].smc">
+     <description>David Crane'S Amazing Tennis (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Death and Return of Superman, The (U).smc">
+     <description>Death And Return Of Superman, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Demolition Man (U).smc">
+     <description>Demolition Man (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Demon's Crest (U).smc">
+     <description>Demon'S Crest (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Dennis the Menace (U).smc">
+     <description>Dennis The Menace (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Desert Strike - Return to the Gulf (U).smc">
+     <description>Desert Strike - Return To The Gulf (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Diddy's Kong Quest (V1.0) (U).smc">
+     <description>Diddy'S Kong Quest (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Diddy's Kong Quest (V1.1) (U).smc">
+     <description>Diddy'S Kong Quest (V1.1) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Dig and Spike Vollyball (U).smc">
+     <description>Dig And Spike Vollyball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Dinosaurs - Dino City (U).smc">
+     <description>Dinosaurs - Dino City (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Dirt Trax FX (U) [!].smc">
+     <description>Dirt Trax Fx (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Donald Duck - Maui Mallard in Cold Shadow (U).smc">
+     <description>Donald Duck - Maui Mallard In Cold Shadow (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Donkey Kong Country (Competition) (U).smc">
+     <description>Donkey Kong Country (Competition) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Donkey Kong Country (U) (V1 2) [!].smc">
+     <description>Donkey Kong Country (U) (V1 2) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Donkey Kong Country 3 - Dixie Kong's Double Trouble (U) [!].smc">
+     <description>Donkey Kong Country 3 - Dixie Kong'S Double Trouble (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Doom (U) [!].smc">
+     <description>Doom (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Doom Troopers (U).smc">
+     <description>Doom Troopers (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Doomsday Warrior (U).smc">
+     <description>Doomsday Warrior (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Double Dragon V - The Shadow Falls (U).smc">
+     <description>Double Dragon V - The Shadow Falls (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Dragon - The Bruce Lee Story (U).smc">
+     <description>Dragon - The Bruce Lee Story (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Dragon View (U).smc">
+     <description>Dragon View (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Dragon's Lair (U).smc">
+     <description>Dragon'S Lair (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Drakkhen (U).smc">
+     <description>Drakkhen (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Dream TV (U).smc">
+     <description>Dream Tv (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Dungeon Master (U).smc">
+     <description>Dungeon Master (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="E.V.O. Search for Eden (U).smc">
+     <description>E.V.O. Search For Eden (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="EA College Football '97 (U).smc">
+     <description>Ea College Football '97 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Earthbound (U).smc">
+     <description>Earthbound (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Earthworm Jim (U).smc">
+     <description>Earthworm Jim (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Earthworm Jim 2 (U) [!].smc">
+     <description>Earthworm Jim 2 (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Eek! The Cat (U).smc">
+     <description>Eek! The Cat (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Elite Soccer (U).smc">
+     <description>Elite Soccer (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Emmitt Smith Football (U).smc">
+     <description>Emmitt Smith Football (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Equinox (U).smc">
+     <description>Equinox (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="ESPN Baseball Tonight (U)(10548).smc">
+     <description>Espn Baseball Tonight (U)(10548)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="ESPN Baseball Tonight (U)(29611).smc">
+     <description>Espn Baseball Tonight (U)(29611)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="ESPN Hockey Night (U).smc">
+     <description>Espn Hockey Night (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="ESPN Speed World (U)(33159)(Copyright Screen Different).smc">
+     <description>Espn Speed World (U)(33159)(Copyright Screen Different)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="ESPN Sunday Night NFL (U).smc">
+     <description>Espn Sunday Night Nfl (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Exertainment Mountain Bike Rally (U).smc">
+     <description>Exertainment Mountain Bike Rally (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Extra Innings (U).smc">
+     <description>Extra Innings (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Eye of the Beholder (U).smc">
+     <description>Eye Of The Beholder (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="F-Zero (U).smc">
+     <description>F-Zero (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="F1 Pole Position (U).smc">
+     <description>F1 Pole Position (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="F1 ROC - Race of Champions (U).smc">
+     <description>F1 Roc - Race Of Champions (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="F1 Roc 2 - Race of Champions (U).smc">
+     <description>F1 Roc 2 - Race Of Champions (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Faceball 2000 (U).smc">
+     <description>Faceball 2000 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Family Dog (U).smc">
+     <description>Family Dog (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Family Feud (U).smc">
+     <description>Family Feud (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Fatal Fury (U).smc">
+     <description>Fatal Fury (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Fatal Fury 2 (U).smc">
+     <description>Fatal Fury 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Fatal Fury Special (U).smc">
+     <description>Fatal Fury Special (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="FIFA 96 (U).smc">
+     <description>Fifa 96 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="FIFA 97 - Gold Edition (U).smc">
+     <description>Fifa 97 - Gold Edition (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="FIFA International Soccer (U).smc">
+     <description>Fifa International Soccer (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Fighter's History (U).smc">
+     <description>Fighter'S History (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Final Fantasy - Mystic Quest (V1.0) (U) [!].smc">
+     <description>Final Fantasy - Mystic Quest (V1.0) (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Final Fantasy - Mystic Quest (V1.1) (U).smc">
+     <description>Final Fantasy - Mystic Quest (V1.1) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Final Fantasy II (V1.0) (U).smc">
+     <description>Final Fantasy Ii (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Final Fantasy II (V1.1) (U).smc">
+     <description>Final Fantasy Ii (V1.1) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Final Fantasy III (V1.0) (U) [!].smc">
+     <description>Final Fantasy Iii (V1.0) (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Final Fantasy III (V1.1) (U) [!].smc">
+     <description>Final Fantasy Iii (V1.1) (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Final Fight (U).smc">
+     <description>Final Fight (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Final Fight 2 (U).smc">
+     <description>Final Fight 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Final Fight 3 (U).smc">
+     <description>Final Fight 3 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Final Fight Guy (U).smc">
+     <description>Final Fight Guy (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Fire Striker (U).smc">
+     <description>Fire Striker (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Firepower 2000 (U).smc">
+     <description>Firepower 2000 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="First Samurai (U).smc">
+     <description>First Samurai (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Flashback (U).smc">
+     <description>Flashback (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Flintstones, The (U).smc">
+     <description>Flintstones, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Flintstones, The - The Treasure of Sierra Madrock (U).smc">
+     <description>Flintstones, The - The Treasure Of Sierra Madrock (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Football Fury (U).smc">
+     <description>Football Fury (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Foreman For Real (U).smc">
+     <description>Foreman For Real (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Frank Thomas' Big Hurt Baseball (U).smc">
+     <description>Frank Thomas' Big Hurt Baseball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Frankenstein (U).smc">
+     <description>Frankenstein (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Frantic Flea (U) [!].smc">
+     <description>Frantic Flea (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Frogger (U).smc">
+     <description>Frogger (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Full Throttle Racing (U).smc">
+     <description>Full Throttle Racing (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Fun 'N Games (U).smc">
+     <description>Fun 'N Games (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Gemfire (U).smc">
+     <description>Gemfire (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Genghis Khan 2 - Clan of the Grey Wolf (U).smc">
+     <description>Genghis Khan 2 - Clan Of The Grey Wolf (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="George Foreman K.O. Boxing (U) (Doritos Promo).smc">
+     <description>George Foreman K.O. Boxing (U) (Doritos Promo)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="George Foreman K.O. Boxing (V1.0) (U).smc">
+     <description>George Foreman K.O. Boxing (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="George Foreman K.O. Boxing (V1.1) (U).smc">
+     <description>George Foreman K.O. Boxing (V1.1) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ghoul Patrol (U).smc">
+     <description>Ghoul Patrol (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Gods (U).smc">
+     <description>Gods (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Goof Troop (U).smc">
+     <description>Goof Troop (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="GP-1 (U).smc">
+     <description>Gp-1 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="GP-1 Part 2 (U).smc">
+     <description>Gp-1 Part 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Gradius III (U) [!].smc">
+     <description>Gradius Iii (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Great Waldo Search (U).smc">
+     <description>Great Waldo Search (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Gun Force (U).smc">
+     <description>Gun Force (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Hagane (U).smc">
+     <description>Hagane (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Hal's Hole in One Golf (U).smc">
+     <description>Hal'S Hole In One Golf (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Hammerlock Wrestling (U).smc">
+     <description>Hammerlock Wrestling (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Hardball 3 (U).smc">
+     <description>Hardball 3 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Harley's Humongous Adventure (U).smc">
+     <description>Harley'S Humongous Adventure (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Harvest Moon (U).smc">
+     <description>Harvest Moon (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Head-On Soccer (U).smc">
+     <description>Head-On Soccer (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Hit the Ice (U).smc">
+     <description>Hit The Ice (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Home Alone (U).smc">
+     <description>Home Alone (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Home Alone 2 (U).smc">
+     <description>Home Alone 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Home Improvement (U).smc">
+     <description>Home Improvement (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Hook (U)(2648).smc">
+     <description>Hook (U)(2648)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Hook (U)(29252).smc">
+     <description>Hook (U)(29252)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Hunt for Red October, The (U).smc">
+     <description>Hunt For Red October, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Hurricanes, The (U).smc">
+     <description>Hurricanes, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Hyper V-Ball (U).smc">
+     <description>Hyper V-Ball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Hyper Zone (U).smc">
+     <description>Hyper Zone (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ignition Factor (U).smc">
+     <description>Ignition Factor (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Illusion of Gaia (U).smc">
+     <description>Illusion Of Gaia (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Imperium (U).smc">
+     <description>Imperium (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Incantation (U).smc">
+     <description>Incantation (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Incredible Crash Dummies, The (U).smc">
+     <description>Incredible Crash Dummies, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Incredible Hulk, The (U).smc">
+     <description>Incredible Hulk, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Indiana Jones - Trilogy (U).smc">
+     <description>Indiana Jones - Trilogy (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Inindo (U).smc">
+     <description>Inindo (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Inspector Gadget (U).smc">
+     <description>Inspector Gadget (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="International Superstar Soccer (U) [!].smc">
+     <description>International Superstar Soccer (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="International Superstar Soccer Deluxe (U).smc">
+     <description>International Superstar Soccer Deluxe (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="International Tennis Tour (U).smc">
+     <description>International Tennis Tour (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Izzy's Quest for the Olympic Rings (U) [!].smc">
+     <description>Izzy'S Quest For The Olympic Rings (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Jack Nicklaus Golf (U).smc">
+     <description>Jack Nicklaus Golf (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="James Bond Jr (U).smc">
+     <description>James Bond Jr (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Jammit (U).smc">
+     <description>Jammit (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Jeopardy! (U).smc">
+     <description>Jeopardy! (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Jeopardy! - Deluxe Edition (U).smc">
+     <description>Jeopardy! - Deluxe Edition (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Jeopardy! - Sports Edition (U).smc">
+     <description>Jeopardy! - Sports Edition (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Jetsons (U).smc">
+     <description>Jetsons (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Jim Lee's WildC.A.T.S (U).smc">
+     <description>Jim Lee'S Wildc.A.T.S (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Jim Powers - The Lost Dimension 3D (U) [!].smc">
+     <description>Jim Powers - The Lost Dimension 3D (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Jimmy Connors Pro Tennis Tour (U).smc">
+     <description>Jimmy Connors Pro Tennis Tour (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Jimmy Houston's Bass Tournament USA (U).smc">
+     <description>Jimmy Houston'S Bass Tournament Usa (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Joe and Mac - Caveman Ninja (U).smc">
+     <description>Joe And Mac - Caveman Ninja (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Joe and Mac 2 (U)(35468).smc">
+     <description>Joe And Mac 2 (U)(35468)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Joe and Mac 2 (U)(54227).smc">
+     <description>Joe And Mac 2 (U)(54227)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="JRR Tolkien's The Lord of the Rings - Volume One (U).smc">
+     <description>Jrr Tolkien'S The Lord Of The Rings - Volume One (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Judge Dredd (U).smc">
+     <description>Judge Dredd (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Judge Dredd - CES Preview Version (U)(NG-Dump Known).smc">
+     <description>Judge Dredd - Ces Preview Version (U)(Ng-Dump Known)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Jungle Book, The (U).smc">
+     <description>Jungle Book, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Jungle Strike (U).smc">
+     <description>Jungle Strike (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Jurassic Park (V1.0) (U).smc">
+     <description>Jurassic Park (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Jurassic Park (V1.1) (U).smc">
+     <description>Jurassic Park (V1.1) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Jurassic Park 2 (U).smc">
+     <description>Jurassic Park 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Justice League Task Force (U).smc">
+     <description>Justice League Task Force (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Kablooey (U).smc">
+     <description>Kablooey (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Kawasaki Carribean Challenge (U).smc">
+     <description>Kawasaki Carribean Challenge (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Kawasaki Superbike Challenge (U).smc">
+     <description>Kawasaki Superbike Challenge (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ken Griffey Jr's. Baseball (U).smc">
+     <description>Ken Griffey Jr'S. Baseball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ken Griffey Jr's. Winning Run Baseball (U).smc">
+     <description>Ken Griffey Jr'S. Winning Run Baseball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Kendo Rage (U).smc">
+     <description>Kendo Rage (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Kid Klown in Crazy Chase (U).smc">
+     <description>Kid Klown In Crazy Chase (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Killer Instinct (V1.0) (U).smc">
+     <description>Killer Instinct (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Killer Instinct (V1.1) (U) [!].smc">
+     <description>Killer Instinct (V1.1) (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="King Arthur and The Knights of Justice (U) [!].smc">
+     <description>King Arthur And The Knights Of Justice (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="King Arthur's World (U).smc">
+     <description>King Arthur'S World (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="King of Dragons, The (U).smc">
+     <description>King Of Dragons, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="King of the Monsters (U).smc">
+     <description>King Of The Monsters (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="King of the Monsters 2 (U).smc">
+     <description>King Of The Monsters 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Kirby Superstar (U) [!].smc">
+     <description>Kirby Superstar (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Kirby's Avalanche (U).smc">
+     <description>Kirby'S Avalanche (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Kirby's Dream Course (U).smc">
+     <description>Kirby'S Dream Course (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Kirby's Dream Land 3 (U).smc">
+     <description>Kirby'S Dream Land 3 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Knights of the Round (U).smc">
+     <description>Knights Of The Round (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Kyle Petty's No Fear Racing (U).smc">
+     <description>Kyle Petty'S No Fear Racing (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Lagoon (U).smc">
+     <description>Lagoon (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Lamborghini - American Challenge (U).smc">
+     <description>Lamborghini - American Challenge (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Last Action Hero, The (U).smc">
+     <description>Last Action Hero, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Lawnmower Man, The (U).smc">
+     <description>Lawnmower Man, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Legend (U)(16725).smc">
+     <description>Legend (U)(16725)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Legend (U)(718).smc">
+     <description>Legend (U)(718)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Legend of The Mystical Ninja, The (U).smc">
+     <description>Legend Of The Mystical Ninja, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Legend of Zelda, The (U).smc">
+     <description>Legend Of Zelda, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Lemmings (V1.0) (U).smc">
+     <description>Lemmings (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Lemmings (V1.1) (U) [!].smc">
+     <description>Lemmings (V1.1) (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Lemmings 2 (U).smc">
+     <description>Lemmings 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Lester the Unlikely (U).smc">
+     <description>Lester The Unlikely (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Lethal Enforcers (U).smc">
+     <description>Lethal Enforcers (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Lethal Weapon (U).smc">
+     <description>Lethal Weapon (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Liberty or Death (U).smc">
+     <description>Liberty Or Death (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Lion King, The (U).smc">
+     <description>Lion King, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Lock-On (U).smc">
+     <description>Lock-On (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Looney Tunes - Acme Animation Factory (U).smc">
+     <description>Looney Tunes - Acme Animation Factory (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Looney Tunes B-Ball (U).smc">
+     <description>Looney Tunes B-Ball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Lost Vikings 2, The (U).smc">
+     <description>Lost Vikings 2, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Lost Vikings, The (U).smc">
+     <description>Lost Vikings, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Lufia and The Fortress of Doom (U).smc">
+     <description>Lufia And The Fortress Of Doom (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Lufia II - Rise of the Sinistrals (U).smc">
+     <description>Lufia Ii - Rise Of The Sinistrals (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="M.A.C. Basic Rifle Simulator (U)(NG-Dump Known).smc">
+     <description>M.A.C. Basic Rifle Simulator (U)(Ng-Dump Known)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Madden NFL '93 (U).smc">
+     <description>Madden Nfl '93 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Madden NFL '94 (U).smc">
+     <description>Madden Nfl '94 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Madden NFL '95 (U) [!].smc">
+     <description>Madden Nfl '95 (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Madden NFL '96 (U).smc">
+     <description>Madden Nfl '96 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Madden NFL '96 Reviewer Version (U).smc">
+     <description>Madden Nfl '96 Reviewer Version (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Madden NFL '97 (U).smc">
+     <description>Madden Nfl '97 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Madden NFL '98 (U).smc">
+     <description>Madden Nfl '98 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Madden NFL Football (U).smc">
+     <description>Madden Nfl Football (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Magic Boy (U) [!].smc">
+     <description>Magic Boy (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Magic Johnson's Super Slam Dunk (U).smc">
+     <description>Magic Johnson'S Super Slam Dunk (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Magic Sword (U).smc">
+     <description>Magic Sword (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Magical Quest Starring Mickey Mouse, The (U) [!].smc">
+     <description>Magical Quest Starring Mickey Mouse, The (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mario is Missing (U).smc">
+     <description>Mario Is Missing (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mario's Early Years - Fun With Letters (U).smc">
+     <description>Mario'S Early Years - Fun With Letters (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mario's Early Years - Fun With Numbers (U).smc">
+     <description>Mario'S Early Years - Fun With Numbers (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mario's Early Years - Preschool Fun! (U).smc">
+     <description>Mario'S Early Years - Preschool Fun! (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mario's Time Machine (U).smc">
+     <description>Mario'S Time Machine (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mark Davis' The Fishing Master (U).smc">
+     <description>Mark Davis' The Fishing Master (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Marvel Super Heroes - War of the Gems (U).smc">
+     <description>Marvel Super Heroes - War Of The Gems (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mask, The (U).smc">
+     <description>Mask, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Math Blaster (U).smc">
+     <description>Math Blaster (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mecarobot Golf (U).smc">
+     <description>Mecarobot Golf (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mechwarrior (U).smc">
+     <description>Mechwarrior (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mechwarrior 3050 (U).smc">
+     <description>Mechwarrior 3050 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mega Man 7 (U).smc">
+     <description>Mega Man 7 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mega Man Soccer (U).smc">
+     <description>Mega Man Soccer (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mega Man X (V1.0) (U).smc">
+     <description>Mega Man X (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mega Man X (V1.1) (U).smc">
+     <description>Mega Man X (V1.1) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mega Man X 2 (U).smc">
+     <description>Mega Man X 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mega Man X 3 (U).smc">
+     <description>Mega Man X 3 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Metal Combat - Falcon's Revenge (U) [!].smc">
+     <description>Metal Combat - Falcon'S Revenge (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Metal Marines (U).smc">
+     <description>Metal Marines (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Metal Morph (U).smc">
+     <description>Metal Morph (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Metal Warriors (U).smc">
+     <description>Metal Warriors (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Michael Andretti's Indy Car Challenge (U).smc">
+     <description>Michael Andretti'S Indy Car Challenge (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Michael Jordan - Chaos in the Windy City (U) [!].smc">
+     <description>Michael Jordan - Chaos In The Windy City (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mickey and Minnie - The Great Circus Mystery (U).smc">
+     <description>Mickey And Minnie - The Great Circus Mystery (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mickey Mania (U).smc">
+     <description>Mickey Mania (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mickey's Playtown Adventure - A Day Of Discovery! (U).smc">
+     <description>Mickey'S Playtown Adventure - A Day Of Discovery! (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mickey's Ultimate Challenge (U).smc">
+     <description>Mickey'S Ultimate Challenge (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Micro Machines (U).smc">
+     <description>Micro Machines (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Might and Magic III - Isles of Terror (U).smc">
+     <description>Might And Magic Iii - Isles Of Terror (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mighty Max (U).smc">
+     <description>Mighty Max (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mighty Morphin Power Rangers (U).smc">
+     <description>Mighty Morphin Power Rangers (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mighty Morphin Power Rangers - Fighting Edition (U).smc">
+     <description>Mighty Morphin Power Rangers - Fighting Edition (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mighty Morphin Power Rangers - Movie Edition (U).smc">
+     <description>Mighty Morphin Power Rangers - Movie Edition (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="MLBPA Baseball (U).smc">
+     <description>Mlbpa Baseball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mohawk and Headphone Jack (U).smc">
+     <description>Mohawk And Headphone Jack (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Monopoly (V1.0) (U).smc">
+     <description>Monopoly (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Monopoly (V1.1) (U).smc">
+     <description>Monopoly (V1.1) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mortal Kombat (U).smc">
+     <description>Mortal Kombat (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mortal Kombat 3 (U) [!].smc">
+     <description>Mortal Kombat 3 (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mortal Kombat II (V1.0) (U).smc">
+     <description>Mortal Kombat Ii (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mortal Kombat II (V1.1) (U).smc">
+     <description>Mortal Kombat Ii (V1.1) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mr. Do! (U).smc">
+     <description>Mr. Do! (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Mr. Nutz (U).smc">
+     <description>Mr. Nutz (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ms. Pac-Man (U).smc">
+     <description>Ms. Pac-Man (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Musya (U) [!].smc">
+     <description>Musya (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Natsume Championship Wrestling (U).smc">
+     <description>Natsume Championship Wrestling (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NBA All-Star Challenge (U).smc">
+     <description>Nba All-Star Challenge (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NBA Give 'N Go (U).smc">
+     <description>Nba Give 'N Go (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NBA Hang Time (U).smc">
+     <description>Nba Hang Time (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NBA Jam (V1.0) (U).smc">
+     <description>Nba Jam (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NBA Jam (V1.1) (U).smc">
+     <description>Nba Jam (V1.1) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NBA Jam Tournament Edition (U).smc">
+     <description>Nba Jam Tournament Edition (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NBA Live '95 (U).smc">
+     <description>Nba Live '95 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NBA Live '96 (U).smc">
+     <description>Nba Live '96 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NBA Live '97 (U).smc">
+     <description>Nba Live '97 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NBA Live '98 (U).smc">
+     <description>Nba Live '98 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NBA Showdown (U).smc">
+     <description>Nba Showdown (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NCAA Basketball (V1.0) (U).smc">
+     <description>Ncaa Basketball (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NCAA Basketball (V1.1) (U) [!].smc">
+     <description>Ncaa Basketball (V1.1) (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NCAA Final Four Basketball (U).smc">
+     <description>Ncaa Final Four Basketball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NCAA Football (U).smc">
+     <description>Ncaa Football (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Newman Hass Indy Car Racing (U).smc">
+     <description>Newman Hass Indy Car Racing (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NFL Football (U).smc">
+     <description>Nfl Football (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NFL Quarterback Club '96 (U).smc">
+     <description>Nfl Quarterback Club '96 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NFL Quarterback Club (U).smc">
+     <description>Nfl Quarterback Club (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NHL '94 (U) [!].smc">
+     <description>Nhl '94 (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NHL '95 (U).smc">
+     <description>Nhl '95 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NHL '96 (U).smc">
+     <description>Nhl '96 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NHL '97 (U).smc">
+     <description>Nhl '97 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NHL '98 (U).smc">
+     <description>Nhl '98 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NHL Stanley Cup (U).smc">
+     <description>Nhl Stanley Cup (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="NHLPA Hockey '93 (U).smc">
+     <description>Nhlpa Hockey '93 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Nickelodeon GUTS (U).smc">
+     <description>Nickelodeon Guts (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Nigel Mansell's World Championship Racing (U).smc">
+     <description>Nigel Mansell'S World Championship Racing (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ninja Gaiden Trilogy (U) [!].smc">
+     <description>Ninja Gaiden Trilogy (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ninja Warriors, The (U).smc">
+     <description>Ninja Warriors, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="No Escape (U).smc">
+     <description>No Escape (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Nobunaga's Ambition (U).smc">
+     <description>Nobunaga'S Ambition (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Nobunaga's Ambition 2 (U).smc">
+     <description>Nobunaga'S Ambition 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Nolan Ryan's Baseball (U).smc">
+     <description>Nolan Ryan'S Baseball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Nosferatu (U).smc">
+     <description>Nosferatu (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Obitus (U).smc">
+     <description>Obitus (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ogre Battle (U).smc">
+     <description>Ogre Battle (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Olympic Summer Games 96 (U).smc">
+     <description>Olympic Summer Games 96 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="On the Ball (U).smc">
+     <description>On The Ball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Operation Europe - Path to Victory 1939-45 (U).smc">
+     <description>Operation Europe - Path To Victory 1939-45 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Operation Logic Bomb (U).smc">
+     <description>Operation Logic Bomb (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Operation Thunderbolt (U).smc">
+     <description>Operation Thunderbolt (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Oscar (U).smc">
+     <description>Oscar (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Out of This World (U).smc">
+     <description>Out Of This World (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Out to Lunch (U).smc">
+     <description>Out To Lunch (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Outlander (U).smc">
+     <description>Outlander (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pac Attack (U).smc">
+     <description>Pac Attack (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pac in Time (U).smc">
+     <description>Pac In Time (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pac-Man 2 - The New Adventures (U).smc">
+     <description>Pac-Man 2 - The New Adventures (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pacific Theater of Operations (U) [!].smc">
+     <description>Pacific Theater Of Operations (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pacific Theater of Operations 2 (U).smc">
+     <description>Pacific Theater Of Operations 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Packy and Marlon (U).smc">
+     <description>Packy And Marlon (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pagemaster, The (U).smc">
+     <description>Pagemaster, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Paladin's Quest (U).smc">
+     <description>Paladin'S Quest (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Paper Boy 2 (U).smc">
+     <description>Paper Boy 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Peace Keepers (U).smc">
+     <description>Peace Keepers (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pebble Beach Golf Links (U).smc">
+     <description>Pebble Beach Golf Links (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="PGA European Tour (U).smc">
+     <description>Pga European Tour (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="PGA Tour 96 (U) [!].smc">
+     <description>Pga Tour 96 (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="PGA Tour Golf (U).smc">
+     <description>Pga Tour Golf (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Phalanx (U) [!].smc">
+     <description>Phalanx (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Phantom 2040 (Viacom)(U).smc">
+     <description>Phantom 2040 (Viacom)(U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pieces (U).smc">
+     <description>Pieces (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pilotwings (U) [!].smc">
+     <description>Pilotwings (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pinball Dreams (U).smc">
+     <description>Pinball Dreams (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pinball Fantasies (U).smc">
+     <description>Pinball Fantasies (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pink Panther Goes to Hollywood (U).smc">
+     <description>Pink Panther Goes To Hollywood (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pinocchio (U).smc">
+     <description>Pinocchio (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pirates of Dark Water (U).smc">
+     <description>Pirates Of Dark Water (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pit Fighter (U).smc">
+     <description>Pit Fighter (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pitfall (U).smc">
+     <description>Pitfall (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Plok (U).smc">
+     <description>Plok (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pocky and Rocky (U).smc">
+     <description>Pocky And Rocky (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pocky and Rocky 2 (U)(6254).smc">
+     <description>Pocky And Rocky 2 (U)(6254)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Populous (U).smc">
+     <description>Populous (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Porky Pig's Haunted Holiday (Acclaim) (U).smc">
+     <description>Porky Pig'S Haunted Holiday (Acclaim) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Porky Pig's Haunted Holiday (Sunsoft) (U).smc">
+     <description>Porky Pig'S Haunted Holiday (Sunsoft) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Power Instinct (U)(61042).smc">
+     <description>Power Instinct (U)(61042)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Power Moves (U).smc">
+     <description>Power Moves (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Power Piggs of the Dark Age (U) [!].smc">
+     <description>Power Piggs Of The Dark Age (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Power Rangers Zeo - Battle Racers (U).smc">
+     <description>Power Rangers Zeo - Battle Racers (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Prehistorik Man (U).smc">
+     <description>Prehistorik Man (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Primal Rage (U)(With Sound Test).smc">
+     <description>Primal Rage (U)(With Sound Test)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Prince of Persia (U).smc">
+     <description>Prince Of Persia (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Prince of Persia 2 (U).smc">
+     <description>Prince Of Persia 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pro Quarterback (U).smc">
+     <description>Pro Quarterback (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pro Sport Hockey (U).smc">
+     <description>Pro Sport Hockey (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Pushover (U).smc">
+     <description>Pushover (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Q-bert 3 (U).smc">
+     <description>Q-Bert 3 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="R-Type 3 (U).smc">
+     <description>R-Type 3 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Race Drivin' (U).smc">
+     <description>Race Drivin' (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Radical Rex (U).smc">
+     <description>Radical Rex (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Raiden Trad (U).smc">
+     <description>Raiden Trad (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Rampart (U).smc">
+     <description>Rampart (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ranma Nibunnoichi (U).smc">
+     <description>Ranma Nibunnoichi (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Rap Jam - Volume 1 (U) [!].smc">
+     <description>Rap Jam - Volume 1 (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Realm (U).smc">
+     <description>Realm (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Redline F-1 Racer (U).smc">
+     <description>Redline F-1 Racer (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Relief Pitcher (U).smc">
+     <description>Relief Pitcher (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ren and Stimpy Show, The - Buckaroos (U).smc">
+     <description>Ren And Stimpy Show, The - Buckaroos (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ren and Stimpy Show, The - Fire Dog (U).smc">
+     <description>Ren And Stimpy Show, The - Fire Dog (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ren and Stimpy Show, The - Time Warp (U).smc">
+     <description>Ren And Stimpy Show, The - Time Warp (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ren and Stimpy Show, The - Veediots (U).smc">
+     <description>Ren And Stimpy Show, The - Veediots (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Revolution X (U).smc">
+     <description>Revolution X (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Rex Ronan (U).smc">
+     <description>Rex Ronan (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Riddick Bowe Boxing (U).smc">
+     <description>Riddick Bowe Boxing (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Rise of the Phoenix (U).smc">
+     <description>Rise Of The Phoenix (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Rise of the Robots (U).smc">
+     <description>Rise Of The Robots (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Rival Turf (U).smc">
+     <description>Rival Turf (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Road Riot 4WD (U)(3850).smc">
+     <description>Road Riot 4Wd (U)(3850)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Road Riot 4WD (U)(6361).smc">
+     <description>Road Riot 4Wd (U)(6361)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Road Runner's Death Valley Rally (U) [!].smc">
+     <description>Road Runner'S Death Valley Rally (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Robocop 3 (U).smc">
+     <description>Robocop 3 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Robocop VS The Terminator (U).smc">
+     <description>Robocop Vs The Terminator (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Robotrek (U).smc">
+     <description>Robotrek (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Rock N' Roll Racing (U).smc">
+     <description>Rock N' Roll Racing (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Rocketeer (U).smc">
+     <description>Rocketeer (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Rocko's Modern Life (U).smc">
+     <description>Rocko'S Modern Life (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Rocky Rodent (U).smc">
+     <description>Rocky Rodent (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Roger Clemens' MVP Baseball (U).smc">
+     <description>Roger Clemens' Mvp Baseball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Romance of the Three Kingdoms II (U).smc">
+     <description>Romance Of The Three Kingdoms Ii (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Romance of the Three Kingdoms III - Dragon of Destiny (U).smc">
+     <description>Romance Of The Three Kingdoms Iii - Dragon Of Destiny (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Romance of the Three Kingdoms IV - Wall of Fire (U).smc">
+     <description>Romance Of The Three Kingdoms Iv - Wall Of Fire (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="RPM Racing (U).smc">
+     <description>Rpm Racing (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Run Saber (U) [!].smc">
+     <description>Run Saber (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Samurai Shodown (U).smc">
+     <description>Samurai Shodown (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Saturday Night Slam Masters (U).smc">
+     <description>Saturday Night Slam Masters (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Scooby-Doo (U).smc">
+     <description>Scooby-Doo (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="SeaQuest DSV (U).smc">
+     <description>Seaquest Dsv (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Secret of Evermore (U).smc">
+     <description>Secret Of Evermore (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Secret of Mana (U).smc">
+     <description>Secret Of Mana (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Secret of the Stars (U).smc">
+     <description>Secret Of The Stars (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Shadow, The (U).smc">
+     <description>Shadow, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Shadow, The (U) [a1].smc">
+     <description>Shadow, The (U) [A1]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Shadowrun (U)(63540).smc">
+     <description>Shadowrun (U)(63540)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Shanghai 2 - The Dragon's Eye (U).smc">
+     <description>Shanghai 2 - The Dragon'S Eye (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Shaq Fu (U).smc">
+     <description>Shaq Fu (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Shien's Revenge (U).smc">
+     <description>Shien'S Revenge (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Side Pocket (U).smc">
+     <description>Side Pocket (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Sim Ant (U)(37113).smc">
+     <description>Sim Ant (U)(37113)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Sim Ant (U)(49046).smc">
+     <description>Sim Ant (U)(49046)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Sim City (U) [!].smc">
+     <description>Sim City (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Sim City 2000 (U).smc">
+     <description>Sim City 2000 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Sim Earth (U).smc">
+     <description>Sim Earth (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Simpsons, The - Bart's Nightmare (U) [!].smc">
+     <description>Simpsons, The - Bart'S Nightmare (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Simpsons, The - Itchy and Scratchy (U).smc">
+     <description>Simpsons, The - Itchy And Scratchy (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Simpsons, The - Krusty's Super Fun House (V1.0) (U).smc">
+     <description>Simpsons, The - Krusty'S Super Fun House (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Simpsons, The - Krusty's Super Fun House (V1.1) (U).smc">
+     <description>Simpsons, The - Krusty'S Super Fun House (V1.1) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Sink or Swim (U).smc">
+     <description>Sink Or Swim (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Skins Game, The (U).smc">
+     <description>Skins Game, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Skul Jagger (U).smc">
+     <description>Skul Jagger (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Sky Blazer (U)(12134).smc">
+     <description>Sky Blazer (U)(12134)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Sky Blazer (U)(7581).smc">
+     <description>Sky Blazer (U)(7581)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Smart Ball (U).smc">
+     <description>Smart Ball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Smash TV (U).smc">
+     <description>Smash Tv (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="SNES Test Program (U).smc">
+     <description>Snes Test Program (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Snow White in Happily Ever After (U).smc">
+     <description>Snow White In Happily Ever After (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Soldiers of Fortune (U) [!].smc">
+     <description>Soldiers Of Fortune (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Sonic Blastman (U).smc">
+     <description>Sonic Blastman (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Sonic Blastman 2 (U).smc">
+     <description>Sonic Blastman 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="SOS (U) [!].smc">
+     <description>Sos (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Soul Blazer (U).smc">
+     <description>Soul Blazer (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Space Ace (U).smc">
+     <description>Space Ace (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Space Football (U).smc">
+     <description>Space Football (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Space Invaders (U).smc">
+     <description>Space Invaders (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Space Megaforce (U) [!].smc">
+     <description>Space Megaforce (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Spanky's Quest (U).smc">
+     <description>Spanky'S Quest (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Sparkster (U).smc">
+     <description>Sparkster (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Spawn (U).smc">
+     <description>Spawn (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Spectre (U).smc">
+     <description>Spectre (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Speed Racer (U).smc">
+     <description>Speed Racer (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Speedy Gonzales (V1.0) (U).smc">
+     <description>Speedy Gonzales (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Speedy Gonzales (V1.1) (U).smc">
+     <description>Speedy Gonzales (V1.1) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Spell Craft (U).smc">
+     <description>Spell Craft (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Spider-Man - Animated (U).smc">
+     <description>Spider-Man - Animated (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Spider-Man - Maximum Carnage (U).smc">
+     <description>Spider-Man - Maximum Carnage (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Spider-Man - Separation Anxiety (U).smc">
+     <description>Spider-Man - Separation Anxiety (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Spider-Man and the X-Men (U).smc">
+     <description>Spider-Man And The X-Men (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Spider-Man and the X-Men (U) (4 Man Version).smc">
+     <description>Spider-Man And The X-Men (U) (4 Man Version)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Spindizzy Worlds (U).smc">
+     <description>Spindizzy Worlds (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Sporting News Power Baseball (U).smc">
+     <description>Sporting News Power Baseball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Sports Illustrated Championship Football and Baseball (U).smc">
+     <description>Sports Illustrated Championship Football And Baseball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Sports Illustrated Championship Football and Baseball (U) [a1].smc">
+     <description>Sports Illustrated Championship Football And Baseball (U) [A1]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Star Fox (V1.0) (U).smc">
+     <description>Star Fox (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Star Fox (V1.2) (U) [!].smc">
+     <description>Star Fox (V1.2) (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Star Fox Competition - Weekend Edition (U).smc">
+     <description>Star Fox Competition - Weekend Edition (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Star Trek - Deep Space Nine - Crossroads of Time (U).smc">
+     <description>Star Trek - Deep Space Nine - Crossroads Of Time (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Star Trek - Starfleet Academy (U).smc">
+     <description>Star Trek - Starfleet Academy (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Star Trek - The Next Generation - Future's Past (U).smc">
+     <description>Star Trek - The Next Generation - Future'S Past (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Stargate (U).smc">
+     <description>Stargate (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Steel Talons (U).smc">
+     <description>Steel Talons (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Sterling Sharpe End 2 End (U).smc">
+     <description>Sterling Sharpe End 2 End (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Stone Protectors (U).smc">
+     <description>Stone Protectors (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Street Combat (U).smc">
+     <description>Street Combat (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Street Fighter Alpha 2 (U) [!].smc">
+     <description>Street Fighter Alpha 2 (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Street Fighter II - The World Warrior (U).smc">
+     <description>Street Fighter Ii - The World Warrior (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Street Fighter II Turbo (U).smc">
+     <description>Street Fighter Ii Turbo (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Street Hockey '95 (U)(47875).smc">
+     <description>Street Hockey '95 (U)(47875)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Street Hockey '95 (U)(51328).smc">
+     <description>Street Hockey '95 (U)(51328)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Street Racer (U).smc">
+     <description>Street Racer (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Strike Gunner (U) [!].smc">
+     <description>Strike Gunner (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Stunt Race FX (V1.1) (U) [!].smc">
+     <description>Stunt Race Fx (V1.1) (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Sunset Riders (U).smc">
+     <description>Sunset Riders (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Adventure Island (U).smc">
+     <description>Super Adventure Island (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Adventure Island II (U).smc">
+     <description>Super Adventure Island Ii (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Adventure Island II (U) [a1].smc">
+     <description>Super Adventure Island Ii (U) [A1]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Aquatic Games (U).smc">
+     <description>Super Aquatic Games (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Baseball 2020 (U).smc">
+     <description>Super Baseball 2020 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Baseball Simulator 1000 (U).smc">
+     <description>Super Baseball Simulator 1000 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Bases Loaded (U).smc">
+     <description>Super Bases Loaded (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Bases Loaded 2 (U).smc">
+     <description>Super Bases Loaded 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Bases Loaded 3 (V1.0) (U).smc">
+     <description>Super Bases Loaded 3 (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Batter Up (U).smc">
+     <description>Super Batter Up (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Battleship (U).smc">
+     <description>Super Battleship (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Battletank (V1.0) (U).smc">
+     <description>Super Battletank (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Battletank (V1.1) (U) [!].smc">
+     <description>Super Battletank (V1.1) (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Battletank - War in the Gulf (U) (V1 1) [!].smc">
+     <description>Super Battletank - War In The Gulf (U) (V1 1) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Battletank 2 (U).smc">
+     <description>Super Battletank 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Black Bass (U).smc">
+     <description>Super Black Bass (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Bomberman (U).smc">
+     <description>Super Bomberman (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Bomberman 2 (U).smc">
+     <description>Super Bomberman 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Bonk (U).smc">
+     <description>Super Bonk (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Bowling (U).smc">
+     <description>Super Bowling (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Buster Brothers (V1.0) (U).smc">
+     <description>Super Buster Brothers (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Buster Brothers (V1.1) (U).smc">
+     <description>Super Buster Brothers (V1.1) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Caesars Palace (U).smc">
+     <description>Super Caesars Palace (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Castlevania IV (U) [!].smc">
+     <description>Super Castlevania Iv (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Chase HQ (U).smc">
+     <description>Super Chase Hq (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Conflict (U).smc">
+     <description>Super Conflict (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Double Dragon (U).smc">
+     <description>Super Double Dragon (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Earth Defense Force (U).smc">
+     <description>Super Earth Defense Force (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Ghouls 'N Ghosts (U) [!].smc">
+     <description>Super Ghouls 'N Ghosts (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Goal! (U).smc">
+     <description>Super Goal! (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Goal! 2 (U).smc">
+     <description>Super Goal! 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Godzilla (U).smc">
+     <description>Super Godzilla (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super High Impact (U).smc">
+     <description>Super High Impact (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super James Pond (U).smc">
+     <description>Super James Pond (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Mario All-Stars (U).smc">
+     <description>Super Mario All-Stars (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Mario All-Stars + Super Mario World (U) [!].smc">
+     <description>Super Mario All-Stars + Super Mario World (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Mario Kart (U).smc">
+     <description>Super Mario Kart (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Mario RPG (U).smc">
+     <description>Super Mario Rpg (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Mario World (U) [!].smc">
+     <description>Super Mario World (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super NES - Nintendo Scope 6 (U).smc">
+     <description>Super Nes - Nintendo Scope 6 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Ninja Boy (U).smc">
+     <description>Super Ninja Boy (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Noah's Ark 3D (U).smc">
+     <description>Super Noah'S Ark 3D (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Nova (U).smc">
+     <description>Super Nova (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Off Road (U).smc">
+     <description>Super Off Road (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Offroad Baja (U).smc">
+     <description>Super Offroad Baja (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Pinball - Behind the Mask (U) [!].smc">
+     <description>Super Pinball - Behind The Mask (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Play Action Football (U).smc">
+     <description>Super Play Action Football (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Punch-Out!! (U).smc">
+     <description>Super Punch-Out!! (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Putty (U).smc">
+     <description>Super Putty (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super R-Type (U).smc">
+     <description>Super R-Type (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super RBI Baseball (U).smc">
+     <description>Super Rbi Baseball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Shadow of the Beast (U).smc">
+     <description>Super Shadow Of The Beast (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Slapshot (U).smc">
+     <description>Super Slapshot (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Soccer (U).smc">
+     <description>Super Soccer (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Soccer Champion (U).smc">
+     <description>Super Soccer Champion (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Solitaire (U).smc">
+     <description>Super Solitaire (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Star Wars (U)(22563).smc">
+     <description>Super Star Wars (U)(22563)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Star Wars (U)(31438).smc">
+     <description>Super Star Wars (U)(31438)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Star Wars - Empire Strikes Back (V1.0) (U) [!].smc">
+     <description>Super Star Wars - Empire Strikes Back (V1.0) (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Star Wars - Empire Strikes Back (V1.1) (U).smc">
+     <description>Super Star Wars - Empire Strikes Back (V1.1) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Star Wars - Return of the Jedi (LucasArts) (U).smc">
+     <description>Super Star Wars - Return Of The Jedi (Lucasarts) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Star Wars - Return of the Jedi (T-HQ) (U).smc">
+     <description>Super Star Wars - Return Of The Jedi (T-Hq) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Street Fighter 2 - The New Challengers (U).smc">
+     <description>Super Street Fighter 2 - The New Challengers (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Strike Eagle (U).smc">
+     <description>Super Strike Eagle (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Tennis (U).smc">
+     <description>Super Tennis (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Troll Islands (U).smc">
+     <description>Super Troll Islands (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Turrican (U).smc">
+     <description>Super Turrican (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Turrican 2 (U)(32515).smc">
+     <description>Super Turrican 2 (U)(32515)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Turrican 2 (U)(6949).smc">
+     <description>Super Turrican 2 (U)(6949)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Valis IV (U).smc">
+     <description>Super Valis Iv (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Super Widget (U).smc">
+     <description>Super Widget (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Suzuka 8 Hours (U).smc">
+     <description>Suzuka 8 Hours (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Swat Kats (U).smc">
+     <description>Swat Kats (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Syndicate (U).smc">
+     <description>Syndicate (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="T2 - The Arcade Game (U).smc">
+     <description>T2 - The Arcade Game (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Taz-Mania (U).smc">
+     <description>Taz-Mania (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Tecmo Super Baseball (U).smc">
+     <description>Tecmo Super Baseball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Tecmo Super Bowl (U).smc">
+     <description>Tecmo Super Bowl (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Tecmo Super Bowl 2 (U).smc">
+     <description>Tecmo Super Bowl 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Tecmo Super Bowl 3 (U).smc">
+     <description>Tecmo Super Bowl 3 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Tecmo Super NBA Basketball (U).smc">
+     <description>Tecmo Super Nba Basketball (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Teenage Mutant Ninja Turtles - Tournament Fighters (U).smc">
+     <description>Teenage Mutant Ninja Turtles - Tournament Fighters (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Teenage Mutant Ninja Turtles IV - Turtles in Time (U) [!].smc">
+     <description>Teenage Mutant Ninja Turtles Iv - Turtles In Time (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Terminator 2 - Judgment Day (U).smc">
+     <description>Terminator 2 - Judgment Day (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Terminator, The (U).smc">
+     <description>Terminator, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Test Drive 2 (U)(20429).smc">
+     <description>Test Drive 2 (U)(20429)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Test Drive 2 (U)(24291).smc">
+     <description>Test Drive 2 (U)(24291)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Tetris 2 (V1.0) (U).smc">
+     <description>Tetris 2 (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Tetris 2 (V1.1) (U) [!].smc">
+     <description>Tetris 2 (V1.1) (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Tetris and Dr Mario (U).smc">
+     <description>Tetris And Dr Mario (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Tetris Attack (U).smc">
+     <description>Tetris Attack (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Thomas the Tank Engine and Friends (U).smc">
+     <description>Thomas The Tank Engine And Friends (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Thunder Spirits (U).smc">
+     <description>Thunder Spirits (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Tick, The (U).smc">
+     <description>Tick, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Time Cop (U).smc">
+     <description>Time Cop (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Time Slip (U).smc">
+     <description>Time Slip (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Time Trax (U).smc">
+     <description>Time Trax (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Timon and Pumbaa's Jungle Games (U).smc">
+     <description>Timon And Pumbaa'S Jungle Games (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Tinstar (U) [!].smc">
+     <description>Tinstar (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Tiny Toons - Wild and Wacky Sports (U).smc">
+     <description>Tiny Toons - Wild And Wacky Sports (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Tiny Toons Adventures - Buster Busts Loose! (U)(22022).smc">
+     <description>Tiny Toons Adventures - Buster Busts Loose! (U)(22022)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="TKO Super Championship Boxing (U).smc">
+     <description>Tko Super Championship Boxing (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="TKO Super Championship Boxing (U) [a1].smc">
+     <description>Tko Super Championship Boxing (U) [A1]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="TNN Bass Fishing (U).smc">
+     <description>Tnn Bass Fishing (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Tom and Jerry (U).smc">
+     <description>Tom And Jerry (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Tony Meola's Sidekicks Soccer (U).smc">
+     <description>Tony Meola'S Sidekicks Soccer (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Top Gear (U).smc">
+     <description>Top Gear (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Top Gear 2 (U).smc">
+     <description>Top Gear 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Top Gear 3000 (U).smc">
+     <description>Top Gear 3000 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Total Carnage (U) [!].smc">
+     <description>Total Carnage (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Total Carnage (U) [a1].smc">
+     <description>Total Carnage (U) [A1]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Toy Story (U).smc">
+     <description>Toy Story (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Toys (U).smc">
+     <description>Toys (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Troddlers (U).smc">
+     <description>Troddlers (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Troy Aikman NFL Football (U).smc">
+     <description>Troy Aikman Nfl Football (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="True Lies (U).smc">
+     <description>True Lies (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Tuff E Nuff (U).smc">
+     <description>Tuff E Nuff (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Turn and Burn - No-Fly Zone (U).smc">
+     <description>Turn And Burn - No-Fly Zone (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Twisted Tales of Spike McFang (U).smc">
+     <description>Twisted Tales Of Spike Mcfang (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="U.N. Squadron (U).smc">
+     <description>U.N. Squadron (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ultima - Runes of Virtue 2 (U).smc">
+     <description>Ultima - Runes Of Virtue 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ultima VI - The False Prophet (U).smc">
+     <description>Ultima Vi - The False Prophet (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ultima VII - The Black Gate (U).smc">
+     <description>Ultima Vii - The Black Gate (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ultimate Fighter (U).smc">
+     <description>Ultimate Fighter (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ultimate Mortal Kombat 3 (U).smc">
+     <description>Ultimate Mortal Kombat 3 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ultraman - Towards the Future (U).smc">
+     <description>Ultraman - Towards The Future (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Uncharted Waters - Sea Prince (U).smc">
+     <description>Uncharted Waters - Sea Prince (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Uncharted Waters 2 (U).smc">
+     <description>Uncharted Waters 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Uniracers (U).smc">
+     <description>Uniracers (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Universal Soldier (U).smc">
+     <description>Universal Soldier (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Untouchables, The (U).smc">
+     <description>Untouchables, The (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Urban Strike (U) [!].smc">
+     <description>Urban Strike (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Utopia (U).smc">
+     <description>Utopia (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Vegas Stakes (U).smc">
+     <description>Vegas Stakes (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Virtual Bart (U).smc">
+     <description>Virtual Bart (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Vortex (U) [!].smc">
+     <description>Vortex (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Waialae Golf (U).smc">
+     <description>Waialae Golf (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="War 2410 (U).smc">
+     <description>War 2410 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="War 3010 The Revolution (U).smc">
+     <description>War 3010 The Revolution (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wario's Woods (U).smc">
+     <description>Wario'S Woods (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Warlock (U).smc">
+     <description>Warlock (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="WarpSpeed (U).smc">
+     <description>Warpspeed (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wayne Gretzky Hockey (U)(57116).smc">
+     <description>Wayne Gretzky Hockey (U)(57116)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wayne's World (U).smc">
+     <description>Wayne'S World (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="WCW Super Brawl (U).smc">
+     <description>Wcw Super Brawl (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="We're Back - A Dinosaur Story (U).smc">
+     <description>We'Re Back - A Dinosaur Story (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Weapon Lord (U).smc">
+     <description>Weapon Lord (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wheel of Fortune (U).smc">
+     <description>Wheel Of Fortune (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wheel of Fortune - Deluxe Edition (U).smc">
+     <description>Wheel Of Fortune - Deluxe Edition (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Where in the World is Carmen Sandiego (U).smc">
+     <description>Where In The World Is Carmen Sandiego (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Where in Time is Carmen Sandiego (U) [!].smc">
+     <description>Where In Time Is Carmen Sandiego (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Whizz (U) [!].smc">
+     <description>Whizz (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wicked 18 Golf (U).smc">
+     <description>Wicked 18 Golf (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wild Guns (U).smc">
+     <description>Wild Guns (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wild Snake (U).smc">
+     <description>Wild Snake (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Williams Arcade's Greatest Hits (U).smc">
+     <description>Williams Arcade'S Greatest Hits (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Williams Arcade's Greatest Hits-The Atari Collection 1 (U).smc">
+     <description>Williams Arcade'S Greatest Hits-The Atari Collection 1 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wing Commander (U).smc">
+     <description>Wing Commander (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wing Commander - The Secret Missions (U).smc">
+     <description>Wing Commander - The Secret Missions (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wings 2 (U).smc">
+     <description>Wings 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Winter Extreme Skiing and Snowboarding (U).smc">
+     <description>Winter Extreme Skiing And Snowboarding (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Winter Olympics (U).smc">
+     <description>Winter Olympics (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wizard of Oz (U).smc">
+     <description>Wizard Of Oz (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wizardry 5 (U).smc">
+     <description>Wizardry 5 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wolf Child (U).smc">
+     <description>Wolf Child (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wolfenstein 3D (U).smc">
+     <description>Wolfenstein 3D (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wolverine - Adamantium Rage (U).smc">
+     <description>Wolverine - Adamantium Rage (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Wordtris (U).smc">
+     <description>Wordtris (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="World Cup USA 94 (U).smc">
+     <description>World Cup Usa 94 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="World Heroes (U) [!].smc">
+     <description>World Heroes (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="World Heroes 2 (U).smc">
+     <description>World Heroes 2 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="World League Soccer (U).smc">
+     <description>World League Soccer (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="World Soccer 94 Road to Glory (U).smc">
+     <description>World Soccer 94 Road To Glory (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="WWF Raw (U).smc">
+     <description>Wwf Raw (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="WWF Royal Rumble (U).smc">
+     <description>Wwf Royal Rumble (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="WWF Super Wrestlemania (U).smc">
+     <description>Wwf Super Wrestlemania (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="WWF Wrestlemania Arcade (U).smc">
+     <description>Wwf Wrestlemania Arcade (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="X-Kaliber 2097 (U).smc">
+     <description>X-Kaliber 2097 (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="X-Men Mutant Apocalypse (U).smc">
+     <description>X-Men Mutant Apocalypse (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="X-Zone (U).smc">
+     <description>X-Zone (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Xardion (U).smc">
+     <description>Xardion (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Yogi Bear (U).smc">
+     <description>Yogi Bear (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Yoshi's Cookie (U).smc">
+     <description>Yoshi'S Cookie (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Yoshi's Island (V1.0) (U).smc">
+     <description>Yoshi'S Island (V1.0) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Yoshi's Island (V1.1) (U).smc">
+     <description>Yoshi'S Island (V1.1) (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Yoshi's Safari (U).smc">
+     <description>Yoshi'S Safari (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Young Merlin (U).smc">
+     <description>Young Merlin (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Ys 3 - Wanderers from Ys (U).smc">
+     <description>Ys 3 - Wanderers From Ys (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Zero the Kamikaze Squirrel (U).smc">
+     <description>Zero The Kamikaze Squirrel (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Zombies Ate My Neighbors (U) [!].smc">
+     <description>Zombies Ate My Neighbors (U) [!]</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Zool (Sample Cart).smc">
+     <description>Zool (Sample Cart)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Zool (U).smc">
+     <description>Zool (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+  <game name="Zoop (U).smc">
+     <description>Zoop (U)</description>
+     <genre></genre>
+     <rating></rating>
+     <favorite>0</favorite>
+  </game>
+</menu>

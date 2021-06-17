@@ -1,0 +1,458 @@
+<?xml version="1.0"?>
+<menu>
+   <header>
+       <listname>MAMEly</listname>
+       <lastlistupdate>2021-06-13 22:29:50.143619</lastlistupdate>
+       <listgeneratorversion>makeMAMEly-xml v1.0</listgeneratorversion>
+   </header>
+   <game name="1080 Snowboarding (JU) [!].v64">
+       <description>1080 Snowboarding (JU) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="AeroGauge (U) [!].v64">
+       <description>AeroGauge (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Airboarders 64.v64">
+       <description>Airboarders 64</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="All Star Tennis '99 (U) [!].v64">
+       <description>All Star Tennis '99 (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Army Men - Air Combat.v64">
+       <description>Army Men - Air Combat</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Army Men - Sarge's Heroes (U) [!].v64">
+       <description>Army Men - Sarge's Heroes (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Asteroids Hyper 64.v64">
+       <description>Asteroids Hyper 64</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Automobili Lamborghini (U) [!].v64">
+       <description>Automobili Lamborghini (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Banjo-Tooie (U) [!].v64">
+       <description>Banjo-Tooie (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Bassmasters 2000.v64">
+       <description>Bassmasters 2000</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="BattleTanx - Global Assault (U) [!].v64">
+       <description>BattleTanx - Global Assault (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="BattleTanx.v64">
+       <description>BattleTanx</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Battlezone - Rise of the Black Dogs.v64">
+       <description>Battlezone - Rise of the Black Dogs</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Beetle Adventure Racing! (U) [!].v64">
+       <description>Beetle Adventure Racing! (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Bio Freaks.v64">
+       <description>Bio Freaks</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Blast Corps (U) (V1.0) [!].v64">
+       <description>Blast Corps (U) (V1.0) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Bomberman 64 (U) [!].v64">
+       <description>Bomberman 64 (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Bomberman Hero (U) [!].v64">
+       <description>Bomberman Hero (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Bust-A-Move '99.v64">
+       <description>Bust-A-Move '99</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Castlevania (U) (V1.0) [!].v64">
+       <description>Castlevania (U) (V1.0) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Castlevania - Legacy of Darkness (U) [!].v64">
+       <description>Castlevania - Legacy of Darkness (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Chameleon Twist.v64">
+       <description>Chameleon Twist</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Charlie Blast's Territory (U) [!].v64">
+       <description>Charlie Blast's Territory (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Chopper Attack (U) [!].v64">
+       <description>Chopper Attack (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Clay Fighter - Sculptor's Cut.v64">
+       <description>Clay Fighter - Sculptor's Cut</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Clay Fighter 63 1-3 (U) (beta) [!].v64">
+       <description>Clay Fighter 63 1-3 (U) (beta) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Cruis'n USA (U) (V1.0) [!].v64">
+       <description>Cruis'n USA (U) (V1.0) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Cruis'n World (U) [!].v64">
+       <description>Cruis'n World (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Dark Rift (U) [!].v64">
+       <description>Dark Rift (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Destruction Derby 64 (U) [!].v64">
+       <description>Destruction Derby 64 (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Dexanoid R1 by Protest Design.v64">
+       <description>Dexanoid R1 by Protest Design</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Disney's Tarzan (F) [!].v64">
+       <description>Disney's Tarzan (F) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Dual Heroes (U) [!].v64">
+       <description>Dual Heroes (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="duke64.v64">
+       <description>duke64</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Earthworm Jim 3D (U) [!].v64">
+       <description>Earthworm Jim 3D (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Extreme-G (U) [!].v64">
+       <description>Extreme-G (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Extreme-G.v64">
+       <description>Extreme-G</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="F-1 Pole Position 64 (U) [!].v64">
+       <description>F-1 Pole Position 64 (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Gauntlet Legends (U) [!].v64">
+       <description>Gauntlet Legends (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Golden Nugget 64.v64">
+       <description>Golden Nugget 64</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Hey You, Pikachu!.v64">
+       <description>Hey You, Pikachu!</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Hot Wheels Turbo Racing (U) [!].v64">
+       <description>Hot Wheels Turbo Racing (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Hydro Thunder (U) [!].v64">
+       <description>Hydro Thunder (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Jeremy McGrath Supercross 2000 (U) [!].v64">
+       <description>Jeremy McGrath Supercross 2000 (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Legend of Zelda 2, The - Majora's Mask.v64">
+       <description>Legend of Zelda 2, The - Majora's Mask</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Major League Baseball Featuring Ken Griffey Jr. (U) [!].v64">
+       <description>Major League Baseball Featuring Ken Griffey Jr. (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Mario Kart 64 (E) (V1.1) [!].v64">
+       <description>Mario Kart 64 (E) (V1.1) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Micro Machines 64 Turbo (U) [!].v64">
+       <description>Micro Machines 64 Turbo (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Milo's Astro Lanes (U) [!].v64">
+       <description>Milo's Astro Lanes (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Mischief Makers (U) [!].v64">
+       <description>Mischief Makers (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Mission Impossible (F) [!].v64">
+       <description>Mission Impossible (F) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Monopoly.v64">
+       <description>Monopoly</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Mortal Kombat 4 (U) [!].v64">
+       <description>Mortal Kombat 4 (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Mortal Kombat Mythologies - Sub-Zero (U) [!].v64">
+       <description>Mortal Kombat Mythologies - Sub-Zero (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="MRC - Multi Racing Championship (U) [!].v64">
+       <description>MRC - Multi Racing Championship (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Nagano Olympic Hockey '98 (U) [!].v64">
+       <description>Nagano Olympic Hockey '98 (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="NASCAR 2000.v64">
+       <description>NASCAR 2000</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Ogre Battle 64 - Person of Lordly Caliber.v64">
+       <description>Ogre Battle 64 - Person of Lordly Caliber</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Paperboy (U) [!].v64">
+       <description>Paperboy (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="PGA European Tour (U) [!].v64">
+       <description>PGA European Tour (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Pilotwings 64 (U) [!].v64">
+       <description>Pilotwings 64 (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="puyopuyosun.v64">
+       <description>puyopuyosun</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Puzzle Master 64 by Michael Searl.v64">
+       <description>Puzzle Master 64 by Michael Searl</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Quest 64.v64">
+       <description>Quest 64</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Rakuga Kids.v64">
+       <description>Rakuga Kids</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Rampage - World Tour (U) [!].v64">
+       <description>Rampage - World Tour (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="RR64 - Ridge Racer 64 (U) [!].v64">
+       <description>RR64 - Ridge Racer 64 (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="S.C.A.R.S. (U) [!].v64">
+       <description>S.C.A.R.S. (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Snowboard Kids (U) [!].v64">
+       <description>Snowboard Kids (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Snow Speeder.v64">
+       <description>Snow Speeder</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Star Fox 64.v64">
+       <description>Star Fox 64</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Star Wars Episode I - Racer (U) [!].v64">
+       <description>Star Wars Episode I - Racer (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Superman.v64">
+       <description>Superman</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Super Mario 64 (U) [!].v64">
+       <description>Super Mario 64 (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Tigger's Honey Hunt (U) [!].v64">
+       <description>Tigger's Honey Hunt (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Tom Clancy's Rainbow Six (U) [!].v64">
+       <description>Tom Clancy's Rainbow Six (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Top Gear Rally (U) [!].v64">
+       <description>Top Gear Rally (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Top Gear Rally.v64">
+       <description>Top Gear Rally</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Toy Story 2 (F) [!].v64">
+       <description>Toy Story 2 (F) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Turok - Dinosaur Hunter (E) (V1.1) [!].v64">
+       <description>Turok - Dinosaur Hunter (E) (V1.1) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Turok - Rage Wars (U) [!].v64">
+       <description>Turok - Rage Wars (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Turok 2 - Seeds of Evil (U) [!].v64">
+       <description>Turok 2 - Seeds of Evil (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="V-Rally Edition 99 (U) [!].v64">
+       <description>V-Rally Edition 99 (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Virtual Pool 64 (U) [!].v64">
+       <description>Virtual Pool 64 (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="War Gods (U) [!].v64">
+       <description>War Gods (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Wave Race 64 (U) (V1.0) [!].v64">
+       <description>Wave Race 64 (U) (V1.0) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Wayne Gretzky's 3D Hockey '98 (U) [!].v64">
+       <description>Wayne Gretzky's 3D Hockey '98 (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="WCW Nitro.v64">
+       <description>WCW Nitro</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Wcw Nwo Nitro.v64">
+       <description>Wcw Nwo Nitro</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+   <game name="Wipeout 64 (U) [!].v64">
+       <description>Wipeout 64 (U) [!]</description>
+       <genre>No Genre</genre>
+       <rating>Rating: General</rating>
+   </game>
+</menu>

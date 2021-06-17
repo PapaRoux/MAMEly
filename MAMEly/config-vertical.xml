@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<platforms>
+    <screensize screenX="1080" screenY="1920"/>
+    <platform name="MAME">
+        <folder>MAME</folder>
+        <config>config_retrocade_MAME_1080x1920.txt</config>
+    </platform>
+    <platform name="Super Nintendo">
+        <folder>SNES</folder>
+        <config>config_retrocade_SNES_1080x1920.txt</config>
+    </platform>
+    <platform name="Atari 2600">
+        <folder>ATARI2600</folder>
+        <config>config_retrocade_ATARI2600_1080x1920.txt</config>
+    </platform>        
+</platforms>
+    
+    

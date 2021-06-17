@@ -1,0 +1,3270 @@
+<?xml version="1.0"?>
+<menu>
+  <header>
+    <listname>MAMEly</listname>
+    <lastlistupdate>2021-06-13 19:30:46.860585</lastlistupdate>
+    <listgeneratorversion>dumpMAMElyXML (MAMEly.py v3.0)</listgeneratorversion>
+  </header>
+  <game name="A-Team, The.bin">
+     <description>A-Team, The</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Action Force.bin">
+     <description>Action Force</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Adventure.bin">
+     <description>Adventure</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Adventures of Tron.bin">
+     <description>Adventures Of Tron</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Air-Sea Battle.bin">
+     <description>Air-Sea Battle</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Airlock.bin">
+     <description>Airlock</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Air Raid.bin">
+     <description>Air Raid</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Air Raiders.bin">
+     <description>Air Raiders</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Alien's Return.bin">
+     <description>Alien'S Return</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Alien.bin">
+     <description>Alien</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Alpha Beam with Ernie.bin">
+     <description>Alpha Beam With Ernie</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Amidar.bin">
+     <description>Amidar</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Aquaventure.bin">
+     <description>Aquaventure</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Arcade Golf.bin">
+     <description>Arcade Golf</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Armor Ambush.bin">
+     <description>Armor Ambush</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Artillery Duel.bin">
+     <description>Artillery Duel</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Assault.bin">
+     <description>Assault</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Asterix.bin">
+     <description>Asterix</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Astroblast.bin">
+     <description>Astroblast</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Astrowar.bin">
+     <description>Astrowar</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Atari Video Cube.bin">
+     <description>Atari Video Cube</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Atlantis.bin">
+     <description>Atlantis</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Backgammon.bin">
+     <description>Backgammon</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Bank Heist.bin">
+     <description>Bank Heist</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Barnstorming.bin">
+     <description>Barnstorming</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Base Attack.bin">
+     <description>Base Attack</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Basic Programming.bin">
+     <description>Basic Programming</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Basketball.bin">
+     <description>Basketball</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Battlezone.bin">
+     <description>Battlezone</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Beamrider.bin">
+     <description>Beamrider</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Beany Bopper.bin">
+     <description>Beany Bopper</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Bermuda.bin">
+     <description>Bermuda</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Bermuda Triangle.bin">
+     <description>Bermuda Triangle</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Berzerk.bin">
+     <description>Berzerk</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Better Space Invaders.bin">
+     <description>Better Space Invaders</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Bi! Bi!.bin">
+     <description>Bi! Bi!</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Big Bird's Egg Catch.bin">
+     <description>Big Bird'S Egg Catch</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Bionic Breakthrough.bin">
+     <description>Bionic Breakthrough</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Blackjack.bin">
+     <description>Blackjack</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Blueprint.bin">
+     <description>Blueprint</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="BMX Air Master.bin">
+     <description>Bmx Air Master</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Bobby is Going Home.bin">
+     <description>Bobby Is Going Home</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Bogey Blaster.bin">
+     <description>Bogey Blaster</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Boing!.bin">
+     <description>Boing!</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Boom Bang.bin">
+     <description>Boom Bang</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Bowling.bin">
+     <description>Bowling</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Boxing.bin">
+     <description>Boxing</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Brain Games.bin">
+     <description>Brain Games</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Breakout - Breakaway IV.bin">
+     <description>Breakout - Breakaway Iv</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Brick Kick.bin">
+     <description>Brick Kick</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Bridge.bin">
+     <description>Bridge</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Buck Rogers - Planet of Zoom.bin">
+     <description>Buck Rogers - Planet Of Zoom</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Bugs.bin">
+     <description>Bugs</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Bugs Bunny.bin">
+     <description>Bugs Bunny</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Bump 'N' Jump.bin">
+     <description>Bump 'N' Jump</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Burgertime.bin">
+     <description>Burgertime</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Cakewalk.bin">
+     <description>Cakewalk</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="California Games.bin">
+     <description>California Games</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Canyon Bomber.bin">
+     <description>Canyon Bomber</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Carnival.bin">
+     <description>Carnival</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Cat Trax.bin">
+     <description>Cat Trax</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Centipede.bin">
+     <description>Centipede</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Challenge.bin">
+     <description>Challenge</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Challenge of...NEXAR.bin">
+     <description>Challenge Of...Nexar</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Championship Soccer.bin">
+     <description>Championship Soccer</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Chase the Chuckwagon.bin">
+     <description>Chase The Chuckwagon</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Checkers.bin">
+     <description>Checkers</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="China Syndrome.bin">
+     <description>China Syndrome</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Chopper Command.bin">
+     <description>Chopper Command</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Chuck Norris Superkicks.bin">
+     <description>Chuck Norris Superkicks</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Coconuts.bin">
+     <description>Coconuts</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Code Breaker.bin">
+     <description>Code Breaker</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Col 'N.bin">
+     <description>Col 'N</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Color Bar Generator.bin">
+     <description>Color Bar Generator</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Combat.bin">
+     <description>Combat</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Commando.bin">
+     <description>Commando</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Commando Raid.bin">
+     <description>Commando Raid</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Concentration.bin">
+     <description>Concentration</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Condor Attack.bin">
+     <description>Condor Attack</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Congo Bongo.bin">
+     <description>Congo Bongo</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Cookie Monster Munch.bin">
+     <description>Cookie Monster Munch</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Cosmic Ark.bin">
+     <description>Cosmic Ark</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Cosmic Commuter.bin">
+     <description>Cosmic Commuter</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Cosmic Corridor.bin">
+     <description>Cosmic Corridor</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Cosmic Creeps.bin">
+     <description>Cosmic Creeps</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Cosmic Swarm.bin">
+     <description>Cosmic Swarm</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Crackpots.bin">
+     <description>Crackpots</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Crash Dive.bin">
+     <description>Crash Dive</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Crazy Climber.bin">
+     <description>Crazy Climber</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Criminal Pursuit.bin">
+     <description>Criminal Pursuit</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Crossbow.bin">
+     <description>Crossbow</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Cross Force.bin">
+     <description>Cross Force</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Cruise Missile.bin">
+     <description>Cruise Missile</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Crypts of Chaos.bin">
+     <description>Crypts Of Chaos</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Crystal Castles.bin">
+     <description>Crystal Castles</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Cubicolor.bin">
+     <description>Cubicolor</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Custer's Revenge.bin">
+     <description>Custer'S Revenge</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Dancing Plates.bin">
+     <description>Dancing Plates</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Dark Cavern.bin">
+     <description>Dark Cavern</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Dark Chambers.bin">
+     <description>Dark Chambers</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Deadly Duck.bin">
+     <description>Deadly Duck</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Death Trap.bin">
+     <description>Death Trap</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Decathlon.bin">
+     <description>Decathlon</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Defender.bin">
+     <description>Defender</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Defender II.bin">
+     <description>Defender Ii</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Demolition Herby.bin">
+     <description>Demolition Herby</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Demon Attack.bin">
+     <description>Demon Attack</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Demons to Diamonds.bin">
+     <description>Demons To Diamonds</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Desert Falcon.bin">
+     <description>Desert Falcon</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Dice Puzzle.bin">
+     <description>Dice Puzzle</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Dig Dug.bin">
+     <description>Dig Dug</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Dishaster.bin">
+     <description>Dishaster</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Dodge 'em.bin">
+     <description>Dodge 'Em</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Dolphin.bin">
+     <description>Dolphin</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Donkey Kong.bin">
+     <description>Donkey Kong</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Donkey Kong Junior.bin">
+     <description>Donkey Kong Junior</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Double Dragon.bin">
+     <description>Double Dragon</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Double Dunk.bin">
+     <description>Double Dunk</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Dragon Defender.bin">
+     <description>Dragon Defender</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Dragonfire.bin">
+     <description>Dragonfire</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Dragster.bin">
+     <description>Dragster</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Duck Shoot.bin">
+     <description>Duck Shoot</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Dukes of Hazzard.bin">
+     <description>Dukes Of Hazzard</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="E.T. The Extra-Terrestrial.bin">
+     <description>E.T. The Extra-Terrestrial</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Earth Dies Screaming.bin">
+     <description>Earth Dies Screaming</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Eggomania.bin">
+     <description>Eggomania</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Eli's Ladder.bin">
+     <description>Eli'S Ladder</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Elk Attack.bin">
+     <description>Elk Attack</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Encounter at L5.bin">
+     <description>Encounter At L5</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Entombed.bin">
+     <description>Entombed</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Espial.bin">
+     <description>Espial</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Euchre.bin">
+     <description>Euchre</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Exocet.bin">
+     <description>Exocet</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Fantastic Voyage.bin">
+     <description>Fantastic Voyage</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Farmyard Fun.bin">
+     <description>Farmyard Fun</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Fast Eddie.bin">
+     <description>Fast Eddie</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Fast Food.bin">
+     <description>Fast Food</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Fatal Run.bin">
+     <description>Fatal Run</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Fathom.bin">
+     <description>Fathom</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Final Approach.bin">
+     <description>Final Approach</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Fire Birds.bin">
+     <description>Fire Birds</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Fire Fighter.bin">
+     <description>Fire Fighter</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Fire Fly.bin">
+     <description>Fire Fly</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Fire Spinner.bin">
+     <description>Fire Spinner</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Fishing Derby.bin">
+     <description>Fishing Derby</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Flag Capture.bin">
+     <description>Flag Capture</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Flash Gordon.bin">
+     <description>Flash Gordon</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Football.bin">
+     <description>Football</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Forest.bin">
+     <description>Forest</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Frankenstein's Monster.bin">
+     <description>Frankenstein'S Monster</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Freeway.bin">
+     <description>Freeway</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Frogger.bin">
+     <description>Frogger</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Frogger II - Threedeep!.bin">
+     <description>Frogger Ii - Threedeep!</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Frog Pond.bin">
+     <description>Frog Pond</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Frogs and Flies.bin">
+     <description>Frogs And Flies</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Front Line.bin">
+     <description>Front Line</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Frostbite.bin">
+     <description>Frostbite</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Fun with Numbers.bin">
+     <description>Fun With Numbers</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="G.I. Joe - Cobra Strike.bin">
+     <description>G.I. Joe - Cobra Strike</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Galaxian.bin">
+     <description>Galaxian</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Gangster Alley.bin">
+     <description>Gangster Alley</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Gas Hog.bin">
+     <description>Gas Hog</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Gauntlet.bin">
+     <description>Gauntlet</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Ghostbusters.bin">
+     <description>Ghostbusters</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Ghost Manor.bin">
+     <description>Ghost Manor</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Glib.bin">
+     <description>Glib</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Golf.bin">
+     <description>Golf</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Gopher.bin">
+     <description>Gopher</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Gorf.bin">
+     <description>Gorf</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Grand Prix.bin">
+     <description>Grand Prix</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Gravitar.bin">
+     <description>Gravitar</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Great Escape.bin">
+     <description>Great Escape</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Gremlins.bin">
+     <description>Gremlins</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Grover's Music Maker.bin">
+     <description>Grover'S Music Maker</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Guardian.bin">
+     <description>Guardian</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Gyruss.bin">
+     <description>Gyruss</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="H.E.R.O..bin">
+     <description>H.E.R.O.</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Halloween.bin">
+     <description>Halloween</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Hangman.bin">
+     <description>Hangman</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Harbor Escape.bin">
+     <description>Harbor Escape</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Haunted House.bin">
+     <description>Haunted House</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Hole Hunter.bin">
+     <description>Hole Hunter</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Holey Moley.bin">
+     <description>Holey Moley</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Home Run.bin">
+     <description>Home Run</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Human Cannonball.bin">
+     <description>Human Cannonball</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="I.Q. 180.bin">
+     <description>I.Q. 180</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Ice Hockey.bin">
+     <description>Ice Hockey</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Imagic Selector.bin">
+     <description>Imagic Selector</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Immies + Aggies.bin">
+     <description>Immies + Aggies</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Indy 500.bin">
+     <description>Indy 500</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Infiltrate.bin">
+     <description>Infiltrate</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="International Soccer.bin">
+     <description>International Soccer</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="I Want My Mommy.bin">
+     <description>I Want My Mommy</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Jawbreaker.bin">
+     <description>Jawbreaker</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Jedi Arena.bin">
+     <description>Jedi Arena</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Journey - Escape.bin">
+     <description>Journey - Escape</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Joust.bin">
+     <description>Joust</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Jr. Pac-Man.bin">
+     <description>Jr. Pac-Man</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Jungle Fever.bin">
+     <description>Jungle Fever</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Jungle Hunt.bin">
+     <description>Jungle Hunt</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Kaboom!.bin">
+     <description>Kaboom!</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Kangaroo.bin">
+     <description>Kangaroo</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Karate.bin">
+     <description>Karate</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Keystone Kapers.bin">
+     <description>Keystone Kapers</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="King Kong.bin">
+     <description>King Kong</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Klax.bin">
+     <description>Klax</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Kool Aid Man.bin">
+     <description>Kool Aid Man</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Krull.bin">
+     <description>Krull</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Kung Fu Master.bin">
+     <description>Kung Fu Master</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Laser Base.bin">
+     <description>Laser Base</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Laser Blast.bin">
+     <description>Laser Blast</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Laser Gates.bin">
+     <description>Laser Gates</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Laser Volley.bin">
+     <description>Laser Volley</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Lock 'N' Chase.bin">
+     <description>Lock 'N' Chase</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="London Blitz.bin">
+     <description>London Blitz</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Lost Luggage.bin">
+     <description>Lost Luggage</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="M.A.D..bin">
+     <description>M.A.D.</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="M.A.S.H..bin">
+     <description>M.A.S.H.</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Malagai.bin">
+     <description>Malagai</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Mangia'.bin">
+     <description>Mangia'</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Marauder.bin">
+     <description>Marauder</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Marineflieger.bin">
+     <description>Marineflieger</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Marine Wars.bin">
+     <description>Marine Wars</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Mario Bros.bin">
+     <description>Mario Bros</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Master Builder.bin">
+     <description>Master Builder</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Masters of the Universe - The Power of He-Man.bin">
+     <description>Masters Of The Universe - The Power Of He-Man</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Math Gran Prix.bin">
+     <description>Math Gran Prix</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Maze.bin">
+     <description>Maze</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Maze Craze.bin">
+     <description>Maze Craze</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Mega Force.bin">
+     <description>Mega Force</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Megamania.bin">
+     <description>Megamania</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Meteor Defense.bin">
+     <description>Meteor Defense</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Midnight Magic.bin">
+     <description>Midnight Magic</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Millipede.bin">
+     <description>Millipede</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Miner 2049er.bin">
+     <description>Miner 2049Er</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Miner 2049er Volume II.bin">
+     <description>Miner 2049Er Volume Ii</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Mines of Minos.bin">
+     <description>Mines Of Minos</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Missile Command.bin">
+     <description>Missile Command</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Missile Control.bin">
+     <description>Missile Control</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Mission 3000 A.D..bin">
+     <description>Mission 3000 A.D.</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Mogul Maniac.bin">
+     <description>Mogul Maniac</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Monstercise.bin">
+     <description>Monstercise</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Montezuma's Revenge - Starring Panama Joe.bin">
+     <description>Montezuma'S Revenge - Starring Panama Joe</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Moon Patrol.bin">
+     <description>Moon Patrol</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Motorodeo.bin">
+     <description>Motorodeo</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Mountain King.bin">
+     <description>Mountain King</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Mouse Trap.bin">
+     <description>Mouse Trap</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Mr. Do!'s Castle.bin">
+     <description>Mr. Do!'S Castle</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Mr. Do!.bin">
+     <description>Mr. Do!</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Mr. Postman.bin">
+     <description>Mr. Postman</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Ms. Pac-Man.bin">
+     <description>Ms. Pac-Man</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Music Machine.bin">
+     <description>Music Machine</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="My Golf.bin">
+     <description>My Golf</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Night Driver.bin">
+     <description>Night Driver</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Nightmare.bin">
+     <description>Nightmare</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Night Stalker.bin">
+     <description>Night Stalker</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="No Escape!.bin">
+     <description>No Escape!</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Nuts.bin">
+     <description>Nuts</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Obelix.bin">
+     <description>Obelix</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Ocean City Defender.bin">
+     <description>Ocean City Defender</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Octopus.bin">
+     <description>Octopus</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Off the Wall.bin">
+     <description>Off The Wall</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Off Your Rocker.bin">
+     <description>Off Your Rocker</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Oink!.bin">
+     <description>Oink!</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Okie Dokie.bin">
+     <description>Okie Dokie</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Omega Race.bin">
+     <description>Omega Race</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Oscar's Trash Race.bin">
+     <description>Oscar'S Trash Race</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Othello.bin">
+     <description>Othello</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Outlaw - GunSlinger.bin">
+     <description>Outlaw - Gunslinger</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Pac-Man.bin">
+     <description>Pac-Man</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Pac Kong.bin">
+     <description>Pac Kong</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Panda Chase.bin">
+     <description>Panda Chase</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Parachute.bin">
+     <description>Parachute</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Peek-A-Boo.bin">
+     <description>Peek-A-Boo</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Pengo.bin">
+     <description>Pengo</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Pepsi Invaders.bin">
+     <description>Pepsi Invaders</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Pete Rose Baseball.bin">
+     <description>Pete Rose Baseball</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Phantom Tank.bin">
+     <description>Phantom Tank</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Pharoah's Curse.bin">
+     <description>Pharoah'S Curse</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Phoenix.bin">
+     <description>Phoenix</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Pick 'n Pile.bin">
+     <description>Pick 'N Pile</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Picnic.bin">
+     <description>Picnic</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Piece o' Cake.bin">
+     <description>Piece O' Cake</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Pigs in Space starring Miss Piggy.bin">
+     <description>Pigs In Space Starring Miss Piggy</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Pitfall!.bin">
+     <description>Pitfall!</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Pitfall II - Lost Caverns.bin">
+     <description>Pitfall Ii - Lost Caverns</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Planet Patrol.bin">
+     <description>Planet Patrol</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Plaque Attack.bin">
+     <description>Plaque Attack</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Poker Plus.bin">
+     <description>Poker Plus</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Polaris.bin">
+     <description>Polaris</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Pole Position.bin">
+     <description>Pole Position</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Polo.bin">
+     <description>Polo</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Pooyan.bin">
+     <description>Pooyan</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Popeye.bin">
+     <description>Popeye</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Pressure Cooker.bin">
+     <description>Pressure Cooker</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Private Eye.bin">
+     <description>Private Eye</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Puzzled World.bin">
+     <description>Puzzled World</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Pyramid War.bin">
+     <description>Pyramid War</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Q-bert's Qubes.bin">
+     <description>Q-Bert'S Qubes</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Q-bert.bin">
+     <description>Q-Bert</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Quest for Quintana Roo.bin">
+     <description>Quest For Quintana Roo</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Quick Step!.bin">
+     <description>Quick Step!</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Racquetball.bin">
+     <description>Racquetball</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Radar Lock.bin">
+     <description>Radar Lock</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Raft Rider.bin">
+     <description>Raft Rider</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Raiders of the Lost Ark.bin">
+     <description>Raiders Of The Lost Ark</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Ram It.bin">
+     <description>Ram It</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Rampage!.bin">
+     <description>Rampage!</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Raumpatrouille.bin">
+     <description>Raumpatrouille</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Reactor.bin">
+     <description>Reactor</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="RealSports Baseball.bin">
+     <description>Realsports Baseball</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="RealSports Boxing.bin">
+     <description>Realsports Boxing</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="RealSports Football.bin">
+     <description>Realsports Football</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="RealSports Soccer.bin">
+     <description>Realsports Soccer</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="RealSports Tennis.bin">
+     <description>Realsports Tennis</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="RealSports Volleyball.bin">
+     <description>Realsports Volleyball</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Rescue Terra I.bin">
+     <description>Rescue Terra I</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Revenge of the Beefsteak Tomatoes.bin">
+     <description>Revenge Of The Beefsteak Tomatoes</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Riddle of the Sphinx.bin">
+     <description>Riddle Of The Sphinx</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="River Patrol.bin">
+     <description>River Patrol</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="River Raid.bin">
+     <description>River Raid</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="River Raid II.bin">
+     <description>River Raid Ii</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Road Runner.bin">
+     <description>Road Runner</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Robot Tank.bin">
+     <description>Robot Tank</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Roc n' Rope.bin">
+     <description>Roc N' Rope</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Room of Doom.bin">
+     <description>Room Of Doom</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Saboteur.bin">
+     <description>Saboteur</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Save Our Ship.bin">
+     <description>Save Our Ship</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Schnecke und Eichhoernchen.bin">
+     <description>Schnecke Und Eichhoernchen</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Schussel, der Polizistenschreck.bin">
+     <description>Schussel, Der Polizistenschreck</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Scuba Diver.bin">
+     <description>Scuba Diver</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Sea Monster.bin">
+     <description>Sea Monster</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Seaquest.bin">
+     <description>Seaquest</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Secret Quest.bin">
+     <description>Secret Quest</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="See Saw.bin">
+     <description>See Saw</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Sentinel.bin">
+     <description>Sentinel</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Sesam, Oeffne Dich.bin">
+     <description>Sesam, Oeffne Dich</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Shark Attack.bin">
+     <description>Shark Attack</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Shootin' Gallery.bin">
+     <description>Shootin' Gallery</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Shuttle Orbiter.bin">
+     <description>Shuttle Orbiter</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Sinistar.bin">
+     <description>Sinistar</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Skate Boardin'.bin">
+     <description>Skate Boardin'</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Skeet Shoot.bin">
+     <description>Skeet Shoot</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Ski Hunt.bin">
+     <description>Ski Hunt</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Skiing.bin">
+     <description>Skiing</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Sky Diver.bin">
+     <description>Sky Diver</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Sky Jinks.bin">
+     <description>Sky Jinks</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Sky Skipper.bin">
+     <description>Sky Skipper</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Slot Machine.bin">
+     <description>Slot Machine</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Smurfs Save the Day.bin">
+     <description>Smurfs Save The Day</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Sneek 'n Peek.bin">
+     <description>Sneek 'N Peek</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Snoopy and the Red Baron.bin">
+     <description>Snoopy And The Red Baron</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Solar Fox.bin">
+     <description>Solar Fox</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Solaris.bin">
+     <description>Solaris</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Solar Storm.bin">
+     <description>Solar Storm</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Sorcerer's Apprentice.bin">
+     <description>Sorcerer'S Apprentice</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Sorcerer.bin">
+     <description>Sorcerer</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Space Attack.bin">
+     <description>Space Attack</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Space Canyon.bin">
+     <description>Space Canyon</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Space Cavern.bin">
+     <description>Space Cavern</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Spacechase.bin">
+     <description>Spacechase</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Space Invaders.bin">
+     <description>Space Invaders</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Space Jockey.bin">
+     <description>Space Jockey</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="SpaceMaster X-7.bin">
+     <description>Spacemaster X-7</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Space Raid.bin">
+     <description>Space Raid</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Space Robot.bin">
+     <description>Space Robot</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Space Shuttle - Journey Into Space.bin">
+     <description>Space Shuttle - Journey Into Space</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Space Tunnel.bin">
+     <description>Space Tunnel</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Space War.bin">
+     <description>Space War</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Spider-Man.bin">
+     <description>Spider-Man</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Spiderdroid.bin">
+     <description>Spiderdroid</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Spider Fighter.bin">
+     <description>Spider Fighter</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Spike's Peak.bin">
+     <description>Spike'S Peak</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Spitfire Attack.bin">
+     <description>Spitfire Attack</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Springer.bin">
+     <description>Springer</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Sprint Master.bin">
+     <description>Sprint Master</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Spy Hunter.bin">
+     <description>Spy Hunter</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Squeeze Box.bin">
+     <description>Squeeze Box</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Sssnake.bin">
+     <description>Sssnake</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Stampede.bin">
+     <description>Stampede</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Star Fox.bin">
+     <description>Star Fox</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Stargate.bin">
+     <description>Stargate</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Star Gunner.bin">
+     <description>Star Gunner</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Starmaster.bin">
+     <description>Starmaster</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Star Raiders.bin">
+     <description>Star Raiders</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Star Ship - Outer Space.bin">
+     <description>Star Ship - Outer Space</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Star Strike.bin">
+     <description>Star Strike</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Star Trek - Strategic Operations Simulator.bin">
+     <description>Star Trek - Strategic Operations Simulator</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Star Voyager.bin">
+     <description>Star Voyager</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Star Wars - Death Star Battle.bin">
+     <description>Star Wars - Death Star Battle</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Star Wars - The Arcade Game.bin">
+     <description>Star Wars - The Arcade Game</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Star Wars - The Empire Strikes Back.bin">
+     <description>Star Wars - The Empire Strikes Back</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Steeplechase.bin">
+     <description>Steeplechase</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Stellar Track.bin">
+     <description>Stellar Track</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Strategy X.bin">
+     <description>Strategy X</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Strawberry Shortcake - Musical Match-Ups.bin">
+     <description>Strawberry Shortcake - Musical Match-Ups</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Street Racer - Speedway II.bin">
+     <description>Street Racer - Speedway Ii</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Stronghold.bin">
+     <description>Stronghold</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Submarine Commander.bin">
+     <description>Submarine Commander</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Sub Scan.bin">
+     <description>Sub Scan</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Summer Games.bin">
+     <description>Summer Games</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Super Baseball.bin">
+     <description>Super Baseball</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Super Breakout.bin">
+     <description>Super Breakout</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Super Challenge Baseball.bin">
+     <description>Super Challenge Baseball</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Super Challenge Football.bin">
+     <description>Super Challenge Football</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Super Cobra.bin">
+     <description>Super Cobra</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Super Ferrari.bin">
+     <description>Super Ferrari</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Super Football.bin">
+     <description>Super Football</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Surfer's Paradise - But Danger Below!.bin">
+     <description>Surfer'S Paradise - But Danger Below!</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Surround.bin">
+     <description>Surround</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Survival Run.bin">
+     <description>Survival Run</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="SwordQuest - Earthworld.bin">
+     <description>Swordquest - Earthworld</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="SwordQuest - Fireworld.bin">
+     <description>Swordquest - Fireworld</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="SwordQuest - Waterworld.bin">
+     <description>Swordquest - Waterworld</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Tac Scan.bin">
+     <description>Tac Scan</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Tanks But No Tanks.bin">
+     <description>Tanks But No Tanks</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Tape Worm.bin">
+     <description>Tape Worm</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Tapper.bin">
+     <description>Tapper</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Task Force.bin">
+     <description>Task Force</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Tax Avoiders.bin">
+     <description>Tax Avoiders</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Taz.bin">
+     <description>Taz</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Tennis.bin">
+     <description>Tennis</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Test Tape - Standalone.bin">
+     <description>Test Tape - Standalone</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Threshold.bin">
+     <description>Threshold</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Thunderground.bin">
+     <description>Thunderground</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Time Pilot.bin">
+     <description>Time Pilot</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Title Match Pro Wrestling.bin">
+     <description>Title Match Pro Wrestling</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Tom Boy.bin">
+     <description>Tom Boy</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Tomcat - The F-14 Flight Simulator.bin">
+     <description>Tomcat - The F-14 Flight Simulator</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Tooth Protectors.bin">
+     <description>Tooth Protectors</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Towering Inferno.bin">
+     <description>Towering Inferno</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Track and Field.bin">
+     <description>Track And Field</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Traffic.bin">
+     <description>Traffic</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Trick Shot.bin">
+     <description>Trick Shot</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="TRON - Deadly Discs.bin">
+     <description>Tron - Deadly Discs</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Tuby Bird.bin">
+     <description>Tuby Bird</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Tunnel Runner.bin">
+     <description>Tunnel Runner</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Turmoil.bin">
+     <description>Turmoil</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Tutankham.bin">
+     <description>Tutankham</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="UFO Patrol.bin">
+     <description>Ufo Patrol</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Universal Chaos.bin">
+     <description>Universal Chaos</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Up 'n Down.bin">
+     <description>Up 'N Down</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Vanguard.bin">
+     <description>Vanguard</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Venture.bin">
+     <description>Venture</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Video Checkers.bin">
+     <description>Video Checkers</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Video Chess.bin">
+     <description>Video Chess</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Video Jogger.bin">
+     <description>Video Jogger</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Video Olympics.bin">
+     <description>Video Olympics</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Video Pinball.bin">
+     <description>Video Pinball</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Video Reflex.bin">
+     <description>Video Reflex</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Wabbit.bin">
+     <description>Wabbit</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Wall Ball.bin">
+     <description>Wall Ball</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Wall Defender.bin">
+     <description>Wall Defender</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Warlords.bin">
+     <description>Warlords</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Wing War.bin">
+     <description>Wing War</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Winter Games.bin">
+     <description>Winter Games</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Wizard of Wor.bin">
+     <description>Wizard Of Wor</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Word Zapper.bin">
+     <description>Word Zapper</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Worm War I.bin">
+     <description>Worm War I</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="X-Man.bin">
+     <description>X-Man</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Xenophobe.bin">
+     <description>Xenophobe</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Xevious.bin">
+     <description>Xevious</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Yar's Revenge.bin">
+     <description>Yar'S Revenge</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>1</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Z-Tack.bin">
+     <description>Z-Tack</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Zaxxon.bin">
+     <description>Zaxxon</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+  <game name="Zoo Fun.bin">
+     <description>Zoo Fun</description>
+     <genre>General</genre>
+     <rating>General</rating>
+     <favorite>0</favorite>
+     <ignore>0</ignore>
+  </game>
+</menu>
