@@ -13,8 +13,6 @@ import operator
 MAMElyPath = os.path.dirname(os.path.abspath(__file__))+"/"
 os.chdir(MAMElyPath)
 
-# read main config file to determine screen size and platform config file info
-
 # set the default config file name. This can be overridden in commandline vars below
 # (multiple screen sizes, or different skins or variables)
 
@@ -53,10 +51,11 @@ class DelayTimer:
 # platform definition class                
                 
 class Platform:
-    def __init__(self, name, folder, config):
+    def __init__(self, name, folder, config, skin):
         self.name = name
         self.folder = folder
         self.config = config
+        self.skin = skin
         
 # rom class, contains all the same fields as the db        
         
@@ -193,6 +192,7 @@ def readMainConfig(configFile):
 
     screenX = 0
     screenY = 0
+    
     platforms = []
 
     tree = ET.parse(MAMElyPath+configFile)    
@@ -211,14 +211,24 @@ def readMainConfig(configFile):
         
         # get platform name, folder, and name of platform config file
         
-        if child.tag == "platform":    
+        if child.tag == "platform":
+            platformName = ""
+            platformFolder = ""
+            platformConfig = ""
+            platformSkin = ""
             platformName = child.attrib.get('name')
             for grandchild in child:
                 if grandchild.tag == "folder":
                     platformFolder = grandchild.text
                 if grandchild.tag == "config":
                     platformConfig = grandchild.text
-            platform = Platform(platformName, platformFolder, platformConfig)
+                if grandchild.tag == "skin":
+                    platformSkin = grandchild.text
+                    
+            if platformName == "" or platformFolder == "" or platformConfig == "" or platformSkin == "":
+                print("Platform definition error: {}".format(platformName))
+                quit()
+            platform = Platform(platformName, platformFolder, platformConfig, platformSkin)
             platforms.append(platform)
             
     if screenX == 0 or screenY == 0:
@@ -302,6 +312,7 @@ while not done:
     
     platformPath = MAMElyPath + "platforms/" + platforms[platformNum].folder + "/"
     platformConfigFile = platformPath + platforms[platformNum].config
+    platformSkinFile = platformPath + platforms[platformNum].skin
 
     # read platform config file 
         
@@ -320,14 +331,56 @@ while not done:
             
             # test for each variabe and assign value
 
-            if   variableName == "backgroundImage":
-                backgroundImage = variableValue
-            elif variableName == "emulatorExecutable":
+            if  variableName == "emulatorExecutable":
                 emulatorExecutable = variableValue
             elif variableName == "romExtension":
                 romExtension = variableValue
             elif variableName == "snapExtension":
                 snapExtension = variableValue            
+            elif variableName == "emulatorBasePath":
+                emulatorBasePath = variableValue            
+            elif variableName == "romSnapDirectory":
+                romSnapDirectory = variableValue
+            elif variableName == "romDirectory":
+                romDirectory = variableValue
+            elif variableName == "MAMElyxmlPath":
+                MAMElyxmlPath = variableValue        
+            elif variableName == "favoritesDirectory":
+                favoritesDirectory = variableValue            
+            elif variableName == "showXMLprogressBar":
+                if variableValue == "True":
+                    showXMLprogressBar = True 
+                else:
+                    showXMLprogressBar = False
+            elif variableName == "compareXMLtoRoms":
+                if variableValue == "True":
+                    compareXMLtoRoms = True 
+                else:
+                    compareXMLtoRoms = False            
+                
+    f.close()   
+
+
+
+    # read platform skin file 
+        
+    if platformSkinFile == "":
+        print("ERROR: no skin file specified")
+        quit()
+        
+    f = open(platformSkinFile, "r")
+    for textline in f:
+        textline = textline.strip()
+        # separate variable from value
+        equalsPosition = textline.find("=")
+        if equalsPosition > 0:
+            variableName = textline[0:equalsPosition].strip()
+            variableValue = textline[equalsPosition+1:].strip()      
+            
+            # test for each variabe and assign value
+
+            if   variableName == "backgroundImage":
+                backgroundImage = variableValue
             elif variableName == "romListDisplayAreaX1":
                 romListDisplayAreaX1 = int(variableValue)
             elif variableName == "romListDisplayAreaY1":
@@ -420,31 +473,6 @@ while not done:
                 romFileNameDisplayBoxFontSize = int(variableValue)
             elif variableName == "romFileNameDisplayBoxTruncateLen":
                 romFileNameDisplayBoxTruncateLen = int(variableValue)            
-            elif variableName == "emulatorBasePath":
-                emulatorBasePath = variableValue            
-            elif variableName == "romSnapDirectory":
-                romSnapDirectory = variableValue
-            elif variableName == "romDirectory":
-                romDirectory = variableValue
-            elif variableName == "MAMElyxmlPath":
-                MAMElyxmlPath = variableValue        
-            elif variableName == "favoritesDirectory":
-                favoritesDirectory = variableValue            
-            elif variableName == "dumpNewMAMElyXML":
-                if variableValue == "True":
-                    dumpNewMAMElyXML = True 
-                else:
-                    dumpNewMAMElyXML = False
-            elif variableName == "showXMLprogressBar":
-                if variableValue == "True":
-                    showXMLprogressBar = True 
-                else:
-                    showXMLprogressBar = False
-            elif variableName == "compareXMLtoRoms":
-                if variableValue == "True":
-                    compareXMLtoRoms = True 
-                else:
-                    compareXMLtoRoms = False            
             elif variableName == "romGenreShadow":
                 if variableValue == "True":
                     romGenreShadow = True 
@@ -514,7 +542,22 @@ while not done:
             elif variableName == "defaultRomFileNameColor":
                 defaultRomFileNameColor = hexToColor(variableValue)      
                 
-    f.close()   
+    f.close()  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     # initialize flag/skip dictionaries
     

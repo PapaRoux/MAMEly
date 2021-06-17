@@ -1,0 +1,85 @@
+#skin image
+backgroundImage = background_retrocade_MAME_1920x1080.png
+
+# skinnable colors in the script
+defaultFontForegroundColor = FFFFFF
+defaultHighlightFontForegroundColor = FFFF00
+defaultRomNameDisplayLineShadowColor = 000000
+defaultRomNameDisplayLineHighlightShadowColor = 777777
+defaultRomNameDisplayBoxShadowColor = 000000
+defaultRomNameDisplayBoxColor = FFFFFF
+defaultTitleBarColor = FFFFFF
+defaultTitleBarShadowColor = 000000
+defaultRomCountColor = FFFFFF
+defaultRomCountShadowColor = 000000
+defaultMessageColor = FFFF00
+defaultGameSetBarColor = FFFFFF
+defaultGameSetBarShadowColor = 000000
+defaultRomFileNameShadowColor = 000000
+defaultRomFileNameColor = FFFFFF
+
+# technically these are now a stroke instead of a shadow
+romCountShadow = False
+romGenreShadow = False
+romFileNameShadow = False
+genreSetShadow = False
+romListDisplayHighlightShadow = False
+romListDisplayShadow = False
+messageShadow = False
+
+# area for scrolling list of games
+romListDisplayAreaX1 = 50
+romListDisplayAreaY1 = 200
+romListDisplayAreaX2 = 1045
+romListDisplayAreaY2 = 880
+romListDisplayFont = Continuum-Bold-Regular.ttf
+romListDisplayFontSize = 30
+romListDisplaySpacing = 30
+romListDisplayTruncateLen = 60
+
+# area for genre of current rom and rating, and also messages
+romGenreX1 = 50
+romGenreY1 = 940
+romGenreX2 = 1045
+romGenreY2 = 1030
+romGenreFont = Continuum-Bold-Regular.ttf
+romGenreFontSize = 30
+romGenreTruncateLen = 60
+genreRatingOffset = 15
+messageFont = Continuum-Bold-Regular.ttf
+messageFontSize = 50
+messageTime = 1
+messageTruncateLen = 60
+
+# area for file name of current rom
+romFileNameDisplayBoxX1 = 1360
+romFileNameDisplayBoxY1 = 935
+romFileNameDisplayBoxX2 = 1865
+romFileNameDisplayBoxY2 = 1035
+romFileNameDisplayBoxFont = Continuum-Bold-Regular.ttf
+romFileNameDisplayBoxFontSize = 50
+romFileNameDisplayBoxTruncateLen = 20
+
+# area for "favorites" etc
+genreSetX1 = 50
+genreSetY1 = 40
+genreSetX2 = 1045
+genreSetY2 = 140
+genreSetFont = Continuum-Bold-Regular.ttf
+genreSetFontSize = 30
+genreSetTruncateLen = 50
+
+# area for rom snap image
+romSnapX1 = 1360
+romSnapY1 = 475
+romSnapX2 = 1865
+romSnapY2 = 920
+
+# area for "# of ###"
+romCountX1 = 1360
+romCountY1 = 355
+romCountX2 = 1865
+romCountY2 = 470
+romCountFont = Continuum-Bold-Regular.ttf
+romCountFontSize = 45
+romCountTruncateLen = 14
