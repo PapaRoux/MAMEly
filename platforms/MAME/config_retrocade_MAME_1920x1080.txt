@@ -1,5 +1,5 @@
 # base path for all relative directories below
-emulatorBasePath = /home/rossi/.mame/
+emulatorBasePath = /home/mini/.mame/
 romSnapDirectory = snap/
 romDirectory = roms/
 compareXMLtoRoms = True
