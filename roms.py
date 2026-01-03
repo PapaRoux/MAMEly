@@ -65,7 +65,9 @@ class RomManager:
         """Load ROMs from XML and optional file system check."""
         import time
         t_start = time.time()
-        print(f"[{time.time()}] Starting Game Load...")
+        t_start = time.time()
+        
+        xml_path = os.path.join(self.platform_path, "MAMEly.xml")
         
         xml_path = os.path.join(self.platform_path, "MAMEly.xml")
         xml_roms = {}
@@ -131,14 +133,10 @@ class RomManager:
             except ET.ParseError as e:
                 print(f"XML Parse Error: {e}")
         
-        print(f"[{time.time()}] XML Processing Complete. Found {len(xml_roms)} potential games.")
-
         # Directory Comparison Logic
         if self.config.compare_xml_to_roms:
-            print(f"[{time.time()}] Scanning ROM Directory: {self.config.rom_directory}")
             self.roms = {}
             if os.path.exists(self.config.rom_directory):
-                print(f"[{time.time()}] Starting Directory Scan using os.scandir (Optimized)...")
                 
                 count = 0
                 with os.scandir(self.config.rom_directory) as it:
@@ -159,15 +157,11 @@ class RomManager:
                                  self.roms[f] = xml_roms[f]
                                  
                             count += 1
-                            if count % 1000 == 0:
-                                print(f"[{time.time()}] Scanned {count} files...")
                                 
-            print(f"[{time.time()}] Directory Scan Complete. Processed {count} files.")
         else:
-            print(f"[{time.time()}] Skipping ROM directory scan (compareXMLtoRoms=False). using XML list directly.")
             self.roms = xml_roms
 
-        print(f"[{time.time()}] Load Complete. Total Loading Time: {time.time() - t_start:.2f}s")
+        # Load Complete
 
     def save_xml(self):
         """Dump current ROM list to XML."""

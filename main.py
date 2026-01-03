@@ -49,6 +49,10 @@ class MAMElyApp:
         self.message = ""
         self.message_start_time = 0
         self.message_duration = 2 # default
+        
+        # Confirmation Logic
+        self.confirm_action = None
+        self.confirm_message = ""
 
     def load_platform(self):
         if not self.config.platforms:
@@ -83,6 +87,14 @@ class MAMElyApp:
         self.rom_manager = RomManager(platform_path, p_conf)
         self.rom_manager.load_skips_and_flags()
         self.rom_manager.load_roms() # Synchronous for now, could add progress callback
+        
+        # Default to Favorites if available
+        self.genre_list = self.rom_manager.get_genre_list()
+        if "Favorites" in self.genre_list:
+             try:
+                 self.current_genre_idx = self.genre_list.index("Favorites")
+             except ValueError:
+                 self.current_genre_idx = 0
         
         self.update_view_lists()
 
@@ -130,6 +142,20 @@ class MAMElyApp:
     def handle_input(self):
         action = self.input.get_action()
         
+        # Confirmation Overlay Logic
+        if self.confirm_action:
+            if action == self.input.ACTION_RUN:
+                self.confirm_action()
+                self.confirm_action = None
+                self.confirm_message = ""
+                # Prevent repeat action immediately
+                pygame.event.clear()
+            elif action in [self.input.ACTION_EXIT, self.input.ACTION_GENRE, self.input.ACTION_PLATFORM, self.input.ACTION_FAVORITE]:
+                # Cancel
+                self.confirm_action = None
+                self.confirm_message = ""
+            return
+        
         if action == self.input.ACTION_EXIT:
             self.running = False
             
@@ -162,12 +188,21 @@ class MAMElyApp:
         elif action == self.input.ACTION_FAVORITE:
             if self.rom_list:
                 rom = self.rom_list[self.selected_rom_idx]
-                is_fav = self.rom_manager.toggle_favorite(rom.name)
-                state = "added to" if is_fav else "removed from"
-                self.set_message(f"{rom.name} {state} Favorites")
-                # Reload list if we are in Favorites view
-                if self.genre_list[self.current_genre_idx] == "Favorites":
-                    self.update_view_lists(reset_selection=False)
+                
+                # Check status to form message
+                is_currently_fav = (rom.favorite == 1)
+                action_str = "Removing" if is_currently_fav else "Adding"
+                confirm_str = f"{action_str} {rom.name} to Favorites?"
+                
+                def do_fav():
+                    is_fav = self.rom_manager.toggle_favorite(rom.name)
+                    state = "added to" if is_fav else "removed from"
+                    self.set_message(f"{rom.name} {state} Favorites")
+                    if self.genre_list[self.current_genre_idx] == "Favorites":
+                        self.update_view_lists(reset_selection=False)
+                
+                self.confirm_action = do_fav
+                self.confirm_message = confirm_str
 
         elif action == self.input.ACTION_IGNORE:
             if self.rom_list:
@@ -313,6 +348,9 @@ class MAMElyApp:
                                       shadow=self.skin.get("romFileNameShadow"))
 
 
+        if self.confirm_action:
+            self.ui.draw_modal(self.confirm_message)
+            
         self.ui.end_frame()
 
     def run(self):

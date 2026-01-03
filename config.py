@@ -34,6 +34,7 @@ class Config:
 
     def load_main_config(self):
         config_path = os.path.join(self.base_path, self.config_file)
+        print(f"Loading main config from: {config_path}")
         if not os.path.exists(config_path):
             print(f"Config file not found: {config_path}")
             return
@@ -88,6 +89,7 @@ class PlatformConfig:
 
     def load_config(self):
         full_path = os.path.join(self.platform_path, self.config_file)
+        print(f"Loading platform config from: {full_path}")
         if not os.path.exists(full_path):
             print(f"Platform config not found: {full_path}")
             return
@@ -149,6 +151,7 @@ class SkinConfig:
 
     def load_skin(self):
         full_path = os.path.join(self.platform_path, self.skin_file)
+        print(f"Loading skin config from: {full_path}")
         if not os.path.exists(full_path):
             print(f"Skin file not found: {full_path}")
             return

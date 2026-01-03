@@ -171,3 +171,23 @@ class UIManager:
         color = color if color else self.skin.get("defaultMessageColor", (255, 255, 255))
         
         self.draw_text(message, x, y, font, size, color, shadow=True, shadow_color=(0,0,0))
+
+    def draw_modal(self, message, subtext="Press RUN to Confirm, EXIT to Cancel"):
+        # Overlay
+        overlay = pygame.Surface((self.screen_width, self.screen_height))
+        overlay.set_alpha(200)
+        overlay.fill((0, 0, 0))
+        self.screen.blit(overlay, (0, 0))
+        
+        # Helper for centering
+        cx, cy = self.screen_width // 2, self.screen_height // 2
+        
+        # Draw Box (Optional, just text is fine for retro feel implies overlay is sufficient)
+        pygame.draw.rect(self.screen, (50, 50, 50), (cx - 300, cy - 100, 600, 200))
+        pygame.draw.rect(self.screen, (255, 255, 255), (cx - 300, cy - 100, 600, 200), 2)
+        
+        # Message
+        self.draw_text(message, cx, cy - 20, None, 40, (255, 255, 255), shadow=True)
+        
+        # Subtext
+        self.draw_text(subtext, cx, cy + 30, None, 25, (200, 200, 200), shadow=True)
