@@ -17,6 +17,7 @@ class InputManager:
         self.ACTION_EXIT = 10
         self.ACTION_PAGE_UP = 11
         self.ACTION_PAGE_DOWN = 12
+        self.ACTION_HELP = 13
 
         # Initialize Joysticks
         pygame.joystick.init()
@@ -46,6 +47,8 @@ class InputManager:
                 # but we'll mostly rely on state checking for continuous movement
                 if event.key == pygame.K_ESCAPE:
                     return self.ACTION_EXIT
+                elif event.key == pygame.K_F1:
+                    return self.ACTION_HELP
                 elif event.key == pygame.K_TAB:
                      # Clear queue on tab like original?
                      pygame.event.clear()

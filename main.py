@@ -9,6 +9,7 @@ from roms import RomManager
 from ui import UIManager
 from input import InputManager
 from version import __version__
+from diagnostics import build_osd_lines, check_platform, startup_message
 
 class MAMElyApp:
     def __init__(self):
@@ -51,10 +52,17 @@ class MAMElyApp:
         self.message = ""
         self.message_start_time = 0
         self.message_duration = 2 # default
+        self._current_message_duration = 2
         
         # Confirmation Logic
         self.confirm_action = None
         self.confirm_message = ""
+
+        # F1 config / help OSD
+        self.show_info_osd = False
+        self.info_osd_lines = []
+        self.info_osd_scroll = 0
+        self.platform_issues = []
 
     def load_platform(self):
         if not self.config.platforms:
@@ -99,6 +107,39 @@ class MAMElyApp:
                  self.current_genre_idx = 0
         
         self.update_view_lists()
+        self._report_platform_diagnostics(p_def)
+
+    def _current_platform_def(self):
+        return self.config.platforms[self.platform_idx]
+
+    def _refresh_info_osd(self):
+        p_def = self._current_platform_def()
+        rom_count = len(self.rom_list) if self.rom_list else 0
+        self.info_osd_lines = build_osd_lines(
+            self.base_path, p_def, self.rom_manager.config, rom_count, self.platform_issues,
+        )
+
+    def _toggle_info_osd(self):
+        self.show_info_osd = not self.show_info_osd
+        if self.show_info_osd:
+            self.info_osd_scroll = 0
+            self._refresh_info_osd()
+
+    def _report_platform_diagnostics(self, platform_def):
+        issues = check_platform(self.base_path, platform_def)
+        self.platform_issues = issues
+        for issue in issues:
+            if issue.level in ("error", "warn"):
+                print(issue.format())
+
+        msg = startup_message(issues)
+        if msg:
+            extra = ""
+            problem_count = sum(1 for i in issues if i.level in ("error", "warn"))
+            if problem_count > 1:
+                extra = f" (+{problem_count - 1} more — run: python MAMEly.py --check)"
+            diag_duration = self.skin.get("diagnosticMessageTime", 15)
+            self.set_message(msg + extra + " (F1 for details)", duration=diag_duration)
 
     def update_view_lists(self, reset_selection=True):
         self.genre_list = self.rom_manager.get_genre_list()
@@ -117,9 +158,12 @@ class MAMElyApp:
         if self.selected_rom_idx >= len(self.rom_list):
              self.selected_rom_idx = max(0, len(self.rom_list) - 1)
 
-    def set_message(self, msg):
+    def set_message(self, msg, duration=None):
         self.message = msg
         self.message_start_time = time.time()
+        self._current_message_duration = (
+            duration if duration is not None else self.message_duration
+        )
 
     def _resolve_emulator_flags(self, flags_str):
         if not flags_str:
@@ -196,6 +240,24 @@ class MAMElyApp:
 
     def handle_input(self):
         action = self.input.get_action()
+
+        if self.show_info_osd:
+            if action == self.input.ACTION_HELP:
+                self.show_info_osd = False
+                pygame.event.clear()
+                return
+            if action == self.input.ACTION_EXIT:
+                self.show_info_osd = False
+                pygame.event.clear()
+                return
+            if action == self.input.ACTION_UP:
+                self.info_osd_scroll = max(0, self.info_osd_scroll - 1)
+                return
+            if action == self.input.ACTION_DOWN:
+                max_scroll = max(0, len(self.info_osd_lines) - 1)
+                self.info_osd_scroll = min(self.info_osd_scroll + 1, max_scroll)
+                return
+            return
         
         # Confirmation Overlay Logic
         if self.confirm_action:
@@ -271,6 +333,9 @@ class MAMElyApp:
 
         elif action == self.input.ACTION_RUN:
             self.run_rom()
+
+        elif action == self.input.ACTION_HELP:
+            self._toggle_info_osd()
 
     def draw(self):
         self.ui.begin_frame()
@@ -353,7 +418,7 @@ class MAMElyApp:
                     # Draw Genre/Rating or Message
                     msg = self.message
                     if msg:
-                        if time.time() - self.message_start_time > self.message_duration:
+                        if time.time() - self.message_start_time > self._current_message_duration:
                             self.message = ""
                     
                     gx = self.skin.get("romGenreXCenter")
@@ -404,7 +469,9 @@ class MAMElyApp:
                                       truncate_len=self.skin.get("romFileNameDisplayBoxTruncateLen"))
 
 
-        if self.confirm_action:
+        if self.show_info_osd:
+            self.ui.draw_info_panel(self.info_osd_lines, self.info_osd_scroll)
+        elif self.confirm_action:
             self.ui.draw_modal(self.confirm_message)
             
         self.ui.end_frame()

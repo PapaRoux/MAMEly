@@ -1,5 +1,5 @@
 # base path for all relative directories below
-emulatorBasePath = /mnt/DATA1.1/emulators/platforms/atari2600/
+emulatorBasePath = /mnt/nfs/8TB/platforms/atari2600/
 romSnapDirectory = snap/
 romDirectory = roms/
 compareXMLtoRoms = False

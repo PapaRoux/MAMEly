@@ -191,3 +191,41 @@ class UIManager:
         
         # Subtext
         self.draw_text(subtext, cx, cy + 30, None, 25, (200, 200, 200), shadow=True)
+
+    def draw_info_panel(self, lines, scroll_line=0):
+        overlay = pygame.Surface((self.screen_width, self.screen_height))
+        overlay.set_alpha(210)
+        overlay.fill((0, 0, 0))
+        self.screen.blit(overlay, (0, 0))
+
+        margin = 40
+        panel_w = self.screen_width - margin * 2
+        panel_h = self.screen_height - margin * 2
+        pygame.draw.rect(self.screen, (30, 30, 40), (margin, margin, panel_w, panel_h))
+        pygame.draw.rect(self.screen, (255, 255, 0), (margin, margin, panel_w, panel_h), 2)
+
+        font_size = 22
+        line_height = 28
+        font = self.get_font(None, font_size)
+        max_visible = (panel_h - 50) // line_height
+        visible = lines[scroll_line:scroll_line + max_visible]
+
+        y = margin + 20
+        for line in visible:
+            color = (255, 255, 100) if line.startswith("MAMEly") else (220, 220, 220)
+            if line.startswith("  !"):
+                color = (255, 120, 120)
+            elif line.startswith("  ?"):
+                color = (255, 200, 120)
+            elif line in ("Paths", "Emulator", "Controls", "Settings live in:", "Troubleshooting:", "Issues"):
+                color = (180, 220, 255)
+
+            text_surf = font.render(line, True, color)
+            self.screen.blit(text_surf, (margin + 20, y))
+            y += line_height
+
+        footer = "F1 or Esc to close"
+        if len(lines) > max_visible:
+            footer += f"   |   Up/Down scroll ({scroll_line + 1}-{min(scroll_line + max_visible, len(lines))} of {len(lines)})"
+        footer_surf = font.render(footer, True, (160, 160, 160))
+        self.screen.blit(footer_surf, (margin + 20, margin + panel_h - 35))
