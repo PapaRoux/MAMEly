@@ -1,6 +1,8 @@
 import sys
 import os
 import time
+import shlex
+import subprocess
 import pygame
 from config import Config, PlatformConfig, SkinConfig
 from roms import RomManager
@@ -119,25 +121,78 @@ class MAMElyApp:
         self.message = msg
         self.message_start_time = time.time()
 
+    def _resolve_emulator_flags(self, flags_str):
+        if not flags_str:
+            return []
+
+        parts = shlex.split(flags_str)
+        resolved = []
+        i = 0
+        while i < len(parts):
+            if parts[i] == "-conf" and i + 1 < len(parts):
+                conf_path = parts[i + 1]
+                if not os.path.isabs(conf_path):
+                    conf_path = os.path.join(self.rom_manager.platform_path, conf_path)
+                resolved.extend(["-conf", conf_path])
+                i += 2
+            else:
+                resolved.append(parts[i])
+                i += 1
+        return resolved
+
+    def _inject_flatpak_env(self, cmd, env_vars):
+        for i, arg in enumerate(cmd):
+            if arg.startswith("com.") and i > 0 and cmd[i - 1] != "--env":
+                for key, value in reversed(list(env_vars.items())):
+                    cmd.insert(i, f"--env={key}={value}")
+                break
+
+    def _release_joysticks(self):
+        self.input.joysticks = []
+        pygame.joystick.quit()
+
+    def _init_joysticks(self):
+        pygame.joystick.init()
+        for i in range(pygame.joystick.get_count()):
+            j = pygame.joystick.Joystick(i)
+            j.init()
+            self.input.joysticks.append(j)
+
     def run_rom(self):
         if not self.rom_list: return
         
         rom = self.rom_list[self.selected_rom_idx]
-        rom_file = rom.name + self.rom_manager.config.rom_extension
-        # Flag logic
-        flags = self.rom_manager.get_rom_flags(rom.name)
-        
+        rom_file = rom.name
+        ext = self.rom_manager.config.rom_extension
+        if ext and not rom_file.endswith(ext):
+            rom_file = rom_file + ext
+
         full_rom_path = os.path.join(self.rom_manager.config.rom_directory, rom_file)
-        full_rom_path = f'"{full_rom_path}"' # Quote path
-        
+        flags = self.rom_manager.get_rom_flags(rom.name)
         exe = self.rom_manager.config.emulator_executable
-        
-        cmd = f"{exe} {flags} {full_rom_path}"
-        print(f"Executing: {cmd}")
-        os.system(cmd)
-        
-        # Clear input queue after return
-        pygame.event.clear()
+
+        cmd = shlex.split(exe)
+        cmd.extend(self._resolve_emulator_flags(self.rom_manager.config.emulator_default_flags))
+        if flags:
+            cmd.extend(shlex.split(flags))
+        if "--file-forwarding" in exe:
+            cmd.extend(["@@", full_rom_path, "@@"])
+        else:
+            cmd.append(full_rom_path)
+
+        env = os.environ.copy()
+        if "flatpak" in exe:
+            config_home = os.path.join(self.rom_manager.platform_path, "mamely-snes9x-config")
+            if os.path.isdir(config_home):
+                self._inject_flatpak_env(cmd, {"XDG_CONFIG_HOME": os.path.abspath(config_home)})
+
+        print(f"Executing: {' '.join(shlex.quote(arg) for arg in cmd)}")
+        self._release_joysticks()
+        try:
+            subprocess.run(cmd, env=env)
+        finally:
+            self._init_joysticks()
+            pygame.event.clear()
 
     def handle_input(self):
         action = self.input.get_action()
@@ -345,7 +400,8 @@ class MAMElyApp:
                                       self.skin.get("romFileNameDisplayBoxFont"),
                                       self.skin.get("romFileNameDisplayBoxFontSize"),
                                       self.skin.get("defaultRomFileNameColor"),
-                                      shadow=self.skin.get("romFileNameShadow"))
+                                      shadow=self.skin.get("romFileNameShadow"),
+                                      truncate_len=self.skin.get("romFileNameDisplayBoxTruncateLen"))
 
 
         if self.confirm_action:

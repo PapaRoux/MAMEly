@@ -1,9 +1,9 @@
 # base path for all relative directories below
-emulatorBasePath = /home/rossi/mnt/DATA1.1/emulators/platforms/snes/
+emulatorBasePath = /home/mini/Documents/snes9x/
 romSnapDirectory = snap/
 romDirectory = roms/
 compareXMLtoRoms = False
-emulatorExecutable = /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=snes9x-gtk --file-forwarding com.snes9x.Snes9x
+emulatorExecutable = /snap/bin/snes9x-gtk
 romExtension = .smc
 snapExtension = .png
 

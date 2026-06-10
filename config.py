@@ -84,6 +84,7 @@ class PlatformConfig:
         self.favorites_directory = ""
         self.show_xml_progress_bar = False
         self.compare_xml_to_roms = False
+        self.emulator_default_flags = ""
         
         self.load_config()
 
@@ -132,6 +133,8 @@ class PlatformConfig:
                             self.show_xml_progress_bar = (val == "True")
                         elif var == "compareXMLtoRoms":
                             self.compare_xml_to_roms = (val == "True")
+                        elif var == "emulatorDefaultFlags":
+                            self.emulator_default_flags = val
                             
             # Path normalization
             if self.rom_snap_directory and not self.rom_snap_directory.startswith("/"):

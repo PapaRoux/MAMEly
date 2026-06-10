@@ -57,7 +57,7 @@ romFileNameDisplayBoxY1 = 935
 romFileNameDisplayBoxX2 = 1865
 romFileNameDisplayBoxY2 = 1035
 romFileNameDisplayBoxFont = Continuum-Bold-Regular.ttf
-romFileNameDisplayBoxFontSize = 50
+romFileNameDisplayBoxFontSize = 30
 romFileNameDisplayBoxTruncateLen = 20
 
 # area for "favorites" etc
