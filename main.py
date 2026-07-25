@@ -602,54 +602,103 @@ class MAMElyApp:
         self.ui.end_frame()
 
     def run_attract_mode(self, video_path):
-        import subprocess
+        """Fullscreen attract playback inside the Pygame window.
+
+        External players (ffplay -fs) steal keyboard focus, so any-key interrupt
+        fails. We blit frames with OpenCV/Pygame (keeps focus) and play audio
+        with headless ffplay (-nodisp). Any key, joystick button, or mouse
+        click ends attract mode.
+        """
+        import cv2
         print(f"Starting attract mode for: {video_path}")
-        
-        # Release the preview video capture
+
         self.ui.close_video()
-        
-        # Launch ffplay fullscreen with audio and exit on end
-        # ffplay natively exits on Escape/q and pauses on Space
-        try:
-            proc = subprocess.Popen([
-                "ffplay", 
-                "-fs", 
-                "-autoexit", 
-                "-loglevel", "quiet",
-                video_path
-            ])
-        except Exception as e:
-            print(f"Failed to launch cvlc: {e}")
+
+        cap = cv2.VideoCapture(video_path)
+        if not cap.isOpened():
+            print(f"Failed to open attract video: {video_path}")
             self.last_interaction_time = time.time()
             return
-            
+
+        fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
+        if fps <= 1.0:
+            fps = 30.0
+        frame_delay = 1.0 / fps
+
+        # Audio only — no video window, so Pygame keeps input focus
+        audio_proc = None
+        try:
+            audio_proc = subprocess.Popen([
+                "ffplay",
+                "-nodisp",
+                "-autoexit",
+                "-loglevel", "quiet",
+                video_path,
+            ])
+        except Exception as e:
+            print(f"Attract audio unavailable (ffplay): {e}")
+
+        screen_w = self.ui.screen_width
+        screen_h = self.ui.screen_height
+        next_frame_at = time.time()
         running_attract = True
-        while running_attract and proc.poll() is None:
-            # Poll pygame events to catch user interactions
+        pygame.event.clear()  # Drop queued input so attract doesn't exit immediately
+
+        while running_attract:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    try:
-                        proc.terminate()
-                    except Exception:
-                        pass
                     self.running = False
                     running_attract = False
-                elif event.type in (pygame.KEYDOWN, pygame.JOYBUTTONDOWN, pygame.MOUSEBUTTONDOWN):
-                    # Interrupted by user!
-                    try:
-                        proc.terminate()
-                    except Exception:
-                        pass
+                    break
+                if event.type in (pygame.KEYDOWN, pygame.JOYBUTTONDOWN, pygame.MOUSEBUTTONDOWN):
                     running_attract = False
-            pygame.time.wait(50)
-            
-        # Clean up process
+                    break
+
+            if not running_attract:
+                break
+
+            now = time.time()
+            if now < next_frame_at:
+                pygame.time.wait(5)
+                continue
+
+            ret, frame = cap.read()
+            if not ret:
+                break
+
+            try:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frame = cv2.transpose(frame)
+                img = pygame.surfarray.make_surface(frame)
+                img_w, img_h = img.get_size()
+                scale = min(screen_w / float(img_w), screen_h / float(img_h))
+                new_w, new_h = max(1, int(img_w * scale)), max(1, int(img_h * scale))
+                scaled = pygame.transform.scale(img, (new_w, new_h))
+                self.ui.screen.fill((0, 0, 0))
+                self.ui.screen.blit(scaled, ((screen_w - new_w) // 2, (screen_h - new_h) // 2))
+                pygame.display.flip()
+            except Exception as e:
+                print(f"Attract frame error: {e}")
+                break
+
+            next_frame_at = now + frame_delay
+
+        if audio_proc is not None and audio_proc.poll() is None:
+            try:
+                audio_proc.terminate()
+                audio_proc.wait(timeout=1.0)
+            except Exception:
+                try:
+                    audio_proc.kill()
+                except Exception:
+                    pass
+
         try:
-            proc.wait(timeout=1.0)
+            cap.release()
         except Exception:
             pass
-            
-        # Reset interaction time to 5 seconds ago so the video snap starts playing immediately on return
+
+        # Resume inline video snap immediately on return
         self.last_interaction_time = time.time() - 5.0
         self.video_paused = False
         pygame.event.clear()
