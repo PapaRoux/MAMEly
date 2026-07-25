@@ -363,7 +363,7 @@ def check_all(base_path, config_file="config.xml"):
         issues.append(DiagnosticIssue(
             "error", "config",
             f"Main config not found: {config_file}",
-            "Create config.xml or pass -config=yourfile.xml",
+            "Create config.xml or pass --config=yourfile.xml",
             main_config_path,
         ))
         return issues

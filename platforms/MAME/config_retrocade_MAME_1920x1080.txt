@@ -1,5 +1,5 @@
 # base path for all relative directories below
-emulatorBasePath = /home/mame/.mame/
+emulatorBasePath = ~/.mame/
 romSnapDirectory = snap
 romDirectory = roms
 compareXMLtoRoms = True

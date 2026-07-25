@@ -151,11 +151,12 @@ class PlatformConfig:
 
                         # Sanitize Paths
                         if "/home/" in val or "~" in val:
-                             # Replace /home/rossi/ or similar with current user home
                              current_home = os.path.expanduser("~")
-                             if "/home/rossi/" in val:
-                                 val = val.replace("/home/rossi/", current_home + "/")
-                             elif val.startswith("~"):
+                             # Replace any /home/username/ with current user home dynamically
+                             import re
+                             val = re.sub(r'^/home/[^/]+', current_home, val)
+                             val = re.sub(r'(?<=\s)/home/[^/]+', current_home, val)
+                             if val.startswith("~"):
                                  val = os.path.expanduser(val)
                         
                         if var == "emulatorExecutable":
@@ -220,11 +221,21 @@ class PlatformConfig:
             if save_snap_dir and os.path.isabs(save_snap_dir) and save_snap_dir.startswith(base_path):
                 save_snap_dir = os.path.relpath(save_snap_dir, base_path)
 
+        # Convert absolute home paths to tildes (~) so it's clean and portable in Git
+        home_dir = os.path.expanduser("~")
+        save_base_path = self.emulator_base_path
+        if save_base_path and save_base_path.startswith(home_dir):
+            save_base_path = "~" + save_base_path[len(home_dir):]
+            
+        save_exe = self.emulator_executable
+        if save_exe and home_dir in save_exe:
+            save_exe = save_exe.replace(home_dir, "~")
+
         settings = {
-            "emulatorExecutable": self.emulator_executable,
+            "emulatorExecutable": save_exe,
             "romExtension": self.rom_extension,
             "snapExtension": self.snap_extension,
-            "emulatorBasePath": self.emulator_base_path,
+            "emulatorBasePath": save_base_path,
             "romSnapDirectory": save_snap_dir,
             "romDirectory": save_rom_dir,
             "MAMElyxmlPath": self.mamely_xml_path,

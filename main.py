@@ -26,12 +26,13 @@ class MAMElyApp:
         # Parse Args
         self.config_file = "config.xml"
         self.launch_wizard = False
-        if len(sys.argv) > 1:
-             for arg in sys.argv:
-                 if arg.startswith("-config="):
-                     self.config_file = arg.split("=")[1]
-                 elif arg == "--wizard":
-                     self.launch_wizard = True
+        for i, arg in enumerate(sys.argv):
+            if arg.startswith("--config="):
+                self.config_file = arg.split("=", 1)[1]
+            elif arg == "--config" and i + 1 < len(sys.argv):
+                self.config_file = sys.argv[i + 1]
+            elif arg == "--wizard":
+                self.launch_wizard = True
 
         # Load Main Config
         self.config = Config(self.base_path, self.config_file)

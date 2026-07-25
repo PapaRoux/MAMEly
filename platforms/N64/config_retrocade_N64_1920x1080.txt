@@ -1,9 +1,9 @@
 # base path for all relative directories below
-emulatorBasePath = /home/rossi/mnt/nfs/8TB/platforms/n64/
+emulatorBasePath = ~/mnt/nfs/8TB/platforms/n64/
 romSnapDirectory = snap/
 romDirectory = roms/
 compareXMLtoRoms = False
-emulatorExecutable = mupen64plus --gfx mupen64plus-video-glide64mk2 --fullscreen --resolution 1920x1080 --sshotdir /home/rossi/mnt/nfs/8TB/platforms/n64/snap/
+emulatorExecutable = mupen64plus --gfx mupen64plus-video-glide64mk2 --fullscreen --resolution 1920x1080 --sshotdir ~/mnt/nfs/8TB/platforms/n64/snap/
 romExtension = .v64
 snapExtension = .jpg
 showXMLprogressBar = False

@@ -12,9 +12,11 @@ sys.path.append(current_dir)
 
 
 def _config_file_from_args(argv):
-    for arg in argv:
-        if arg.startswith("-config="):
+    for i, arg in enumerate(argv):
+        if arg.startswith("--config="):
             return arg.split("=", 1)[1]
+        elif arg == "--config" and i + 1 < len(argv):
+            return argv[i + 1]
     return "config.xml"
 
 
