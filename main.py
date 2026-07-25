@@ -509,8 +509,8 @@ class MAMElyApp:
                     # Render Video (if idle for 5s) or Fallback to Static Snap
                     elapsed = time.time() - self.last_interaction_time
                     
-                    # Attract Mode check: Idle for 60 seconds triggers fullscreen playback with sound
-                    if elapsed >= 60.0 and video_path:
+                    # Attract Mode check: Idle for 65 seconds (5s image snap + 60s video snap) triggers fullscreen playback
+                    if elapsed >= 65.0 and video_path:
                         self.run_attract_mode(video_path)
                         return
                     
@@ -608,9 +608,16 @@ class MAMElyApp:
         # Release the preview video capture
         self.ui.close_video()
         
-        # Launch cvlc fullscreen with audio and exit on end
+        # Launch ffplay fullscreen with audio and exit on end
+        # ffplay natively exits on Escape/q and pauses on Space
         try:
-            proc = subprocess.Popen(["cvlc", "--fullscreen", "--no-video-title-show", "--play-and-exit", video_path])
+            proc = subprocess.Popen([
+                "ffplay", 
+                "-fs", 
+                "-autoexit", 
+                "-loglevel", "quiet",
+                video_path
+            ])
         except Exception as e:
             print(f"Failed to launch cvlc: {e}")
             self.last_interaction_time = time.time()
@@ -642,8 +649,8 @@ class MAMElyApp:
         except Exception:
             pass
             
-        # Reset interaction time and clear input queues to prevent double-triggering menus
-        self.last_interaction_time = time.time()
+        # Reset interaction time to 5 seconds ago so the video snap starts playing immediately on return
+        self.last_interaction_time = time.time() - 5.0
         self.video_paused = False
         pygame.event.clear()
         print("Attract mode ended.")
