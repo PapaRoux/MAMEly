@@ -67,6 +67,10 @@ class MAMElyApp:
         self.info_osd_scroll = 0
         self.platform_issues = []
 
+        # Search states
+        self.search_active = False
+        self.search_query = ""
+
     def load_platform(self):
         if not self.config.platforms:
             print("No platforms definitions found.")
@@ -153,6 +157,14 @@ class MAMElyApp:
             
         current_genre = self.genre_list[self.current_genre_idx]
         self.rom_list = self.rom_manager.get_roms_by_genre(current_genre)
+        
+        # Real-time search filtering
+        if self.search_query:
+            query = self.search_query.lower()
+            self.rom_list = [
+                rom for rom in self.rom_list 
+                if query in rom.description.lower() or query in rom.name.lower()
+            ]
         
         if reset_selection:
             self.selected_rom_idx = 0
@@ -246,6 +258,32 @@ class MAMElyApp:
             pygame.event.clear()
 
     def handle_input(self):
+        if self.search_active:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.running = False
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        self.search_active = False
+                        self.search_query = ""
+                        self.update_view_lists()
+                    elif event.key == pygame.K_RETURN:
+                        self.search_active = False
+                    elif event.key == pygame.K_BACKSPACE:
+                        self.search_query = self.search_query[:-1]
+                        self.update_view_lists()
+                    elif event.key == pygame.K_UP:
+                        if self.rom_list:
+                            self.selected_rom_idx = (self.selected_rom_idx - 1) % len(self.rom_list)
+                    elif event.key == pygame.K_DOWN:
+                        if self.rom_list:
+                            self.selected_rom_idx = (self.selected_rom_idx + 1) % len(self.rom_list)
+                    else:
+                        if event.unicode and ord(event.unicode) >= 32:
+                            self.search_query += event.unicode
+                            self.update_view_lists()
+            return
+
         action = self.input.get_action()
 
         if self.show_info_osd:
@@ -281,7 +319,11 @@ class MAMElyApp:
             return
         
         if action == self.input.ACTION_EXIT:
-            self.running = False
+            if self.search_query:
+                self.search_query = ""
+                self.update_view_lists()
+            else:
+                self.running = False
             
         elif action == self.input.ACTION_PLATFORM:
             self.platform_idx = (self.platform_idx + 1) % len(self.config.platforms)
@@ -343,6 +385,11 @@ class MAMElyApp:
 
         elif action == self.input.ACTION_HELP:
             self._toggle_info_osd()
+
+        elif action == self.input.ACTION_SEARCH:
+            self.search_active = True
+            self.search_query = ""
+            self.update_view_lists()
 
         elif action == self.input.ACTION_WIZARD:
             self.run_setup_wizard()
@@ -483,6 +530,9 @@ class MAMElyApp:
             self.ui.draw_info_panel(self.info_osd_lines, self.info_osd_scroll)
         elif self.confirm_action:
             self.ui.draw_modal(self.confirm_message)
+            
+        if self.search_active or self.search_query:
+            self.ui.draw_search_bar(self.search_query, self.search_active)
             
         self.ui.end_frame()
 

@@ -19,6 +19,7 @@ class InputManager:
         self.ACTION_PAGE_DOWN = 12
         self.ACTION_HELP = 13
         self.ACTION_WIZARD = 14
+        self.ACTION_SEARCH = 15
 
         # Initialize Joysticks
         pygame.joystick.init()
@@ -52,6 +53,8 @@ class InputManager:
                     return self.ACTION_HELP
                 elif event.key == pygame.K_F2:
                     return self.ACTION_WIZARD
+                elif event.key == pygame.K_SLASH:
+                    return self.ACTION_SEARCH
                 elif event.key == pygame.K_TAB:
                      # Clear queue on tab like original?
                      pygame.event.clear()
@@ -74,6 +77,7 @@ class InputManager:
         elif keys[pygame.K_TAB]: action = self.ACTION_GENRE
         elif keys[pygame.K_i]: action = self.ACTION_IGNORE
         elif keys[pygame.K_F2]: action = self.ACTION_WIZARD
+        elif keys[pygame.K_SLASH]: action = self.ACTION_SEARCH
         
         # Joystick Map override
         if action == self.ACTION_NONE:

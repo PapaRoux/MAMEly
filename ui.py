@@ -241,3 +241,38 @@ class UIManager:
             footer += f"   |   Up/Down scroll ({scroll_line + 1}-{min(scroll_line + max_visible, len(lines))} of {len(lines)})"
         footer_surf = font.render(footer, True, (160, 160, 160))
         self.screen.blit(footer_surf, (margin + 20, margin + panel_h - 35))
+
+    def draw_search_bar(self, query, active=True):
+        # Position at the bottom center of the screen
+        bar_h = 50
+        bar_w = 700
+        x = (self.screen_width - bar_w) // 2
+        y = self.screen_height - bar_h - 25
+        
+        # Draw background card
+        rect = pygame.Rect(x, y, bar_w, bar_h)
+        pygame.draw.rect(self.screen, (30, 30, 46), rect, border_radius=8)
+        
+        # Border
+        border_color = (137, 180, 250) if active else (88, 91, 112)
+        pygame.draw.rect(self.screen, border_color, rect, width=2, border_radius=8)
+        
+        # Render Text
+        font = self.get_font(None, 24)
+        
+        # Prompt label
+        prompt_str = "Search: "
+        prompt_surf = font.render(prompt_str, True, (205, 214, 244))
+        self.screen.blit(prompt_surf, (x + 25, y + (bar_h - prompt_surf.get_height()) // 2))
+        
+        # Blinking cursor & query
+        cursor = "|" if active and (pygame.time.get_ticks() // 500) % 2 == 0 else ""
+        query_str = query + cursor
+        query_surf = font.render(query_str, True, (249, 226, 175) if active else (166, 173, 200))
+        self.screen.blit(query_surf, (x + 25 + prompt_surf.get_width(), y + (bar_h - query_surf.get_height()) // 2))
+        
+        # Help controls subtext
+        help_str = "ESC to Clear | ENTER to Lock"
+        help_font = self.get_font(None, 16)
+        help_surf = help_font.render(help_str, True, (166, 173, 200))
+        self.screen.blit(help_surf, (x + bar_w - help_surf.get_width() - 25, y + (bar_h - help_surf.get_height()) // 2))
