@@ -313,7 +313,13 @@ class MAMElyApp:
                 self.confirm_message = ""
                 # Prevent repeat action immediately
                 pygame.event.clear()
-            elif action in [self.input.ACTION_EXIT, self.input.ACTION_GENRE, self.input.ACTION_PLATFORM, self.input.ACTION_FAVORITE]:
+            elif action in [
+                self.input.ACTION_EXIT, 
+                self.input.ACTION_GENRE, 
+                self.input.ACTION_PLATFORM, 
+                self.input.ACTION_FAVORITE,
+                self.input.ACTION_IGNORE
+            ]:
                 # Cancel
                 self.confirm_action = None
                 self.confirm_message = ""
@@ -374,12 +380,22 @@ class MAMElyApp:
         elif action == self.input.ACTION_IGNORE:
             if self.rom_list:
                 rom = self.rom_list[self.selected_rom_idx]
-                is_ign = self.rom_manager.toggle_ignore(rom.name)
-                state = "added to" if is_ign else "removed from"
-                self.set_message(f"{rom.name} {state} Ignore List")
-                # Reload list if we are in Ignore view
-                if self.genre_list[self.current_genre_idx] == "Ignore":
-                    self.update_view_lists(reset_selection=False)
+                
+                # Check status to form message
+                is_currently_ign = (rom.ignore == 1)
+                action_str = "Removing" if is_currently_ign else "Adding"
+                confirm_str = f"{action_str} {rom.name} to Ignore List?"
+                
+                def do_ignore():
+                    is_ign = self.rom_manager.toggle_ignore(rom.name)
+                    state = "added to" if is_ign else "removed from"
+                    self.set_message(f"{rom.name} {state} Ignore List")
+                    # Reload list if we are in Ignore view
+                    if self.genre_list[self.current_genre_idx] == "Ignore":
+                        self.update_view_lists(reset_selection=False)
+                        
+                self.confirm_action = do_ignore
+                self.confirm_message = confirm_str
 
         elif action == self.input.ACTION_RUN:
             self.run_rom()
