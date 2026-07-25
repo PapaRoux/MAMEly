@@ -509,6 +509,11 @@ class MAMElyApp:
                     # Render Video (if idle for 5s) or Fallback to Static Snap
                     elapsed = time.time() - self.last_interaction_time
                     
+                    # Attract Mode check: Idle for 60 seconds triggers fullscreen playback with sound
+                    if elapsed >= 60.0 and video_path:
+                        self.run_attract_mode(video_path)
+                        return
+                    
                     video_rendered = False
                     if elapsed >= 5.0 and video_path:
                         self.ui.set_active_video(video_path)
@@ -595,6 +600,53 @@ class MAMElyApp:
             self.ui.draw_search_bar(self.search_query, self.search_active)
             
         self.ui.end_frame()
+
+    def run_attract_mode(self, video_path):
+        import subprocess
+        print(f"Starting attract mode for: {video_path}")
+        
+        # Release the preview video capture
+        self.ui.close_video()
+        
+        # Launch cvlc fullscreen with audio and exit on end
+        try:
+            proc = subprocess.Popen(["cvlc", "--fullscreen", "--no-video-title-show", "--play-and-exit", video_path])
+        except Exception as e:
+            print(f"Failed to launch cvlc: {e}")
+            self.last_interaction_time = time.time()
+            return
+            
+        running_attract = True
+        while running_attract and proc.poll() is None:
+            # Poll pygame events to catch user interactions
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    try:
+                        proc.terminate()
+                    except Exception:
+                        pass
+                    self.running = False
+                    running_attract = False
+                elif event.type in (pygame.KEYDOWN, pygame.JOYBUTTONDOWN, pygame.MOUSEBUTTONDOWN):
+                    # Interrupted by user!
+                    try:
+                        proc.terminate()
+                    except Exception:
+                        pass
+                    running_attract = False
+            pygame.time.wait(50)
+            
+        # Clean up process
+        try:
+            proc.wait(timeout=1.0)
+        except Exception:
+            pass
+            
+        # Reset interaction time and clear input queues to prevent double-triggering menus
+        self.last_interaction_time = time.time()
+        self.video_paused = False
+        pygame.event.clear()
+        print("Attract mode ended.")
 
     def run_setup_wizard(self):
         from wizard import SetupWizard
