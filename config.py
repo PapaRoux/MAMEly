@@ -245,6 +245,27 @@ class PlatformConfig:
             f.writelines(lines)
         print(f"Saved platform config to: {full_path}")
 
+DEFAULT_SKIN_COLORS = {
+    "defaultFontForegroundColor": (255, 255, 255),
+    "defaultHighlightFontForegroundColor": (255, 255, 0),
+    "defaultRomNameDisplayLineShadowColor": (0, 0, 0),
+    "defaultRomNameDisplayLineHighlightShadowColor": (119, 119, 119),
+    "defaultRomNameDisplayBoxShadowColor": (0, 0, 0),
+    "defaultRomNameDisplayBoxColor": (255, 255, 255),
+    "defaultTitleBarColor": (255, 255, 255),
+    "defaultTitleBarShadowColor": (0, 0, 0),
+    "defaultRomCountColor": (255, 255, 255),
+    "defaultRomCountShadowColor": (0, 0, 0),
+    "defaultMessageColor": (255, 255, 0),
+    "defaultGameSetBarColor": (255, 255, 255),
+    "defaultGameSetBarShadowColor": (0, 0, 0),
+    "defaultRomGenreColor": (255, 255, 255),
+    "defaultRomGenreShadowColor": (0, 0, 0),
+    "defaultRomFileNameColor": (255, 255, 255),
+    "defaultRomFileNameShadowColor": (0, 0, 0),
+}
+
+
 class SkinConfig:
     def __init__(self, platform_path, skin_file):
         self.platform_path = platform_path
@@ -273,9 +294,9 @@ class SkinConfig:
                             self.config[var] = hex_to_color(val)
                         elif any(x in var for x in ["X1", "Y1", "X2", "Y2", "Size", "Len", "Offset", "Time", "Spacing"]):
                              try:
-                                 self.config[var] = int(val)
+                                  self.config[var] = int(val)
                              except ValueError:
-                                 self.config[var] = val
+                                  self.config[var] = val
                         elif val == "True":
                             self.config[var] = True
                         elif val == "False":
@@ -341,4 +362,10 @@ class SkinConfig:
             print(f"Error calculating derived skin values: {e}")
 
     def get(self, key, default=None):
-        return self.config.get(key, default)
+        if key in self.config:
+            return self.config[key]
+        if default is not None:
+            return default
+        if key in DEFAULT_SKIN_COLORS:
+            return DEFAULT_SKIN_COLORS[key]
+        return None
