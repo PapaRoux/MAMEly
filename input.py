@@ -21,6 +21,7 @@ class InputManager:
         self.ACTION_WIZARD = 14
         self.ACTION_SEARCH = 15
         self.ACTION_PAUSE = 16
+        self.ACTION_RANDOMIZE = 17
 
         # Initialize Joysticks
         pygame.joystick.init()
@@ -58,9 +59,17 @@ class InputManager:
                     return self.ACTION_SEARCH
                 elif event.key == pygame.K_SPACE:
                     return self.ACTION_PAUSE
+                elif event.key in (pygame.K_1, pygame.K_5):
+                    # Cabinet start (1) / coin (5) — slot-machine randomizer
+                    return self.ACTION_RANDOMIZE
                 elif event.key == pygame.K_TAB:
                      # Clear queue on tab like original?
                      pygame.event.clear()
+            elif event.type == pygame.JOYBUTTONDOWN:
+                # Button 9 on either stick; also "key 1" / "key 5" on the stick (buttons 1 & 5).
+                # Edge-triggered so it does not fight the held-button maps below.
+                if event.button in (1, 5, 9):
+                    return self.ACTION_RANDOMIZE
 
         # Check raw states for hold/repeat
         keys = pygame.key.get_pressed()
@@ -103,9 +112,9 @@ class InputManager:
                         elif hat[0] == 1: action = self.ACTION_RIGHT
                         
                     # Buttons (Mapping based on original)
-                    # 0: Run, 1: Genre, 2: Platform, 3: Favorite
+                    # 0: Run, 2: Platform, 3: Favorite
+                    # 1, 5, 9: Randomizer (JOYBUTTONDOWN above — button 1 no longer cycles genre)
                     if joy.get_button(0): action = self.ACTION_RUN
-                    elif joy.get_button(1): action = self.ACTION_GENRE
                     elif joy.get_button(2): action = self.ACTION_PLATFORM
                     elif joy.get_button(3): action = self.ACTION_FAVORITE
                 except:

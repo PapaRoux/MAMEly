@@ -1,6 +1,7 @@
 import sys
 import os
 import time
+import random
 import shlex
 import subprocess
 import pygame
@@ -75,6 +76,7 @@ class MAMElyApp:
         # Video snaps controls
         self.last_interaction_time = time.time()
         self.video_paused = False
+        self.randomizing = False
 
     def load_platform(self):
         if not self.config.platforms:
@@ -323,6 +325,10 @@ class MAMElyApp:
                 self.confirm_message = ""
                 # Prevent repeat action immediately
                 pygame.event.clear()
+            elif action == self.input.ACTION_RANDOMIZE:
+                self.confirm_action = None
+                self.confirm_message = ""
+                self.run_randomizer()
             elif action in [
                 self.input.ACTION_EXIT, 
                 self.input.ACTION_GENRE, 
@@ -410,6 +416,9 @@ class MAMElyApp:
         elif action == self.input.ACTION_RUN:
             self.run_rom()
 
+        elif action == self.input.ACTION_RANDOMIZE:
+            self.run_randomizer()
+
         elif action == self.input.ACTION_HELP:
             self._toggle_info_osd()
 
@@ -425,6 +434,106 @@ class MAMElyApp:
             if self.ui.video_cap:
                 self.video_paused = not self.video_paused
                 self.set_message("Video Paused" if self.video_paused else "Video Playing", duration=1)
+
+    def run_randomizer(self):
+        """Slot-machine reel: timed spin, land on a random ROM, then launch it."""
+        if self.randomizing or not self.rom_list:
+            return
+
+        self.randomizing = True
+        self.confirm_action = None
+        self.confirm_message = ""
+        self.search_active = False
+        self.show_info_osd = False
+        self.ui.close_video()
+        self.video_paused = False
+        self.message = ""
+
+        n = len(self.rom_list)
+        start_idx = self.selected_rom_idx % n
+        target_idx = random.randrange(n)
+        labels = [rom.description or rom.name for rom in self.rom_list]
+        font_name = self.skin.get("romListDisplayFont")
+
+        # Fixed-length spin (NOT one step per ROM — that never finished on big lists)
+        total_rows = random.randint(42, 64)
+        total_rows += (target_idx - (start_idx + total_rows) % n) % n
+        start_pos = float(start_idx)
+        end_pos = start_pos + float(total_rows)
+
+        duration = 3.6  # seconds of spinning
+        t0 = time.time()
+        cancelled = False
+        last_tick_idx = start_idx
+
+        print(f"Randomizer: {total_rows} reel steps → [{target_idx}] {self.rom_list[target_idx].name}")
+
+        def ease_out_quint(t):
+            u = 1.0 - t
+            return 1.0 - u * u * u * u * u
+
+        # --- SPIN ---
+        while True:
+            now = time.time()
+            elapsed = now - t0
+            t = min(1.0, elapsed / duration)
+            reel_pos = start_pos + total_rows * ease_out_quint(t)
+            current_idx = int(reel_pos) % n
+
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.running = False
+                    cancelled = True
+                elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                    cancelled = True
+
+            if cancelled or not self.running:
+                break
+
+            # Soft click feel when the payline crosses a new title
+            if current_idx != last_tick_idx:
+                last_tick_idx = current_idx
+                self.selected_rom_idx = current_idx
+
+            self.ui.begin_frame()
+            self.ui.draw_slot_machine(labels, reel_pos, font_name=font_name, phase="spin")
+            self.ui.end_frame()
+
+            if t >= 1.0:
+                break
+
+        if cancelled or not self.running:
+            self.randomizing = False
+            self.set_message("Randomizer cancelled", duration=1)
+            pygame.event.clear()
+            self.input.current_action = self.input.ACTION_NONE
+            return
+
+        # Snap exactly onto the winner
+        self.selected_rom_idx = target_idx
+        winner = self.rom_list[target_idx]
+        print(f"Randomizer landed on: {winner.name} — launching")
+
+        # --- WIN CELEBRATION ---
+        win_t0 = time.time()
+        while time.time() - win_t0 < 1.25 and self.running:
+            flash = time.time() - win_t0
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.running = False
+            self.ui.begin_frame()
+            self.ui.draw_slot_machine(
+                labels, float(target_idx), font_name=font_name, phase="win", flash=flash
+            )
+            self.ui.end_frame()
+
+        self.randomizing = False
+        self.last_interaction_time = time.time()
+        pygame.event.clear()
+        self.input.current_action = self.input.ACTION_NONE
+
+        if self.running:
+            self.run_rom()
 
     def draw(self):
         self.ui.begin_frame()
@@ -492,50 +601,54 @@ class MAMElyApp:
                     self.max_snap_w = self.skin.get("romSnapX2") - self.skin.get("romSnapX1")
                     self.max_snap_h = self.skin.get("romSnapY2") - self.skin.get("romSnapY1")
                     
-                    # Video Snap path check
-                    video_dir = self.rom_manager.config.rom_video_directory
-                    video_ext = self.rom_manager.config.video_extension
-                    rom_name = rom.name
-                    
-                    video_path = None
-                    if video_dir:
-                        vp1 = os.path.join(video_dir, rom_name + video_ext)
-                        vp2 = os.path.join(video_dir, rom_name, "0000" + video_ext)
-                        if os.path.exists(vp1):
-                            video_path = vp1
-                        elif os.path.exists(vp2):
-                            video_path = vp2
-                            
-                    # Render Video (if idle for 5s) or Fallback to Static Snap
-                    elapsed = time.time() - self.last_interaction_time
-                    
-                    # Attract Mode check: Idle for 65 seconds (5s image snap + 60s video snap) triggers fullscreen playback
-                    if elapsed >= 65.0 and video_path:
-                        self.run_attract_mode(video_path)
-                        return
-                    
-                    video_rendered = False
-                    if elapsed >= 5.0 and video_path:
-                        self.ui.set_active_video(video_path)
-                        video_rendered = self.ui.draw_video_frame(
-                            self.skin.get("romSnapX1"), self.skin.get("romSnapY1"),
-                            self.skin.get("romSnapX2"), self.skin.get("romSnapY2"),
-                            paused=self.video_paused
-                        )
+                    # During slot spin, skip snaps/video for speed and to avoid attract mode
+                    if self.randomizing:
+                        pass
                     else:
-                        self.ui.set_active_video(None)
+                        # Video Snap path check
+                        video_dir = self.rom_manager.config.rom_video_directory
+                        video_ext = self.rom_manager.config.video_extension
+                        rom_name = rom.name
                         
-                    if not video_rendered:
-                        snap_dir = self.rom_manager.config.rom_snap_directory
-                        ext = self.rom_manager.config.snap_extension
+                        video_path = None
+                        if video_dir:
+                            vp1 = os.path.join(video_dir, rom_name + video_ext)
+                            vp2 = os.path.join(video_dir, rom_name, "0000" + video_ext)
+                            if os.path.exists(vp1):
+                                video_path = vp1
+                            elif os.path.exists(vp2):
+                                video_path = vp2
+                                
+                        # Render Video (if idle for 5s) or Fallback to Static Snap
+                        elapsed = time.time() - self.last_interaction_time
                         
-                        path1 = os.path.join(snap_dir, rom_name + ext)
-                        path2 = os.path.join(snap_dir, rom_name, "0000" + ext)
+                        # Attract Mode check: Idle for 65 seconds (5s image snap + 60s video snap) triggers fullscreen playback
+                        if elapsed >= 65.0 and video_path:
+                            self.run_attract_mode(video_path)
+                            return
                         
-                        self.ui.draw_image(path1, 
-                                           self.skin.get("romSnapX1"), self.skin.get("romSnapY1"),
-                                           self.skin.get("romSnapX2"), self.skin.get("romSnapY2"),
-                                           fallback_path=path2)
+                        video_rendered = False
+                        if elapsed >= 5.0 and video_path:
+                            self.ui.set_active_video(video_path)
+                            video_rendered = self.ui.draw_video_frame(
+                                self.skin.get("romSnapX1"), self.skin.get("romSnapY1"),
+                                self.skin.get("romSnapX2"), self.skin.get("romSnapY2"),
+                                paused=self.video_paused
+                            )
+                        else:
+                            self.ui.set_active_video(None)
+                            
+                        if not video_rendered:
+                            snap_dir = self.rom_manager.config.rom_snap_directory
+                            ext = self.rom_manager.config.snap_extension
+                            
+                            path1 = os.path.join(snap_dir, rom_name + ext)
+                            path2 = os.path.join(snap_dir, rom_name, "0000" + ext)
+                            
+                            self.ui.draw_image(path1, 
+                                               self.skin.get("romSnapX1"), self.skin.get("romSnapY1"),
+                                               self.skin.get("romSnapX2"), self.skin.get("romSnapY2"),
+                                               fallback_path=path2)
                                        
                     # Draw Genre/Rating or Message
                     msg = self.message
