@@ -9,7 +9,7 @@ from roms import RomManager
 from ui import UIManager
 from input import InputManager
 from version import __version__
-from diagnostics import build_osd_lines, check_platform, startup_message
+from diagnostics import build_osd_lines, check_platform, startup_message, check_all, has_errors
 
 class MAMElyApp:
     def __init__(self):
@@ -25,10 +25,13 @@ class MAMElyApp:
         
         # Parse Args
         self.config_file = "config.xml"
+        self.launch_wizard = False
         if len(sys.argv) > 1:
              for arg in sys.argv:
                  if arg.startswith("-config="):
                      self.config_file = arg.split("=")[1]
+                 elif arg == "--wizard":
+                     self.launch_wizard = True
 
         # Load Main Config
         self.config = Config(self.base_path, self.config_file)
@@ -221,6 +224,10 @@ class MAMElyApp:
             cmd.extend(shlex.split(flags))
         if "--file-forwarding" in exe:
             cmd.extend(["@@", full_rom_path, "@@"])
+        elif exe == "mame" or exe.endswith("/mame"):
+            if "-rompath" not in cmd and self.rom_manager.config.rom_directory:
+                cmd.extend(["-rompath", self.rom_manager.config.rom_directory])
+            cmd.append(rom.name)
         else:
             cmd.append(full_rom_path)
 
@@ -336,6 +343,9 @@ class MAMElyApp:
 
         elif action == self.input.ACTION_HELP:
             self._toggle_info_osd()
+
+        elif action == self.input.ACTION_WIZARD:
+            self.run_setup_wizard()
 
     def draw(self):
         self.ui.begin_frame()
@@ -476,8 +486,45 @@ class MAMElyApp:
             
         self.ui.end_frame()
 
-    def run(self):
+    def run_setup_wizard(self):
+        from wizard import SetupWizard
+        if self.ui is None:
+            if self.config.platforms:
+                p_def = self.config.platforms[self.platform_idx]
+                platform_path = os.path.join(self.base_path, "platforms", p_def.folder)
+                self.skin = SkinConfig(platform_path, p_def.skin_file)
+                self.ui = UIManager(self.config, self.skin)
+            else:
+                # Wizard init will handle dummy ui
+                pass
+            
+        wizard = SetupWizard(self)
+        wizard.run()
+        
+        # Reload configuration
+        self.config = Config(self.base_path, self.config_file)
+        self.platform_idx = 0
         self.load_platform()
+
+    def run(self):
+        # Check diagnostics on startup.
+        # We auto-launch the wizard if --wizard was passed, if no platforms are defined,
+        # or if ALL platforms are broken (have critical errors).
+        all_broken = True
+        if self.config.platforms:
+            for p_def in self.config.platforms:
+                p_issues = check_platform(self.base_path, p_def)
+                p_errors = [i for i in p_issues if i.level == "error"]
+                if not p_errors:
+                    all_broken = False
+                    break
+        else:
+            all_broken = True
+
+        if self.launch_wizard or all_broken:
+            self.run_setup_wizard()
+        else:
+            self.load_platform()
         
         while self.running:
             self.handle_input()

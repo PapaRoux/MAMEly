@@ -51,6 +51,7 @@ External emulator settings (not in MAMEly repo)
 Useful commands
   python MAMEly.py --check         Validate all platform configs
   python MAMEly.py --config-map    Show this settings map
+  python MAMEly.py --wizard        Launch interactive Setup Wizard
   snap connections snes9x-gtk      Check Snap permissions (joystick, media)
   sudo snap connect snes9x-gtk:joystick
 """

@@ -37,7 +37,9 @@ class Config:
         print(f"Loading main config from: {config_path}")
         if not os.path.exists(config_path):
             print(f"Config file not found: {config_path}")
-            return
+            self.generate_default_config()
+            if not os.path.exists(config_path):
+                return
 
         try:
             tree = ET.parse(config_path)
@@ -67,6 +69,49 @@ class Config:
                         
         except ET.ParseError as e:
             print(f"Error parsing config.xml: {e}")
+
+    def generate_default_config(self):
+        config_path = os.path.join(self.base_path, self.config_file)
+        platforms_dir = os.path.join(self.base_path, "platforms")
+        found_platforms = []
+        if os.path.exists(platforms_dir):
+            for d in sorted(os.listdir(platforms_dir)):
+                d_path = os.path.join(platforms_dir, d)
+                if os.path.isdir(d_path):
+                    config_file = None
+                    skin_file = None
+                    for f in os.listdir(d_path):
+                        if f.endswith(".txt") and f.startswith("config_"):
+                            config_file = f
+                        elif f.endswith(".skin") and f.startswith("config_"):
+                            skin_file = f
+                    if not config_file:
+                        config_file = f"config_retrocade_{d}_1920x1080.txt"
+                    if not skin_file:
+                        skin_file = f"config_retrocade_{d}_1920x1080.skin"
+                    
+                    # Convert platform folder name to friendly name
+                    friendly_name = d
+                    if d == "ATARI2600":
+                        friendly_name = "Atari 2600"
+                    elif d == "SNES":
+                        friendly_name = "Super Nintendo"
+                    elif d == "N64":
+                        friendly_name = "Nintendo 64"
+                    found_platforms.append((friendly_name, d, config_file, skin_file))
+        
+        with open(config_path, "w") as f:
+            f.write('<?xml version="1.0"?>\n')
+            f.write('<platforms>\n')
+            f.write('    <screensize screenX="1920" screenY="1080"/>\n')
+            for name, folder, config_f, skin_f in found_platforms:
+                f.write(f'    <platform name="{name}">\n')
+                f.write(f'        <folder>{folder}</folder>\n')
+                f.write(f'        <config>{config_f}</config>\n')
+                f.write(f'        <skin>{skin_f}</skin>\n')
+                f.write('    </platform>\n')
+            f.write('</platforms>\n')
+        print(f"Generated default main config at: {config_path}")
 
 class PlatformConfig:
     def __init__(self, platform_path, config_file):
@@ -144,6 +189,61 @@ class PlatformConfig:
                             
         except Exception as e:
             print(f"Error reading platform config: {e}")
+
+    def save_config(self):
+        full_path = os.path.join(self.platform_path, self.config_file)
+        lines = []
+        existing_vars = {}
+        if os.path.exists(full_path):
+            with open(full_path, "r") as f:
+                for line in f:
+                    stripped = line.strip()
+                    if stripped.startswith("#") or not stripped:
+                        lines.append(line)
+                    elif "=" in stripped:
+                        var, _ = stripped.split("=", 1)
+                        var = var.strip()
+                        existing_vars[var] = len(lines)
+                        lines.append(line)
+                    else:
+                        lines.append(line)
+
+        # Before writing, let's make paths relative if they are subpaths of emulator_base_path
+        save_rom_dir = self.rom_directory
+        save_snap_dir = self.rom_snap_directory
+        
+        base_path = self.emulator_base_path
+        if base_path:
+            # If absolute paths start with base_path, make them relative
+            if save_rom_dir and os.path.isabs(save_rom_dir) and save_rom_dir.startswith(base_path):
+                save_rom_dir = os.path.relpath(save_rom_dir, base_path)
+            if save_snap_dir and os.path.isabs(save_snap_dir) and save_snap_dir.startswith(base_path):
+                save_snap_dir = os.path.relpath(save_snap_dir, base_path)
+
+        settings = {
+            "emulatorExecutable": self.emulator_executable,
+            "romExtension": self.rom_extension,
+            "snapExtension": self.snap_extension,
+            "emulatorBasePath": self.emulator_base_path,
+            "romSnapDirectory": save_snap_dir,
+            "romDirectory": save_rom_dir,
+            "MAMElyxmlPath": self.mamely_xml_path,
+            "favoritesDirectory": self.favorites_directory,
+            "showXMLprogressBar": str(self.show_xml_progress_bar),
+            "compareXMLtoRoms": str(self.compare_xml_to_roms),
+            "emulatorDefaultFlags": self.emulator_default_flags,
+        }
+
+        for var, val in settings.items():
+            if var in existing_vars:
+                idx = existing_vars[var]
+                lines[idx] = f"{var} = {val}\n"
+            else:
+                lines.append(f"{var} = {val}\n")
+
+        with open(full_path, "w") as f:
+            f.writelines(lines)
+        print(f"Saved platform config to: {full_path}")
 
 class SkinConfig:
     def __init__(self, platform_path, skin_file):
