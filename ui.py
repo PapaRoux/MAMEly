@@ -61,6 +61,13 @@ class UIManager:
         if truncate_len > 0 and len(text) > truncate_len:
             text = text[:truncate_len]
             
+        # Defensive check to prevent "invalid color argument" crashes
+        if not isinstance(color, (tuple, list, pygame.Color)) or len(color) < 3:
+            color = (255, 255, 255)
+        if shadow:
+            if not isinstance(shadow_color, (tuple, list, pygame.Color)) or len(shadow_color) < 3:
+                shadow_color = (0, 0, 0)
+
         font = self.get_font(font_name, size)
         
         if shadow and shadow_color:
