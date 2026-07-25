@@ -26,6 +26,11 @@ class UIManager:
         self.background = None
         self.load_background()
 
+        # Video Capture State
+        self.video_cap = None
+        self.current_video_path = None
+        self.last_video_frame_surf = None
+
     def load_background(self):
         bg_path = self.skin.get("backgroundImage")
         if bg_path:
@@ -155,6 +160,76 @@ class UIManager:
         draw_y = y_center - new_h // 2
         
         self.screen.blit(scaled_img, (draw_x, draw_y))
+
+    def set_active_video(self, video_path):
+        """Set the active video snap to play. Release old capture if path changes."""
+        if self.current_video_path != video_path:
+            self.close_video()
+            self.current_video_path = video_path
+            if video_path and os.path.exists(video_path):
+                import cv2
+                try:
+                    self.video_cap = cv2.VideoCapture(video_path)
+                    if not self.video_cap.isOpened():
+                        self.video_cap = None
+                except Exception as e:
+                    print(f"Error opening video: {e}")
+                    self.video_cap = None
+
+    def draw_video_frame(self, x1, y1, x2, y2, paused=False):
+        """Read next frame from active video, scale, and render inside rect."""
+        if self.video_cap is None:
+            return False
+            
+        width = x2 - x1
+        height = y2 - y1
+        x_center = x1 + width // 2
+        y_center = y1 + height // 2
+        
+        # If paused, render the cached frame surface
+        if paused and self.last_video_frame_surf is not None:
+            self.screen.blit(self.last_video_frame_surf, (x_center - self.last_video_frame_surf.get_width() // 2, y_center - self.last_video_frame_surf.get_height() // 2))
+            return True
+            
+        import cv2
+        try:
+            ret, frame = self.video_cap.read()
+            if not ret:
+                # Loop video by resetting to start frame
+                self.video_cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+                ret, frame = self.video_cap.read()
+                
+            if ret:
+                # Convert BGR (OpenCV) to RGB (Pygame)
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                # Transpose frame (OpenCV is HxW, Pygame is WxH)
+                frame = cv2.transpose(frame)
+                img = pygame.surfarray.make_surface(frame)
+                
+                img_w, img_h = img.get_size()
+                scale = min(width / float(img_w), height / float(img_h))
+                new_w, new_h = int(img_w * scale), int(img_h * scale)
+                
+                scaled_img = pygame.transform.scale(img, (new_w, new_h))
+                self.last_video_frame_surf = scaled_img  # Cache the surface
+                self.screen.blit(scaled_img, (x_center - new_w // 2, y_center - new_h // 2))
+                return True
+        except Exception as e:
+            print(f"Error rendering video frame: {e}")
+            self.close_video()
+            
+        return False
+
+    def close_video(self):
+        """Release active video resources."""
+        if self.video_cap is not None:
+            try:
+                self.video_cap.release()
+            except Exception:
+                pass
+            self.video_cap = None
+        self.current_video_path = None
+        self.last_video_frame_surf = None
 
     def draw_progress_bar(self, percent, x1, y1, x2):
         if percent <= 0: return

@@ -124,6 +124,8 @@ class PlatformConfig:
         self.snap_extension = ".png"
         self.emulator_base_path = ""
         self.rom_snap_directory = ""
+        self.rom_video_directory = "video/"
+        self.video_extension = ".mp4"
         self.rom_directory = ""
         self.mamely_xml_path = ""
         self.favorites_directory = ""
@@ -169,6 +171,10 @@ class PlatformConfig:
                             self.emulator_base_path = val
                         elif var == "romSnapDirectory":
                             self.rom_snap_directory = val
+                        elif var == "romVideoDirectory":
+                            self.rom_video_directory = val
+                        elif var == "videoExtension":
+                            self.video_extension = val
                         elif var == "romDirectory":
                             self.rom_directory = val
                         elif var == "MAMElyxmlPath":
@@ -185,6 +191,8 @@ class PlatformConfig:
             # Path normalization
             if self.rom_snap_directory and not self.rom_snap_directory.startswith("/"):
                 self.rom_snap_directory = os.path.join(self.emulator_base_path, self.rom_snap_directory)
+            if self.rom_video_directory and not self.rom_video_directory.startswith("/"):
+                self.rom_video_directory = os.path.join(self.emulator_base_path, self.rom_video_directory)
             if self.rom_directory and not self.rom_directory.startswith("/"):
                 self.rom_directory = os.path.join(self.emulator_base_path, self.rom_directory)
                             
@@ -212,6 +220,7 @@ class PlatformConfig:
         # Before writing, let's make paths relative if they are subpaths of emulator_base_path
         save_rom_dir = self.rom_directory
         save_snap_dir = self.rom_snap_directory
+        save_video_dir = self.rom_video_directory
         
         base_path = self.emulator_base_path
         if base_path:
@@ -220,6 +229,8 @@ class PlatformConfig:
                 save_rom_dir = os.path.relpath(save_rom_dir, base_path)
             if save_snap_dir and os.path.isabs(save_snap_dir) and save_snap_dir.startswith(base_path):
                 save_snap_dir = os.path.relpath(save_snap_dir, base_path)
+            if save_video_dir and os.path.isabs(save_video_dir) and save_video_dir.startswith(base_path):
+                save_video_dir = os.path.relpath(save_video_dir, base_path)
 
         # Convert absolute home paths to tildes (~) so it's clean and portable in Git
         home_dir = os.path.expanduser("~")
@@ -237,6 +248,8 @@ class PlatformConfig:
             "snapExtension": self.snap_extension,
             "emulatorBasePath": save_base_path,
             "romSnapDirectory": save_snap_dir,
+            "romVideoDirectory": save_video_dir,
+            "videoExtension": self.video_extension,
             "romDirectory": save_rom_dir,
             "MAMElyxmlPath": self.mamely_xml_path,
             "favoritesDirectory": self.favorites_directory,

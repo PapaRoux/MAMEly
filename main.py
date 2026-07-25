@@ -72,6 +72,10 @@ class MAMElyApp:
         self.search_active = False
         self.search_query = ""
 
+        # Video snaps controls
+        self.last_interaction_time = time.time()
+        self.video_paused = False
+
     def load_platform(self):
         if not self.config.platforms:
             print("No platforms definitions found.")
@@ -94,6 +98,7 @@ class MAMElyApp:
         if self.ui is None:
              self.ui = UIManager(self.config, self.skin)
         else:
+             self.ui.close_video()
              self.ui.skin = self.skin
              self.ui.load_background()
 
@@ -264,6 +269,7 @@ class MAMElyApp:
                 if event.type == pygame.QUIT:
                     self.running = False
                 elif event.type == pygame.KEYDOWN:
+                    self.last_interaction_time = time.time()  # Reset idle timer!
                     if event.key == pygame.K_ESCAPE:
                         self.search_active = False
                         self.search_query = ""
@@ -286,6 +292,10 @@ class MAMElyApp:
             return
 
         action = self.input.get_action()
+        if action != self.input.ACTION_NONE:
+            self.last_interaction_time = time.time()  # Reset idle timer!
+            if action != self.input.ACTION_PAUSE:
+                self.video_paused = False
 
         if self.show_info_osd:
             if action == self.input.ACTION_HELP:
@@ -411,8 +421,15 @@ class MAMElyApp:
         elif action == self.input.ACTION_WIZARD:
             self.run_setup_wizard()
 
+        elif action == self.input.ACTION_PAUSE:
+            if self.ui.video_cap:
+                self.video_paused = not self.video_paused
+                self.set_message("Video Paused" if self.video_paused else "Video Playing", duration=1)
+
     def draw(self):
         self.ui.begin_frame()
+        if not self.rom_list:
+            self.ui.close_video()
         
         # 1. Draw Genre Set
         cur_genre = self.genre_list[self.current_genre_idx] if self.genre_list else ""
@@ -475,19 +492,45 @@ class MAMElyApp:
                     self.max_snap_w = self.skin.get("romSnapX2") - self.skin.get("romSnapX1")
                     self.max_snap_h = self.skin.get("romSnapY2") - self.skin.get("romSnapY1")
                     
-                    # Snap path
-                    # Try base path + rom name + ext, then rom directory + rom name + /0000 + ext
-                    snap_dir = self.rom_manager.config.rom_snap_directory
+                    # Video Snap path check
+                    video_dir = self.rom_manager.config.rom_video_directory
+                    video_ext = self.rom_manager.config.video_extension
                     rom_name = rom.name
-                    ext = self.rom_manager.config.snap_extension
                     
-                    path1 = os.path.join(snap_dir, rom_name + ext)
-                    path2 = os.path.join(snap_dir, rom_name, "0000" + ext)
+                    video_path = None
+                    if video_dir:
+                        vp1 = os.path.join(video_dir, rom_name + video_ext)
+                        vp2 = os.path.join(video_dir, rom_name, "0000" + video_ext)
+                        if os.path.exists(vp1):
+                            video_path = vp1
+                        elif os.path.exists(vp2):
+                            video_path = vp2
+                            
+                    # Render Video (if idle for 5s) or Fallback to Static Snap
+                    elapsed = time.time() - self.last_interaction_time
                     
-                    self.ui.draw_image(path1, 
-                                       self.skin.get("romSnapX1"), self.skin.get("romSnapY1"),
-                                       self.skin.get("romSnapX2"), self.skin.get("romSnapY2"),
-                                       fallback_path=path2)
+                    video_rendered = False
+                    if elapsed >= 5.0 and video_path:
+                        self.ui.set_active_video(video_path)
+                        video_rendered = self.ui.draw_video_frame(
+                            self.skin.get("romSnapX1"), self.skin.get("romSnapY1"),
+                            self.skin.get("romSnapX2"), self.skin.get("romSnapY2"),
+                            paused=self.video_paused
+                        )
+                    else:
+                        self.ui.set_active_video(None)
+                        
+                    if not video_rendered:
+                        snap_dir = self.rom_manager.config.rom_snap_directory
+                        ext = self.rom_manager.config.snap_extension
+                        
+                        path1 = os.path.join(snap_dir, rom_name + ext)
+                        path2 = os.path.join(snap_dir, rom_name, "0000" + ext)
+                        
+                        self.ui.draw_image(path1, 
+                                           self.skin.get("romSnapX1"), self.skin.get("romSnapY1"),
+                                           self.skin.get("romSnapX2"), self.skin.get("romSnapY2"),
+                                           fallback_path=path2)
                                        
                     # Draw Genre/Rating or Message
                     msg = self.message
@@ -597,6 +640,8 @@ class MAMElyApp:
             self.handle_input()
             self.draw()
         
+        if self.ui:
+            self.ui.close_video()
         pygame.quit()
 
 if __name__ == "__main__":
