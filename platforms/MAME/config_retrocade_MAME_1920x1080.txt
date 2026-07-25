@@ -1,9 +1,12 @@
 # base path for all relative directories below
-emulatorBasePath = /home/laptop/.mame/
-romSnapDirectory = snap/
-romDirectory = roms/
+emulatorBasePath = /home/mame/.mame/
+romSnapDirectory = snap
+romDirectory = roms
 compareXMLtoRoms = True
 emulatorExecutable = mame
 romExtension = .zip
 snapExtension = .png
 showXMLprogressBar = False
+MAMElyxmlPath = 
+favoritesDirectory = 
+emulatorDefaultFlags = 

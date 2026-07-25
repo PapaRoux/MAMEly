@@ -362,8 +362,8 @@ class MAMElyApp:
                           self.skin.get("genreSetYCenter"),
                           self.skin.get("genreSetFont"),
                           self.skin.get("genreSetFontSize", 20),
-                          self.skin.get("defaultGameSetBarColor"),
-                          self.skin.get("defaultGameSetBarShadowColor"),
+                          self.skin.get("defaultGameSetBarColor", (255, 255, 255)),
+                          self.skin.get("defaultGameSetBarShadowColor", (0, 0, 0)),
                           self.skin.get("genreSetShadow"),
                           self.skin.get("genreSetTruncateLen"))
 

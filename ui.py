@@ -58,6 +58,11 @@ class UIManager:
             # Skip drawing if coordinates are missing
             return
 
+        if color is None:
+            color = (255, 255, 255)
+        if shadow and shadow_color is None:
+            shadow_color = (0, 0, 0)
+
         if truncate_len > 0 and len(text) > truncate_len:
             text = text[:truncate_len]
             
