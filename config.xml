@@ -3,26 +3,22 @@
     <screensize screenX="1920" screenY="1080"/>
     <platform name="MAME">
         <folder>MAME</folder>
-        <config>config_retrocade_MAME_1920x1080.txt</config>
-        <skin>config_retrocade_MAME_1920x1080.skin</skin>        
+        <config>platform_MAME.txt</config>
+        <skin>synthwave_1920x1080.skin</skin>        
     </platform>    
     <platform name="Super Nintendo">
         <folder>SNES</folder>
-        <config>config_retrocade_SNES_1920x1080.txt</config>
+        <config>platform_SNES.txt</config>
         <skin>config_retrocade_SNES_1920x1080.skin</skin>
     </platform>
     <platform name="Atari 2600">
         <folder>ATARI2600</folder>
-        <config>config_retrocade_ATARI2600_1920x1080.txt</config>
+        <config>platform_ATARI2600.txt</config>
         <skin>config_retrocade_ATARI2600_1920x1080.skin</skin>
     </platform>
-<!--
     <platform name="Nintendo 64">
         <folder>N64</folder>
-        <config>config_retrocade_N64_1920x1080.txt</config>
+        <config>platform_N64.txt</config>
         <skin>config_retrocade_N64_1920x1080.skin</skin>
     </platform>      
-    -->
 </platforms>
-    
-    

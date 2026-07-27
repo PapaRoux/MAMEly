@@ -81,14 +81,14 @@ class Config:
                     config_file = None
                     skin_file = None
                     for f in os.listdir(d_path):
-                        if f.endswith(".txt") and f.startswith("config_"):
+                        if f.endswith(".txt") and not f.startswith("_"):
                             config_file = f
-                        elif f.endswith(".skin") and f.startswith("config_"):
+                        elif f.endswith(".skin") and (skin_file is None or "synthwave" in f):
                             skin_file = f
                     if not config_file:
-                        config_file = f"config_retrocade_{d}_1920x1080.txt"
+                        config_file = f"platform_{d}.txt"
                     if not skin_file:
-                        skin_file = f"config_retrocade_{d}_1920x1080.skin"
+                        skin_file = f"synthwave_1920x1080.skin"
                     
                     # Convert platform folder name to friendly name
                     friendly_name = d

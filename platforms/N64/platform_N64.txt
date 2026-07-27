@@ -1,9 +1,11 @@
-# base path for all relative directories below
+# Nintendo 64 Platform Configuration
 emulatorBasePath = ~/mnt/nfs/8TB/platforms/n64/
-romSnapDirectory = snap/
 romDirectory = roms/
-compareXMLtoRoms = False
+romSnapDirectory = snap/
+romVideoDirectory = video/
 emulatorExecutable = mupen64plus --gfx mupen64plus-video-glide64mk2 --fullscreen --resolution 1920x1080 --sshotdir ~/mnt/nfs/8TB/platforms/n64/snap/
 romExtension = .v64
 snapExtension = .jpg
+videoExtension = .mp4
+compareXMLtoRoms = False
 showXMLprogressBar = False

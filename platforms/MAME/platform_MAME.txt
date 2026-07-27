@@ -1,0 +1,11 @@
+# MAME Platform Configuration
+emulatorBasePath = ~/.mame/
+romDirectory = roms/
+romSnapDirectory = snap/
+romVideoDirectory = video/
+emulatorExecutable = mame
+romExtension = .zip
+snapExtension = .png
+videoExtension = .mp4
+compareXMLtoRoms = True
+showXMLprogressBar = False

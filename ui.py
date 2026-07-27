@@ -59,7 +59,10 @@ class UIManager:
                 self.fonts[key] = pygame.font.Font(None, size)
         return self.fonts[key]
 
-    def draw_text(self, text, x, y, font_name, size, color, shadow_color=None, shadow=False, truncate_len=0, centered=True):
+    def draw_text(self, text, x, y, font_name, size, color, shadow_color=None, shadow=False, truncate_len=0, centered=True, align=None):
+        """Draw text. With centered=True, y is the vertical middle and `align`
+        picks the horizontal anchor: 'left' treats x as the left edge, 'right'
+        as the right edge, 'center' (default) as the midpoint."""
         if x is None or y is None:
             # Skip drawing if coordinates are missing
             return
@@ -80,24 +83,28 @@ class UIManager:
                 shadow_color = (0, 0, 0)
 
         font = self.get_font(font_name, size)
-        
+
+        def anchor(rect, ax, ay):
+            if not centered:
+                rect.topleft = (ax, ay)
+            elif align == "left":
+                rect.midleft = (ax, ay)
+            elif align == "right":
+                rect.midright = (ax, ay)
+            else:
+                rect.center = (ax, ay)
+
         if shadow and shadow_color:
             shadow_surf = font.render(text, True, shadow_color)
             shadow_rect = shadow_surf.get_rect()
             offsets = [(-2, -2), (-2, 2), (2, -2), (2, 2)]
             for ox, oy in offsets:
-                if centered:
-                    shadow_rect.center = (x + ox, y + oy)
-                else:
-                    shadow_rect.topleft = (x + ox, y + oy)
+                anchor(shadow_rect, x + ox, y + oy)
                 self.screen.blit(shadow_surf, shadow_rect)
                 
         text_surf = font.render(text, True, color)
         text_rect = text_surf.get_rect()
-        if centered:
-            text_rect.center = (x, y)
-        else:
-            text_rect.topleft = (x, y)
+        anchor(text_rect, x, y)
         self.screen.blit(text_surf, text_rect)
 
     def draw_image(self, image_path, x1, y1, x2, y2, fallback_path=None):

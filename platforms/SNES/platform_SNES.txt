@@ -1,9 +1,11 @@
-# base path for all relative directories below
+# SNES Platform Configuration
 emulatorBasePath = ~/Documents/snes9x/
-romSnapDirectory = snap/
 romDirectory = roms/
-compareXMLtoRoms = False
+romSnapDirectory = snap/
+romVideoDirectory = video/
 emulatorExecutable = /snap/bin/snes9x-gtk
 romExtension = .smc
 snapExtension = .png
+videoExtension = .mp4
+compareXMLtoRoms = False
 showXMLprogressBar = False

@@ -1,0 +1,102 @@
+# MAMEly Skin File platforms/MAME/synthwave_1080x1920.skin
+# Synthwave Cyberpunk 1080x1920 Portrait skin (Maximized Wide ROM List Area)
+
+# skin image
+backgroundImage = background_synthwave_1080x1920.png
+
+# skinnable colors in the script
+defaultFontForegroundColor = 00F0FF
+defaultHighlightFontForegroundColor = FF007F
+defaultRomNameDisplayLineShadowColor = 000000
+defaultRomNameDisplayLineHighlightShadowColor = 330044
+defaultRomNameDisplayBoxShadowColor = 000000
+defaultRomNameDisplayBoxColor = FFE600
+defaultTitleBarColor = 00F0FF
+defaultTitleBarShadowColor = 000000
+defaultRomCountColor = 00F0FF
+defaultRomCountShadowColor = 000000
+defaultMessageColor = FFE600
+defaultGameSetBarColor = FF007F
+defaultGameSetBarShadowColor = 000000
+defaultRomGenreColor = 00F0FF
+defaultRomGenreShadowColor = 000000
+defaultRomFileNameColor = FF007F
+defaultRomFileNameShadowColor = 000000
+
+# strokes / shadows
+romCountShadow = True
+romGenreShadow = True
+romFileNameShadow = True
+genreSetShadow = True
+romListDisplayHighlightShadow = True
+romListDisplayShadow = True
+messageShadow = True
+
+# show or hide sections
+genreSetShow = True
+romGenreShow = True
+romCountShow = True
+romFileNameDisplayBoxShow = True
+romSnapShow = True
+
+# area for scrolling list of games (Bottom Wide Synthwave Window - Main List)
+romListDisplayAreaX1 = 210
+romListDisplayAreaY1 = 990
+romListDisplayAreaX2 = 870
+romListDisplayAreaY2 = 1500
+romListDisplayFont = Continuum-Bold-Regular.ttf
+romListDisplayFontSize = 28
+romListDisplaySpacing = 34
+romListDisplayTruncateLen = 42
+romListDisplayAlign = center
+
+# area for genre of current rom and rating, and also messages
+romGenreX1 = 210
+romGenreY1 = 1510
+romGenreX2 = 870
+romGenreY2 = 1590
+romGenreFont = Continuum-Bold-Regular.ttf
+romGenreFontSize = 24
+romGenreTruncateLen = 45
+romGenreAlign = center
+messageFont = Continuum-Bold-Regular.ttf
+messageFontSize = 32
+messageTime = 1
+messageTruncateLen = 35
+messageAlign = center
+
+# area for genre set / title bar (Above List in Bottom Window)
+genreSetX1 = 210
+genreSetY1 = 890
+genreSetX2 = 870
+genreSetY2 = 940
+genreSetFont = Continuum-Bold-Regular.ttf
+genreSetFontSize = 28
+genreSetTruncateLen = 40
+genreSetAlign = center
+
+# area for rom snap image (Top Large Synthwave Window)
+romSnapX1 = 279
+romSnapY1 = 225
+romSnapX2 = 801
+romSnapY2 = 701
+
+# area for # of ### (Above Title Bar)
+romCountX1 = 210
+romCountY1 = 945
+romCountX2 = 870
+romCountY2 = 985
+romCountFont = Continuum-Bold-Regular.ttf
+romCountFontSize = 30
+romCountTruncateLen = 22
+romCountAlign = center
+
+# area for file name of current rom (Bottom of Window)
+romFileNameDisplayBoxX1 = 210
+romFileNameDisplayBoxY1 = 1600
+romFileNameDisplayBoxX2 = 870
+romFileNameDisplayBoxY2 = 1675
+romFileNameDisplayBoxFont = Continuum-Bold-Regular.ttf
+romFileNameDisplayBoxFontSize = 32
+romFileNameDisplayBoxTruncateLen = 28
+romFileNameDisplayBoxAlign = center

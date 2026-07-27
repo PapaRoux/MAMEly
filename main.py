@@ -535,6 +535,25 @@ class MAMElyApp:
         if self.running:
             self.run_rom()
 
+    def _text_anchor(self, prefix, align_key):
+        """Resolve (x, align) for a text zone from its skin alignment key.
+
+        'left' anchors on the zone's X1, 'right' on X2, 'center' on the
+        derived XCenter. Unknown/missing values fall back to center.
+        """
+        align = self.skin.get(align_key, "center")
+        align = str(align).strip().lower() if align else "center"
+        if align not in ("left", "center", "right"):
+            align = "center"
+
+        if align == "left":
+            x = self.skin.get(prefix + "X1")
+        elif align == "right":
+            x = self.skin.get(prefix + "X2")
+        else:
+            x = self.skin.get(prefix + "XCenter")
+        return x, align
+
     def draw(self):
         self.ui.begin_frame()
         if not self.rom_list:
@@ -546,23 +565,27 @@ class MAMElyApp:
              text = "Genre: " + cur_genre
         else:
              text = cur_genre
-             
+
+        gs_x, gs_align = self._text_anchor("genreSet", "genreSetAlign")
         self.ui.draw_text(text,
-                          self.skin.get("genreSetXCenter"),
+                          gs_x,
                           self.skin.get("genreSetYCenter"),
                           self.skin.get("genreSetFont"),
                           self.skin.get("genreSetFontSize", 20),
                           self.skin.get("defaultGameSetBarColor", (255, 255, 255)),
                           self.skin.get("defaultGameSetBarShadowColor", (0, 0, 0)),
                           self.skin.get("genreSetShadow"),
-                          self.skin.get("genreSetTruncateLen"))
+                          self.skin.get("genreSetTruncateLen"),
+                          align=gs_align)
 
         # 2. Draw ROM List
         # Calculate list geometry based on skin
         y1 = self.skin.get("romListDisplayAreaY1", 100)
         y2 = self.skin.get("romListDisplayAreaY2", 500)
         spacing = self.skin.get("romListDisplaySpacing", 20)
-        x_center = self.skin.get("romListDisplayAreaXCenter", 400)
+        list_x, list_align = self._text_anchor("romListDisplayArea", "romListDisplayAlign")
+        if list_x is None:
+            list_x = 400
         
         num_lines = int((y2 - y1) / spacing)
         mid_line = num_lines // 2
@@ -587,14 +610,15 @@ class MAMElyApp:
                 shadow = self.skin.get("romListDisplayHighlightShadow") if is_selected else self.skin.get("romListDisplayShadow")
                 
                 self.ui.draw_text(rom.description,
-                                  x_center,
+                                  list_x,
                                   display_y,
                                   self.skin.get("romListDisplayFont"),
                                   self.skin.get("romListDisplayFontSize", 20),
                                   color,
                                   shadow_color,
                                   shadow,
-                                  self.skin.get("romListDisplayTruncateLen"))
+                                  self.skin.get("romListDisplayTruncateLen"),
+                                  align=list_align)
                                   
                 if is_selected:
                     # Draw Details for selected ROM
@@ -656,18 +680,20 @@ class MAMElyApp:
                         if time.time() - self.message_start_time > self._current_message_duration:
                             self.message = ""
                     
-                    gx = self.skin.get("romGenreXCenter")
                     gy = self.skin.get("romGenreYCenter")
                     offset = self.skin.get("genreRatingOffset", 20)
                     
                     if msg:
-                        self.ui.draw_text(msg, gx, gy, 
+                        mx, m_align = self._text_anchor("romGenre", "messageAlign")
+                        self.ui.draw_text(msg, mx, gy,
                                           self.skin.get("messageFont"),
                                           self.skin.get("messageFontSize"),
                                           self.skin.get("defaultMessageColor"),
                                           shadow=True,
-                                          truncate_len=self.skin.get("messageTruncateLen"))
+                                          truncate_len=self.skin.get("messageTruncateLen"),
+                                          align=m_align)
                     else:
+                        gx, g_align = self._text_anchor("romGenre", "romGenreAlign")
                         g_txt = f"Genre: {rom.genre}"
                         r_txt = f"Rating: {rom.rating}"
                         self.ui.draw_text(g_txt, gx, gy - offset, 
@@ -675,33 +701,39 @@ class MAMElyApp:
                                           self.skin.get("romGenreFontSize"),
                                           self.skin.get("defaultRomNameDisplayBoxColor"),
                                           shadow=self.skin.get("romGenreShadow"),
-                                          truncate_len=self.skin.get("romGenreTruncateLen"))
+                                          truncate_len=self.skin.get("romGenreTruncateLen"),
+                                          align=g_align)
                         self.ui.draw_text(r_txt, gx, gy + offset, 
                                           self.skin.get("romGenreFont"),
                                           self.skin.get("romGenreFontSize"),
                                           self.skin.get("defaultRomNameDisplayBoxColor"),
                                           shadow=self.skin.get("romGenreShadow"),
-                                          truncate_len=self.skin.get("romGenreTruncateLen"))
+                                          truncate_len=self.skin.get("romGenreTruncateLen"),
+                                          align=g_align)
                                           
                     # Draw Count
                     count_txt = f"{self.selected_rom_idx + 1} of {len(self.rom_list)}"
+                    cx, c_align = self._text_anchor("romCount", "romCountAlign")
                     self.ui.draw_text(count_txt,
-                                      self.skin.get("romCountXCenter"),
+                                      cx,
                                       self.skin.get("romCountYCenter"),
                                       self.skin.get("romCountFont"),
                                       self.skin.get("romCountFontSize"),
                                       self.skin.get("defaultRomCountColor"),
-                                      shadow=self.skin.get("romCountShadow"))
+                                      shadow=self.skin.get("romCountShadow"),
+                                      align=c_align)
                                       
                     # Draw Filename
+                    fx, f_align = self._text_anchor("romFileNameDisplayBox", "romFileNameDisplayBoxAlign")
                     self.ui.draw_text(rom.name,
-                                      self.skin.get("romFileNameDisplayBoxXCenter"),
+                                      fx,
                                       self.skin.get("romFileNameDisplayBoxYCenter"),
                                       self.skin.get("romFileNameDisplayBoxFont"),
                                       self.skin.get("romFileNameDisplayBoxFontSize"),
                                       self.skin.get("defaultRomFileNameColor"),
                                       shadow=self.skin.get("romFileNameShadow"),
-                                      truncate_len=self.skin.get("romFileNameDisplayBoxTruncateLen"))
+                                      truncate_len=self.skin.get("romFileNameDisplayBoxTruncateLen"),
+                                      align=f_align)
 
 
         if self.show_info_osd:

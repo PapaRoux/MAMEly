@@ -1,9 +1,11 @@
-# base path for all relative directories below
+# Atari 2600 Platform Configuration
 emulatorBasePath = /mnt/nfs/8TB/platforms/atari2600/
-romSnapDirectory = snap/
 romDirectory = roms/
-compareXMLtoRoms = False
+romSnapDirectory = snap/
+romVideoDirectory = video/
 emulatorExecutable = stella
 romExtension = .bin
 snapExtension = .png
+videoExtension = .mp4
+compareXMLtoRoms = False
 showXMLprogressBar = False

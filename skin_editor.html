@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAMEly Skin Editor</title>
+  <meta name="description" content="Visual layout editor for MAMEly arcade cabinet frontend skin files">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --bg0: #07070d;
+      --bg1: #0e0e18;
+      --bg2: #141420;
+      --bg3: #1c1c2a;
+      --border: #252535;
+      --border2: #343450;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --accent-dim: rgba(99,102,241,.14);
+      --txt0: #ececf8;
+      --txt1: #8888a8;
+      --txt2: #494962;
+      --success: #10b981;
+      --warn: #f59e0b;
+      --danger: #ef4444;
+      --r: 6px;
+      --rs: 4px;
+      --t: .13s ease;
+      --header: 58px;
+      --lp: 234px;
+      --rp: 274px;
+      --sb: 22px;
+    }
+
+    /* ── RESET ───────────────────────────────────────────── */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html, body { height:100%; overflow:hidden; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      background: var(--bg0);
+      color: var(--txt0);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ──────────────────────────────────────────── */
+    #hdr {
+      height: var(--header);
+      background: var(--bg1);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      gap: 10px;
+      flex-shrink: 0;
+      z-index: 50;
+    }
+    #logo {
+      display: flex; align-items: center; gap: 9px; margin-right: 6px;
+    }
+    #logo-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, var(--accent) 0%, #a855f7 100%);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; flex-shrink: 0;
+      box-shadow: 0 2px 12px rgba(99,102,241,.35);
+    }
+    #logo-text { display:flex; flex-direction:column; gap:1px; }
+    #logo-text strong { font-size:15px; font-weight:700; letter-spacing:-.3px; }
+    #logo-text span { font-size:10px; color:var(--txt1); font-weight:400; }
+
+    .sep { width:1px; height:28px; background:var(--border); margin:0 2px; flex-shrink:0; }
+
+    .btn {
+      padding: 6px 12px;
+      border-radius: var(--rs);
+      border: 1px solid var(--border2);
+      background: var(--bg2);
+      color: var(--txt0);
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px; font-weight: 500;
+      transition: all var(--t);
+      display: flex; align-items: center; gap: 5px;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .btn:hover { background: var(--bg3); border-color: var(--border2); color:#fff; }
+    .btn.pri { background: var(--accent); border-color: var(--accent); color:#fff; font-weight:600; }
+    .btn.pri:hover { background: var(--accent2); border-color: var(--accent2); }
+    .btn.sec { border-color: var(--success); color: var(--success); }
+    .btn.sec:hover { background: rgba(16,185,129,.1); }
+    .btn.active { background: var(--accent); border-color: var(--accent); color:#fff; }
+    .btn.active:hover { background: var(--accent2); border-color: var(--accent2); }
+    .btn.icon { padding: 6px 9px; }
+    .btn:disabled { opacity:.35; cursor:not-allowed; }
+    .btn:disabled:hover { background: var(--bg2); border-color: var(--border2); color:var(--txt0); }
+
+    .hlbl { font-size:11px; color:var(--txt1); white-space:nowrap; flex-shrink:0; }
+    .hinp {
+      padding: 5px 9px;
+      background: var(--bg0);
+      border: 1px solid var(--border);
+      border-radius: var(--rs);
+      color: var(--txt0);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      width: 66px;
+      transition: border-color var(--t);
+    }
+    .hinp:focus { outline:none; border-color: var(--accent); }
+    #skin-name { width:170px; font-family:'Outfit',sans-serif; font-size:12px; }
+    .hsp { flex:1; }
+    input[type="file"] { display:none; }
+
+    /* ── MAIN LAYOUT ─────────────────────────────────────── */
+    #wrap {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* ── LEFT PANEL ──────────────────────────────────────── */
+    #lp {
+      width: var(--lp);
+      background: var(--bg1);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      overflow-x: hidden;
+      flex-shrink: 0;
+    }
+    .psec { padding: 10px 11px; border-bottom: 1px solid var(--border); }
+    .psec-title {
+      font-size: 9.5px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--txt2); margin-bottom: 8px;
+    }
+
+    /* Zone list */
+    .zone-row {
+      display: flex; align-items: center; gap: 7px;
+      padding: 6px 7px; border-radius: var(--rs);
+      cursor: pointer; transition: background var(--t);
+      margin-bottom: 1px; border: 1px solid transparent;
+    }
+    .zone-row:hover { background: var(--bg2); }
+    .zone-row.sel { background: var(--accent-dim); border-color: rgba(99,102,241,.3); }
+    .zdot { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+    .zlbl { font-size:12px; flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .zvis {
+      background:none; border:none; cursor:pointer;
+      color:var(--txt1); font-size:13px;
+      padding:2px 3px; border-radius:3px;
+      transition:color var(--t); line-height:1; flex-shrink:0;
+    }
+    .zvis:hover { color:var(--txt0); }
+    .zvis.off { opacity:.35; }
+
+    /* Toggle rows */
+    .trow {
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 3px 0;
+    }
+    .tlbl { font-size:11.5px; color:var(--txt1); }
+    .tswitch { position:relative; width:30px; height:17px; flex-shrink:0; }
+    .tswitch input { opacity:0; width:0; height:0; position:absolute; }
+    .tslider {
+      position:absolute; inset:0;
+      background:var(--bg2); border:1px solid var(--border2); border-radius:9px;
+      cursor:pointer; transition:background var(--t);
+    }
+    .tslider::before {
+      content:''; position:absolute;
+      width:11px; height:11px; background:var(--txt2); border-radius:50%;
+      left:2px; top:2px; transition:transform var(--t), background var(--t);
+    }
+    .tswitch input:checked + .tslider { background:var(--accent); border-color:var(--accent); }
+    .tswitch input:checked + .tslider::before { transform:translateX(13px); background:#fff; }
+
+    /* Color rows */
+    .crow {
+      display:flex; align-items:center; gap:7px; padding:2.5px 0;
+    }
+    .clbl { font-size:11px; color:var(--txt1); flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .cswatch {
+      width:26px; height:17px; border-radius:3px;
+      border:1px solid var(--border2); cursor:pointer;
+      position:relative; overflow:hidden; flex-shrink:0;
+    }
+    .cswatch input[type="color"] {
+      position:absolute; inset:-4px; border:none; background:none;
+      cursor:pointer; opacity:0;
+      width:calc(100% + 8px); height:calc(100% + 8px);
+    }
+
+    /* ── CANVAS AREA ─────────────────────────────────────── */
+    #ca {
+      flex:1; display:flex; align-items:center; justify-content:center;
+      background: var(--bg0);
+      background-image:
+        radial-gradient(ellipse at 25% 75%, rgba(99,102,241,.05) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 25%, rgba(168,85,247,.05) 0%, transparent 55%);
+      overflow:hidden; position:relative; min-width:0;
+    }
+    #cw {
+      position:relative; overflow:hidden; flex-shrink:0;
+      box-shadow: 0 0 0 1px var(--border), 0 8px 48px rgba(0,0,0,.7);
+    }
+    /* Checkerboard for no-bg */
+    #cw::before {
+      content:''; position:absolute; inset:0; z-index:0;
+      background:
+        repeating-conic-gradient(#12121c 0% 25%, #0a0a14 0% 50%)
+        0 0 / 24px 24px;
+      pointer-events:none;
+    }
+    #cbg {
+      display:block; position:relative; z-index:1;
+      width:100%; height:100%;
+      object-fit:fill; user-select:none; pointer-events:none;
+    }
+    #cbg.hidden { display:none; }
+    #no-bg {
+      position:absolute; inset:0; z-index:2;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:10px; pointer-events:none;
+    }
+    #no-bg.hidden { display:none; }
+    #no-bg-icon { font-size:38px; opacity:.4; }
+    #no-bg-name {
+      font-size:11px; color:var(--txt1);
+      font-family:'JetBrains Mono',monospace;
+      background:rgba(0,0,0,.5); padding:3px 10px; border-radius:4px;
+      display:none;
+    }
+    #no-bg-name.show { display:block; }
+    #zones-layer {
+      position:absolute; inset:0; z-index:3;
+    }
+
+    /* Zone overlays */
+    .zo {
+      position:absolute; border:2px solid;
+      cursor:move; user-select:none;
+      transition:opacity var(--t);
+    }
+    .zo.dim { opacity:.28; pointer-events:none; }
+    .zo.sel { z-index:100; }
+    .zo-lbl {
+      position:absolute; top:3px; left:5px;
+      font-size:9.5px; font-weight:700;
+      font-family:'Outfit',sans-serif;
+      pointer-events:none;
+      text-shadow:0 1px 4px rgba(0,0,0,.9);
+      white-space:nowrap; line-height:1;
+    }
+    /* resize handles */
+    .rh {
+      position:absolute; width:8px; height:8px;
+      background:#fff; border:1.5px solid rgba(0,0,0,.5);
+      border-radius:2px; z-index:10;
+    }
+    .rh.nw { top:-4px; left:-4px; cursor:nw-resize; }
+    .rh.n  { top:-4px; left:calc(50% - 4px); cursor:n-resize; }
+    .rh.ne { top:-4px; right:-4px; cursor:ne-resize; }
+    .rh.w  { top:calc(50% - 4px); left:-4px; cursor:w-resize; }
+    .rh.e  { top:calc(50% - 4px); right:-4px; cursor:e-resize; }
+    .rh.sw { bottom:-4px; left:-4px; cursor:sw-resize; }
+    .rh.s  { bottom:-4px; left:calc(50% - 4px); cursor:s-resize; }
+    .rh.se { bottom:-4px; right:-4px; cursor:se-resize; }
+
+    /* ── RIGHT PANEL ─────────────────────────────────────── */
+    #rp {
+      width: var(--rp);
+      background: var(--bg1);
+      border-left: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      overflow-y: auto; overflow-x: hidden; flex-shrink: 0;
+    }
+    #nosel {
+      flex:1; display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      gap:10px; color:var(--txt2); padding:24px; text-align:center;
+    }
+    #nosel-icon { font-size:34px; }
+    #nosel p { font-size:11.5px; line-height:1.6; }
+    #zpanel { display:none; flex-direction:column; }
+    #zpanel.show { display:flex; }
+    #zhdr {
+      padding:13px 12px; border-bottom:1px solid var(--border);
+      display:flex; align-items:center; gap:9px;
+    }
+    #zhdr-dot { width:11px; height:11px; border-radius:50%; flex-shrink:0; }
+    #zhdr-name { font-size:14px; font-weight:600; }
+
+    .pgrp { padding:11px 12px; border-bottom:1px solid var(--border); }
+    .pgrp-title {
+      font-size:9.5px; font-weight:700;
+      text-transform:uppercase; letter-spacing:.1em;
+      color:var(--txt2); margin-bottom:9px;
+    }
+    /* coord 2x2 grid */
+    .cgrid { display:grid; grid-template-columns:1fr 1fr; gap:7px; }
+    .ccell { display:flex; flex-direction:column; gap:3px; }
+    .ccell-lbl { font-size:9.5px; color:var(--txt2); text-transform:uppercase; letter-spacing:.05em; }
+    .pinp {
+      width:100%; padding:5px 8px;
+      background:var(--bg0); border:1px solid var(--border);
+      border-radius:var(--rs); color:var(--txt0);
+      font-family:'JetBrains Mono',monospace; font-size:12px;
+      transition:border-color var(--t);
+    }
+    .pinp:focus { outline:none; border-color:var(--accent); }
+    /* derived read-only */
+    .pderived {
+      padding:5px 8px; background:var(--bg2);
+      border:1px solid var(--border); border-radius:var(--rs);
+      font-family:'JetBrains Mono',monospace; font-size:12px;
+      color:var(--txt1);
+    }
+    /* prop rows */
+    .prow { display:flex; align-items:center; gap:8px; margin-bottom:7px; }
+    .prow:last-child { margin-bottom:0; }
+    .plbl { font-size:11.5px; color:var(--txt1); width:100px; flex-shrink:0; }
+    .pinpf { flex:1; padding:5px 8px; background:var(--bg0); border:1px solid var(--border); border-radius:var(--rs); color:var(--txt0); font-family:'JetBrains Mono',monospace; font-size:12px; transition:border-color var(--t); min-width:0; }
+    .pinpf:focus { outline:none; border-color:var(--accent); }
+    /* segmented alignment control */
+    .seg { display:flex; flex:1; min-width:0; border:1px solid var(--border); border-radius:var(--rs); overflow:hidden; background:var(--bg0); }
+    .seg-btn {
+      flex:1; padding:4px 0; border:none; background:none;
+      color:var(--txt1); cursor:pointer; font-size:13px; line-height:1.25;
+      transition:background var(--t), color var(--t);
+      border-right:1px solid var(--border);
+    }
+    .seg-btn:last-child { border-right:none; }
+    .seg-btn:hover { background:var(--bg3); color:var(--txt0); }
+    .seg-btn.active { background:var(--accent); color:#fff; }
+
+    /* ── STATUS BAR ──────────────────────────────────────── */
+    #sb {
+      height:var(--sb); background:var(--bg1); border-top:1px solid var(--border);
+      display:flex; align-items:center; padding:0 12px; gap:16px;
+      font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--txt2);
+      flex-shrink:0; z-index:50;
+    }
+    #sb-xy { color:var(--txt1); }
+    #sb-sp { flex:1; }
+
+    /* ── SCROLLBAR ───────────────────────────────────────── */
+    ::-webkit-scrollbar { width:5px; }
+    ::-webkit-scrollbar-track { background:transparent; }
+    ::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+    ::-webkit-scrollbar-thumb:hover { background:var(--border2); }
+  </style>
+</head>
+<body>
+
+<!-- File pickers -->
+<input type="file" id="fi-skin" accept=".skin,.txt">
+<input type="file" id="fi-bg"   accept="image/*">
+
+<!-- ═══ HEADER ═══════════════════════════════════════════ -->
+<header id="hdr">
+  <div id="logo">
+    <div id="logo-icon">🎮</div>
+    <div id="logo-text">
+      <strong>MAMEly</strong>
+      <span>Skin Editor</span>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <button class="btn" id="btn-load-skin">📂 Load .skin</button>
+  <button class="btn" id="btn-load-bg">🖼 Load BG</button>
+  <button class="btn" id="btn-new">✨ New</button>
+
+  <div class="sep"></div>
+
+  <button class="btn icon" id="btn-undo" title="Undo (Ctrl+Z)" disabled>↩</button>
+  <button class="btn icon" id="btn-redo" title="Redo (Ctrl+Y)" disabled>↪</button>
+
+  <div class="sep"></div>
+
+  <button class="btn" id="btn-snap" title="Snap to grid (G)">⊞ Snap</button>
+  <input type="number" class="hinp" id="snap-grid" value="10" min="1" max="200" title="Grid size (px)" style="width:52px">
+  <button class="btn" id="btn-preview" title="Preview text (P)">🔤 Preview</button>
+
+  <div class="sep"></div>
+
+  <span class="hlbl">Skin:</span>
+  <input type="text" class="hinp" id="skin-name" value="new_skin" placeholder="skin name">
+
+  <div class="sep"></div>
+
+  <span class="hlbl">Res:</span>
+  <input type="number" class="hinp" id="res-w" value="1920" min="320" max="7680">
+  <span class="hlbl">×</span>
+  <input type="number" class="hinp" id="res-h" value="1080" min="240" max="4320">
+
+  <button class="btn" id="btn-preset-h" title="1920×1080 landscape">↔ 1920×1080</button>
+  <button class="btn" id="btn-preset-v" title="1080×1920 portrait">↕ 1080×1920</button>
+
+  <div class="hsp"></div>
+
+  <button class="btn sec" id="btn-export">💾 Export .skin</button>
+</header>
+
+<!-- ═══ MAIN ══════════════════════════════════════════════ -->
+<div id="wrap">
+
+  <!-- LEFT PANEL -->
+  <div id="lp">
+
+    <div class="psec">
+      <div class="psec-title">Zones</div>
+      <div id="zone-list"></div>
+    </div>
+
+    <div class="psec">
+      <div class="psec-title">Shadows / Strokes</div>
+      <div id="shadow-list"></div>
+    </div>
+
+    <div class="psec">
+      <div class="psec-title">Colors</div>
+      <div id="color-list"></div>
+    </div>
+
+  </div><!-- /lp -->
+
+  <!-- CANVAS -->
+  <div id="ca">
+    <div id="cw">
+      <img id="cbg" class="hidden" src="" alt="">
+      <div id="no-bg">
+        <div id="no-bg-icon">🖼</div>
+        <div id="no-bg-name"></div>
+        <div style="font-size:11px;color:var(--txt1)">Click <strong>Load BG</strong> to add a background image</div>
+      </div>
+      <div id="zones-layer"></div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div id="rp">
+    <div id="nosel">
+      <div id="nosel-icon">👆</div>
+      <p>Click a zone on the canvas<br>or in the Zones list to edit<br>its properties.</p>
+    </div>
+    <div id="zpanel">
+      <div id="zhdr">
+        <div id="zhdr-dot"></div>
+        <div id="zhdr-name"></div>
+      </div>
+      <div id="zpanel-body"></div>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- STATUS BAR -->
+<div id="sb">
+  <span id="sb-xy">x: —  y: —</span>
+  <span id="sb-zone"></span>
+  <div id="sb-sp"></div>
+  <span id="sb-res"></span>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SCRIPT
+═══════════════════════════════════════════════════════ -->
+<script>
+'use strict';
+
+/* ── ZONE DEFINITIONS ──────────────────────────────────── */
+const ZONES = [
+  {
+    id: 'romListDisplayArea',  label: 'ROM List',       color: '#3b82f6',
+    x1: 'romListDisplayAreaX1', y1: 'romListDisplayAreaY1',
+    x2: 'romListDisplayAreaX2', y2: 'romListDisplayAreaY2',
+    showKey: null, shadowKey: 'romListDisplayShadow',
+    comment: '# area for scrolling list of games',
+    props: [
+      { k:'romListDisplayFont',        lbl:'Font',         type:'text'   },
+      { k:'romListDisplayFontSize',    lbl:'Font Size',    type:'number' },
+      { k:'romListDisplaySpacing',     lbl:'Spacing',      type:'number' },
+      { k:'romListDisplayAlign',       lbl:'Align',        type:'align'  },
+      { k:'romListDisplayTruncateLen', lbl:'Truncate Len', type:'number' },
+    ]
+  },
+  {
+    id: 'romGenre', label: 'Genre / Message', color: '#10b981',
+    x1: 'romGenreX1', y1: 'romGenreY1',
+    x2: 'romGenreX2', y2: 'romGenreY2',
+    showKey: 'romGenreShow', shadowKey: 'romGenreShadow',
+    comment: '# area for genre of current rom and rating, and also messages',
+    props: [
+      { k:'romGenreFont',        lbl:'Font',           type:'text'   },
+      { k:'romGenreFontSize',    lbl:'Font Size',      type:'number' },
+      { k:'romGenreAlign',       lbl:'Align',          type:'align'  },
+      { k:'romGenreTruncateLen', lbl:'Truncate Len',   type:'number' },
+      { k:'genreRatingOffset',   lbl:'Rating Offset',  type:'number' },
+      { k:'messageFont',         lbl:'Msg Font',       type:'text'   },
+      { k:'messageFontSize',     lbl:'Msg Font Size',  type:'number' },
+      { k:'messageAlign',        lbl:'Msg Align',      type:'align'  },
+      { k:'messageTime',         lbl:'Msg Time (s)',   type:'number' },
+      { k:'messageTruncateLen',  lbl:'Msg Truncate',   type:'number' },
+    ]
+  },
+  {
+    id: 'romFileNameDisplayBox', label: 'File Name Box', color: '#f59e0b',
+    x1: 'romFileNameDisplayBoxX1', y1: 'romFileNameDisplayBoxY1',
+    x2: 'romFileNameDisplayBoxX2', y2: 'romFileNameDisplayBoxY2',
+    showKey: 'romFileNameDisplayBoxShow', shadowKey: 'romFileNameShadow',
+    comment: '# area for file name of current rom',
+    props: [
+      { k:'romFileNameDisplayBoxFont',        lbl:'Font',         type:'text'   },
+      { k:'romFileNameDisplayBoxFontSize',    lbl:'Font Size',    type:'number' },
+      { k:'romFileNameDisplayBoxAlign',       lbl:'Align',        type:'align'  },
+      { k:'romFileNameDisplayBoxTruncateLen', lbl:'Truncate Len', type:'number' },
+    ]
+  },
+  {
+    id: 'genreSet', label: 'Genre Set Bar', color: '#8b5cf6',
+    x1: 'genreSetX1', y1: 'genreSetY1',
+    x2: 'genreSetX2', y2: 'genreSetY2',
+    showKey: 'genreSetShow', shadowKey: 'genreSetShadow',
+    comment: '# area for favorites / genre set bar',
+    props: [
+      { k:'genreSetFont',        lbl:'Font',         type:'text'   },
+      { k:'genreSetFontSize',    lbl:'Font Size',    type:'number' },
+      { k:'genreSetAlign',       lbl:'Align',        type:'align'  },
+      { k:'genreSetTruncateLen', lbl:'Truncate Len', type:'number' },
+    ]
+  },
+  {
+    id: 'romSnap', label: 'ROM Snap', color: '#ef4444',
+    x1: 'romSnapX1', y1: 'romSnapY1',
+    x2: 'romSnapX2', y2: 'romSnapY2',
+    showKey: 'romSnapShow', shadowKey: null,
+    comment: '# area for rom snap image',
+    props: []
+  },
+  {
+    id: 'romCount', label: 'ROM Count', color: '#eab308',
+    x1: 'romCountX1', y1: 'romCountY1',
+    x2: 'romCountX2', y2: 'romCountY2',
+    showKey: 'romCountShow', shadowKey: 'romCountShadow',
+    comment: '# area for rom count display',
+    props: [
+      { k:'romCountFont',        lbl:'Font',         type:'text'   },
+      { k:'romCountFontSize',    lbl:'Font Size',    type:'number' },
+      { k:'romCountAlign',       lbl:'Align',        type:'align'  },
+      { k:'romCountTruncateLen', lbl:'Truncate Len', type:'number' },
+    ]
+  },
+];
+
+const COLOR_DEFS = [
+  { k:'defaultFontForegroundColor',                   lbl:'Default Text'         },
+  { k:'defaultHighlightFontForegroundColor',           lbl:'Highlighted Text'     },
+  { k:'defaultRomNameDisplayLineShadowColor',          lbl:'List Shadow'          },
+  { k:'defaultRomNameDisplayLineHighlightShadowColor', lbl:'Highlight Shadow'     },
+  { k:'defaultRomNameDisplayBoxShadowColor',           lbl:'Name Box Shadow'      },
+  { k:'defaultRomNameDisplayBoxColor',                 lbl:'Name Box Color'       },
+  { k:'defaultTitleBarColor',                          lbl:'Title Bar'            },
+  { k:'defaultTitleBarShadowColor',                    lbl:'Title Bar Shadow'     },
+  { k:'defaultRomCountColor',                          lbl:'ROM Count'            },
+  { k:'defaultRomCountShadowColor',                    lbl:'Count Shadow'         },
+  { k:'defaultMessageColor',                           lbl:'Message'              },
+  { k:'defaultGameSetBarColor',                        lbl:'Game Set Bar'         },
+  { k:'defaultGameSetBarShadowColor',                  lbl:'Game Set Shadow'      },
+  { k:'defaultRomGenreColor',                          lbl:'Genre'                },
+  { k:'defaultRomGenreShadowColor',                    lbl:'Genre Shadow'         },
+  { k:'defaultRomFileNameColor',                       lbl:'File Name'            },
+  { k:'defaultRomFileNameShadowColor',                 lbl:'File Name Shadow'     },
+];
+
+/* Alignment options (value written to the .skin file) */
+const ALIGNS = [
+  { v:'left',   icon:'⇤' },
+  { v:'center', icon:'↔' },
+  { v:'right',  icon:'⇥' },
+];
+
+/* Normalize whatever is in the skin to a valid alignment */
+function readAlign(key) {
+  const v = String(S.skin[key] ?? 'center').trim().toLowerCase();
+  return (v === 'left' || v === 'right') ? v : 'center';
+}
+
+const SHADOW_DEFS = [
+  { k:'romListDisplayShadow',          lbl:'List'           },
+  { k:'romListDisplayHighlightShadow', lbl:'List Highlight' },
+  { k:'romCountShadow',                lbl:'ROM Count'      },
+  { k:'romGenreShadow',                lbl:'Genre'          },
+  { k:'romFileNameShadow',             lbl:'File Name'      },
+  { k:'genreSetShadow',                lbl:'Genre Set'      },
+  { k:'messageShadow',                 lbl:'Message'        },
+];
+
+/* ── DEFAULT STATE ─────────────────────────────────────── */
+function defaults() {
+  return {
+    backgroundImage: '',
+    defaultFontForegroundColor:                   'FFFFFF',
+    defaultHighlightFontForegroundColor:           'FFFF00',
+    defaultRomNameDisplayLineShadowColor:          '000000',
+    defaultRomNameDisplayLineHighlightShadowColor: '777777',
+    defaultRomNameDisplayBoxShadowColor:           '000000',
+    defaultRomNameDisplayBoxColor:                 'FFFFFF',
+    defaultTitleBarColor:                          'FFFFFF',
+    defaultTitleBarShadowColor:                    '000000',
+    defaultRomCountColor:                          'FFFFFF',
+    defaultRomCountShadowColor:                    '000000',
+    defaultMessageColor:                           'FFFF00',
+    defaultGameSetBarColor:                        'FFFFFF',
+    defaultGameSetBarShadowColor:                  '000000',
+    defaultRomGenreColor:                          'FFFFFF',
+    defaultRomGenreShadowColor:                    '000000',
+    defaultRomFileNameColor:                       'FFFFFF',
+    defaultRomFileNameShadowColor:                 '000000',
+
+    romCountShadow:                false,
+    romGenreShadow:                false,
+    romFileNameShadow:             false,
+    genreSetShadow:                false,
+    romListDisplayHighlightShadow: false,
+    romListDisplayShadow:          false,
+    messageShadow:                 false,
+
+    genreSetShow:              true,
+    romGenreShow:              true,
+    romCountShow:              true,
+    romFileNameDisplayBoxShow: true,
+    romSnapShow:               true,
+
+    romListDisplayAreaX1: 50,   romListDisplayAreaY1: 210,
+    romListDisplayAreaX2: 1045, romListDisplayAreaY2: 880,
+    romListDisplayFont: 'Continuum-Bold-Regular.ttf',
+    romListDisplayFontSize: 30, romListDisplaySpacing: 30, romListDisplayTruncateLen: 60,
+    romListDisplayAlign: 'center',
+
+    romGenreX1: 50,   romGenreY1: 940,
+    romGenreX2: 1045, romGenreY2: 1030,
+    romGenreFont: 'Continuum-Bold-Regular.ttf',
+    romGenreFontSize: 30, romGenreTruncateLen: 57, genreRatingOffset: 15,
+    romGenreAlign: 'center',
+    messageFont: 'Continuum-Bold-Regular.ttf',
+    messageFontSize: 40, messageTime: 1, messageTruncateLen: 41,
+    messageAlign: 'center',
+
+    romFileNameDisplayBoxX1: 1360, romFileNameDisplayBoxY1: 935,
+    romFileNameDisplayBoxX2: 1865, romFileNameDisplayBoxY2: 1035,
+    romFileNameDisplayBoxFont: 'Continuum-Bold-Regular.ttf',
+    romFileNameDisplayBoxFontSize: 51, romFileNameDisplayBoxTruncateLen: 19,
+    romFileNameDisplayBoxAlign: 'center',
+
+    genreSetX1: 50,   genreSetY1: 40,
+    genreSetX2: 1045, genreSetY2: 140,
+    genreSetFont: 'Continuum-Bold-Regular.ttf',
+    genreSetFontSize: 30, genreSetTruncateLen: 56,
+    genreSetAlign: 'center',
+
+    romSnapX1: 1360, romSnapY1: 475,
+    romSnapX2: 1865, romSnapY2: 920,
+
+    romCountX1: 1360, romCountY1: 355,
+    romCountX2: 1865, romCountY2: 470,
+    romCountFont: 'Continuum-Bold-Regular.ttf',
+    romCountFontSize: 45, romCountTruncateLen: 14,
+    romCountAlign: 'center',
+  };
+}
+
+/* ── APPLICATION STATE ─────────────────────────────────── */
+const S = {
+  skin: defaults(),
+  res: { w: 1920, h: 1080 },
+  sel: null,        // selected zone id
+  bg: null,         // background data URL
+  scale: 1,
+  drag: null,       // { type:'move'|'resize', zoneId, handle, sx, sy, r0 }
+  snap: false,      // snap-to-grid enabled
+  snapGrid: 10,     // grid size in skin units
+  preview: false,   // text preview mode
+};
+
+/* ── UNDO / REDO HISTORY ───────────────────────────────── */
+let HIST = [];          // stack of JSON skin snapshots
+let HIST_IDX = -1;      // pointer into HIST
+const HIST_MAX = 60;
+let nudgeTimer = null;  // debounce for arrow-key nudge commits
+
+function snapshot() { return JSON.stringify(S.skin); }
+
+function resetHistory() {
+  HIST = [snapshot()];
+  HIST_IDX = 0;
+  updateUndoButtons();
+}
+
+function commitHistory() {
+  const snap = snapshot();
+  // Skip if nothing actually changed since the last snapshot
+  if (HIST_IDX >= 0 && HIST[HIST_IDX] === snap) return;
+  // Drop any redo tail
+  HIST = HIST.slice(0, HIST_IDX + 1);
+  HIST.push(snap);
+  if (HIST.length > HIST_MAX) HIST.shift();
+  HIST_IDX = HIST.length - 1;
+  updateUndoButtons();
+}
+
+function undo() {
+  if (HIST_IDX <= 0) return;
+  HIST_IDX--;
+  S.skin = JSON.parse(HIST[HIST_IDX]);
+  fullRebuild();
+  updateUndoButtons();
+}
+
+function redo() {
+  if (HIST_IDX >= HIST.length - 1) return;
+  HIST_IDX++;
+  S.skin = JSON.parse(HIST[HIST_IDX]);
+  fullRebuild();
+  updateUndoButtons();
+}
+
+function updateUndoButtons() {
+  const u = $('btn-undo'), r = $('btn-redo');
+  if (u) u.disabled = HIST_IDX <= 0;
+  if (r) r.disabled = HIST_IDX >= HIST.length - 1;
+}
+
+/* ── SNAP TO GRID ──────────────────────────────────────── */
+function snapV(v) {
+  if (!S.snap) return v;
+  return Math.round(v / S.snapGrid) * S.snapGrid;
+}
+
+function toggleSnap() {
+  S.snap = !S.snap;
+  const b = $('btn-snap');
+  if (b) b.classList.toggle('active', S.snap);
+  updateGridOverlay();
+}
+
+function updateGridOverlay() {
+  if (S.snap) {
+    const g = s2d(S.snapGrid);
+    zl.style.backgroundImage =
+      'linear-gradient(to right, rgba(255,255,255,.09) 1px, transparent 1px),' +
+      'linear-gradient(to bottom, rgba(255,255,255,.09) 1px, transparent 1px)';
+    zl.style.backgroundSize = `${g}px ${g}px`;
+  } else {
+    zl.style.backgroundImage = 'none';
+  }
+}
+
+/* ── TEXT PREVIEW ──────────────────────────────────────── */
+const PREVIEW_GAMES = [
+  'Pac-Man','Galaga','Donkey Kong','Street Fighter II','Ms. Pac-Man',
+  'Dig Dug','Frogger','Defender','Centipede','Joust','Q*bert',
+  'Robotron 2084','Tempest','Asteroids','Missile Command',
+  'Space Invaders','BurgerTime','Xevious','Pole Position','Marble Madness',
+  'Paperboy','Gauntlet','Rampage','OutRun','After Burner',
+  'Chase H.Q.','Final Fight','Golden Axe','Moon Patrol','Zaxxon',
+];
+
+const PREVIEW = {
+  romListDisplayArea: {
+    type: 'list',
+    // Items are generated to fill the zone (height ÷ spacing) — see addPreviewContent
+    items: PREVIEW_GAMES,
+    hi: 3,
+    sizeKey: 'romListDisplayFontSize',
+    spacingKey: 'romListDisplaySpacing',
+    truncKey: 'romListDisplayTruncateLen',
+    colorKey: 'defaultFontForegroundColor',
+    hiColorKey: 'defaultHighlightFontForegroundColor',
+    alignKey: 'romListDisplayAlign',
+  },
+  genreSet:              { type:'center', text:'All Games',        sizeKey:'genreSetFontSize',              truncKey:'genreSetTruncateLen',              colorKey:'defaultGameSetBarColor',   alignKey:'genreSetAlign' },
+  romGenre:              { type:'center', text:'Maze  ·  Rating: E', sizeKey:'romGenreFontSize',            truncKey:'romGenreTruncateLen',              colorKey:'defaultRomGenreColor',     alignKey:'romGenreAlign' },
+  romFileNameDisplayBox: { type:'center', text:'pacman.zip',       sizeKey:'romFileNameDisplayBoxFontSize', truncKey:'romFileNameDisplayBoxTruncateLen', colorKey:'defaultRomFileNameColor',  alignKey:'romFileNameDisplayBoxAlign' },
+  romCount:              { type:'center', text:'12 of 340',        sizeKey:'romCountFontSize',              truncKey:'romCountTruncateLen',              colorKey:'defaultRomCountColor',     alignKey:'romCountAlign' },
+  romSnap:               { type:'snap' },
+};
+
+/* CSS flex mapping for the preview's horizontal anchor */
+const ALIGN_FLEX = { left:'flex-start', center:'center', right:'flex-end' };
+
+function togglePreview() {
+  S.preview = !S.preview;
+  const b = $('btn-preview');
+  if (b) b.classList.toggle('active', S.preview);
+  renderCanvas();
+}
+
+function addPreviewContent(div, z) {
+  const pc = PREVIEW[z.id];
+  if (!pc) return;
+
+  const lbl = div.querySelector('.zo-lbl');
+  if (lbl) lbl.style.display = 'none';
+  div.style.overflow = 'hidden';
+
+  if (pc.type === 'snap') {
+    const ph = el('div');
+    ph.style.cssText =
+      `position:absolute; inset:0; display:flex; align-items:center; justify-content:center;` +
+      `font-size:${Math.max(14, s2d(64))}px; opacity:.4; pointer-events:none;`;
+    ph.textContent = '🖼';
+    div.appendChild(ph);
+    return;
+  }
+
+  const trunc = t => {
+    const n = S.skin[pc.truncKey];
+    return (n && t.length > n) ? t.slice(0, n) : t;
+  };
+
+  // Anchored flush to the zone edges, matching how the app anchors on X1/X2.
+  const align = pc.alignKey ? readAlign(pc.alignKey) : 'center';
+
+  if (pc.type === 'list') {
+    const spacing = s2d(S.skin[pc.spacingKey] || 30);
+    const fs = Math.max(6, s2d(S.skin[pc.sizeKey] || 30));
+    const zoneH = s2d(Math.max(0, S.skin[z.y2] - S.skin[z.y1]));
+    // Fill the zone (+1 extra so the bottom edge is clearly past the last line)
+    const needed = Math.max(1, Math.ceil(zoneH / Math.max(1, spacing)) + 1);
+    const pool = pc.items && pc.items.length ? pc.items : PREVIEW_GAMES;
+    for (let i = 0; i < needed; i++) {
+      const isHi = i === pc.hi;
+      const name = pool[i % pool.length] + (i >= pool.length ? ` (${i + 1})` : '');
+      const line = el('div');
+      line.textContent = trunc(name);
+      line.style.cssText =
+        `position:absolute; left:0; right:0; top:${i * spacing}px;` +
+        `font-family:'JetBrains Mono',monospace; font-size:${fs}px; line-height:1;` +
+        `white-space:nowrap; overflow:hidden; text-overflow:clip; text-align:${align};` +
+        `text-shadow:0 1px 2px #000; pointer-events:none;` +
+        `color:#${S.skin[isHi ? pc.hiColorKey : pc.colorKey] || 'FFFFFF'};`;
+      div.appendChild(line);
+    }
+    return;
+  }
+
+  // center
+  const fs = Math.max(6, s2d(S.skin[pc.sizeKey] || 30));
+  const t = el('div');
+  t.textContent = trunc(pc.text);
+  t.style.cssText =
+    `position:absolute; inset:0; display:flex; align-items:center;` +
+    `justify-content:${ALIGN_FLEX[align]}; text-align:${align};` +
+    `font-family:'JetBrains Mono',monospace;` +
+    `font-size:${fs}px; line-height:1.1; overflow:hidden; text-shadow:0 1px 2px #000;` +
+    `pointer-events:none; white-space:nowrap; color:#${S.skin[pc.colorKey] || 'FFFFFF'};`;
+  div.appendChild(t);
+}
+
+/* ── ARROW-KEY NUDGE ───────────────────────────────────── */
+function nudgeZone(zid, dx, dy) {
+  const z = zoneById(zid);
+  const W = S.res.w, H = S.res.h;
+  const w = S.skin[z.x2] - S.skin[z.x1];
+  const h = S.skin[z.y2] - S.skin[z.y1];
+  let nx1 = clamp(S.skin[z.x1] + dx, 0, W - w);
+  let ny1 = clamp(S.skin[z.y1] + dy, 0, H - h);
+  if (S.snap) {
+    nx1 = clamp(snapV(nx1), 0, W - w);
+    ny1 = clamp(snapV(ny1), 0, H - h);
+  }
+  S.skin[z.x1] = nx1;     S.skin[z.y1] = ny1;
+  S.skin[z.x2] = nx1 + w; S.skin[z.y2] = ny1 + h;
+  renderCanvas();
+  patchCoordInputs(zid);
+  scheduleNudgeCommit();
+}
+
+function scheduleNudgeCommit() {
+  if (nudgeTimer) clearTimeout(nudgeTimer);
+  nudgeTimer = setTimeout(() => { nudgeTimer = null; commitHistory(); }, 300);
+}
+
+/* ── DOM REFS ──────────────────────────────────────────── */
+const $ = id => document.getElementById(id);
+const ca     = $('ca');
+const cw     = $('cw');
+const cbg    = $('cbg');
+const noBg   = $('no-bg');
+const noBgNm = $('no-bg-name');
+const zl     = $('zones-layer');
+const zoneListEl  = $('zone-list');
+const shadowListEl= $('shadow-list');
+const colorListEl = $('color-list');
+const noselEl = $('nosel');
+const zpanel  = $('zpanel');
+const zhdrDot = $('zhdr-dot');
+const zhdrNm  = $('zhdr-name');
+const zpBody  = $('zpanel-body');
+const sbXY    = $('sb-xy');
+const sbZone  = $('sb-zone');
+const sbRes   = $('sb-res');
+const resW    = $('res-w');
+const resH    = $('res-h');
+const skinNm  = $('skin-name');
+
+/* ── INIT ──────────────────────────────────────────────── */
+function init() {
+  buildZoneList();
+  buildShadowList();
+  buildColorList();
+  computeScale();
+  renderCanvas();
+  renderRightPanel();
+  updateStatus();
+
+  // Header buttons
+  $('btn-load-skin').onclick = () => $('fi-skin').click();
+  $('btn-load-bg').onclick   = () => $('fi-bg').click();
+  $('btn-new').onclick       = () => { if (confirm('Reset to defaults?')) { S.skin = defaults(); S.sel = null; fullRebuild(); resetHistory(); } };
+  $('btn-export').onclick    = exportSkin;
+  $('btn-preset-h').onclick  = () => { resW.value=1920; resH.value=1080; onResChange(); };
+  $('btn-preset-v').onclick  = () => { resW.value=1080; resH.value=1920; onResChange(); };
+  $('btn-undo').onclick      = undo;
+  $('btn-redo').onclick      = redo;
+  $('btn-snap').onclick      = toggleSnap;
+  $('btn-preview').onclick   = togglePreview;
+  $('snap-grid').onchange    = () => {
+    S.snapGrid = clamp(parseInt($('snap-grid').value) || 10, 1, 200);
+    $('snap-grid').value = S.snapGrid;
+    if (S.snap) updateGridOverlay();
+  };
+
+  $('fi-skin').onchange = onSkinLoad;
+  $('fi-bg').onchange   = onBgLoad;
+  resW.onchange = resH.onchange = onResChange;
+
+  // Canvas mouse
+  cw.addEventListener('mousemove', onCwMove);
+  cw.addEventListener('mouseleave', () => { sbXY.textContent = 'x: —  y: —'; });
+  cw.addEventListener('mousedown', e => {
+    if (e.target === cw || e.target === cbg || e.target === zl || e.target === noBg) {
+      select(null);
+    }
+  });
+
+  // Global drag/resize handlers
+  document.addEventListener('mousemove', onDocMove);
+  document.addEventListener('mouseup',   onDocUp);
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', onKeyDown);
+
+  window.addEventListener('resize', () => { computeScale(); renderCanvas(); });
+
+  resetHistory();
+}
+
+/* ── KEYBOARD SHORTCUTS ────────────────────────────────── */
+function onKeyDown(e) {
+  const tag = document.activeElement && document.activeElement.tagName;
+  const inField = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
+  const mod = e.ctrlKey || e.metaKey;
+  const k = e.key.toLowerCase();
+
+  // Work even when a field is focused:
+  if (mod && k === 's') { e.preventDefault(); exportSkin(); return; }
+  if (mod && k === 'z' && !e.shiftKey) { e.preventDefault(); undo(); return; }
+  if (mod && (k === 'y' || (k === 'z' && e.shiftKey))) { e.preventDefault(); redo(); return; }
+
+  if (inField) return;
+
+  if (e.key === 'Escape') { select(null); return; }
+  if (k === 'g') { toggleSnap(); return; }
+  if (k === 'p') { togglePreview(); return; }
+
+  if (S.sel && e.key.startsWith('Arrow')) {
+    e.preventDefault();
+    const step = e.shiftKey ? 10 : 1;
+    let dx = 0, dy = 0;
+    if (e.key === 'ArrowLeft')  dx = -step;
+    else if (e.key === 'ArrowRight') dx = step;
+    else if (e.key === 'ArrowUp')    dy = -step;
+    else if (e.key === 'ArrowDown')  dy = step;
+    nudgeZone(S.sel, dx, dy);
+  }
+}
+
+/* ── SCALE ─────────────────────────────────────────────── */
+function computeScale() {
+  const ar = ca.getBoundingClientRect();
+  const pad = 40;
+  const sx = (ar.width  - pad) / S.res.w;
+  const sy = (ar.height - pad) / S.res.h;
+  S.scale = Math.min(sx, sy, 1.5);
+  const dw = Math.round(S.res.w * S.scale);
+  const dh = Math.round(S.res.h * S.scale);
+  cw.style.width  = dw + 'px';
+  cw.style.height = dh + 'px';
+}
+
+const d2s = v  => Math.round(v / S.scale);      // display → skin
+const s2d = v  => v * S.scale;                  // skin → display
+
+/* ── LEFT PANEL: ZONE LIST ─────────────────────────────── */
+function buildZoneList() {
+  zoneListEl.innerHTML = '';
+  ZONES.forEach(z => {
+    const row = el('div', 'zone-row', { 'data-zid': z.id });
+
+    const dot = el('div', 'zdot');
+    dot.style.background = z.color;
+
+    const lbl = el('span', 'zlbl');
+    lbl.textContent = z.label;
+
+    row.appendChild(dot);
+    row.appendChild(lbl);
+
+    if (z.showKey) {
+      const btn = el('button', 'zvis');
+      btn.id = 'zvis-' + z.id;
+      btn.title = 'Toggle visibility';
+      btn.textContent = '👁';
+      btn.onclick = e => {
+        e.stopPropagation();
+        S.skin[z.showKey] = !S.skin[z.showKey];
+        syncVisBtn(z);
+        renderCanvas();
+        if (S.sel === z.id) renderRightPanel();
+        commitHistory();
+      };
+      row.appendChild(btn);
+    }
+
+    row.onclick = () => select(z.id);
+    zoneListEl.appendChild(row);
+  });
+  syncAllVisBtns();
+}
+
+function syncVisBtn(z) {
+  if (!z.showKey) return;
+  const btn = $('zvis-' + z.id);
+  if (!btn) return;
+  const vis = S.skin[z.showKey];
+  btn.classList.toggle('off', !vis);
+  btn.textContent = vis ? '👁' : '🚫';
+}
+
+function syncAllVisBtns() {
+  ZONES.forEach(z => syncVisBtn(z));
+}
+
+function syncZoneListSel() {
+  zoneListEl.querySelectorAll('.zone-row').forEach(r => {
+    r.classList.toggle('sel', r.dataset.zid === S.sel);
+  });
+}
+
+/* ── LEFT PANEL: SHADOW TOGGLES ────────────────────────── */
+function buildShadowList() {
+  shadowListEl.innerHTML = '';
+  SHADOW_DEFS.forEach(({ k, lbl }) => {
+    shadowListEl.appendChild(toggleRow(lbl, k, () => {
+      // keep in sync if shown in right panel too
+      if (S.sel) renderRightPanel();
+    }));
+  });
+}
+
+function rebuildShadowList() { buildShadowList(); }
+
+function toggleRow(lbl, key, cb) {
+  const row = el('div', 'trow');
+  const span = el('span', 'tlbl');
+  span.textContent = lbl;
+
+  const label = el('label', 'tswitch');
+  const inp = el('input');
+  inp.type = 'checkbox';
+  inp.checked = !!S.skin[key];
+  inp.onchange = () => {
+    S.skin[key] = inp.checked;
+    if (cb) cb();
+    commitHistory();
+  };
+  const slider = el('span', 'tslider');
+  label.appendChild(inp);
+  label.appendChild(slider);
+  row.appendChild(span);
+  row.appendChild(label);
+  return row;
+}
+
+/* ── LEFT PANEL: COLOR PICKERS ─────────────────────────── */
+function buildColorList() {
+  colorListEl.innerHTML = '';
+  COLOR_DEFS.forEach(({ k, lbl }) => {
+    const row = el('div', 'crow');
+    const span = el('span', 'clbl');
+    span.textContent = lbl;
+    span.title = k;
+
+    const swatch = el('div', 'cswatch');
+    swatch.id = 'sw-' + k;
+    swatch.style.background = '#' + (S.skin[k] || 'FFFFFF');
+
+    const ci = el('input');
+    ci.type = 'color';
+    ci.value = '#' + (S.skin[k] || 'FFFFFF');
+    ci.oninput = () => {
+      const hex = ci.value.replace('#', '').toUpperCase();
+      S.skin[k] = hex;
+      swatch.style.background = ci.value;
+      if (S.preview) renderCanvas();
+    };
+    ci.onchange = commitHistory;
+
+    swatch.appendChild(ci);
+    row.appendChild(span);
+    row.appendChild(swatch);
+    colorListEl.appendChild(row);
+  });
+}
+
+function refreshColors() {
+  COLOR_DEFS.forEach(({ k }) => {
+    const sw = $('sw-' + k);
+    if (!sw) return;
+    const hex = S.skin[k] || 'FFFFFF';
+    sw.style.background = '#' + hex;
+    const ci = sw.querySelector('input[type=color]');
+    if (ci) ci.value = '#' + hex;
+  });
+}
+
+/* ── CANVAS RENDERING ──────────────────────────────────── */
+function renderCanvas() {
+  zl.innerHTML = '';
+  updateGridOverlay();
+  ZONES.forEach(z => {
+    const vis = !z.showKey || S.skin[z.showKey];
+    const sel = S.sel === z.id;
+
+    const x1 = S.skin[z.x1], y1 = S.skin[z.y1];
+    const x2 = S.skin[z.x2], y2 = S.skin[z.y2];
+    const dX = s2d(x1), dY = s2d(y1);
+    const dW = s2d(x2 - x1), dH = s2d(y2 - y1);
+
+    const div = el('div', 'zo' + (sel?' sel':'') + (!vis?' dim':''));
+    div.dataset.zid = z.id;
+    div.style.left   = dX + 'px';
+    div.style.top    = dY + 'px';
+    div.style.width  = dW + 'px';
+    div.style.height = dH + 'px';
+    div.style.borderColor = z.color;
+    div.style.background  = hexAlpha(z.color, sel ? 0.3 : 0.15);
+    div.style.color = z.color;
+
+    if (sel) {
+      div.style.boxShadow = `0 0 0 1px ${z.color}, inset 0 0 0 1px ${z.color}44`;
+    }
+
+    const lbl = el('div', 'zo-lbl');
+    lbl.textContent = z.label;
+    lbl.style.color = z.color;
+    div.appendChild(lbl);
+
+    if (S.preview) addPreviewContent(div, z);
+
+    if (sel) {
+      ['nw','n','ne','w','e','sw','s','se'].forEach(h => {
+        const rh = el('div', 'rh ' + h);
+        rh.dataset.h = h;
+        rh.onmousedown = e => { e.stopPropagation(); startResize(e, z.id, h); };
+        div.appendChild(rh);
+      });
+    }
+
+    div.onmousedown = e => {
+      if (e.target.classList.contains('rh')) return;
+      e.stopPropagation();
+      select(z.id);
+      startMove(e, z.id);
+    };
+
+    zl.appendChild(div);
+  });
+}
+
+function hexAlpha(hex, a) {
+  const r = parseInt(hex.slice(1,3),16),
+        g = parseInt(hex.slice(3,5),16),
+        b = parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
+
+/* ── DRAG / RESIZE ─────────────────────────────────────── */
+function startMove(e, zid) {
+  const z = zoneById(zid);
+  S.drag = {
+    type:'move', zoneId:zid,
+    sx:e.clientX, sy:e.clientY,
+    r0: { x1:S.skin[z.x1], y1:S.skin[z.y1], x2:S.skin[z.x2], y2:S.skin[z.y2] }
+  };
+  e.preventDefault();
+}
+
+function startResize(e, zid, handle) {
+  const z = zoneById(zid);
+  S.drag = {
+    type:'resize', zoneId:zid, handle,
+    sx:e.clientX, sy:e.clientY,
+    r0: { x1:S.skin[z.x1], y1:S.skin[z.y1], x2:S.skin[z.x2], y2:S.skin[z.y2] }
+  };
+  e.preventDefault();
+}
+
+function onDocMove(e) {
+  if (!S.drag) return;
+  const dx = d2s(e.clientX - S.drag.sx);
+  const dy = d2s(e.clientY - S.drag.sy);
+  const z  = zoneById(S.drag.zoneId);
+  const r  = S.drag.r0;
+  const MIN = 10;
+  const W = S.res.w, H = S.res.h;
+
+  if (S.drag.type === 'move') {
+    const w = r.x2 - r.x1, h = r.y2 - r.y1;
+    let nx1 = clamp(r.x1 + dx, 0, W - w);
+    let ny1 = clamp(r.y1 + dy, 0, H - h);
+    if (S.snap) {
+      nx1 = clamp(snapV(nx1), 0, W - w);
+      ny1 = clamp(snapV(ny1), 0, H - h);
+    }
+    S.skin[z.x1] = nx1;       S.skin[z.y1] = ny1;
+    S.skin[z.x2] = nx1 + w;   S.skin[z.y2] = ny1 + h;
+  } else {
+    let { x1, y1, x2, y2 } = r;
+    const hh = S.drag.handle;
+    if (hh.includes('w')) { x1 = clamp(r.x1 + dx, 0,   r.x2 - MIN); if (S.snap) x1 = clamp(snapV(x1), 0, r.x2 - MIN); }
+    if (hh.includes('e')) { x2 = clamp(r.x2 + dx, r.x1 + MIN, W);   if (S.snap) x2 = clamp(snapV(x2), r.x1 + MIN, W); }
+    if (hh.includes('n')) { y1 = clamp(r.y1 + dy, 0,   r.y2 - MIN); if (S.snap) y1 = clamp(snapV(y1), 0, r.y2 - MIN); }
+    if (hh.includes('s')) { y2 = clamp(r.y2 + dy, r.y1 + MIN, H);   if (S.snap) y2 = clamp(snapV(y2), r.y1 + MIN, H); }
+    S.skin[z.x1] = x1; S.skin[z.y1] = y1;
+    S.skin[z.x2] = x2; S.skin[z.y2] = y2;
+  }
+  renderCanvas();
+  patchCoordInputs(S.drag.zoneId);
+}
+
+function onDocUp() {
+  if (S.drag) { S.drag = null; commitHistory(); }
+}
+
+/* ── SELECTION ─────────────────────────────────────────── */
+function select(zid) {
+  S.sel = zid;
+  syncZoneListSel();
+  renderCanvas();
+  renderRightPanel();
+  updateStatus();
+}
+
+/* ── RIGHT PANEL ───────────────────────────────────────── */
+function renderRightPanel() {
+  if (!S.sel) {
+    noselEl.style.display = '';
+    zpanel.classList.remove('show');
+    return;
+  }
+  noselEl.style.display = 'none';
+  zpanel.classList.add('show');
+
+  const z = zoneById(S.sel);
+  zhdrDot.style.background = z.color;
+  zhdrNm.textContent = z.label;
+
+  zpBody.innerHTML = '';
+
+  // ── Coordinates ──
+  const cg = pgroup('Position & Size');
+  const grid = el('div','cgrid');
+  const coords = [
+    { k:z.x1, lbl:'X1' }, { k:z.y1, lbl:'Y1' },
+    { k:z.x2, lbl:'X2' }, { k:z.y2, lbl:'Y2' },
+  ];
+  coords.forEach(({k, lbl}) => {
+    const cell = el('div','ccell');
+    const cl   = el('div','ccell-lbl'); cl.textContent = lbl;
+    const inp  = el('input','pinp');
+    inp.type = 'number'; inp.value = S.skin[k]; inp.dataset.ck = k;
+    inp.oninput = () => {
+      S.skin[k] = parseInt(inp.value)||0;
+      renderCanvas();
+      patchDerived(z);
+    };
+    inp.onchange = commitHistory;
+    cell.appendChild(cl); cell.appendChild(inp);
+    grid.appendChild(cell);
+  });
+  cg.appendChild(grid);
+
+  // W/H derived
+  const wh = el('div','cgrid'); wh.style.marginTop='7px';
+  [['W', z.x2, z.x1], ['H', z.y2, z.y1]].forEach(([lbl, ak, bk]) => {
+    const cell = el('div','ccell');
+    const cl = el('div','ccell-lbl'); cl.textContent = lbl;
+    const dv = el('div','pderived'); dv.id = 'derived-'+z.id+'-'+lbl;
+    dv.textContent = S.skin[ak] - S.skin[bk];
+    cell.appendChild(cl); cell.appendChild(dv);
+    wh.appendChild(cell);
+  });
+  cg.appendChild(wh);
+  zpBody.appendChild(cg);
+
+  // ── Zone props ──
+  if (z.props.length > 0) {
+    const pg = pgroup('Display Settings');
+    z.props.forEach(({k, lbl, type}) => {
+      const row = el('div','prow');
+      const pl = el('div','plbl'); pl.textContent = lbl;
+
+      if (type === 'align') {
+        const seg = el('div','seg');
+        ALIGNS.forEach(a => {
+          const b = el('button','seg-btn' + (readAlign(k) === a.v ? ' active' : ''));
+          b.textContent = a.icon;
+          b.title = a.v;
+          b.onclick = () => {
+            S.skin[k] = a.v;
+            seg.querySelectorAll('.seg-btn').forEach(o => o.classList.remove('active'));
+            b.classList.add('active');
+            if (S.preview) renderCanvas();
+            commitHistory();
+          };
+          seg.appendChild(b);
+        });
+        row.appendChild(pl); row.appendChild(seg);
+        pg.appendChild(row);
+        return;
+      }
+
+      const inp = el('input','pinpf');
+      inp.type  = type === 'number' ? 'number' : 'text';
+      inp.value = S.skin[k] !== undefined ? S.skin[k] : '';
+      inp.oninput = () => {
+        S.skin[k] = type === 'number' ? (parseInt(inp.value)||0) : inp.value;
+        if (S.preview) renderCanvas();
+      };
+      inp.onchange = commitHistory;
+      row.appendChild(pl); row.appendChild(inp);
+      pg.appendChild(row);
+    });
+    zpBody.appendChild(pg);
+  }
+
+  // ── Toggles ──
+  if (z.showKey || z.shadowKey) {
+    const tg = pgroup('Options');
+    if (z.showKey)   tg.appendChild(toggleRow('Show Zone',      z.showKey,   () => { syncVisBtn(z); renderCanvas(); }));
+    if (z.shadowKey) tg.appendChild(toggleRow('Shadow / Stroke', z.shadowKey, () => { rebuildShadowList(); }));
+    zpBody.appendChild(tg);
+  }
+}
+
+function patchCoordInputs(zid) {
+  const z = zoneById(zid);
+  [z.x1,z.y1,z.x2,z.y2].forEach(k => {
+    const inp = zpBody.querySelector(`[data-ck="${k}"]`);
+    if (inp && document.activeElement !== inp) inp.value = S.skin[k];
+  });
+  patchDerived(z);
+}
+
+function patchDerived(z) {
+  const dw = $('derived-'+z.id+'-W');
+  const dh = $('derived-'+z.id+'-H');
+  if (dw) dw.textContent = S.skin[z.x2] - S.skin[z.x1];
+  if (dh) dh.textContent = S.skin[z.y2] - S.skin[z.y1];
+}
+
+/* ── CANVAS MOUSE TRACKING ─────────────────────────────── */
+function onCwMove(e) {
+  const r = cw.getBoundingClientRect();
+  const sx = Math.round((e.clientX - r.left)  / S.scale);
+  const sy = Math.round((e.clientY - r.top)   / S.scale);
+  sbXY.textContent = `x: ${sx}  y: ${sy}`;
+}
+
+/* ── RESOLUTION ────────────────────────────────────────── */
+function onResChange() {
+  S.res.w = parseInt(resW.value)||1920;
+  S.res.h = parseInt(resH.value)||1080;
+  computeScale();
+  renderCanvas();
+  updateStatus();
+}
+
+/* ── STATUS ────────────────────────────────────────────── */
+function updateStatus() {
+  sbRes.textContent = `${S.res.w}×${S.res.h}  ·  scale ${S.scale.toFixed(3)}`;
+  sbZone.textContent = S.sel ? ('▶ ' + zoneById(S.sel).label) : '';
+}
+
+/* ── FILE I/O ──────────────────────────────────────────── */
+function onSkinLoad(e) {
+  const f = e.target.files[0]; if (!f) return;
+  skinNm.value = f.name.replace(/\.skin$/i, '').replace(/\.txt$/i,'');
+  const rd = new FileReader();
+  rd.onload = ev => { parseSkin(ev.target.result); S.sel=null; fullRebuild(); resetHistory(); };
+  rd.readAsText(f);
+  e.target.value = '';
+}
+
+function parseSkin(text) {
+  const s = defaults();
+  for (const line of text.split('\n')) {
+    const t = line.trim();
+    if (!t || t.startsWith('#')) continue;
+    const eq = t.indexOf('=');
+    if (eq < 0) continue;
+    const key = t.slice(0, eq).trim();
+    const val = t.slice(eq+1).trim();
+    if (!key) continue;
+
+    if (val === 'True')  { s[key] = true;  continue; }
+    if (val === 'False') { s[key] = false; continue; }
+
+    // Try number
+    const n = parseInt(val, 10);
+    if (!isNaN(n) && String(n) === val) { s[key] = n; continue; }
+
+    // Hex color values (keys containing 'Color')
+    if (key.includes('Color')) {
+      let h = val.replace(/^0x/i,'').replace(/^#/,'').toUpperCase();
+      if (/^[0-9A-F]{6}$/.test(h)) { s[key] = h; continue; }
+    }
+
+    s[key] = val;
+  }
+  S.skin = s;
+
+  // Set bg name notice
+  if (s.backgroundImage) {
+    noBgNm.textContent = s.backgroundImage;
+    noBgNm.classList.add('show');
+  }
+
+  // Auto-detect resolution from filename or Y coordinates
+  let isPortrait = false;
+  if (s.backgroundImage && s.backgroundImage.includes('1080x1920')) {
+    isPortrait = true;
+  } else {
+    for (const k in s) {
+      if (k.endsWith('Y2') && typeof s[k] === 'number' && s[k] > 1080) {
+        isPortrait = true;
+        break;
+      }
+    }
+  }
+  resW.value = isPortrait ? 1080 : 1920;
+  resH.value = isPortrait ? 1920 : 1080;
+  onResChange();
+}
+
+function onBgLoad(e) {
+  const f = e.target.files[0]; if (!f) return;
+  S.skin.backgroundImage = f.name;
+  const rd = new FileReader();
+  rd.onload = ev => {
+    S.bg = ev.target.result;
+    cbg.onload = () => {
+      if (cbg.naturalWidth && cbg.naturalHeight) {
+        resW.value = cbg.naturalWidth;
+        resH.value = cbg.naturalHeight;
+        onResChange();
+      }
+    };
+    cbg.src = S.bg;
+    cbg.classList.remove('hidden');
+    noBg.classList.add('hidden');
+  };
+  rd.readAsDataURL(f);
+  e.target.value = '';
+}
+
+function exportSkin() {
+  const name = (skinNm.value.trim() || 'new_skin');
+  const fname = name.endsWith('.skin') ? name : name + '.skin';
+  const lines = [];
+
+  lines.push(`# MAMEly Skin File ${fname}`);
+  lines.push(`# Auto generated by MAMEly-skin-editor`);
+  lines.push(`# Comments added to this file will be lost`);
+  lines.push('');
+  lines.push('#skin image');
+  lines.push(`backgroundImage = ${S.skin.backgroundImage || ''}`);
+  lines.push('');
+  lines.push('# skinnable colors in the script');
+  COLOR_DEFS.forEach(({k}) => {
+    if (S.skin[k] !== undefined) lines.push(`${k} = ${S.skin[k]}`);
+  });
+  lines.push('');
+  lines.push('# technically these are now a stroke instead of a shadow');
+  SHADOW_DEFS.forEach(({k}) => {
+    lines.push(`${k} = ${S.skin[k] ? 'True' : 'False'}`);
+  });
+  lines.push('');
+  lines.push('# show or hide sections');
+  ZONES.forEach(z => {
+    if (z.showKey) lines.push(`${z.showKey} = ${S.skin[z.showKey] ? 'True' : 'False'}`);
+  });
+
+  ZONES.forEach(z => {
+    lines.push('');
+    lines.push(z.comment);
+    lines.push(`${z.x1} = ${S.skin[z.x1]}`);
+    lines.push(`${z.y1} = ${S.skin[z.y1]}`);
+    lines.push(`${z.x2} = ${S.skin[z.x2]}`);
+    lines.push(`${z.y2} = ${S.skin[z.y2]}`);
+    z.props.forEach(({k}) => {
+      if (S.skin[k] !== undefined) lines.push(`${k} = ${S.skin[k]}`);
+    });
+  });
+
+  lines.push('');
+
+  const blob = new Blob([lines.join('\n')], {type:'text/plain'});
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = fname; a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ── FULL REBUILD ──────────────────────────────────────── */
+function fullRebuild() {
+  buildZoneList();
+  buildShadowList();
+  buildColorList();
+  computeScale();
+  renderCanvas();
+  renderRightPanel();
+  syncAllVisBtns();
+  syncZoneListSel();
+  updateStatus();
+}
+
+/* ── HELPERS ───────────────────────────────────────────── */
+function zoneById(id) { return ZONES.find(z => z.id === id); }
+function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+function el(tag, cls, attrs) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (attrs) Object.entries(attrs).forEach(([k,v]) => e.dataset[k.replace('data-','')] = v);
+  return e;
+}
+function pgroup(title) {
+  const g  = el('div','pgrp');
+  const t  = el('div','pgrp-title');
+  t.textContent = title;
+  g.appendChild(t);
+  return g;
+}
+
+/* ── BOOT ──────────────────────────────────────────────── */
+init();
+</script>
+</body>
+</html>
