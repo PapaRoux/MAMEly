@@ -47,6 +47,11 @@ class UIManager:
             self.background.fill((0, 0, 0))
 
     def get_font(self, font_name, size):
+        try:
+            size = int(size)
+        except (ValueError, TypeError):
+            size = 20
+
         key = (font_name, size)
         if key not in self.fonts:
             font_path = os.path.join(self.skin.platform_path, font_name) if font_name else None
@@ -55,7 +60,7 @@ class UIManager:
                      self.fonts[key] = pygame.font.Font(font_path, size)
                 else:
                      self.fonts[key] = pygame.font.Font(None, size)
-            except:
+            except Exception:
                 self.fonts[key] = pygame.font.Font(None, size)
         return self.fonts[key]
 
@@ -503,3 +508,89 @@ class UIManager:
         foot = "SPINNING..." if phase == "spin" else "LAUNCHING..."
         foot_surf = subtitle_font.render(foot, True, (255, 200, 120))
         self.screen.blit(foot_surf, foot_surf.get_rect(center=(cx, body.bottom - 36)))
+
+    def draw_skin_picker(self, skin_files, selected_idx, active_skin_filename, platform_name):
+        """Draw interactive skin switcher file picker modal."""
+        w, h = self.screen_width, self.screen_height
+        cx, cy = w // 2, h // 2
+
+        # Dim background overlay
+        overlay = pygame.Surface((w, h), pygame.SRCALPHA)
+        overlay.fill((0, 0, 0, 190))
+        self.screen.blit(overlay, (0, 0))
+
+        # Dialog Box Dimensions
+        box_w = min(750, w - 80)
+        box_h = min(520, h - 80)
+        box_rect = pygame.Rect(cx - box_w // 2, cy - box_h // 2, box_w, box_h)
+
+        # Draw outer container with border
+        pygame.draw.rect(self.screen, (24, 26, 38), box_rect, border_radius=14)
+        pygame.draw.rect(self.screen, (137, 180, 250), box_rect, width=3, border_radius=14)
+        pygame.draw.rect(self.screen, (45, 48, 70), box_rect.inflate(-10, -10), width=2, border_radius=10)
+
+        # Title Header
+        title_font = self.get_font(None, 34)
+        title_text = f"SKIN SWITCHER — {platform_name}"
+        title_surf = title_font.render(title_text, True, (255, 220, 100))
+        self.screen.blit(title_surf, title_surf.get_rect(center=(cx, box_rect.top + 40)))
+
+        # Subtitle
+        sub_font = self.get_font(None, 20)
+        sub_surf = sub_font.render("Live Previewing Platform Skins", True, (180, 190, 210))
+        self.screen.blit(sub_surf, sub_surf.get_rect(center=(cx, box_rect.top + 72)))
+
+        # List Area
+        list_y_start = box_rect.top + 105
+        item_h = 44
+        max_visible = (box_h - 170) // item_h
+        
+        n = len(skin_files)
+        if n == 0:
+            no_font = self.get_font(None, 24)
+            no_surf = no_font.render("No .skin files found in platform folder", True, (255, 100, 100))
+            self.screen.blit(no_surf, no_surf.get_rect(center=(cx, cy)))
+        else:
+            # Scroll window calculation
+            start_idx = max(0, min(selected_idx - max_visible // 2, n - max_visible))
+            if start_idx < 0: start_idx = 0
+            end_idx = min(n, start_idx + max_visible)
+
+            for slot_i, i in enumerate(range(start_idx, end_idx)):
+                skin_name = skin_files[i]
+                item_y = list_y_start + slot_i * item_h
+                item_rect = pygame.Rect(cx - (box_w - 60) // 2, item_y, box_w - 60, item_h - 6)
+
+                is_selected = (i == selected_idx)
+                is_active = (skin_name == active_skin_filename)
+
+                if is_selected:
+                    pygame.draw.rect(self.screen, (137, 180, 250), item_rect, border_radius=6)
+                    text_col = (15, 17, 26)
+                    badge_col = (40, 40, 80)
+                else:
+                    bg_col = (36, 39, 58) if slot_i % 2 == 0 else (30, 32, 48)
+                    pygame.draw.rect(self.screen, bg_col, item_rect, border_radius=6)
+                    text_col = (230, 235, 245)
+                    badge_col = (255, 215, 0)
+
+                # Skin filename text
+                item_font = self.get_font(None, 24)
+                display_name = skin_name
+                if len(display_name) > 42:
+                    display_name = display_name[:41] + "…"
+                t_surf = item_font.render(display_name, True, text_col)
+                self.screen.blit(t_surf, (item_rect.left + 20, item_rect.centery - t_surf.get_height() // 2))
+
+                # Active indicator badge
+                if is_active:
+                    badge_font = self.get_font(None, 18)
+                    b_surf = badge_font.render("★ SAVED", True, badge_col)
+                    self.screen.blit(b_surf, (item_rect.right - b_surf.get_width() - 20, item_rect.centery - b_surf.get_height() // 2))
+
+        # Footer control help
+        footer_font = self.get_font(None, 20)
+        footer_text = "▲/▼ Scroll Live Preview  |  ENTER Apply & Save  |  ESC Cancel"
+        footer_surf = footer_font.render(footer_text, True, (200, 210, 230))
+        self.screen.blit(footer_surf, footer_surf.get_rect(center=(cx, box_rect.bottom - 30)))
+

@@ -113,6 +113,25 @@ class Config:
             f.write('</platforms>\n')
         print(f"Generated default main config at: {config_path}")
 
+    def save_main_config(self):
+        config_path = os.path.join(self.base_path, self.config_file)
+        try:
+            with open(config_path, "w") as f:
+                f.write('<?xml version="1.0"?>\n')
+                f.write('<platforms>\n')
+                f.write(f'    <screensize screenX="{self.screen_width}" screenY="{self.screen_height}"/>\n')
+                for p in self.platforms:
+                    f.write(f'    <platform name="{p.name}">\n')
+                    f.write(f'        <folder>{p.folder}</folder>\n')
+                    f.write(f'        <config>{p.config_file}</config>\n')
+                    f.write(f'        <skin>{p.skin_file}</skin>\n')
+                    f.write('    </platform>\n')
+                f.write('</platforms>\n')
+            print(f"Saved main config to: {config_path}")
+        except Exception as e:
+            print(f"Error saving main config: {e}")
+
+
 class PlatformConfig:
     def __init__(self, platform_path, config_file):
         self.platform_path = platform_path

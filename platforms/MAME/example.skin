@@ -16,7 +16,7 @@ romListDisplayAreaY1 = 200
 romListDisplayAreaX2 = 1045
 romListDisplayAreaY2 = 880
 romListDisplayFont = Continuum-Bold-Regular.ttf
-romListDisplayFontSize = Continuum-Bold-Regular.ttf
+romListDisplayFontSize = 24
 romListDisplaySpacing = 30
 romListDisplayTruncateLen = 60
 

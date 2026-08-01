@@ -22,6 +22,7 @@ class InputManager:
         self.ACTION_SEARCH = 15
         self.ACTION_PAUSE = 16
         self.ACTION_RANDOMIZE = 17
+        self.ACTION_SKIN = 18
 
         # Initialize Joysticks
         pygame.joystick.init()
@@ -55,6 +56,8 @@ class InputManager:
                     return self.ACTION_HELP
                 elif event.key == pygame.K_F2:
                     return self.ACTION_WIZARD
+                elif event.key == pygame.K_F4:
+                    return self.ACTION_SKIN
                 elif event.key == pygame.K_SLASH:
                     return self.ACTION_SEARCH
                 elif event.key == pygame.K_SPACE:
@@ -88,7 +91,9 @@ class InputManager:
         elif keys[pygame.K_f]: action = self.ACTION_FAVORITE
         elif keys[pygame.K_TAB]: action = self.ACTION_GENRE
         elif keys[pygame.K_i]: action = self.ACTION_IGNORE
+        elif keys[pygame.K_s] or keys[pygame.K_k]: action = self.ACTION_SKIN
         elif keys[pygame.K_F2]: action = self.ACTION_WIZARD
+        elif keys[pygame.K_F4]: action = self.ACTION_SKIN
         elif keys[pygame.K_SLASH]: action = self.ACTION_SEARCH
         elif keys[pygame.K_SPACE]: action = self.ACTION_PAUSE
         

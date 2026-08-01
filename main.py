@@ -78,6 +78,12 @@ class MAMElyApp:
         self.video_paused = False
         self.randomizing = False
 
+        # Skin Switcher state
+        self.skin_picker_active = False
+        self.skin_picker_items = []
+        self.skin_picker_idx = 0
+        self.skin_picker_initial_skin = None
+
     def load_platform(self):
         if not self.config.platforms:
             print("No platforms definitions found.")
@@ -126,6 +132,52 @@ class MAMElyApp:
 
     def _current_platform_def(self):
         return self.config.platforms[self.platform_idx]
+
+    def switch_skin(self, skin_filename, save=True):
+        """Dynamically reload skin and background, and optionally persist to config.xml."""
+        p_def = self._current_platform_def()
+        platform_path = os.path.join(self.base_path, "platforms", p_def.folder)
+        full_path = os.path.join(platform_path, skin_filename)
+        if not os.path.exists(full_path):
+            print(f"Skin file not found: {full_path}")
+            return False
+
+        p_def.skin_file = skin_filename
+        self.skin = SkinConfig(platform_path, skin_filename)
+        self.message_duration = self.skin.get("messageTime", 2)
+        if self.ui:
+            self.ui.close_video()
+            self.ui.skin = self.skin
+            self.ui.load_background()
+        
+        if save:
+            self.config.save_main_config()
+        return True
+
+    def open_skin_picker(self):
+        """Scan platform directory for skin files and open the skin picker UI."""
+        p_def = self._current_platform_def()
+        platform_path = os.path.join(self.base_path, "platforms", p_def.folder)
+        if not os.path.exists(platform_path):
+            return
+        
+        skins = sorted([f for f in os.listdir(platform_path) if f.endswith(".skin")])
+        if not skins:
+            self.set_message("No .skin files found for this platform")
+            return
+        
+        self.skin_picker_items = skins
+        self.skin_picker_initial_skin = p_def.skin_file
+        if p_def.skin_file in skins:
+            self.skin_picker_idx = skins.index(p_def.skin_file)
+        else:
+            self.skin_picker_idx = 0
+            
+        self.skin_picker_active = True
+        self.confirm_action = None
+        self.confirm_message = ""
+        self.search_active = False
+        self.show_info_osd = False
 
     def _refresh_info_osd(self):
         p_def = self._current_platform_def()
@@ -316,6 +368,32 @@ class MAMElyApp:
                 self.info_osd_scroll = min(self.info_osd_scroll + 1, max_scroll)
                 return
             return
+
+        if self.skin_picker_active:
+            if action in (self.input.ACTION_SKIN, self.input.ACTION_EXIT):
+                self.switch_skin(self.skin_picker_initial_skin, save=False)
+                self.skin_picker_active = False
+                pygame.event.clear()
+                return
+            elif action == self.input.ACTION_RUN:
+                if self.skin_picker_items:
+                    chosen = self.skin_picker_items[self.skin_picker_idx]
+                    self.switch_skin(chosen, save=True)
+                    self.set_message(f"Skin set to: {chosen}", duration=3)
+                self.skin_picker_active = False
+                pygame.event.clear()
+                return
+            elif action == self.input.ACTION_UP:
+                if self.skin_picker_items:
+                    self.skin_picker_idx = (self.skin_picker_idx - 1) % len(self.skin_picker_items)
+                    self.switch_skin(self.skin_picker_items[self.skin_picker_idx], save=False)
+                return
+            elif action == self.input.ACTION_DOWN:
+                if self.skin_picker_items:
+                    self.skin_picker_idx = (self.skin_picker_idx + 1) % len(self.skin_picker_items)
+                    self.switch_skin(self.skin_picker_items[self.skin_picker_idx], save=False)
+                return
+            return
         
         # Confirmation Overlay Logic
         if self.confirm_action:
@@ -421,6 +499,9 @@ class MAMElyApp:
 
         elif action == self.input.ACTION_HELP:
             self._toggle_info_osd()
+
+        elif action == self.input.ACTION_SKIN:
+            self.open_skin_picker()
 
         elif action == self.input.ACTION_SEARCH:
             self.search_active = True
@@ -738,6 +819,14 @@ class MAMElyApp:
 
         if self.show_info_osd:
             self.ui.draw_info_panel(self.info_osd_lines, self.info_osd_scroll)
+        elif self.skin_picker_active:
+            p_def = self._current_platform_def()
+            self.ui.draw_skin_picker(
+                self.skin_picker_items,
+                self.skin_picker_idx,
+                p_def.skin_file,
+                p_def.name,
+            )
         elif self.confirm_action:
             self.ui.draw_modal(self.confirm_message)
             
