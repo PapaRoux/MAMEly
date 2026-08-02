@@ -4,7 +4,7 @@
     <platform name="MAME">
         <folder>MAME</folder>
         <config>platform_MAME.txt</config>
-        <skin>config_retrocade_MAME_1920x1080.skin</skin>
+        <skin>space_1920x1080.skin</skin>
     </platform>
     <platform name="Super Nintendo">
         <folder>SNES</folder>

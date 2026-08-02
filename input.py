@@ -92,8 +92,6 @@ class InputManager:
         elif keys[pygame.K_TAB]: action = self.ACTION_GENRE
         elif keys[pygame.K_i]: action = self.ACTION_IGNORE
         elif keys[pygame.K_s] or keys[pygame.K_k]: action = self.ACTION_SKIN
-        elif keys[pygame.K_F2]: action = self.ACTION_WIZARD
-        elif keys[pygame.K_F4]: action = self.ACTION_SKIN
         elif keys[pygame.K_SLASH]: action = self.ACTION_SEARCH
         elif keys[pygame.K_SPACE]: action = self.ACTION_PAUSE
         

@@ -3,7 +3,7 @@
 # Comments added to this file will be lost
 
 #skin image
-backgroundImage = background_chibi_1080x1920.png
+backgroundImage = background_space_1080x1920.png
 
 # skinnable colors in the script
 defaultFontForegroundColor = FF77B4
@@ -45,10 +45,10 @@ romSnapShow = True
 romCountShow = True
 
 # area for scrolling list of games
-romListDisplayAreaX1 = 80
-romListDisplayAreaY1 = 130
-romListDisplayAreaX2 = 550
-romListDisplayAreaY2 = 1140
+romListDisplayAreaX1 = 70
+romListDisplayAreaY1 = 210
+romListDisplayAreaX2 = 480
+romListDisplayAreaY2 = 1190
 romListDisplayFont = Continuum-Bold-Regular.ttf
 romListDisplayFontSize = 22
 romListDisplaySpacing = 28
@@ -56,10 +56,10 @@ romListDisplayAlign = center
 romListDisplayTruncateLen = 22
 
 # area for genre of current rom and messages
-romGenreX1 = 70
+romGenreX1 = 40
 romGenreY1 = 1500
-romGenreX2 = 560
-romGenreY2 = 1580
+romGenreX2 = 900
+romGenreY2 = 1610
 romGenreFont = Continuum-Bold-Regular.ttf
 romGenreFontSize = 22
 romGenreAlign = center
@@ -71,46 +71,46 @@ messageTime = 1
 messageTruncateLen = 20
 
 # area for rating of current rom
-romRatingX1 = 70
-romRatingY1 = 1430
-romRatingX2 = 560
-romRatingY2 = 1500
+romRatingX1 = 140
+romRatingY1 = 1310
+romRatingX2 = 500
+romRatingY2 = 1420
 romRatingFont = Continuum-Bold-Regular.ttf
 romRatingFontSize = 30
 romRatingAlign = center
 romRatingTruncateLen = 57
 
 # area for file name of current rom
-romFileNameDisplayBoxX1 = 70
-romFileNameDisplayBoxY1 = 1230
-romFileNameDisplayBoxX2 = 550
-romFileNameDisplayBoxY2 = 1360
+romFileNameDisplayBoxX1 = 570
+romFileNameDisplayBoxY1 = 550
+romFileNameDisplayBoxX2 = 900
+romFileNameDisplayBoxY2 = 630
 romFileNameDisplayBoxFont = Continuum-Bold-Regular.ttf
 romFileNameDisplayBoxFontSize = 26
 romFileNameDisplayBoxAlign = center
 romFileNameDisplayBoxTruncateLen = 18
 
 # area for favorites / genre set bar
-genreSetX1 = 630
-genreSetY1 = 120
-genreSetX2 = 1010
-genreSetY2 = 230
+genreSetX1 = 70
+genreSetY1 = 40
+genreSetX2 = 480
+genreSetY2 = 130
 genreSetFont = Continuum-Bold-Regular.ttf
 genreSetFontSize = 24
 genreSetAlign = center
 genreSetTruncateLen = 22
 
 # area for rom snap image
-romSnapX1 = 630
-romSnapY1 = 510
-romSnapX2 = 1010
-romSnapY2 = 1010
+romSnapX1 = 570
+romSnapY1 = 700
+romSnapX2 = 890
+romSnapY2 = 1080
 
 # area for rom count display
-romCountX1 = 620
-romCountY1 = 310
-romCountX2 = 1020
-romCountY2 = 420
+romCountX1 = 570
+romCountY1 = 420
+romCountX2 = 890
+romCountY2 = 490
 romCountFont = Continuum-Bold-Regular.ttf
 romCountFontSize = 28
 romCountAlign = center

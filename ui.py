@@ -72,6 +72,9 @@ class UIManager:
             # Skip drawing if coordinates are missing
             return
 
+        if not isinstance(truncate_len, int):
+            truncate_len = 0
+
         if color is None:
             color = (255, 255, 255)
         if shadow and shadow_color is None:
@@ -257,20 +260,55 @@ class UIManager:
         pygame.display.flip()
         self.clock.tick(60)
         
-    def show_message(self, message, color=None):
-        if not message: return
-        # Use default message settings from skin
-        x = self.skin.get("romListDisplayAreaXCenter", self.screen_width // 2)
-        y = self.skin.get("romListDisplayAreaYCenter", self.screen_height // 2)
-        # Fallback defaults if skin is missing keys but these usually exist
-        if x is None: x = self.screen_width // 2
-        if y is None: y = self.screen_height // 2
-            
-        font = self.skin.get("messageFont")
-        size = self.skin.get("messageFontSize", 30)
-        color = color if color else self.skin.get("defaultMessageColor", (255, 255, 255))
+    def draw_toast_message(self, message, color=None):
+        """Draw centered toast message with a semi-transparent contrast card background."""
+        if not message:
+            return
+
+        cx, cy = self.screen_width // 2, self.screen_height // 2
+
+        font_name = self.skin.get("messageFont")
+        size = self.skin.get("messageFontSize", 28)
+        try:
+            size = int(size)
+        except (ValueError, TypeError):
+            size = 28
+
+        if color is None:
+            color = self.skin.get("defaultMessageColor", (255, 230, 90))
+
+        font = self.get_font(font_name, size)
         
-        self.draw_text(message, x, y, font, size, color, shadow=True, shadow_color=(0,0,0))
+        # Truncation check
+        truncate_len = self.skin.get("messageTruncateLen", 60)
+        if isinstance(truncate_len, int) and truncate_len > 0 and len(message) > truncate_len:
+            display_text = message[:truncate_len]
+        else:
+            display_text = message
+
+        # Measure text size
+        text_surf = font.render(display_text, True, color)
+        t_w, t_h = text_surf.get_size()
+
+        pad_x, pad_y = 28, 14
+        box_w = min(self.screen_width - 40, t_w + pad_x * 2)
+        box_h = t_h + pad_y * 2
+
+        # Draw semi-transparent contrast background card
+        card = pygame.Surface((box_w, box_h), pygame.SRCALPHA)
+        pygame.draw.rect(card, (15, 17, 26, 220), card.get_rect(), border_radius=10)
+        pygame.draw.rect(card, (137, 180, 250, 200), card.get_rect(), width=2, border_radius=10)
+        
+        draw_x = cx - box_w // 2
+        draw_y = cy - box_h // 2
+        self.screen.blit(card, (draw_x, draw_y))
+
+        # Render centered text on top of contrast box
+        self.draw_text(display_text, cx, cy, font_name, size, color, shadow=True, shadow_color=(0, 0, 0))
+
+    def show_message(self, message, color=None):
+        """Show transient toast message in screen center with contrast box."""
+        self.draw_toast_message(message, color=color)
 
     def draw_modal(self, message, subtext="Press RUN to Confirm, EXIT to Cancel"):
         # Overlay

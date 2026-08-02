@@ -304,6 +304,8 @@ DEFAULT_SKIN_COLORS = {
     "defaultGameSetBarShadowColor": (0, 0, 0),
     "defaultRomGenreColor": (255, 255, 255),
     "defaultRomGenreShadowColor": (0, 0, 0),
+    "defaultRomRatingColor": (255, 255, 255),
+    "defaultRomRatingShadowColor": (0, 0, 0),
     "defaultRomFileNameColor": (255, 255, 255),
     "defaultRomFileNameShadowColor": (0, 0, 0),
 }
@@ -366,6 +368,26 @@ class SkinConfig:
              y2 = self.config.get("romGenreY2", 0)
              self.config["romGenreXCenter"] = x1 + (x2 - x1) // 2
              self.config["romGenreYCenter"] = y1 + (y2 - y1) // 2
+             
+             # Rating
+             if "romRatingX1" in self.config:
+                 rx1 = self.config.get("romRatingX1", 0)
+                 rx2 = self.config.get("romRatingX2", 0)
+                 ry1 = self.config.get("romRatingY1", 0)
+                 ry2 = self.config.get("romRatingY2", 0)
+                 self.config["romRatingXCenter"] = rx1 + (rx2 - rx1) // 2
+                 self.config["romRatingYCenter"] = ry1 + (ry2 - ry1) // 2
+                 self.config["romGenreYCenter_effective"] = self.config["romGenreYCenter"]
+             else:
+                 # Legacy fallback: derive romRating coordinates from romGenre + genreRatingOffset
+                 self.config["romRatingX1"] = x1
+                 self.config["romRatingX2"] = x2
+                 self.config["romRatingY1"] = y1
+                 self.config["romRatingY2"] = y2
+                 self.config["romRatingXCenter"] = self.config["romGenreXCenter"]
+                 offset = self.config.get("genreRatingOffset", 20)
+                 self.config["romGenreYCenter_effective"] = self.config["romGenreYCenter"] - offset
+                 self.config["romRatingYCenter"] = self.config["romGenreYCenter"] + offset
              
              # File Name Box
              x1 = self.config.get("romFileNameDisplayBoxX1", 0)

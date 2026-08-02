@@ -496,22 +496,34 @@ const ZONES = [
     ]
   },
   {
-    id: 'romGenre', label: 'Genre / Message', color: '#10b981',
+    id: 'romGenre', label: 'ROM Genre', color: '#10b981',
     x1: 'romGenreX1', y1: 'romGenreY1',
     x2: 'romGenreX2', y2: 'romGenreY2',
     showKey: 'romGenreShow', shadowKey: 'romGenreShadow',
-    comment: '# area for genre of current rom and rating, and also messages',
+    comment: '# area for genre of current rom and messages',
     props: [
       { k:'romGenreFont',        lbl:'Font',           type:'text'   },
       { k:'romGenreFontSize',    lbl:'Font Size',      type:'number' },
       { k:'romGenreAlign',       lbl:'Align',          type:'align'  },
       { k:'romGenreTruncateLen', lbl:'Truncate Len',   type:'number' },
-      { k:'genreRatingOffset',   lbl:'Rating Offset',  type:'number' },
       { k:'messageFont',         lbl:'Msg Font',       type:'text'   },
       { k:'messageFontSize',     lbl:'Msg Font Size',  type:'number' },
       { k:'messageAlign',        lbl:'Msg Align',      type:'align'  },
       { k:'messageTime',         lbl:'Msg Time (s)',   type:'number' },
       { k:'messageTruncateLen',  lbl:'Msg Truncate',   type:'number' },
+    ]
+  },
+  {
+    id: 'romRating', label: 'ROM Rating', color: '#06b6d4',
+    x1: 'romRatingX1', y1: 'romRatingY1',
+    x2: 'romRatingX2', y2: 'romRatingY2',
+    showKey: 'romRatingShow', shadowKey: 'romRatingShadow',
+    comment: '# area for rating of current rom',
+    props: [
+      { k:'romRatingFont',        lbl:'Font',           type:'text'   },
+      { k:'romRatingFontSize',    lbl:'Font Size',      type:'number' },
+      { k:'romRatingAlign',       lbl:'Align',          type:'align'  },
+      { k:'romRatingTruncateLen', lbl:'Truncate Len',   type:'number' },
     ]
   },
   {
@@ -579,6 +591,8 @@ const COLOR_DEFS = [
   { k:'defaultGameSetBarShadowColor',                  lbl:'Game Set Shadow'      },
   { k:'defaultRomGenreColor',                          lbl:'Genre'                },
   { k:'defaultRomGenreShadowColor',                    lbl:'Genre Shadow'         },
+  { k:'defaultRomRatingColor',                         lbl:'Rating'               },
+  { k:'defaultRomRatingShadowColor',                   lbl:'Rating Shadow'        },
   { k:'defaultRomFileNameColor',                       lbl:'File Name'            },
   { k:'defaultRomFileNameShadowColor',                 lbl:'File Name Shadow'     },
 ];
@@ -601,6 +615,7 @@ const SHADOW_DEFS = [
   { k:'romListDisplayHighlightShadow', lbl:'List Highlight' },
   { k:'romCountShadow',                lbl:'ROM Count'      },
   { k:'romGenreShadow',                lbl:'Genre'          },
+  { k:'romRatingShadow',               lbl:'Rating'         },
   { k:'romFileNameShadow',             lbl:'File Name'      },
   { k:'genreSetShadow',                lbl:'Genre Set'      },
   { k:'messageShadow',                 lbl:'Message'        },
@@ -625,11 +640,14 @@ function defaults() {
     defaultGameSetBarShadowColor:                  '000000',
     defaultRomGenreColor:                          'FFFFFF',
     defaultRomGenreShadowColor:                    '000000',
+    defaultRomRatingColor:                         'FFFFFF',
+    defaultRomRatingShadowColor:                   '000000',
     defaultRomFileNameColor:                       'FFFFFF',
     defaultRomFileNameShadowColor:                 '000000',
 
     romCountShadow:                false,
     romGenreShadow:                false,
+    romRatingShadow:               false,
     romFileNameShadow:             false,
     genreSetShadow:                false,
     romListDisplayHighlightShadow: false,
@@ -638,6 +656,7 @@ function defaults() {
 
     genreSetShow:              true,
     romGenreShow:              true,
+    romRatingShow:             true,
     romCountShow:              true,
     romFileNameDisplayBoxShow: true,
     romSnapShow:               true,
@@ -649,13 +668,19 @@ function defaults() {
     romListDisplayAlign: 'center',
 
     romGenreX1: 50,   romGenreY1: 940,
-    romGenreX2: 1045, romGenreY2: 1030,
+    romGenreX2: 1045, romGenreY2: 980,
     romGenreFont: 'Continuum-Bold-Regular.ttf',
-    romGenreFontSize: 30, romGenreTruncateLen: 57, genreRatingOffset: 15,
+    romGenreFontSize: 30, romGenreTruncateLen: 57,
     romGenreAlign: 'center',
     messageFont: 'Continuum-Bold-Regular.ttf',
     messageFontSize: 40, messageTime: 1, messageTruncateLen: 41,
     messageAlign: 'center',
+
+    romRatingX1: 50,   romRatingY1: 990,
+    romRatingX2: 1045, romRatingY2: 1030,
+    romRatingFont: 'Continuum-Bold-Regular.ttf',
+    romRatingFontSize: 30, romRatingTruncateLen: 57,
+    romRatingAlign: 'center',
 
     romFileNameDisplayBoxX1: 1360, romFileNameDisplayBoxY1: 935,
     romFileNameDisplayBoxX2: 1865, romFileNameDisplayBoxY2: 1035,
@@ -790,7 +815,8 @@ const PREVIEW = {
     alignKey: 'romListDisplayAlign',
   },
   genreSet:              { type:'center', text:'All Games',        sizeKey:'genreSetFontSize',              truncKey:'genreSetTruncateLen',              colorKey:'defaultGameSetBarColor',   alignKey:'genreSetAlign' },
-  romGenre:              { type:'center', text:'Maze  ·  Rating: E', sizeKey:'romGenreFontSize',            truncKey:'romGenreTruncateLen',              colorKey:'defaultRomGenreColor',     alignKey:'romGenreAlign' },
+  romGenre:              { type:'center', text:'Genre: Shooter',   sizeKey:'romGenreFontSize',              truncKey:'romGenreTruncateLen',              colorKey:'defaultRomGenreColor',     alignKey:'romGenreAlign' },
+  romRating:             { type:'center', text:'Rating: General',  sizeKey:'romRatingFontSize',             truncKey:'romRatingTruncateLen',             colorKey:'defaultRomRatingColor',    alignKey:'romRatingAlign' },
   romFileNameDisplayBox: { type:'center', text:'pacman.zip',       sizeKey:'romFileNameDisplayBoxFontSize', truncKey:'romFileNameDisplayBoxTruncateLen', colorKey:'defaultRomFileNameColor',  alignKey:'romFileNameDisplayBoxAlign' },
   romCount:              { type:'center', text:'12 of 340',        sizeKey:'romCountFontSize',              truncKey:'romCountTruncateLen',              colorKey:'defaultRomCountColor',     alignKey:'romCountAlign' },
   romSnap:               { type:'snap' },
@@ -1451,6 +1477,24 @@ function parseSkin(text) {
 
     s[key] = val;
   }
+
+  // Auto-migrate legacy skin files (split romGenre / romRating)
+  if (s.romRatingX1 === undefined && s.romGenreX1 !== undefined) {
+    s.romRatingX1 = s.romGenreX1;
+    s.romRatingX2 = s.romGenreX2;
+    const cy = Math.round((s.romGenreY1 + s.romGenreY2) / 2);
+    s.romGenreY1 = s.romGenreY1;
+    s.romGenreY2 = cy;
+    s.romRatingY1 = cy;
+    s.romRatingY2 = s.romGenreY2;
+    s.romRatingFont = s.romGenreFont || 'Continuum-Bold-Regular.ttf';
+    s.romRatingFontSize = s.romGenreFontSize || 30;
+    s.romRatingTruncateLen = s.romGenreTruncateLen || 57;
+    s.romRatingAlign = s.romGenreAlign || 'center';
+    s.romRatingShadow = s.romGenreShadow || false;
+    s.romRatingShow = s.romGenreShow !== undefined ? s.romGenreShow : true;
+  }
+
   S.skin = s;
 
   // Set bg name notice

@@ -155,17 +155,19 @@ class MAMElyApp:
         return True
 
     def open_skin_picker(self):
-        """Scan platform directory for skin files and open the skin picker UI."""
+        """Open the in-app retro skin switcher picker."""
         p_def = self._current_platform_def()
-        platform_path = os.path.join(self.base_path, "platforms", p_def.folder)
-        if not os.path.exists(platform_path):
-            return
+        platform_dir = os.path.join(self.base_path, "platforms", p_def.folder)
         
-        skins = sorted([f for f in os.listdir(platform_path) if f.endswith(".skin")])
+        if not os.path.exists(platform_dir):
+            skins = []
+        else:
+            skins = sorted([f for f in os.listdir(platform_dir) if f.endswith(".skin")])
+            
         if not skins:
             self.set_message("No .skin files found for this platform")
             return
-        
+            
         self.skin_picker_items = skins
         self.skin_picker_initial_skin = p_def.skin_file
         if p_def.skin_file in skins:
@@ -703,8 +705,12 @@ class MAMElyApp:
                                   
                 if is_selected:
                     # Draw Details for selected ROM
-                    self.max_snap_w = self.skin.get("romSnapX2") - self.skin.get("romSnapX1")
-                    self.max_snap_h = self.skin.get("romSnapY2") - self.skin.get("romSnapY1")
+                    snap_x1 = self.skin.get("romSnapX1", 0) or 0
+                    snap_x2 = self.skin.get("romSnapX2", 0) or 0
+                    snap_y1 = self.skin.get("romSnapY1", 0) or 0
+                    snap_y2 = self.skin.get("romSnapY2", 0) or 0
+                    self.max_snap_w = snap_x2 - snap_x1
+                    self.max_snap_h = snap_y2 - snap_y1
                     
                     # During slot spin, skip snaps/video for speed and to avoid attract mode
                     if self.randomizing:
@@ -736,8 +742,7 @@ class MAMElyApp:
                         if elapsed >= 5.0 and video_path:
                             self.ui.set_active_video(video_path)
                             video_rendered = self.ui.draw_video_frame(
-                                self.skin.get("romSnapX1"), self.skin.get("romSnapY1"),
-                                self.skin.get("romSnapX2"), self.skin.get("romSnapY2"),
+                                snap_x1, snap_y1, snap_x2, snap_y2,
                                 paused=self.video_paused
                             )
                         else:
@@ -750,47 +755,37 @@ class MAMElyApp:
                             path1 = os.path.join(snap_dir, rom_name + ext)
                             path2 = os.path.join(snap_dir, rom_name, "0000" + ext)
                             
-                            self.ui.draw_image(path1, 
-                                               self.skin.get("romSnapX1"), self.skin.get("romSnapY1"),
-                                               self.skin.get("romSnapX2"), self.skin.get("romSnapY2"),
-                                               fallback_path=path2)
+                            self.ui.draw_image(path1, snap_x1, snap_y1, snap_x2, snap_y2, fallback_path=path2)
                                        
-                    # Draw Genre/Rating or Message
-                    msg = self.message
-                    if msg:
-                        if time.time() - self.message_start_time > self._current_message_duration:
-                            self.message = ""
+                    # Draw Genre and Rating
+                    gy = self.skin.get("romGenreYCenter_effective", self.skin.get("romGenreYCenter"))
+                    ry = self.skin.get("romRatingYCenter")
                     
-                    gy = self.skin.get("romGenreYCenter")
-                    offset = self.skin.get("genreRatingOffset", 20)
-                    
-                    if msg:
-                        mx, m_align = self._text_anchor("romGenre", "messageAlign")
-                        self.ui.draw_text(msg, mx, gy,
-                                          self.skin.get("messageFont"),
-                                          self.skin.get("messageFontSize"),
-                                          self.skin.get("defaultMessageColor"),
-                                          shadow=True,
-                                          truncate_len=self.skin.get("messageTruncateLen"),
-                                          align=m_align)
-                    else:
-                        gx, g_align = self._text_anchor("romGenre", "romGenreAlign")
-                        g_txt = f"Genre: {rom.genre}"
-                        r_txt = f"Rating: {rom.rating}"
-                        self.ui.draw_text(g_txt, gx, gy - offset, 
-                                          self.skin.get("romGenreFont"),
-                                          self.skin.get("romGenreFontSize"),
-                                          self.skin.get("defaultRomNameDisplayBoxColor"),
-                                          shadow=self.skin.get("romGenreShadow"),
-                                          truncate_len=self.skin.get("romGenreTruncateLen"),
-                                          align=g_align)
-                        self.ui.draw_text(r_txt, gx, gy + offset, 
-                                          self.skin.get("romGenreFont"),
-                                          self.skin.get("romGenreFontSize"),
-                                          self.skin.get("defaultRomNameDisplayBoxColor"),
-                                          shadow=self.skin.get("romGenreShadow"),
-                                          truncate_len=self.skin.get("romGenreTruncateLen"),
-                                          align=g_align)
+                    gx, g_align = self._text_anchor("romGenre", "romGenreAlign")
+                    rx, r_align = self._text_anchor("romRating", "romRatingAlign")
+                    if self.skin.get("romRatingAlign") is None:
+                        r_align = g_align
+
+                    g_txt = f"Genre: {rom.genre}"
+                    r_txt = f"Rating: {rom.rating}"
+
+                    self.ui.draw_text(g_txt, gx, gy, 
+                                      self.skin.get("romGenreFont"),
+                                      self.skin.get("romGenreFontSize"),
+                                      self.skin.get("defaultRomGenreColor", self.skin.get("defaultRomNameDisplayBoxColor")),
+                                      shadow_color=self.skin.get("defaultRomGenreShadowColor"),
+                                      shadow=self.skin.get("romGenreShadow"),
+                                      truncate_len=self.skin.get("romGenreTruncateLen"),
+                                      align=g_align)
+
+                    self.ui.draw_text(r_txt, rx, ry, 
+                                      self.skin.get("romRatingFont", self.skin.get("romGenreFont")),
+                                      self.skin.get("romRatingFontSize", self.skin.get("romGenreFontSize")),
+                                      self.skin.get("defaultRomRatingColor", self.skin.get("defaultRomGenreColor", self.skin.get("defaultRomNameDisplayBoxColor"))),
+                                      shadow_color=self.skin.get("defaultRomRatingShadowColor"),
+                                      shadow=self.skin.get("romRatingShadow", self.skin.get("romGenreShadow")),
+                                      truncate_len=self.skin.get("romRatingTruncateLen", self.skin.get("romGenreTruncateLen")),
+                                      align=r_align)
                                           
                     # Draw Count
                     count_txt = f"{self.selected_rom_idx + 1} of {len(self.rom_list)}"
@@ -830,6 +825,12 @@ class MAMElyApp:
         elif self.confirm_action:
             self.ui.draw_modal(self.confirm_message)
             
+        if self.message:
+            if time.time() - self.message_start_time > self._current_message_duration:
+                self.message = ""
+            else:
+                self.ui.draw_toast_message(self.message)
+
         if self.search_active or self.search_query:
             self.ui.draw_search_bar(self.search_query, self.search_active)
             
