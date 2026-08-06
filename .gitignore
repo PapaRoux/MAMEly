@@ -1,0 +1,24 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Runtime generated XMLs & backups
+MAMEly.xml
+*.xml.old
+*.xml.bkp
+*.xml.tmp
+
+# User favorites & ignore lists
+favorites.txt
+ignore.txt
+favorites.xml
+
+# Databases & logs
+*.db
+history/
+
+# OS / Editor temporary files
+*.swp
+*~
+.DS_Store
