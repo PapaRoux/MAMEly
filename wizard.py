@@ -54,6 +54,34 @@ class SetupWizard:
         self.width = self.ui.screen_width
         self.height = self.ui.screen_height
 
+    def _get_platforms_status(self):
+        platforms_status = []
+        for p_def in self.app.config.platforms:
+            issues = check_platform(self.base_path, p_def)
+            errors = [i for i in issues if i.level == "error"]
+            warns = [i for i in issues if i.level == "warn"]
+            
+            if errors:
+                status_text = "ERROR"
+                color = ERROR_COLOR
+            elif warns:
+                status_text = "WARNING"
+                color = HIGHLIGHT_COLOR
+            else:
+                status_text = "OK"
+                color = SUCCESS_COLOR
+            
+            p_path = os.path.join(self.base_path, "platforms", p_def.folder)
+            p_conf = PlatformConfig(p_path, p_def.config_file)
+            platforms_status.append({
+                "def": p_def,
+                "status": status_text,
+                "color": color,
+                "issues": issues,
+                "conf": p_conf,
+            })
+        return platforms_status
+
     def run(self):
         """Main loop of the setup wizard."""
         # Make mouse visible during setup for easier debugging/use if needed
@@ -61,35 +89,10 @@ class SetupWizard:
         
         running = True
         selected_idx = 0
+        platforms_status = self._get_platforms_status()
+        menu_items = platforms_status + [{"def": None, "name": "Exit Setup Wizard", "status": "", "color": TEXT_COLOR}]
         
         while running:
-            # Refresh platform diagnostics status
-            platforms_status = []
-            for p_def in self.app.config.platforms:
-                issues = check_platform(self.base_path, p_def)
-                errors = [i for i in issues if i.level == "error"]
-                warns = [i for i in issues if i.level == "warn"]
-                
-                if errors:
-                    status_text = "ERROR"
-                    color = ERROR_COLOR
-                elif warns:
-                    status_text = "WARNING"
-                    color = HIGHLIGHT_COLOR
-                else:
-                    status_text = "OK"
-                    color = SUCCESS_COLOR
-                
-                platforms_status.append({
-                    "def": p_def,
-                    "status": status_text,
-                    "color": color,
-                    "issues": issues,
-                })
-            
-            # Add an exit option
-            menu_items = platforms_status + [{"def": None, "name": "Exit Setup Wizard", "status": "", "color": TEXT_COLOR}]
-            
             # Handle input
             action = self.input.get_action()
             if action == self.input.ACTION_UP:
@@ -104,6 +107,8 @@ class SetupWizard:
                     running = False
                 else:
                     self.configure_platform(item["def"])
+                    platforms_status = self._get_platforms_status()
+                    menu_items = platforms_status + [{"def": None, "name": "Exit Setup Wizard", "status": "", "color": TEXT_COLOR}]
             
             # Handle mouse click on menu items
             for event in pygame.event.get():
@@ -123,6 +128,8 @@ class SetupWizard:
                                 running = False
                             else:
                                 self.configure_platform(menu_item["def"])
+                                platforms_status = self._get_platforms_status()
+                                menu_items = platforms_status + [{"def": None, "name": "Exit Setup Wizard", "status": "", "color": TEXT_COLOR}]
             
             # Draw Main Wizard Screen
             self.screen.fill(BG_COLOR)
@@ -175,7 +182,7 @@ class SetupWizard:
                 
                 p_def = selected_item["def"]
                 p_path = os.path.join(self.base_path, "platforms", p_def.folder)
-                p_conf = PlatformConfig(p_path, p_def.config_file)
+                p_conf = selected_item.get("conf") or PlatformConfig(p_path, p_def.config_file)
                 
                 # Check ROMs & XML status
                 roms_ok = os.path.isdir(p_conf.rom_directory) if p_conf.rom_directory else False

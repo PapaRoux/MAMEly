@@ -46,5 +46,6 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         pass
     except Exception as e:
+        import traceback
         print(f"Application crashed: {e}")
-        # In a real app we might log this or show a dialog
+        traceback.print_exc()
