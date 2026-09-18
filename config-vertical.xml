@@ -3,9 +3,7 @@
     <screensize screenX="1080" screenY="1920"/>
     <platform name="MAME">
         <folder>MAME</folder>
-        <config>config_retrocade_MAME_1080x1920.txt</config>
+        <config>platform_MAME.txt</config>
         <skin>config_retrocade_MAME_1080x1920.skin</skin>
     </platform>
 </platforms>
-    
-    
