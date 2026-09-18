@@ -70,6 +70,13 @@ class RomManager:
         xml_path = os.path.join(self.platform_path, "MAMEly.xml")
         
         xml_path = os.path.join(self.platform_path, "MAMEly.xml")
+        example_xml_path = os.path.join(self.platform_path, "MAMEly.example.xml")
+        
+        # If live XML is missing but example XML exists, copy it
+        if not os.path.exists(xml_path) and os.path.exists(example_xml_path):
+            import shutil
+            shutil.copy(example_xml_path, xml_path)
+            
         xml_roms = {}
         
         if os.path.exists(xml_path):
