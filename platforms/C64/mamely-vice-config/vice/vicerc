@@ -1,9 +1,13 @@
+[Version]
+ConfigVersion=3.10
+
 [C64SC]
 ConfirmOnExit=0
 SaveResourcesOnExit=0
-HotkeyFile="/home/laptop/.var/app/net.sf.VICE/config/vice/hotkeys.vhk"
-KeymapSymFile="/home/laptop/.var/app/net.sf.VICE/config/vice/gtk3_sym.vkm"
+HotkeyFile="hotkeys.vhk"
+KeymapSymFile="gtk3_sym.vkm"
 
 [VICII]
-Fullscreen=1
-
+VICIIFullscreen=1
+VICIIFullscreenDecorations=0
+VICIIShowStatusbar=0
