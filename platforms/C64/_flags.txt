@@ -1,0 +1,8 @@
+# rom-specific flags to run with mame executable upon rom selection
+armora = -flipx    
+qb3 = -flipx
+spacewar = -flipx
+spacfury = -flipx
+starcas = -flipx
+startrek = -flipx    
+tacscan = -flipx    

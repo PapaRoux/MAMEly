@@ -1,0 +1,11 @@
+# Commodore 64 Platform Configuration
+emulatorBasePath = /mnt/8TB/platforms/c64/
+romDirectory = roms/
+romSnapDirectory = snap/
+romVideoDirectory = video/
+emulatorExecutable = flatpak run --file-forwarding net.sf.VICE -autostart
+romExtension = .zip
+snapExtension = .png
+videoExtension = .mp4
+compareDBtoRoms = False
+showXMLprogressBar = False
