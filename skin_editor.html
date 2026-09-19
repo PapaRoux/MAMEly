@@ -171,6 +171,16 @@
     }
     .zvis:hover { color:var(--txt0); }
     .zvis.off { opacity:.35; }
+    .zlock {
+      background:none; border:none; cursor:pointer;
+      color:var(--txt2); font-size:12px;
+      padding:2px 3px; border-radius:3px;
+      transition:color var(--t); line-height:1; flex-shrink:0;
+    }
+    .zlock:hover { color:var(--txt0); }
+    .zlock.on { color:#fbbf24; }
+    .zone-row.locked { opacity:.72; }
+    .pinp:disabled { opacity:.45; cursor:not-allowed; }
 
     /* Toggle rows */
     .trow {
@@ -295,6 +305,11 @@
       z-index: 45;
     }
     .zo.nav-cover:not(.sel) { pointer-events:none; }
+    .zo.locked {
+      pointer-events:none !important;
+      cursor:default;
+      border-style:dotted;
+    }
     .zo-lbl {
       position:absolute; top:3px; left:5px;
       font-size:9.5px; font-weight:700;
@@ -407,7 +422,7 @@
 <!-- File pickers -->
 <input type="file" id="fi-skin" accept=".skin,.txt">
 <input type="file" id="fi-bg"   accept="image/*">
-<input type="file" id="fi-sprite" accept="image/*">
+<input type="file" id="fi-sprite" accept="image/*" multiple>
 
 <!-- ═══ HEADER ═══════════════════════════════════════════ -->
 <header id="hdr">
@@ -495,17 +510,21 @@
     <div class="psec">
       <div class="psec-title">Zones</div>
       <div id="zone-list"></div>
+      <div style="font-size:10px;color:var(--txt2);margin-top:6px;line-height:1.4">
+        Lock (🔒) to prevent canvas select/move
+      </div>
     </div>
 
     <div class="psec">
       <div class="psec-head">
         <div class="psec-title">Sprites</div>
-        <button class="btn btn-mini" id="btn-add-sprite" title="Add a sprite from sprites/">+ Add</button>
+        <button class="btn btn-mini" id="btn-add-sprite" title="Add one or more PNGs from sprites/">+ Add</button>
       </div>
       <div id="sprite-list"></div>
       <div style="font-size:10px;color:var(--txt2);margin-top:6px;line-height:1.4">
         Drag to reorder · top = front<br>
-        Overlay PNGs from <code>platforms/&lt;PLATFORM&gt;/sprites/</code>
+        Overlay PNGs from <code>platforms/&lt;PLATFORM&gt;/sprites/</code><br>
+        + Add accepts multiple files · lock to prevent select/move
       </div>
     </div>
 
@@ -855,7 +874,8 @@ const S = {
   snap: false,      // snap-to-grid enabled
   snapGrid: 10,     // grid size in skin units
   preview: false,   // text preview mode
-  sprites: [],      // [{id,file,x,y,w,h,show,preview}]
+  locks: {},        // zoneId -> true (editor-only, ignored by MAMEly)
+  sprites: [],      // [{id,file,x,y,w,h,show,locked,preview}]
   spriteImgs: {},   // id -> HTMLImageElement
   spriteDir: 'platforms/MAME/sprites',
   platformName: 'MAME',
@@ -872,8 +892,9 @@ function snapshot() {
     skin: S.skin,
     sprites: S.sprites.map(s => ({
       id: s.id, file: s.file, x: s.x, y: s.y, w: s.w, h: s.h,
-      show: s.show, preview: s.preview || null,
+      show: s.show, locked: !!s.locked, preview: s.preview || null,
     })),
+    locks: { ...S.locks },
     platformName: S.platformName,
     spriteDir: S.spriteDir,
   });
@@ -884,6 +905,7 @@ function applySnapshot(raw) {
   if (o && o.skin) {
     S.skin = o.skin;
     S.sprites = o.sprites || [];
+    S.locks = o.locks || {};
     S.platformName = o.platformName || 'MAME';
     S.spriteDir = o.spriteDir || ('platforms/' + S.platformName + '/sprites');
   } else {
@@ -1084,6 +1106,7 @@ function addPreviewContent(div, z) {
 
 /* ── ARROW-KEY NUDGE ───────────────────────────────────── */
 function nudgeZone(zid, dx, dy) {
+  if (isLocked(zid)) return;
   const r = getRect(zid);
   const W = S.res.w, H = S.res.h;
   const w = r.x2 - r.x1;
@@ -1128,6 +1151,7 @@ function getRect(sel) {
   return { x1:S.skin[z.x1], y1:S.skin[z.y1], x2:S.skin[z.x2], y2:S.skin[z.y2] };
 }
 function setRect(sel, r) {
+  if (isLocked(sel)) return;
   if (isSpriteSel(sel)) {
     const s = getSprite(sel);
     if (!s) return;
@@ -1143,12 +1167,68 @@ function setRect(sel, r) {
 function itemLabel(sel) {
   if (isSpriteSel(sel)) {
     const s = getSprite(sel);
-    return s ? ('Sprite: ' + s.id) : 'Sprite';
+    const name = s ? ('Sprite: ' + s.id) : 'Sprite';
+    return isLocked(sel) ? name + ' 🔒' : name;
   }
   const z = zoneById(sel);
-  return z ? z.label : '';
+  const name = z ? z.label : '';
+  return isLocked(sel) ? name + ' 🔒' : name;
 }
-function sanitizeSpriteId(name) {
+function isLocked(sel) {
+  if (!sel) return false;
+  if (isSpriteSel(sel)) {
+    const s = getSprite(sel);
+    return !!(s && s.locked);
+  }
+  return !!S.locks[sel];
+}
+function setLocked(sel, locked) {
+  if (!sel) return;
+  locked = !!locked;
+  if (isSpriteSel(sel)) {
+    const s = getSprite(sel);
+    if (s) s.locked = locked;
+  } else if (locked) {
+    S.locks[sel] = true;
+  } else {
+    delete S.locks[sel];
+  }
+}
+function toggleLock(sel) {
+  if (!sel) return;
+  setLocked(sel, !isLocked(sel));
+  buildZoneList();
+  buildSpriteList();
+  renderCanvas();
+  renderRightPanel();
+  updateStatus();
+  commitHistory();
+}
+function makeLockBtn(sel) {
+  const locked = isLocked(sel);
+  const btn = el('button', 'zlock' + (locked ? ' on' : ''));
+  btn.title = locked ? 'Unlock — allow select and move' : 'Lock — prevent select and move';
+  btn.textContent = locked ? '🔒' : '🔓';
+  btn.onclick = e => { e.stopPropagation(); toggleLock(sel); };
+  btn.onmousedown = e => e.stopPropagation();
+  return btn;
+}
+function lockToggleRow(sel) {
+  const row = el('div', 'trow');
+  const span = el('span', 'tlbl');
+  span.textContent = 'Lock (no select / move)';
+  const label = el('label', 'tswitch');
+  const inp = el('input');
+  inp.type = 'checkbox';
+  inp.checked = isLocked(sel);
+  inp.onchange = () => toggleLock(sel);
+  label.appendChild(inp);
+  label.appendChild(el('span', 'tslider'));
+  row.appendChild(span);
+  row.appendChild(label);
+  return row;
+}
+function sanitizeSpriteId(name, extraUsed) {
   let id = String(name || 'sprite').replace(/\.[^.]+$/, '')
     .replace(/^retrocade_frame_/, '')
     .replace(/[^a-zA-Z0-9_]+/g, '_')
@@ -1157,7 +1237,10 @@ function sanitizeSpriteId(name) {
   if (/^[0-9]/.test(id)) id = 's_' + id;
   const base = id;
   let n = 2;
-  while (S.sprites.some(s => s.id === id)) id = base + '_' + n++;
+  const taken = extraUsed
+    ? (s => S.sprites.some(x => x.id === s) || extraUsed.has(s))
+    : (s => S.sprites.some(x => x.id === s));
+  while (taken(id)) id = base + '_' + n++;
   return id;
 }
 function guessPlatform(name) {
@@ -1205,7 +1288,7 @@ function spritesFromSkin(s) {
     const prop = rest.slice(dot + 1).toLowerCase();
     if (!sid) continue;
     if (!by[sid]) {
-      by[sid] = { id:sid, file:'', x:0, y:0, w:null, h:null, show:true };
+      by[sid] = { id:sid, file:'', x:0, y:0, w:null, h:null, show:true, locked:false };
       order.push(sid);
     }
     const spr = by[sid];
@@ -1218,6 +1301,7 @@ function spritesFromSkin(s) {
     else if (prop === 'x2') spr._x2 = parseInt(val, 10) || 0;
     else if (prop === 'y2') spr._y2 = parseInt(val, 10) || 0;
     else if (prop === 'show') spr.show = val === true || val === 'True' || val === 'true';
+    else if (prop === 'locked' || prop === 'lock') spr.locked = val === true || val === 'True' || val === 'true';
   }
   return order.map(id => {
     const spr = by[id];
@@ -1535,7 +1619,7 @@ function buildSpriteList() {
   list.innerHTML = '';
   // Front-most (last in S.sprites) at the top of the list
   [...S.sprites].reverse().forEach(spr => {
-    const row = el('div', 'zone-row', { 'data-zid': SPRITE_PREFIX + spr.id });
+    const row = el('div', 'zone-row' + (spr.locked ? ' locked' : ''), { 'data-zid': SPRITE_PREFIX + spr.id });
     row.draggable = true;
     row.dataset.spriteId = spr.id;
 
@@ -1551,6 +1635,7 @@ function buildSpriteList() {
     row.appendChild(grip);
     row.appendChild(dot);
     row.appendChild(lbl);
+    row.appendChild(makeLockBtn(SPRITE_PREFIX + spr.id));
     const btn = el('button', 'zvis');
     btn.title = 'Toggle visibility';
     btn.textContent = spr.show ? '👁' : '🚫';
@@ -1660,12 +1745,13 @@ function reorderSprite(fromId, toId, visualBefore) {
 
 function appendSpriteOverlay(spr) {
   const sel = S.sel === SPRITE_PREFIX + spr.id;
+  const locked = !!spr.locked;
   const w = spr.w || 64, h = spr.h || 64;
   const color = spriteColor(spr.id);
   const hideNavSpr = S.skin.navKeysShow === false && NAV_SPRITE_IDS.has(spr.id);
   const hidden = !spr.show || hideNavSpr;
   if (hidden && !sel) return;
-  const div = el('div', 'zo sprite' + (sel ? ' sel' : '') + (hidden ? ' hidden-spr' : ''));
+  const div = el('div', 'zo sprite' + (sel ? ' sel' : '') + (hidden ? ' hidden-spr' : '') + (locked ? ' locked' : ''));
   div.dataset.zid = SPRITE_PREFIX + spr.id;
   div.style.left = s2d(spr.x) + 'px';
   div.style.top = s2d(spr.y) + 'px';
@@ -1686,11 +1772,11 @@ function appendSpriteOverlay(spr) {
   }
 
   const lbl = el('div', 'zo-lbl');
-  lbl.textContent = spr.id;
+  lbl.textContent = locked ? ('🔒 ' + spr.id) : spr.id;
   lbl.style.color = color;
   div.appendChild(lbl);
 
-  if (sel) {
+  if (sel && !locked) {
     ['nw','n','ne','w','e','sw','s','se'].forEach(handle => {
       const rh = el('div', 'rh ' + handle);
       rh.dataset.h = handle;
@@ -1698,17 +1784,20 @@ function appendSpriteOverlay(spr) {
       div.appendChild(rh);
     });
   }
-  div.onmousedown = e => {
-    if (e.target.classList.contains('rh')) return;
-    e.stopPropagation();
-    select(SPRITE_PREFIX + spr.id);
-    startMove(e, SPRITE_PREFIX + spr.id);
-  };
+  if (!locked) {
+    div.onmousedown = e => {
+      if (e.target.classList.contains('rh')) return;
+      e.stopPropagation();
+      select(SPRITE_PREFIX + spr.id);
+      startMove(e, SPRITE_PREFIX + spr.id);
+    };
+  }
   zl.appendChild(div);
 }
 
 function deleteSelectedSprite() {
   if (!isSpriteSel(S.sel)) return;
+  if (isLocked(S.sel)) return;
   const id = spriteKey(S.sel);
   S.sprites = S.sprites.filter(s => s.id !== id);
   delete S.spriteImgs[id];
@@ -1718,27 +1807,56 @@ function deleteSelectedSprite() {
 }
 
 function onSpriteFile(e) {
-  const f = e.target.files[0]; if (!f) return;
-  const id = sanitizeSpriteId(f.name);
-  const rd = new FileReader();
-  rd.onload = ev => {
-    const preview = ev.target.result;
-    const img = new Image();
-    img.onload = () => {
-      S.sprites.push({
-        id, file: f.name, x: 80, y: 80,
-        w: img.naturalWidth, h: img.naturalHeight,
-        show: true, preview,
-      });
-      S.spriteImgs[id] = img;
-      S.sel = SPRITE_PREFIX + id;
-      fullRebuild();
-      commitHistory();
-    };
-    img.src = preview;
-  };
-  rd.readAsDataURL(f);
+  const files = [...(e.target.files || [])];
   e.target.value = '';
+  if (!files.length) return;
+
+  const used = new Set();
+  const jobs = files.map((f, i) => {
+    const id = sanitizeSpriteId(f.name, used);
+    used.add(id);
+    return { f, i, id };
+  });
+
+  let pending = jobs.length;
+  const added = [];
+  const finish = () => {
+    if (--pending > 0) return;
+    if (!added.length) return;
+    added.sort((a, b) => a.i - b.i);
+    added.forEach(({ spr, img }) => {
+      S.sprites.push(spr);
+      S.spriteImgs[spr.id] = img;
+    });
+    S.sel = SPRITE_PREFIX + added[added.length - 1].spr.id;
+    fullRebuild();
+    commitHistory();
+  };
+
+  jobs.forEach(({ f, i, id }) => {
+    const rd = new FileReader();
+    rd.onload = ev => {
+      const preview = ev.target.result;
+      const img = new Image();
+      img.onload = () => {
+        added.push({
+          i,
+          img,
+          spr: {
+            id, file: f.name,
+            x: 80 + i * 24, y: 80 + i * 24,
+            w: img.naturalWidth, h: img.naturalHeight,
+            show: true, locked: false, preview,
+          },
+        });
+        finish();
+      };
+      img.onerror = finish;
+      img.src = preview;
+    };
+    rd.onerror = finish;
+    rd.readAsDataURL(f);
+  });
 }
 
 /* ── DOM REFS ──────────────────────────────────────────── */
@@ -1883,13 +2001,15 @@ function onKeyDown(e) {
   if (e.key === 'Escape') { select(null); return; }
   if (k === 'g') { toggleSnap(); return; }
   if (k === 'p') { togglePreview(); return; }
+  if (k === 'l' && S.sel) { e.preventDefault(); toggleLock(S.sel); return; }
   if ((e.key === 'Delete' || e.key === 'Backspace') && isSpriteSel(S.sel)) {
+    if (isLocked(S.sel)) return;
     e.preventDefault();
     deleteSelectedSprite();
     return;
   }
 
-  if (S.sel && e.key.startsWith('Arrow')) {
+  if (S.sel && !isLocked(S.sel) && e.key.startsWith('Arrow')) {
     e.preventDefault();
     const step = e.shiftKey ? 10 : 1;
     let dx = 0, dy = 0;
@@ -1921,7 +2041,7 @@ const s2d = v  => v * S.scale;                  // skin → display
 function buildZoneList() {
   zoneListEl.innerHTML = '';
   ZONES.forEach(z => {
-    const row = el('div', 'zone-row', { 'data-zid': z.id });
+    const row = el('div', 'zone-row' + (isLocked(z.id) ? ' locked' : ''), { 'data-zid': z.id });
 
     const dot = el('div', 'zdot');
     dot.style.background = z.color;
@@ -1931,6 +2051,7 @@ function buildZoneList() {
 
     row.appendChild(dot);
     row.appendChild(lbl);
+    row.appendChild(makeLockBtn(z.id));
 
     if (z.showKey) {
       const btn = el('button', 'zvis');
@@ -2066,7 +2187,8 @@ function renderCanvas() {
     const dX = s2d(x1), dY = s2d(y1);
     const dW = s2d(x2 - x1), dH = s2d(y2 - y1);
 
-    const div = el('div', 'zo' + (sel?' sel':'') + (hideNav?' nav-cover':(!vis?' dim':'')));
+    const locked = isLocked(z.id);
+    const div = el('div', 'zo' + (sel?' sel':'') + (hideNav?' nav-cover':(!vis?' dim':'')) + (locked?' locked':''));
     div.dataset.zid = z.id;
     div.style.left   = dX + 'px';
     div.style.top    = dY + 'px';
@@ -2081,13 +2203,13 @@ function renderCanvas() {
     }
 
     const lbl = el('div', 'zo-lbl');
-    lbl.textContent = z.label;
+    lbl.textContent = locked ? ('🔒 ' + z.label) : z.label;
     lbl.style.color = z.color;
     div.appendChild(lbl);
 
     if (S.preview && !hideNav) addPreviewContent(div, z);
 
-    if (sel) {
+    if (sel && !locked) {
       ['nw','n','ne','w','e','sw','s','se'].forEach(h => {
         const rh = el('div', 'rh ' + h);
         rh.dataset.h = h;
@@ -2096,12 +2218,14 @@ function renderCanvas() {
       });
     }
 
-    div.onmousedown = e => {
-      if (e.target.classList.contains('rh')) return;
-      e.stopPropagation();
-      select(z.id);
-      startMove(e, z.id);
-    };
+    if (!locked) {
+      div.onmousedown = e => {
+        if (e.target.classList.contains('rh')) return;
+        e.stopPropagation();
+        select(z.id);
+        startMove(e, z.id);
+      };
+    }
 
     zl.appendChild(div);
   });
@@ -2116,6 +2240,7 @@ function hexAlpha(hex, a) {
 
 /* ── DRAG / RESIZE ─────────────────────────────────────── */
 function startMove(e, zid) {
+  if (isLocked(zid)) return;
   S.drag = {
     type:'move', zoneId:zid,
     sx:e.clientX, sy:e.clientY,
@@ -2125,6 +2250,7 @@ function startMove(e, zid) {
 }
 
 function startResize(e, zid, handle) {
+  if (isLocked(zid)) return;
   S.drag = {
     type:'resize', zoneId:zid, handle,
     sx:e.clientX, sy:e.clientY,
@@ -2198,7 +2324,7 @@ function renderRightPanel() {
     return;
   }
   zhdrDot.style.background = z.color;
-  zhdrNm.textContent = z.label;
+  zhdrNm.textContent = isLocked(z.id) ? (z.label + ' 🔒') : z.label;
 
   zpBody.innerHTML = '';
 
@@ -2209,11 +2335,14 @@ function renderRightPanel() {
     { k:z.x1, lbl:'X1' }, { k:z.y1, lbl:'Y1' },
     { k:z.x2, lbl:'X2' }, { k:z.y2, lbl:'Y2' },
   ];
+  const zLocked = isLocked(z.id);
   coords.forEach(({k, lbl}) => {
     const cell = el('div','ccell');
     const cl   = el('div','ccell-lbl'); cl.textContent = lbl;
     const inp  = el('input','pinp');
     inp.type = 'number'; inp.value = S.skin[k]; inp.dataset.ck = k;
+    inp.disabled = zLocked;
+    inp.title = zLocked ? 'Unlock to edit position' : '';
     inp.oninput = () => {
       S.skin[k] = parseInt(inp.value)||0;
       renderCanvas();
@@ -2279,13 +2408,11 @@ function renderRightPanel() {
     zpBody.appendChild(pg);
   }
 
-  // ── Toggles ──
-  if (z.showKey || z.shadowKey) {
-    const tg = pgroup('Options');
-    if (z.showKey)   tg.appendChild(toggleRow('Show Zone',      z.showKey,   () => { syncVisBtn(z); renderCanvas(); }));
-    if (z.shadowKey) tg.appendChild(toggleRow('Shadow / Stroke', z.shadowKey, () => { rebuildShadowList(); }));
-    zpBody.appendChild(tg);
-  }
+  const tg = pgroup('Options');
+  tg.appendChild(lockToggleRow(z.id));
+  if (z.showKey)   tg.appendChild(toggleRow('Show Zone',      z.showKey,   () => { syncVisBtn(z); renderCanvas(); }));
+  if (z.shadowKey) tg.appendChild(toggleRow('Shadow / Stroke', z.shadowKey, () => { rebuildShadowList(); }));
+  zpBody.appendChild(tg);
 }
 
 function renderSpritePanel(spr) {
@@ -2295,7 +2422,7 @@ function renderSpritePanel(spr) {
     return;
   }
   zhdrDot.style.background = spriteColor(spr.id);
-  zhdrNm.textContent = 'Sprite: ' + spr.id;
+  zhdrNm.textContent = spr.locked ? ('Sprite: ' + spr.id + ' 🔒') : ('Sprite: ' + spr.id);
   zpBody.innerHTML = '';
 
   const r = getRect(SPRITE_PREFIX + spr.id);
@@ -2309,6 +2436,8 @@ function renderSpritePanel(spr) {
     const cl = el('div','ccell-lbl'); cl.textContent = lbl;
     const inp = el('input','pinp');
     inp.type = 'number'; inp.value = v; inp.dataset.ck = k;
+    inp.disabled = !!spr.locked;
+    inp.title = spr.locked ? 'Unlock to edit position' : '';
     inp.oninput = () => {
       const cur = getRect(SPRITE_PREFIX + spr.id);
       cur[k] = parseInt(inp.value) || 0;
@@ -2374,6 +2503,7 @@ function renderSpritePanel(spr) {
   showRow.appendChild(span);
   showRow.appendChild(label);
   tg.appendChild(showRow);
+  tg.appendChild(lockToggleRow(SPRITE_PREFIX + spr.id));
   zpBody.appendChild(tg);
 
   const delg = pgroup('Remove');
@@ -2381,6 +2511,8 @@ function renderSpritePanel(spr) {
   delBtn.style.borderColor = 'var(--danger)';
   delBtn.style.color = 'var(--danger)';
   delBtn.textContent = 'Delete sprite';
+  delBtn.disabled = !!spr.locked;
+  delBtn.title = spr.locked ? 'Unlock to delete' : '';
   delBtn.onclick = deleteSelectedSprite;
   delg.appendChild(delBtn);
   zpBody.appendChild(delg);
@@ -2528,9 +2660,14 @@ function parseSkin(text) {
     s.romRatingShow = s.romGenreShow !== undefined ? s.romGenreShow : true;
   }
 
+  S.locks = {};
   S.sprites = spritesFromSkin(s);
   for (const k of Object.keys(s)) {
     if (k.startsWith('sprite.')) delete s[k];
+    if (k.startsWith('editorLock.')) {
+      if (s[k]) S.locks[k.slice(11)] = true;
+      delete s[k];
+    }
   }
   S.skin = s;
   S.bg = null;
@@ -2621,6 +2758,13 @@ function exportSkin() {
     if (z.showKey) lines.push(`${z.showKey} = ${S.skin[z.showKey] ? 'True' : 'False'}`);
   });
 
+  const lockedZones = ZONES.filter(z => S.locks[z.id]);
+  if (lockedZones.length) {
+    lines.push('');
+    lines.push('# editor locks (ignored by MAMEly)');
+    lockedZones.forEach(z => lines.push(`editorLock.${z.id} = True`));
+  }
+
   ZONES.forEach(z => {
     lines.push('');
     lines.push(z.comment);
@@ -2643,6 +2787,7 @@ function exportSkin() {
       if (spr.w) lines.push(`sprite.${spr.id}.w = ${spr.w|0}`);
       if (spr.h) lines.push(`sprite.${spr.id}.h = ${spr.h|0}`);
       lines.push(`sprite.${spr.id}.show = ${spr.show ? 'True' : 'False'}`);
+      if (spr.locked) lines.push(`sprite.${spr.id}.locked = True`);
     });
   }
 
