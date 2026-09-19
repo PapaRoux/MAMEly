@@ -33,3 +33,4 @@ config2.xml
 # Platform configs (machine-specific)
 platform_*.txt
 !platform_*.example.txt
+debug.log
