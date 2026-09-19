@@ -10,6 +10,10 @@ import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_dir)
 
+# Ensure GLX compatibility with Mesa fallback for systems with problematic NV-GLX drivers
+os.environ["__GLX_VENDOR_LIBRARY_NAME"] = "mesa"
+os.environ["LIBGL_ALWAYS_SOFTWARE"] = "1"
+
 
 def _config_file_from_args(argv):
     for i, arg in enumerate(argv):

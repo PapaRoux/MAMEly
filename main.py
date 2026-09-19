@@ -1,5 +1,10 @@
 import sys
 import os
+
+# Ensure GLX compatibility with Mesa fallback for systems with problematic NV-GLX drivers
+os.environ["__GLX_VENDOR_LIBRARY_NAME"] = "mesa"
+os.environ["LIBGL_ALWAYS_SOFTWARE"] = "1"
+
 import time
 import random
 import shlex
