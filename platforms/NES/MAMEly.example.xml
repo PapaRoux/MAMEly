@@ -1,0 +1,3018 @@
+<?xml version="1.0"?>
+<menu>
+  <header>
+    <listname>MAMEly</listname>
+    <lastlistupdate>2026-09-19 00:46:52.502950</lastlistupdate>
+    <listgeneratorversion>makeMAMEly-xml v1.0</listgeneratorversion>
+  </header>
+  <game name="10-Yard Fight (J) [o1].nes">
+    <description>10-Yard Fight (J) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="1942 (JU).nes">
+    <description>1942 (Ju)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="1943 (U).nes">
+    <description>1943 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="1944 (1943 Hack) [p1].nes">
+    <description>1944 (1943 Hack) [P1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="1999 - Hore, Mitakotoka! Seikimatsu (J).nes">
+    <description>1999 - Hore, Mitakotoka! Seikimatsu (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="720 (U).nes">
+    <description>720 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="8 Eyes (U).nes">
+    <description>8 Eyes (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="A Boy And His Blob.nes">
+    <description>A Boy And His Blob</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="AD&D Dragon Strike (U).nes">
+    <description>Adandd Dragon Strike (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Abadox.nes">
+    <description>Abadox</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Addams Family, The (U).nes">
+    <description>Addams Family, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Adventures Bayou Billy.nes">
+    <description>Adventures Bayou Billy</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Adventures Of Bayou Billy.nes">
+    <description>Adventures Of Bayou Billy</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Adventures in the Magic Kingdom (U).nes">
+    <description>Adventures In The Magic Kingdom (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Adventures of Lolo (U) [b4].nes">
+    <description>Adventures Of Lolo (U) [B4]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Adventures of Lolo 2 (U).nes">
+    <description>Adventures Of Lolo 2 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Adventures of Lolo 3 (U).nes">
+    <description>Adventures Of Lolo 3 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Adventures of Rocky and Bullwinkle and Friends, The (U) [b1].nes">
+    <description>Adventures Of Rocky And Bullwinkle And Friends, The (U) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Adventures of Tom Sawyer (U).nes">
+    <description>Adventures Of Tom Sawyer (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Advlolo.nes">
+    <description>Advlolo</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Afro Mario Bros (Mario Bros Hack) [o1].nes">
+    <description>Afro Mario Bros (Mario Bros Hack) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Air Fortress (J).nes">
+    <description>Air Fortress (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Airwolf (U) [o1].nes">
+    <description>Airwolf (U) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Al Unser Jr Turbo Racing (U).nes">
+    <description>Al Unser Jr Turbo Racing (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Alfred Chicken (U).nes">
+    <description>Alfred Chicken (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Alien 3 (U).nes">
+    <description>Alien 3 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Alien Syndrome (J).nes">
+    <description>Alien Syndrome (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="All Pro Basketball.nes">
+    <description>All Pro Basketball</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Amagon (U).nes">
+    <description>Amagon (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="American Gladiators (U).nes">
+    <description>American Gladiators (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Anti-Hippie Dr Mario (Dr Mario Hack) [o1].nes">
+    <description>Anti-Hippie Dr Mario (Dr Mario Hack) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Anticipation (U) [b3].nes">
+    <description>Anticipation (U) [B3]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Arch Rivals (U).nes">
+    <description>Arch Rivals (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Archon (U).nes">
+    <description>Archon (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Argus (J) [hM03].nes">
+    <description>Argus (J) [Hm03]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Arkanoid (J) [h1][o1].nes">
+    <description>Arkanoid (J) [H1][O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Astyanax (U).nes">
+    <description>Astyanax (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Athena (J) [b2].nes">
+    <description>Athena (J) [B2]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Athletic World (U).nes">
+    <description>Athletic World (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Attack of the Killer Tomatoes (U).nes">
+    <description>Attack Of The Killer Tomatoes (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Baby Boomer (U) [o1].nes">
+    <description>Baby Boomer (U) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Back to the Future (U) [b1].nes">
+    <description>Back To The Future (U) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Back to the Future 2 & 3 (U).nes">
+    <description>Back To The Future 2 And 3 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bad Dudes (U).nes">
+    <description>Bad Dudes (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bad News Baseball (U).nes">
+    <description>Bad News Baseball (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bad Street Brawler (U).nes">
+    <description>Bad Street Brawler (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bandit Kings of Ancient China (U).nes">
+    <description>Bandit Kings Of Ancient China (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Barbie.nes">
+    <description>Barbie</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bard's Tale - Tales of the Unknown, The (U) [h1].nes">
+    <description>Bard'S Tale - Tales Of The Unknown, The (U) [H1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Base Wars (U).nes">
+    <description>Base Wars (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Baseball Simulator 1.000 (U).nes">
+    <description>Baseball Simulator 1.000 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Baseball Stars 2 (U).nes">
+    <description>Baseball Stars 2 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Baseball Stars.nes">
+    <description>Baseball Stars</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Baseball.nes">
+    <description>Baseball</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bases Loaded 2 (U).nes">
+    <description>Bases Loaded 2 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bases Loaded 3 (U).nes">
+    <description>Bases Loaded 3 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bases Loaded 4 (U).nes">
+    <description>Bases Loaded 4 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bases Loaded.nes">
+    <description>Bases Loaded</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Batman (U).nes">
+    <description>Batman (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Batman - Return of the Joker (U).nes">
+    <description>Batman - Return Of The Joker (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Batman 3 [p1][o1].nes">
+    <description>Batman 3 [P1][O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Battle Chess (U).nes">
+    <description>Battle Chess (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Battle Chess.nes">
+    <description>Battle Chess</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Battle of Olympus, The (U).nes">
+    <description>Battle Of Olympus, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Battletoads (U).nes">
+    <description>Battletoads (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Battletoads Double Dragon (U).nes">
+    <description>Battletoads Double Dragon (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Beetlejuice (U) [!].nes">
+    <description>Beetlejuice (U) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Best of the Best Championship Karate (U).nes">
+    <description>Best Of The Best Championship Karate (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Big Bird's Hide And Speak.nes">
+    <description>Big Bird'S Hide And Speak</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Big Foot.nes">
+    <description>Big Foot</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bill & Ted's Excellent Video Game Adventure (U).nes">
+    <description>Bill And Ted'S Excellent Video Game Adventure (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bill Elliott's NASCAR Challenge (U).nes">
+    <description>Bill Elliott'S Nascar Challenge (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bionic C.nes">
+    <description>Bionic C</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bionic Commando.nes">
+    <description>Bionic Commando</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bizzario.nes">
+    <description>Bizzario</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Black Bass USA, The (U).nes">
+    <description>Black Bass Usa, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Blades of Steel (U).nes">
+    <description>Blades Of Steel (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bo Jackson Baseball (U) [b1].nes">
+    <description>Bo Jackson Baseball (U) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bomberman (J) [o1].nes">
+    <description>Bomberman (J) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bomberman 2 (J) [p1][hM02].nes">
+    <description>Bomberman 2 (J) [P1][Hm02]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Boulder Dash (U) [b1].nes">
+    <description>Boulder Dash (U) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bram Stoker's Dracula (U).nes">
+    <description>Bram Stoker'S Dracula (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Breakthru.nes">
+    <description>Breakthru</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bub.nes">
+    <description>Bub</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bubble Bobble Part 2 (U).nes">
+    <description>Bubble Bobble Part 2 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bubble Bobble.nes">
+    <description>Bubble Bobble</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bucky O'Hare (U) [b1].nes">
+    <description>Bucky O'Hare (U) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bugs Bunny Birthday Blowout, The (U).nes">
+    <description>Bugs Bunny Birthday Blowout, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bugs Bunny Crazy Castle.nes">
+    <description>Bugs Bunny Crazy Castle</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Burai Fighter (U).nes">
+    <description>Burai Fighter (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Burger Time (J) [o1].nes">
+    <description>Burger Time (J) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Cabal (U).nes">
+    <description>Cabal (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Caesar's Palace (U).nes">
+    <description>Caesar'S Palace (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Captain America and the Avengers (U).nes">
+    <description>Captain America And The Avengers (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Captain Planet and the Planeteers (U).nes">
+    <description>Captain Planet And The Planeteers (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Captain SkyHawk (U).nes">
+    <description>Captain Skyhawk (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Castelian (U).nes">
+    <description>Castelian (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Castle of Deceit (U).nes">
+    <description>Castle Of Deceit (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Castle of Dragon (U).nes">
+    <description>Castle Of Dragon (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Castlev3.nes">
+    <description>Castlev3</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Castlevania 3 - Dracula's Curse (U) [o1].nes">
+    <description>Castlevania 3 - Dracula'S Curse (U) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Castlevania2.nes">
+    <description>Castlevania2</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Caveman Games (U).nes">
+    <description>Caveman Games (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Championship Bowling (J).nes">
+    <description>Championship Bowling (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Championship Pool (U).nes">
+    <description>Championship Pool (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Chiller.nes">
+    <description>Chiller</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Chip 'n Dale Rescue Rangers 2 (U).nes">
+    <description>Chip 'N Dale Rescue Rangers 2 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Chubby Cherub (U) [o2].nes">
+    <description>Chubby Cherub (U) [O2]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Circus Caper (U).nes">
+    <description>Circus Caper (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="City Connection.nes">
+    <description>City Connection</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="City.nes">
+    <description>City</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Clash At Demonhead (U).nes">
+    <description>Clash At Demonhead (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Clu Clu Land (JU) [o3].nes">
+    <description>Clu Clu Land (Ju) [O3]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Cntrforc.nes">
+    <description>Cntrforc</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Cobra Command (U).nes">
+    <description>Cobra Command (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Cobra Triangle (U).nes">
+    <description>Cobra Triangle (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Code Name Viper (U).nes">
+    <description>Code Name Viper (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Commando.nes">
+    <description>Commando</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Conan (U).nes">
+    <description>Conan (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Conflict.nes">
+    <description>Conflict</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Conquest of the Crystal Palace (U).nes">
+    <description>Conquest Of The Crystal Palace (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Contra (U).nes">
+    <description>Contra (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Contra Force.nes">
+    <description>Contra Force</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Crash'n The Boys Street Challenge (U).nes">
+    <description>Crash'N The Boys Street Challenge (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Crystal Mines.nes">
+    <description>Crystal Mines</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Crystalis (U).nes">
+    <description>Crystalis (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Cyberball (U).nes">
+    <description>Cyberball (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Cybernoid - The Fighting Machine (U).nes">
+    <description>Cybernoid - The Fighting Machine (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Danny Sullivan's Indy Heat (U).nes">
+    <description>Danny Sullivan'S Indy Heat (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Darkman (U).nes">
+    <description>Darkman (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Darkwing Duck (U).nes">
+    <description>Darkwing Duck (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Day Dreamin' Davey (U).nes">
+    <description>Day Dreamin' Davey (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Days of Thunder (U).nes">
+    <description>Days Of Thunder (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Defender Of The Crown.nes">
+    <description>Defender Of The Crown</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Defender.nes">
+    <description>Defender</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Defender2.nes">
+    <description>Defender2</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Defenders of Dynatron City (U).nes">
+    <description>Defenders Of Dynatron City (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Deja Vu (U).nes">
+    <description>Deja Vu (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Demon Sword (U).nes">
+    <description>Demon Sword (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Destiny Of An Emperor.nes">
+    <description>Destiny Of An Emperor</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Destinyemperor.nes">
+    <description>Destinyemperor</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dick Tracy (U).nes">
+    <description>Dick Tracy (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Die Hard (J).nes">
+    <description>Die Hard (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dig Dug (J) [o1].nes">
+    <description>Dig Dug (J) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dig Dug II (J) [b1].nes">
+    <description>Dig Dug Ii (J) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Digger - The Legend of the Lost City (U).nes">
+    <description>Digger - The Legend Of The Lost City (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dirty Harry (U).nes">
+    <description>Dirty Harry (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Donkey Kong (JU).nes">
+    <description>Donkey Kong (Ju)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Donkey Kong Classics (U).nes">
+    <description>Donkey Kong Classics (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Donkey Kong Classics.nes">
+    <description>Donkey Kong Classics</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Donkey Kong Jr. Math (U).nes">
+    <description>Donkey Kong Jr. Math (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Donkey Kong3.nes">
+    <description>Donkey Kong3</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Double Dribble (U) (PRG 0).nes">
+    <description>Double Dribble (U) (Prg 0)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Double Strike (U) (V1.0).nes">
+    <description>Double Strike (U) (V1.0)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dragon Fighter (U).nes">
+    <description>Dragon Fighter (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dragon Power (U).nes">
+    <description>Dragon Power (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dragon Spirit - The New Legend (U).nes">
+    <description>Dragon Spirit - The New Legend (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dragon Warrior 4 (U) [b1].nes">
+    <description>Dragon Warrior 4 (U) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dragon Warrior.nes">
+    <description>Dragon Warrior</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dragon's Lair (U).nes">
+    <description>Dragon'S Lair (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dragow1.nes">
+    <description>Dragow1</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dtales2.nes">
+    <description>Dtales2</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Duck Hunt.nes">
+    <description>Duck Hunt</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Duck Tales2.nes">
+    <description>Duck Tales2</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dudes With Attitude (U).nes">
+    <description>Dudes With Attitude (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dungeon Magic.nes">
+    <description>Dungeon Magic</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dusty Diamond's All-Star Softball (U).nes">
+    <description>Dusty Diamond'S All-Star Softball (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dynowarz - Destruction of Spondylus (U).nes">
+    <description>Dynowarz - Destruction Of Spondylus (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Elevator Action (J).nes">
+    <description>Elevator Action (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Eliminator Boat Duel.nes">
+    <description>Eliminator Boat Duel</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Evert & Lendl Top Player's Tennis (U).nes">
+    <description>Evert And Lendl Top Player'S Tennis (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Excite Bike.nes">
+    <description>Excite Bike</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Excite.nes">
+    <description>Excite</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Excitebike.nes">
+    <description>Excitebike</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Exodus (U) (V4.0) [!].nes">
+    <description>Exodus (U) (V4.0) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="F-117a Stealth Fighter (U) [!].nes">
+    <description>F-117A Stealth Fighter (U) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="F-15 City War (U).nes">
+    <description>F-15 City War (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Family Feud (U).nes">
+    <description>Family Feud (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Family Pinball (J).nes">
+    <description>Family Pinball (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Fantasy Zone.nes">
+    <description>Fantasy Zone</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Faria (U).nes">
+    <description>Faria (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Faxanadu (U).nes">
+    <description>Faxanadu (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Felix the Cat (U).nes">
+    <description>Felix The Cat (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Fester's Quest.nes">
+    <description>Fester'S Quest</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Festersq.nes">
+    <description>Festersq</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Fighting Golf.nes">
+    <description>Fighting Golf</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Final Fantasy 2 (J) [T-Eng3-7-97][a2].nes">
+    <description>Final Fantasy 2 (J) [T-Eng3-7-97][A2]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Fire Hawk (U) [a1].nes">
+    <description>Fire Hawk (U) [A1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Flintstones - The Rescue of Dino & Hoppy, The (U).nes">
+    <description>Flintstones - The Rescue Of Dino And Hoppy, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Flying Dragon.nes">
+    <description>Flying Dragon</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Flying Warriors (U).nes">
+    <description>Flying Warriors (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Formula One Built To Win (U) [!].nes">
+    <description>Formula One Built To Win (U) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Frankenstein - The Monster Returns (U).nes">
+    <description>Frankenstein - The Monster Returns (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Freedom Force (U) [!].nes">
+    <description>Freedom Force (U) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Friday The 13Th.nes">
+    <description>Friday The 13Th</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="GI Joe (U).nes">
+    <description>Gi Joe (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="GI Joe - The Atlantis Factor (U).nes">
+    <description>Gi Joe - The Atlantis Factor (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Galaga (J) [o1].nes">
+    <description>Galaga (J) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Galaxy 5000.nes">
+    <description>Galaxy 5000</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Game Genie (Unl).nes">
+    <description>Game Genie (Unl)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Gargoyle's Quest 2 - The Demon Darkness (U).nes">
+    <description>Gargoyle'S Quest 2 - The Demon Darkness (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Gauntlet (Unl) (U).nes">
+    <description>Gauntlet (Unl) (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Gauntlet 2 (U).nes">
+    <description>Gauntlet 2 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="George Foreman's KO Boxing (U).nes">
+    <description>George Foreman'S Ko Boxing (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ghostbusters (J).nes">
+    <description>Ghostbusters (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ghostbusters 2 (U).nes">
+    <description>Ghostbusters 2 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ghosts'n Goblins (U).nes">
+    <description>Ghosts'N Goblins (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Gilligan's Island (U).nes">
+    <description>Gilligan'S Island (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Goal! (U).nes">
+    <description>Goal! (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Godzilla.nes">
+    <description>Godzilla</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Godzilla2.nes">
+    <description>Godzilla2</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Gold Medal Challenge '92 (U).nes">
+    <description>Gold Medal Challenge '92 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Golf Grand Slam (U).nes">
+    <description>Golf Grand Slam (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Golf.nes">
+    <description>Golf</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Goonies.nes">
+    <description>Goonies</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Goonies2.nes">
+    <description>Goonies2</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Gotcha! (U) [p1].nes">
+    <description>Gotcha! (U) [P1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Gradius (J).nes">
+    <description>Gradius (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Gremlins 2 - The New Batch (U).nes">
+    <description>Gremlins 2 - The New Batch (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Guerrilla War (U).nes">
+    <description>Guerrilla War (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Gumshoe (UE).nes">
+    <description>Gumshoe (Ue)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Gun Nac (U).nes">
+    <description>Gun Nac (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Gun Smoke (U).nes">
+    <description>Gun Smoke (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Gyromite (JUE).nes">
+    <description>Gyromite (Jue)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Gyruss.nes">
+    <description>Gyruss</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Harlem Globetrotters (U).nes">
+    <description>Harlem Globetrotters (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Hatris (U).nes">
+    <description>Hatris (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Hayauchi Super Igo (J) [p1][b1].nes">
+    <description>Hayauchi Super Igo (J) [P1][B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Heavy Barrel (U).nes">
+    <description>Heavy Barrel (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Heavy Shreddin' (U).nes">
+    <description>Heavy Shreddin' (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Heroes Of The Lance.nes">
+    <description>Heroes Of The Lance</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Hogan's Alley.nes">
+    <description>Hogan'S Alley</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Home Alone (U) [b1].nes">
+    <description>Home Alone (U) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Home Alone 2 - Lost in New York (U).nes">
+    <description>Home Alone 2 - Lost In New York (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Hook (U).nes">
+    <description>Hook (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Hoops.nes">
+    <description>Hoops</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Hot Slot (UE).nes">
+    <description>Hot Slot (Ue)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Hudson Hawk.nes">
+    <description>Hudson Hawk</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Hudson's Adventure Island 2 (U).nes">
+    <description>Hudson'S Adventure Island 2 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Hudson's Adventure Island 3 (U).nes">
+    <description>Hudson'S Adventure Island 3 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Hunt for Red October, The (U).nes">
+    <description>Hunt For Red October, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Hydlide (U).nes">
+    <description>Hydlide (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ice Climber (JE) [o1].nes">
+    <description>Ice Climber (Je) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ice Hockey (U) [o2].nes">
+    <description>Ice Hockey (U) [O2]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ikari (J).nes">
+    <description>Ikari (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ikari Warriors2.nes">
+    <description>Ikari Warriors2</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ikari Warriors3.nes">
+    <description>Ikari Warriors3</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Immortal, The (U).nes">
+    <description>Immortal, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Incredible Crash Dummies, The (U).nes">
+    <description>Incredible Crash Dummies, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Indiana Jones And The Temple Of Doom.nes">
+    <description>Indiana Jones And The Temple Of Doom</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Infiltrator (U) [o1].nes">
+    <description>Infiltrator (U) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Iron Tank (U).nes">
+    <description>Iron Tank (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ironsword - Wizards & Warriors 2 (U).nes">
+    <description>Ironsword - Wizards And Warriors 2 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Isolated Warrior (U).nes">
+    <description>Isolated Warrior (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ivan Ironman Stewart's Super Offroad (U).nes">
+    <description>Ivan Ironman Stewart'S Super Offroad (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Jack Nicklaus Golf.nes">
+    <description>Jack Nicklaus Golf</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Jackal (U).nes">
+    <description>Jackal (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Jackie Chan (J).nes">
+    <description>Jackie Chan (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="James Bond Jr (U).nes">
+    <description>James Bond Jr (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Jaws (U) [a1].nes">
+    <description>Jaws (U) [A1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Jeopardy! 25th Anniversary Edition (U).nes">
+    <description>Jeopardy! 25Th Anniversary Edition (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Jeopardy! Junior Edition (U).nes">
+    <description>Jeopardy! Junior Edition (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Jetsons - Cogswell's Caper!, The (U).nes">
+    <description>Jetsons - Cogswell'S Caper!, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Jimmy Connor's Tennis (U).nes">
+    <description>Jimmy Connor'S Tennis (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Joe & Mac (U).nes">
+    <description>Joe And Mac (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="John Elway's Quarterback (U).nes">
+    <description>John Elway'S Quarterback (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Jordan Vs Bird - One On One (U).nes">
+    <description>Jordan Vs Bird - One On One (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Journey to Silius (U).nes">
+    <description>Journey To Silius (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Joust (J) [o1].nes">
+    <description>Joust (J) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Jungle Book, The (U).nes">
+    <description>Jungle Book, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Jurassic Park (U).nes">
+    <description>Jurassic Park (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Kabuki - Quantum Fighter (U).nes">
+    <description>Kabuki - Quantum Fighter (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Kage no Densetsu (J) [o1].nes">
+    <description>Kage No Densetsu (J) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Karate Champ (U).nes">
+    <description>Karate Champ (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Karate Kid, The (U).nes">
+    <description>Karate Kid, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Karnov.nes">
+    <description>Karnov</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Kick Master (U).nes">
+    <description>Kick Master (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Kickle Cubicle (U).nes">
+    <description>Kickle Cubicle (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Kid Icarus (UE).nes">
+    <description>Kid Icarus (Ue)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Kid Kool (U).nes">
+    <description>Kid Kool (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Kid Niki - Radical Ninja (U) (PRG 0).nes">
+    <description>Kid Niki - Radical Ninja (U) (Prg 0)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="King of Kings, The (U) (V1.3).nes">
+    <description>King Of Kings, The (U) (V1.3)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="King's Knight (U).nes">
+    <description>King'S Knight (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="King's Quest V (U).nes">
+    <description>King'S Quest V (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Kirby's Adventure (U) (PRG 0).nes">
+    <description>Kirby'S Adventure (U) (Prg 0)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Kiwi Kraze (U).nes">
+    <description>Kiwi Kraze (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Klash Ball (U).nes">
+    <description>Klash Ball (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Klax (U).nes">
+    <description>Klax (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Knight Rider (U) [b1].nes">
+    <description>Knight Rider (U) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="KoRn Fu (Kung Fu Hack).nes">
+    <description>Korn Fu (Kung Fu Hack)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Krazy Kreatures (U) [a1].nes">
+    <description>Krazy Kreatures (U) [A1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Krion Conquest, The (U).nes">
+    <description>Krion Conquest, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Krusty's Fun House (U).nes">
+    <description>Krusty'S Fun House (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Kung Fu (U) [o2].nes">
+    <description>Kung Fu (U) [O2]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Kung Fu Heroes.nes">
+    <description>Kung Fu Heroes</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Kung Fu.nes">
+    <description>Kung Fu</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="L'Empereur (U) [o1].nes">
+    <description>L'Empereur (U) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Laser Invasion (U).nes">
+    <description>Laser Invasion (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Legacy of the Wizard (U).nes">
+    <description>Legacy Of The Wizard (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Legend of Zelda, The (U) (PRG 0).nes">
+    <description>Legend Of Zelda, The (U) (Prg 0)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Legendary Wings (U).nes">
+    <description>Legendary Wings (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Legends of the Diamond (U).nes">
+    <description>Legends Of The Diamond (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Lifeforce (U).nes">
+    <description>Lifeforce (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Linus Spacehead's Cosmic Crusade (Aladdin) (U).nes">
+    <description>Linus Spacehead'S Cosmic Crusade (Aladdin) (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Little Mermaid, The (U).nes">
+    <description>Little Mermaid, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Little Nemo - The Dream Master (U).nes">
+    <description>Little Nemo - The Dream Master (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Little Ninja Brothers (U).nes">
+    <description>Little Ninja Brothers (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Lode Runner (J) [o1].nes">
+    <description>Lode Runner (J) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Lone Ranger, The (U).nes">
+    <description>Lone Ranger, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Loopz (U).nes">
+    <description>Loopz (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Low G Man (U).nes">
+    <description>Low G Man (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Lunar Pool.nes">
+    <description>Lunar Pool</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="M.U.L.E. (U).nes">
+    <description>M.U.L.E. (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="MC Kids (U).nes">
+    <description>Mc Kids (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mach Rider.nes">
+    <description>Mach Rider</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mafat Conspiracy - Golgo 13 (U).nes">
+    <description>Mafat Conspiracy - Golgo 13 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Magic Darts (U).nes">
+    <description>Magic Darts (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Magic Johnson's Fast Break (U).nes">
+    <description>Magic Johnson'S Fast Break (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Magic of Scheherazade, The (U).nes">
+    <description>Magic Of Scheherazade, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Magician (U).nes">
+    <description>Magician (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Magmax (U) [o1].nes">
+    <description>Magmax (U) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Maniac Mansion (U).nes">
+    <description>Maniac Mansion (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mappy-Land (U).nes">
+    <description>Mappy-Land (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mario Brothers.nes">
+    <description>Mario Brothers</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mario is Missing! (U) [b2].nes">
+    <description>Mario Is Missing! (U) [B2]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mario's Time Machine! (U).nes">
+    <description>Mario'S Time Machine! (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Marvel's X-Men.nes">
+    <description>Marvel'S X-Men</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Master Chu & The Drunkard Hu (U).nes">
+    <description>Master Chu And The Drunkard Hu (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mechanized Attack (U) [b3].nes">
+    <description>Mechanized Attack (U) [B3]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mega Man (U).nes">
+    <description>Mega Man (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mega Man 2 (U).nes">
+    <description>Mega Man 2 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mega Man 3 (U) [!].nes">
+    <description>Mega Man 3 (U) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mega Man 4 (U).nes">
+    <description>Mega Man 4 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mega Man 5 (U).nes">
+    <description>Mega Man 5 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mega Man 6 (U).nes">
+    <description>Mega Man 6 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mendel Palace (U).nes">
+    <description>Mendel Palace (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Metal Fighter (U).nes">
+    <description>Metal Fighter (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Metal Gear (U).nes">
+    <description>Metal Gear (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Metal Mech (U).nes">
+    <description>Metal Mech (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Metal Storm (U).nes">
+    <description>Metal Storm (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Metroid (PC10).nes">
+    <description>Metroid (Pc10)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mgear2.nes">
+    <description>Mgear2</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Micro Machines (U).nes">
+    <description>Micro Machines (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Might and Magic (U).nes">
+    <description>Might And Magic (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mighty Bomb Jack (J) [hM00][b2].nes">
+    <description>Mighty Bomb Jack (J) [Hm00][B2]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mighty Final Fight (U).nes">
+    <description>Mighty Final Fight (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Milon's Secret Castle (U).nes">
+    <description>Milon'S Secret Castle (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mission Cobra (U) [o1].nes">
+    <description>Mission Cobra (U) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mission Impossible (U).nes">
+    <description>Mission Impossible (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Monopoly.nes">
+    <description>Monopoly</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Monster in My Pocket (U).nes">
+    <description>Monster In My Pocket (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Motor City Patrol (U).nes">
+    <description>Motor City Patrol (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ms Pac-Man (U) [o1].nes">
+    <description>Ms Pac-Man (U) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Muscle.nes">
+    <description>Muscle</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mystery Quest (U).nes">
+    <description>Mystery Quest (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="NARC (U).nes">
+    <description>Narc (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="NES Play Action Football (U).nes">
+    <description>Nes Play Action Football (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="NFL Football (U).nes">
+    <description>Nfl Football (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Nightmare On Elm Street, A (U).nes">
+    <description>Nightmare On Elm Street, A (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Nightshade (U).nes">
+    <description>Nightshade (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ninja Gaiden 2 - The Dark Sword of Chaos (U).nes">
+    <description>Ninja Gaiden 2 - The Dark Sword Of Chaos (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ninja Gaiden 3 - The Ancient Ship of Doom (PC10).nes">
+    <description>Ninja Gaiden 3 - The Ancient Ship Of Doom (Pc10)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ninja Gaiden.nes">
+    <description>Ninja Gaiden</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ninja Kid (U).nes">
+    <description>Ninja Kid (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Nintendo World Cup (U).nes">
+    <description>Nintendo World Cup (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Nobunaga's Ambition (U).nes">
+    <description>Nobunaga'S Ambition (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Nobunaga's Ambition 2 (U).nes">
+    <description>Nobunaga'S Ambition 2 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="North & South (U).nes">
+    <description>North And South (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Operation Wolf.nes">
+    <description>Operation Wolf</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Orb-3D.nes">
+    <description>Orb-3D</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Othello (HES) [p1].nes">
+    <description>Othello (Hes) [P1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Overlord (U).nes">
+    <description>Overlord (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="POW - Prisoners of War (U).nes">
+    <description>Pow - Prisoners Of War (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Pac-Man (Tengen) (U) [!].nes">
+    <description>Pac-Man (Tengen) (U) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Pac-Man (U) [!].nes">
+    <description>Pac-Man (U) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Pacman.nes">
+    <description>Pacman</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Paperboy 2 (U).nes">
+    <description>Paperboy 2 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Paperboy.nes">
+    <description>Paperboy</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Peter Pan & The Pirates (U).nes">
+    <description>Peter Pan And The Pirates (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Phantom Fighter (U).nes">
+    <description>Phantom Fighter (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Pictionary.nes">
+    <description>Pictionary</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Pinball Quest (U).nes">
+    <description>Pinball Quest (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Pinball.nes">
+    <description>Pinball</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Pipe Dream (U).nes">
+    <description>Pipe Dream (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Pirates! (U).nes">
+    <description>Pirates! (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Platoon (U) (PRG 0).nes">
+    <description>Platoon (U) (Prg 0)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Popeye (JU) (PRG 0) [a1].nes">
+    <description>Popeye (Ju) (Prg 0) [A1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Power Blade (U) [!].nes">
+    <description>Power Blade (U) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Power Blade 2 (U).nes">
+    <description>Power Blade 2 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Power Punch 2 (U).nes">
+    <description>Power Punch 2 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Predator.nes">
+    <description>Predator</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Prince of Persia (U).nes">
+    <description>Prince Of Persia (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Princess Tomato in Salad Kingdom (U).nes">
+    <description>Princess Tomato In Salad Kingdom (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Pro Wrestling.nes">
+    <description>Pro Wrestling</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Punisher, The (U).nes">
+    <description>Punisher, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Puss 'n Boots - Pero's Great Adventure (U).nes">
+    <description>Puss 'N Boots - Pero'S Great Adventure (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Pussy City Pimps (River City Ransom Hack).nes">
+    <description>Pussy City Pimps (River City Ransom Hack)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Puzzle (U) [a1].nes">
+    <description>Puzzle (U) [A1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Pyramid (U) [p1].nes">
+    <description>Pyramid (U) [P1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Q-bert (U).nes">
+    <description>Q-Bert (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="RBI Baseball (U) [o4].nes">
+    <description>Rbi Baseball (U) [O4]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="RBI Baseball 3 (U).nes">
+    <description>Rbi Baseball 3 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="RC Pro-Am 2 (U).nes">
+    <description>Rc Pro-Am 2 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Race America (U).nes">
+    <description>Race America (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Racket Attack.nes">
+    <description>Racket Attack</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rad Gravity.nes">
+    <description>Rad Gravity</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Raid 2020 (U) [o3].nes">
+    <description>Raid 2020 (U) [O3]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Raid on Bungeling Bay (U) [o1].nes">
+    <description>Raid On Bungeling Bay (U) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rambo (U).nes">
+    <description>Rambo (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rampage (U).nes">
+    <description>Rampage (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rampart (U).nes">
+    <description>Rampart (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rbi Baseball2.nes">
+    <description>Rbi Baseball2</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Remote Control.nes">
+    <description>Remote Control</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ren & Stimpy Show, The (U).nes">
+    <description>Ren And Stimpy Show, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Renegade.nes">
+    <description>Renegade</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rescue Rangers.nes">
+    <description>Rescue Rangers</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ring King (U) [b1].nes">
+    <description>Ring King (U) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Road Runner (U).nes">
+    <description>Road Runner (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="RoadBlasters (U).nes">
+    <description>Roadblasters (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Robo Warrior (U).nes">
+    <description>Robo Warrior (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Robocop (U).nes">
+    <description>Robocop (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Robocop 2 (U).nes">
+    <description>Robocop 2 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Robocop 3 (U).nes">
+    <description>Robocop 3 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rock 'n' Ball (U).nes">
+    <description>Rock 'N' Ball (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rocketeer, The (U).nes">
+    <description>Rocketeer, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rockin' Kats (U) [!].nes">
+    <description>Rockin' Kats (U) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rockman (J).nes">
+    <description>Rockman (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Roger Clemens MVP Baseball (U).nes">
+    <description>Roger Clemens Mvp Baseball (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rollerball.nes">
+    <description>Rollerball</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rollergames (U) [o1].nes">
+    <description>Rollergames (U) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rolling Thunder (U).nes">
+    <description>Rolling Thunder (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Romance Of The Three Kingdoms.nes">
+    <description>Romance Of The Three Kingdoms</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Romance of the Three Kingdoms 2 (U) [!].nes">
+    <description>Romance Of The Three Kingdoms 2 (U) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Roundball - 2-on-2 Challenge (U).nes">
+    <description>Roundball - 2-On-2 Challenge (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rush'n Attack (U).nes">
+    <description>Rush'N Attack (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rygar (U).nes">
+    <description>Rygar (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="SCAT - Special Cybernetic Attack Team (U).nes">
+    <description>Scat - Special Cybernetic Attack Team (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Section Z (U).nes">
+    <description>Section Z (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Seicross (U) [o1].nes">
+    <description>Seicross (U) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Seirei Densetsu Lickle (J).nes">
+    <description>Seirei Densetsu Lickle (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Senjou no Ookami (J) [hM02].nes">
+    <description>Senjou No Ookami (J) [Hm02]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Sesame Street ABC (U) [a2].nes">
+    <description>Sesame Street Abc (U) [A2]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Shadow of the Ninja (U).nes">
+    <description>Shadow Of The Ninja (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Shadowgate (U).nes">
+    <description>Shadowgate (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Shatterhand (U).nes">
+    <description>Shatterhand (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Shingen The Ruler (U).nes">
+    <description>Shingen The Ruler (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Shinobi (U).nes">
+    <description>Shinobi (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Side Pocket (U).nes">
+    <description>Side Pocket (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Silent Assault (U).nes">
+    <description>Silent Assault (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Silent Service (U).nes">
+    <description>Silent Service (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Silk Worm (U).nes">
+    <description>Silk Worm (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Silver Surfer (U).nes">
+    <description>Silver Surfer (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Simpsons - Bart Vs the Space Mutants, The (U).nes">
+    <description>Simpsons - Bart Vs The Space Mutants, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Simpsons - Bart Vs the World, The (U).nes">
+    <description>Simpsons - Bart Vs The World, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Simpsons - Bartman Meets Radioactive Man, The (U).nes">
+    <description>Simpsons - Bartman Meets Radioactive Man, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Skate Or Die2.nes">
+    <description>Skate Or Die2</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ski or Die (U).nes">
+    <description>Ski Or Die (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Sky Kid.nes">
+    <description>Sky Kid</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Sky Shark (U) [o1].nes">
+    <description>Sky Shark (U) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Slalom.nes">
+    <description>Slalom</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Smash TV (U) [b1].nes">
+    <description>Smash Tv (U) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Smb Zelda.nes">
+    <description>Smb Zelda</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Snake Rattle'n Roll (U) [b1].nes">
+    <description>Snake Rattle'N Roll (U) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Snakes Revenge.nes">
+    <description>Snakes Revenge</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Snoopy's Silly Sports Spectacular (U).nes">
+    <description>Snoopy'S Silly Sports Spectacular (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Soccer.nes">
+    <description>Soccer</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Solar Jetman - Hunt for the Golden Warpship (U).nes">
+    <description>Solar Jetman - Hunt For The Golden Warpship (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Solomon no Kagi (J).nes">
+    <description>Solomon No Kagi (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Solstice (U).nes">
+    <description>Solstice (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Somari [b1].nes">
+    <description>Somari [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Space Harrier (J) [p1][hM02].nes">
+    <description>Space Harrier (J) [P1][Hm02]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Spelunker (J).nes">
+    <description>Spelunker (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Spider-Man - Return of the Sinister Six (U) [b1].nes">
+    <description>Spider-Man - Return Of The Sinister Six (U) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Spiritual Warfare (U) (Ver 6.1).nes">
+    <description>Spiritual Warfare (U) (Ver 6.1)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Spy Hunter (U) [b3].nes">
+    <description>Spy Hunter (U) [B3]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Spy Vs Spy (J) [hM00].nes">
+    <description>Spy Vs Spy (J) [Hm00]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Sqoon (U) [o2].nes">
+    <description>Sqoon (U) [O2]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Stack-Up (JU).nes">
+    <description>Stack-Up (Ju)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Star Force (J) [b2].nes">
+    <description>Star Force (J) [B2]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Star Soldier (J) [a1].nes">
+    <description>Star Soldier (J) [A1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Star Trek - 25th Anniversary (U).nes">
+    <description>Star Trek - 25Th Anniversary (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Star Trek - The Next Generation (U).nes">
+    <description>Star Trek - The Next Generation (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Star Wars (U).nes">
+    <description>Star Wars (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Starship Hector.nes">
+    <description>Starship Hector</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Startropics (U).nes">
+    <description>Startropics (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Startropics 2 - Zoda's Revenge (U).nes">
+    <description>Startropics 2 - Zoda'S Revenge (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Stealth ATF (U).nes">
+    <description>Stealth Atf (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Stinger.nes">
+    <description>Stinger</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Street Cop (U).nes">
+    <description>Street Cop (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Strider (U).nes">
+    <description>Strider (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Summer Carnival '92 - Recca (J).nes">
+    <description>Summer Carnival '92 - Recca (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Super C.nes">
+    <description>Super C</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Super Dodge Ball.nes">
+    <description>Super Dodge Ball</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Super Glove Ball.nes">
+    <description>Super Glove Ball</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Super Mario Bros - Duck Hunt (U).nes">
+    <description>Super Mario Bros - Duck Hunt (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Super Mario Bros - Duck Hunt - Track Meet (U).nes">
+    <description>Super Mario Bros - Duck Hunt - Track Meet (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Super Pitfall (U).nes">
+    <description>Super Pitfall (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Super Spike V'Ball - Nintendo World Cup (U) [b1].nes">
+    <description>Super Spike V'Ball - Nintendo World Cup (U) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Super Sprint (U) [b2].nes">
+    <description>Super Sprint (U) [B2]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Super Spy Hunter (U).nes">
+    <description>Super Spy Hunter (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Superc.nes">
+    <description>Superc</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Superman.nes">
+    <description>Superman</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Swamp Thing (U) [!].nes">
+    <description>Swamp Thing (U) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Sword Master (J).nes">
+    <description>Sword Master (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Swords and Serpents (U) [a1].nes">
+    <description>Swords And Serpents (U) [A1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="T&C 2 - Thrilla's Surfari (U).nes">
+    <description>Tandc 2 - Thrilla'S Surfari (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Taboo - The Sixth Sense (U) [o1].nes">
+    <description>Taboo - The Sixth Sense (U) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tag Team Pro-Wrestling (J).nes">
+    <description>Tag Team Pro-Wrestling (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tagin' Dragon.nes">
+    <description>Tagin' Dragon</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Taito Chase HQ (J).nes">
+    <description>Taito Chase Hq (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Takahashi Meijin no Boukenjima (J) [b2].nes">
+    <description>Takahashi Meijin No Boukenjima (J) [B2]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="TaleSpin (U).nes">
+    <description>Talespin (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tecmo Baseball (U) [o1].nes">
+    <description>Tecmo Baseball (U) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tecmo Bowl (U) (PRG 0).nes">
+    <description>Tecmo Bowl (U) (Prg 0)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tecmo Cup - Soccer Game (U).nes">
+    <description>Tecmo Cup - Soccer Game (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tecmo NBA Basketball (U).nes">
+    <description>Tecmo Nba Basketball (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tecmo Super Bowl (U).nes">
+    <description>Tecmo Super Bowl (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tecmo World Wrestling (U).nes">
+    <description>Tecmo World Wrestling (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tennis.nes">
+    <description>Tennis</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Terminator 2 - Judgement Day (U).nes">
+    <description>Terminator 2 - Judgement Day (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Terminator, The (U).nes">
+    <description>Terminator, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Terra Cresta (J).nes">
+    <description>Terra Cresta (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tetris (U) [b3].nes">
+    <description>Tetris (U) [B3]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tetris (Unl) (U) [p1][o1].nes">
+    <description>Tetris (Unl) (U) [P1][O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tetris 2 (U) [b1].nes">
+    <description>Tetris 2 (U) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Three Stooges (U).nes">
+    <description>Three Stooges (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Thunder & Lightning (U) [o1].nes">
+    <description>Thunder And Lightning (U) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Time Lord (U).nes">
+    <description>Time Lord (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tiny Toon Adventures (U).nes">
+    <description>Tiny Toon Adventures (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tiny Toon Adventures 2 - Trouble in Wackyland (U).nes">
+    <description>Tiny Toon Adventures 2 - Trouble In Wackyland (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tiny Toon Adventures Cartoon Workshop (U).nes">
+    <description>Tiny Toon Adventures Cartoon Workshop (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Toki (U).nes">
+    <description>Toki (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tom & Jerry (and Tuffy) (U).nes">
+    <description>Tom And Jerry (And Tuffy) (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Tombs and Treasure (U).nes">
+    <description>Tombs And Treasure (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Toobin (U).nes">
+    <description>Toobin (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Top Gun - The Second Mission (U).nes">
+    <description>Top Gun - The Second Mission (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Top Gun.nes">
+    <description>Top Gun</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Totally Rad (U).nes">
+    <description>Totally Rad (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Touch Down Fever (U).nes">
+    <description>Touch Down Fever (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Toxic Crusaders (U).nes">
+    <description>Toxic Crusaders (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Track & Field.nes">
+    <description>Track And Field</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Track & Field2.nes">
+    <description>Track And Field2</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Trog (U).nes">
+    <description>Trog (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Trojan (U).nes">
+    <description>Trojan (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Trolls on Treasure Island (U).nes">
+    <description>Trolls On Treasure Island (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Twin Cobra (U).nes">
+    <description>Twin Cobra (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ultima - Warriors of Destiny (U).nes">
+    <description>Ultima - Warriors Of Destiny (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ultimate Air Combat (U).nes">
+    <description>Ultimate Air Combat (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ultimate Basketball (U).nes">
+    <description>Ultimate Basketball (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ultimate League Soccer (U).nes">
+    <description>Ultimate League Soccer (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ultimate Stuntman (U).nes">
+    <description>Ultimate Stuntman (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Uncharted Waters (U).nes">
+    <description>Uncharted Waters (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Uninvited (U).nes">
+    <description>Uninvited (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Untouchables, The (U).nes">
+    <description>Untouchables, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Urban Champion (JU) [b4].nes">
+    <description>Urban Champion (Ju) [B4]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Urusei Yatsura - Lum no Wedding Bell (J) [hM03][o1].nes">
+    <description>Urusei Yatsura - Lum No Wedding Bell (J) [Hm03][O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Vegas Dream (U).nes">
+    <description>Vegas Dream (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Venice Beach Volleyball (U).nes">
+    <description>Venice Beach Volleyball (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Vice - Project Doom (U).nes">
+    <description>Vice - Project Doom (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Volleyball (U) [o2].nes">
+    <description>Volleyball (U) [O2]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="WCW World Championship Wrestling (U).nes">
+    <description>Wcw World Championship Wrestling (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="WWF King of the Ring (U).nes">
+    <description>Wwf King Of The Ring (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="WWF Steel Cage Challenge (U).nes">
+    <description>Wwf Steel Cage Challenge (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="WWF Wrestlemania (U).nes">
+    <description>Wwf Wrestlemania (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="WWF Wrestlemania Challenge (U) [hM07].nes">
+    <description>Wwf Wrestlemania Challenge (U) [Hm07]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wacky Races.nes">
+    <description>Wacky Races</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wall Street Kid.nes">
+    <description>Wall Street Kid</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wario's Woods (U).nes">
+    <description>Wario'S Woods (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wayne Gretzky.nes">
+    <description>Wayne Gretzky</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wayne's World (U).nes">
+    <description>Wayne'S World (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Werewolf - The Last Warrior (U).nes">
+    <description>Werewolf - The Last Warrior (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wheel Of Fortune Starring Vanna White.nes">
+    <description>Wheel Of Fortune Starring Vanna White</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wheel of Fortune (U).nes">
+    <description>Wheel Of Fortune (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wheel of Fortune Family Edition (U).nes">
+    <description>Wheel Of Fortune Family Edition (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Where's Waldo (U).nes">
+    <description>Where'S Waldo (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Who Framed Roger Rabbit (U).nes">
+    <description>Who Framed Roger Rabbit (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Whomp'Em (U).nes">
+    <description>Whomp'Em (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wild Gunman (PC10).nes">
+    <description>Wild Gunman (Pc10)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Willow (U).nes">
+    <description>Willow (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Win Lose Or Draw.nes">
+    <description>Win Lose Or Draw</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Winter Games (U).nes">
+    <description>Winter Games (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wizardry - Proving Grounds of the Mad Overlord (U).nes">
+    <description>Wizardry - Proving Grounds Of The Mad Overlord (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wizardry - The Knight of Diamonds (U).nes">
+    <description>Wizardry - The Knight Of Diamonds (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wizards & Warriors (U).nes">
+    <description>Wizards And Warriors (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wizards & Warriors 3 (U).nes">
+    <description>Wizards And Warriors 3 (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wolverine (U).nes">
+    <description>Wolverine (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="World Games (U).nes">
+    <description>World Games (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wrath of the Black Manta (U).nes">
+    <description>Wrath Of The Black Manta (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wrecking Crew (JUE).nes">
+    <description>Wrecking Crew (Jue)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wurm (U).nes">
+    <description>Wurm (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Xenophobe (U) [o1].nes">
+    <description>Xenophobe (U) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Xevious (J).nes">
+    <description>Xevious (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Xexyz (U).nes">
+    <description>Xexyz (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Yo! Noid (U).nes">
+    <description>Yo! Noid (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Yoshi (U).nes">
+    <description>Yoshi (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Yoshi's Cookie (U).nes">
+    <description>Yoshi'S Cookie (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Young Indiana Jones Chronicles, The (U).nes">
+    <description>Young Indiana Jones Chronicles, The (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Zanac.nes">
+    <description>Zanac</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Zelda 2 - The Adventure of Link (U) [b2].nes">
+    <description>Zelda 2 - The Adventure Of Link (U) [B2]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Zelda no Densetsu 1 - The Hyrule Fantasy (J).nes">
+    <description>Zelda No Densetsu 1 - The Hyrule Fantasy (J)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Zen Intergalactic Ninja (U).nes">
+    <description>Zen Intergalactic Ninja (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Zombie Nation (U).nes">
+    <description>Zombie Nation (U)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+</menu>

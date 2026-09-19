@@ -1,0 +1,11 @@
+# NES Platform Configuration
+emulatorBasePath = /mnt/8TB/platforms/nes/
+romDirectory = roms/
+romSnapDirectory = snap/
+romVideoDirectory = /mnt/8TB/videosnaps/MAME 0.185 VideoSnaps/videosnaps_SL/nes/
+emulatorExecutable = fceux
+romExtension = .nes
+snapExtension = .png
+videoExtension = .mp4
+compareDBtoRoms = False
+showXMLprogressBar = False

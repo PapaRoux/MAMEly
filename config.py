@@ -96,6 +96,8 @@ class Config:
                         friendly_name = "Atari 2600"
                     elif d == "SNES":
                         friendly_name = "Super Nintendo"
+                    elif d == "NES":
+                        friendly_name = "Nintendo Entertainment System"
                     elif d == "N64":
                         friendly_name = "Nintendo 64"
                     found_platforms.append((friendly_name, d, config_file, skin_file))
