@@ -1,11 +1,11 @@
 # SNES Platform Configuration
-emulatorBasePath = ~/Documents/snes9x/
+emulatorBasePath = /mnt/8TB/platforms/snes/
 romDirectory = roms/
 romSnapDirectory = snap/
 romVideoDirectory = video/
-emulatorExecutable = /snap/bin/snes9x-gtk
+emulatorExecutable = flatpak run --file-forwarding com.snes9x.Snes9x
 romExtension = .smc
 snapExtension = .png
 videoExtension = .mp4
-compareXMLtoRoms = False
+compareDBtoRoms = False
 showXMLprogressBar = False
