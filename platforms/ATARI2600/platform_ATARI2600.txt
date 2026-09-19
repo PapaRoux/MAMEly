@@ -1,11 +1,11 @@
 # Atari 2600 Platform Configuration
-emulatorBasePath = /mnt/nfs/8TB/platforms/atari2600/
+emulatorBasePath = /mnt/8TB/platforms/atari2600/
 romDirectory = roms/
 romSnapDirectory = snap/
 romVideoDirectory = video/
-emulatorExecutable = stella
+emulatorExecutable = flatpak run --file-forwarding io.github.stella_emu.Stella -fullscreen 1 -exitlauncher 0 -confirmexit 0
 romExtension = .bin
 snapExtension = .png
 videoExtension = .mp4
-compareXMLtoRoms = False
+compareDBtoRoms = False
 showXMLprogressBar = False
