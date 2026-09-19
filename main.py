@@ -263,7 +263,7 @@ class MAMElyApp:
 
     def _inject_flatpak_env(self, cmd, env_vars):
         for i, arg in enumerate(cmd):
-            if arg.startswith("com.") and i > 0 and cmd[i - 1] != "--env":
+            if any(arg.startswith(prefix) for prefix in ("com.", "net.", "org.", "io.")) and i > 0 and cmd[i - 1] != "--env":
                 for key, value in reversed(list(env_vars.items())):
                     cmd.insert(i, f"--env={key}={value}")
                 break
@@ -308,9 +308,12 @@ class MAMElyApp:
 
         env = os.environ.copy()
         if "flatpak" in exe:
-            config_home = os.path.join(self.rom_manager.platform_path, "mamely-snes9x-config")
-            if os.path.isdir(config_home):
-                self._inject_flatpak_env(cmd, {"XDG_CONFIG_HOME": os.path.abspath(config_home)})
+            for entry in os.listdir(self.rom_manager.platform_path):
+                if entry.startswith("mamely-") and entry.endswith("-config"):
+                    config_home = os.path.join(self.rom_manager.platform_path, entry)
+                    if os.path.isdir(config_home):
+                        self._inject_flatpak_env(cmd, {"XDG_CONFIG_HOME": os.path.abspath(config_home)})
+                        break
 
         print(f"Executing: {' '.join(shlex.quote(arg) for arg in cmd)}")
         self._release_joysticks()
