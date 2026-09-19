@@ -16,6 +16,148 @@ def hex_to_color(color_hex):
     except Exception:
         return (128, 128, 128)
 
+
+NONE_TOKENS = ("", "none", "none.skin", "none.png", "none.jpg", "none.jpeg")
+OFF_TOKENS = ("off", "blank", "clear")
+
+
+def is_none_token(value):
+    """True for empty or explicit 'none' skin / background values."""
+    if value is None:
+        return True
+    return str(value).strip().lower() in NONE_TOKENS
+
+
+def is_off_token(value):
+    """True for an explicit no-image backdrop (no PNG, no CRT fill)."""
+    if value is None:
+        return False
+    return str(value).strip().lower() in OFF_TOKENS
+
+
+def is_procedural_show(skin):
+    """Whether to overlay procedural neon frames.
+
+    Explicit ``proceduralShow`` wins. If the key is omitted, PNG skins stay
+    unchanged (False) and ``backgroundImage = none`` keeps classic chrome (True).
+    """
+    if not skin:
+        return True
+    val = skin.get("proceduralShow")
+    if val is not None:
+        return bool(val)
+    bg = skin.get("backgroundImage")
+    if is_off_token(bg):
+        return False
+    return is_none_token(bg)
+
+
+def is_procedural_decor_show(skin):
+    """Whether to draw platform header, pixel art, and the nav-keys card.
+
+    Explicit ``proceduralDecorShow`` wins. If omitted, follows proceduralShow
+    so classic ``none`` skins keep the full header.
+    """
+    if not skin:
+        return True
+    val = skin.get("proceduralDecorShow")
+    if val is not None:
+        return bool(val)
+    return is_procedural_show(skin)
+
+
+def _as_int(value, default=0):
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def parse_sprite_defs(config):
+    """Build ordered sprite dicts from sprite.<id>.<prop> skin keys.
+
+    Supported properties: file, x/x1, y/y1, w/width, h/height, x2, y2, show.
+    """
+    order = []
+    by_id = {}
+    for key, val in config.items():
+        if not isinstance(key, str) or not key.startswith("sprite."):
+            continue
+        rest = key[7:]
+        if "." not in rest:
+            continue
+        sid, prop = rest.split(".", 1)
+        if not sid:
+            continue
+        if sid not in by_id:
+            by_id[sid] = {
+                "id": sid,
+                "file": "",
+                "x": 0,
+                "y": 0,
+                "w": None,
+                "h": None,
+                "show": True,
+            }
+            order.append(sid)
+        spr = by_id[sid]
+        prop_l = prop.lower()
+        if prop_l in ("file", "image"):
+            spr["file"] = str(val).strip()
+        elif prop_l in ("x", "x1"):
+            spr["x"] = _as_int(val, 0)
+        elif prop_l in ("y", "y1"):
+            spr["y"] = _as_int(val, 0)
+        elif prop_l in ("w", "width"):
+            spr["w"] = _as_int(val, None)
+        elif prop_l in ("h", "height"):
+            spr["h"] = _as_int(val, None)
+        elif prop_l == "x2":
+            spr["_x2"] = _as_int(val, None)
+        elif prop_l == "y2":
+            spr["_y2"] = _as_int(val, None)
+        elif prop_l == "show":
+            if isinstance(val, bool):
+                spr["show"] = val
+            else:
+                spr["show"] = str(val).strip().lower() in ("true", "1", "yes", "on")
+    sprites = []
+    for sid in order:
+        spr = by_id[sid]
+        x2 = spr.pop("_x2", None)
+        y2 = spr.pop("_y2", None)
+        if spr["w"] is None and x2 is not None:
+            spr["w"] = x2 - spr["x"]
+        if spr["h"] is None and y2 is not None:
+            spr["h"] = y2 - spr["y"]
+        sprites.append(spr)
+    return sprites
+
+
+def resolve_sprite_path(filename, platform_path, repo_root=None):
+    """Resolve a sprite filename against platform sprites/, repo sprites/, then MAME sprites/."""
+    if not filename:
+        return None
+    filename = str(filename).strip()
+    if not filename or is_none_token(filename):
+        return None
+    if os.path.isabs(filename) and os.path.isfile(filename):
+        return filename
+    base = os.path.basename(filename)
+    if repo_root is None:
+        repo_root = os.path.dirname(os.path.dirname(os.path.abspath(platform_path or ".")))
+    candidates = [
+        os.path.join(platform_path, "sprites", base) if platform_path else None,
+        os.path.join(platform_path, filename) if platform_path else None,
+        os.path.join(repo_root, "sprites", base) if repo_root else None,
+        os.path.join(repo_root, filename) if repo_root else None,
+        os.path.join(repo_root, "platforms", "MAME", "sprites", base) if repo_root else None,
+    ]
+    for path in candidates:
+        if path and os.path.isfile(path):
+            return path
+    return None
+
 class Platform:
     def __init__(self, name, folder, config_file, skin_file):
         self.name = name
@@ -350,6 +492,13 @@ DEFAULT_RETROCADE_1920x1080 = {
     "genreSetShow": True,
     "romSnapShow": True,
     "romCountShow": True,
+    "proceduralShow": True,
+    "proceduralDecorShow": True,
+    "navKeysShow": True,
+    "navKeysX1": 1075,
+    "navKeysY1": 670,
+    "navKeysX2": 1330,
+    "navKeysY2": 1030,
     "romListDisplayAreaX1": 50,
     "romListDisplayAreaY1": 210,
     "romListDisplayAreaX2": 1045,
@@ -441,6 +590,13 @@ DEFAULT_RETROCADE_1080x1920 = {
     "romCountShow": True,
     "romFileNameDisplayBoxShow": True,
     "romSnapShow": True,
+    "proceduralShow": True,
+    "proceduralDecorShow": True,
+    "navKeysShow": True,
+    "navKeysX1": 775,
+    "navKeysY1": 1475,
+    "navKeysX2": 1050,
+    "navKeysY2": 1860,
     "romListDisplayAreaX1": 54,
     "romListDisplayAreaY1": 464,
     "romListDisplayAreaX2": 734,
@@ -495,13 +651,11 @@ class SkinConfig:
         self.screen_width = screen_width
         self.screen_height = screen_height
         self.config = {}
+        self.sprites = []
         self.load_skin()
 
     def load_skin(self):
-        is_none_or_fallback = (
-            not self.skin_file
-            or self.skin_file.lower() in ("none", "none.skin", "")
-        )
+        is_none_or_fallback = is_none_token(self.skin_file)
 
         if not is_none_or_fallback:
             full_path = os.path.join(self.platform_path, self.skin_file)
@@ -517,9 +671,14 @@ class SkinConfig:
                                 val = val.strip()
                                 
                                 # Store everything in a dict for flexibility
+                                sprite_int = (
+                                    var.startswith("sprite.")
+                                    and var.rsplit(".", 1)[-1].lower()
+                                    in ("x", "y", "w", "h", "x1", "y1", "x2", "y2", "width", "height")
+                                )
                                 if "Color" in var:
                                     self.config[var] = hex_to_color(val)
-                                elif any(x in var for x in ["X1", "Y1", "X2", "Y2", "Size", "Len", "Offset", "Time", "Spacing"]):
+                                elif sprite_int or any(x in var for x in ["X1", "Y1", "X2", "Y2", "Size", "Len", "Offset", "Time", "Spacing"]):
                                      try:
                                           self.config[var] = int(val)
                                      except ValueError:
@@ -546,6 +705,8 @@ class SkinConfig:
             for k, v in defaults.items():
                 if k not in self.config:
                     self.config[k] = v
+
+        self.sprites = parse_sprite_defs(self.config)
 
         # Calculate Derived Values (mimicking MAMEly.py logic)
         try:

@@ -151,6 +151,16 @@
     }
     .zone-row:hover { background: var(--bg2); }
     .zone-row.sel { background: var(--accent-dim); border-color: rgba(99,102,241,.3); }
+    .zdrag {
+      cursor: grab; color: var(--txt2); font-size: 12px; line-height: 1;
+      flex-shrink: 0; padding: 0 1px; letter-spacing: -2px;
+      user-select: none; font-family: sans-serif;
+    }
+    .zdrag:active { cursor: grabbing; }
+    .zone-row.dragging { opacity: .4; }
+    .zone-row.drop-before { box-shadow: inset 0 2px 0 var(--accent); }
+    .zone-row.drop-after { box-shadow: inset 0 -2px 0 var(--accent); }
+    #sprite-list { min-height: 12px; }
     .zdot { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
     .zlbl { font-size:12px; flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
     .zvis {
@@ -221,11 +231,32 @@
       pointer-events:none;
     }
     #cbg {
-      display:block; position:relative; z-index:1;
+      display:block; position:absolute; inset:0; z-index:1;
       width:100%; height:100%;
       object-fit:fill; user-select:none; pointer-events:none;
     }
     #cbg.hidden { display:none; }
+    #cproc {
+      display:block; position:absolute; inset:0; z-index:2;
+      width:100%; height:100%;
+      pointer-events:none; user-select:none;
+    }
+    #cproc.hidden { display:none; }
+    .psec-head {
+      display:flex; align-items:center; justify-content:space-between;
+      margin-bottom:8px; gap:8px;
+    }
+    .psec-head .psec-title { margin-bottom:0; }
+    .btn-mini { padding:3px 8px; font-size:11px; }
+    .zo.sprite .zo-spr {
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:fill; pointer-events:none;
+    }
+    #bg-status {
+      font-size:11px; color:var(--txt1); margin-bottom:8px;
+      font-family:'JetBrains Mono',monospace; word-break:break-all;
+    }
+    #platform-name { width:100%; }
     #no-bg {
       position:absolute; inset:0; z-index:2;
       display:flex; flex-direction:column; align-items:center; justify-content:center;
@@ -249,9 +280,21 @@
       position:absolute; border:2px solid;
       cursor:move; user-select:none;
       transition:opacity var(--t);
+      z-index: 40;
     }
     .zo.dim { opacity:.28; pointer-events:none; }
+    .zo.sprite.hidden-spr {
+      opacity:1;
+      background:transparent !important;
+    }
+    .zo.sprite.hidden-spr:not(.sel) { display:none; }
     .zo.sel { z-index:100; }
+    .zo.sprite { z-index:1; border-style:dashed; }
+    .zo.nav-cover {
+      opacity:1; background:#000 !important; border-color:#222;
+      z-index: 45;
+    }
+    .zo.nav-cover:not(.sel) { pointer-events:none; }
     .zo-lbl {
       position:absolute; top:3px; left:5px;
       font-size:9.5px; font-weight:700;
@@ -364,6 +407,7 @@
 <!-- File pickers -->
 <input type="file" id="fi-skin" accept=".skin,.txt">
 <input type="file" id="fi-bg"   accept="image/*">
+<input type="file" id="fi-sprite" accept="image/*">
 
 <!-- ═══ HEADER ═══════════════════════════════════════════ -->
 <header id="hdr">
@@ -379,6 +423,7 @@
 
   <button class="btn" id="btn-load-skin">📂 Load .skin</button>
   <button class="btn" id="btn-load-bg">🖼 Load BG</button>
+  <button class="btn" id="btn-bg-none" title="CRT fill (no PNG). Procedural frames are a separate toggle.">[none]</button>
   <button class="btn" id="btn-new">✨ New</button>
 
   <div class="sep"></div>
@@ -419,8 +464,49 @@
   <div id="lp">
 
     <div class="psec">
+      <div class="psec-head">
+        <div class="psec-title">Background</div>
+        <button class="btn btn-mini" id="btn-clear-bg" title="No PNG and no CRT fill — checkerboard, sprites stay">No image</button>
+      </div>
+      <div id="bg-status">No background</div>
+      <div class="trow" style="margin-bottom:8px">
+        <span class="tlbl" title="Neon boxes for list, snap, and info panels">Procedural frames</span>
+        <label class="tswitch">
+          <input type="checkbox" id="chk-procedural">
+          <span class="tslider"></span>
+        </label>
+      </div>
+      <div class="trow" style="margin-bottom:8px">
+        <span class="tlbl" title="Platform title, pixel ghosts/invader, and the nav-keys card">Header &amp; nav art</span>
+        <label class="tswitch">
+          <input type="checkbox" id="chk-procedural-decor">
+          <span class="tslider"></span>
+        </label>
+      </div>
+      <div style="font-size:10px;color:var(--txt2);margin-bottom:8px;line-height:1.4">
+        Works with a PNG or <strong>[none]</strong> (CRT fill). <strong>No image</strong> drops both so sprites sit on the checkerboard.
+      </div>
+      <div class="trow" style="margin-bottom:6px">
+        <span class="tlbl">Marquee title</span>
+      </div>
+      <input type="text" class="hinp" id="platform-name" value="MAME" title="Drawn on the procedural Retrocade marquee">
+    </div>
+
+    <div class="psec">
       <div class="psec-title">Zones</div>
       <div id="zone-list"></div>
+    </div>
+
+    <div class="psec">
+      <div class="psec-head">
+        <div class="psec-title">Sprites</div>
+        <button class="btn btn-mini" id="btn-add-sprite" title="Add a sprite from sprites/">+ Add</button>
+      </div>
+      <div id="sprite-list"></div>
+      <div style="font-size:10px;color:var(--txt2);margin-top:6px;line-height:1.4">
+        Drag to reorder · top = front<br>
+        Overlay PNGs from <code>platforms/&lt;PLATFORM&gt;/sprites/</code>
+      </div>
     </div>
 
     <div class="psec">
@@ -439,10 +525,13 @@
   <div id="ca">
     <div id="cw">
       <img id="cbg" class="hidden" src="" alt="">
+      <canvas id="cproc" class="hidden"></canvas>
       <div id="no-bg">
         <div id="no-bg-icon">🖼</div>
         <div id="no-bg-name"></div>
-        <div style="font-size:11px;color:var(--txt1)">Click <strong>Load BG</strong> to add a background image</div>
+        <div style="font-size:11px;color:var(--txt1);text-align:center;line-height:1.5">
+          Click <strong>Load BG</strong> to preview an image<br>or <strong>[none]</strong> for CRT fill · <strong>No image</strong> for empty
+        </div>
       </div>
       <div id="zones-layer"></div>
     </div>
@@ -560,7 +649,7 @@ const ZONES = [
     comment: '# area for rom snap image',
     props: []
   },
-  {
+    {
     id: 'romCount', label: 'ROM Count', color: '#eab308',
     x1: 'romCountX1', y1: 'romCountY1',
     x2: 'romCountX2', y2: 'romCountY2',
@@ -572,6 +661,14 @@ const ZONES = [
       { k:'romCountAlign',       lbl:'Align',        type:'align'  },
       { k:'romCountTruncateLen', lbl:'Truncate Len', type:'number' },
     ]
+  },
+  {
+    id: 'navKeys', label: 'Nav Keys', color: '#94a3b8',
+    x1: 'navKeysX1', y1: 'navKeysY1',
+    x2: 'navKeysX2', y2: 'navKeysY2',
+    showKey: 'navKeysShow', shadowKey: null,
+    comment: '# in-game navigation keys card',
+    props: []
   },
 ];
 
@@ -621,10 +718,46 @@ const SHADOW_DEFS = [
   { k:'messageShadow',                 lbl:'Message'        },
 ];
 
+const SPRITE_PREFIX = 'sprite:';
+const PLATFORM_FOLDERS = ['ATARI2600','SEGAMASTER','SNES','NES','N64','C64','MAME'];
+const SPRITE_COLORS = ['#f472b6','#fb7185','#c084fc','#38bdf8','#4ade80','#fbbf24','#a3e635','#22d3ee'];
+const INVADER_SPRITE = [
+  '  #     #  ',
+  '   #   #   ',
+  '  #######  ',
+  ' ## ### ## ',
+  '###########',
+  '# ####### #',
+  '# #     # #',
+  '   ## ##   ',
+];
+const GHOST_SPRITE = [
+  '  #####  ',
+  ' ####### ',
+  '##  #  ##',
+  '##  #  ##',
+  '#########',
+  '#########',
+  '# # # # #',
+  '#   #   #',
+];
+const NAV_ITEMS = [
+  ['UP / DN:', 'Scroll'],
+  ['LEFT / RIGHT:', 'Page Up / Dn'],
+  ['ENTER / B1:', 'Select / Play'],
+  ['TAB / B2:', 'Genre / Favs'],
+  ['E / B3:', 'Next Emu'],
+  ['F / B4:', '+/- Favorite'],
+  ['S / F4:', 'Skin Switcher'],
+  ['D / F1:', 'Diagnostics'],
+  ['ESC / B9+10:', 'Exit'],
+];
+const NAV_SPRITE_IDS = new Set(['up', 'scroll_up', 'mamely', 'pasted_layer']);
+
 /* ── DEFAULT STATE ─────────────────────────────────────── */
 function defaults() {
   return {
-    backgroundImage: '',
+    backgroundImage: 'none',
     defaultFontForegroundColor:                   'FFFFFF',
     defaultHighlightFontForegroundColor:           'FFFF00',
     defaultRomNameDisplayLineShadowColor:          '000000',
@@ -660,6 +793,9 @@ function defaults() {
     romCountShow:              true,
     romFileNameDisplayBoxShow: true,
     romSnapShow:               true,
+    navKeysShow:               true,
+    proceduralShow:            true,
+    proceduralDecorShow:       true,
 
     romListDisplayAreaX1: 50,   romListDisplayAreaY1: 210,
     romListDisplayAreaX2: 1045, romListDisplayAreaY2: 880,
@@ -702,6 +838,9 @@ function defaults() {
     romCountFont: 'Continuum-Bold-Regular.ttf',
     romCountFontSize: 45, romCountTruncateLen: 14,
     romCountAlign: 'center',
+
+    navKeysX1: 1075, navKeysY1: 670,
+    navKeysX2: 1330, navKeysY2: 1030,
   };
 }
 
@@ -709,13 +848,17 @@ function defaults() {
 const S = {
   skin: defaults(),
   res: { w: 1920, h: 1080 },
-  sel: null,        // selected zone id
+  sel: null,        // selected zone id or sprite:<id>
   bg: null,         // background data URL
   scale: 1,
   drag: null,       // { type:'move'|'resize', zoneId, handle, sx, sy, r0 }
   snap: false,      // snap-to-grid enabled
   snapGrid: 10,     // grid size in skin units
   preview: false,   // text preview mode
+  sprites: [],      // [{id,file,x,y,w,h,show,preview}]
+  spriteImgs: {},   // id -> HTMLImageElement
+  spriteDir: 'platforms/MAME/sprites',
+  platformName: 'MAME',
 };
 
 /* ── UNDO / REDO HISTORY ───────────────────────────────── */
@@ -724,7 +867,32 @@ let HIST_IDX = -1;      // pointer into HIST
 const HIST_MAX = 60;
 let nudgeTimer = null;  // debounce for arrow-key nudge commits
 
-function snapshot() { return JSON.stringify(S.skin); }
+function snapshot() {
+  return JSON.stringify({
+    skin: S.skin,
+    sprites: S.sprites.map(s => ({
+      id: s.id, file: s.file, x: s.x, y: s.y, w: s.w, h: s.h,
+      show: s.show, preview: s.preview || null,
+    })),
+    platformName: S.platformName,
+    spriteDir: S.spriteDir,
+  });
+}
+
+function applySnapshot(raw) {
+  const o = JSON.parse(raw);
+  if (o && o.skin) {
+    S.skin = o.skin;
+    S.sprites = o.sprites || [];
+    S.platformName = o.platformName || 'MAME';
+    S.spriteDir = o.spriteDir || ('platforms/' + S.platformName + '/sprites');
+  } else {
+    S.skin = o;
+  }
+  const pn = $('platform-name');
+  if (pn) pn.value = S.platformName;
+  S.sprites.forEach(tryLoadSpritePreview);
+}
 
 function resetHistory() {
   HIST = [snapshot()];
@@ -747,7 +915,7 @@ function commitHistory() {
 function undo() {
   if (HIST_IDX <= 0) return;
   HIST_IDX--;
-  S.skin = JSON.parse(HIST[HIST_IDX]);
+  applySnapshot(HIST[HIST_IDX]);
   fullRebuild();
   updateUndoButtons();
 }
@@ -755,7 +923,7 @@ function undo() {
 function redo() {
   if (HIST_IDX >= HIST.length - 1) return;
   HIST_IDX++;
-  S.skin = JSON.parse(HIST[HIST_IDX]);
+  applySnapshot(HIST[HIST_IDX]);
   fullRebuild();
   updateUndoButtons();
 }
@@ -820,6 +988,7 @@ const PREVIEW = {
   romFileNameDisplayBox: { type:'center', text:'pacman.zip',       sizeKey:'romFileNameDisplayBoxFontSize', truncKey:'romFileNameDisplayBoxTruncateLen', colorKey:'defaultRomFileNameColor',  alignKey:'romFileNameDisplayBoxAlign' },
   romCount:              { type:'center', text:'12 of 340',        sizeKey:'romCountFontSize',              truncKey:'romCountTruncateLen',              colorKey:'defaultRomCountColor',     alignKey:'romCountAlign' },
   romSnap:               { type:'snap' },
+  navKeys:               { type:'nav' },
 };
 
 /* CSS flex mapping for the preview's horizontal anchor */
@@ -847,6 +1016,25 @@ function addPreviewContent(div, z) {
       `font-size:${Math.max(14, s2d(64))}px; opacity:.4; pointer-events:none;`;
     ph.textContent = '🖼';
     div.appendChild(ph);
+    return;
+  }
+
+  if (pc.type === 'nav') {
+    const wrap = el('div');
+    wrap.style.cssText = 'position:absolute; inset:6px 8px; pointer-events:none; overflow:hidden;';
+    const h = el('div');
+    h.textContent = 'MAMEly';
+    h.style.cssText = `color:#FFEB00; font-weight:700; font-size:${Math.max(10, s2d(22))}px; text-align:center; margin-bottom:4px;`;
+    wrap.appendChild(h);
+    NAV_ITEMS.forEach(([key, act]) => {
+      const row = el('div');
+      row.style.cssText = `display:flex; justify-content:space-between; gap:6px; font-size:${Math.max(8, s2d(16))}px; line-height:1.35; font-family:'JetBrains Mono',monospace;`;
+      const k = el('span'); k.textContent = key; k.style.color = '#fff';
+      const a = el('span'); a.textContent = act; a.style.color = '#00E6FF';
+      row.appendChild(k); row.appendChild(a);
+      wrap.appendChild(row);
+    });
+    div.appendChild(wrap);
     return;
   }
 
@@ -896,18 +1084,17 @@ function addPreviewContent(div, z) {
 
 /* ── ARROW-KEY NUDGE ───────────────────────────────────── */
 function nudgeZone(zid, dx, dy) {
-  const z = zoneById(zid);
+  const r = getRect(zid);
   const W = S.res.w, H = S.res.h;
-  const w = S.skin[z.x2] - S.skin[z.x1];
-  const h = S.skin[z.y2] - S.skin[z.y1];
-  let nx1 = clamp(S.skin[z.x1] + dx, 0, W - w);
-  let ny1 = clamp(S.skin[z.y1] + dy, 0, H - h);
+  const w = r.x2 - r.x1;
+  const h = r.y2 - r.y1;
+  let nx1 = clamp(r.x1 + dx, 0, W - w);
+  let ny1 = clamp(r.y1 + dy, 0, H - h);
   if (S.snap) {
     nx1 = clamp(snapV(nx1), 0, W - w);
     ny1 = clamp(snapV(ny1), 0, H - h);
   }
-  S.skin[z.x1] = nx1;     S.skin[z.y1] = ny1;
-  S.skin[z.x2] = nx1 + w; S.skin[z.y2] = ny1 + h;
+  setRect(zid, { x1:nx1, y1:ny1, x2:nx1 + w, y2:ny1 + h });
   renderCanvas();
   patchCoordInputs(zid);
   scheduleNudgeCommit();
@@ -916,6 +1103,642 @@ function nudgeZone(zid, dx, dy) {
 function scheduleNudgeCommit() {
   if (nudgeTimer) clearTimeout(nudgeTimer);
   nudgeTimer = setTimeout(() => { nudgeTimer = null; commitHistory(); }, 300);
+}
+
+/* ── SPRITE / SELECTION HELPERS ────────────────────────── */
+function isSpriteSel(id) { return !!(id && id.startsWith(SPRITE_PREFIX)); }
+function spriteKey(id) { return id.slice(SPRITE_PREFIX.length); }
+function getSprite(sel) {
+  const id = isSpriteSel(sel) ? spriteKey(sel) : sel;
+  return S.sprites.find(s => s.id === id);
+}
+function spriteColor(id) {
+  let h = 0;
+  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
+  return SPRITE_COLORS[h % SPRITE_COLORS.length];
+}
+function getRect(sel) {
+  if (isSpriteSel(sel)) {
+    const s = getSprite(sel);
+    if (!s) return { x1:0, y1:0, x2:64, y2:64 };
+    const w = s.w || 64, h = s.h || 64;
+    return { x1:s.x|0, y1:s.y|0, x2:(s.x|0)+w, y2:(s.y|0)+h };
+  }
+  const z = zoneById(sel);
+  return { x1:S.skin[z.x1], y1:S.skin[z.y1], x2:S.skin[z.x2], y2:S.skin[z.y2] };
+}
+function setRect(sel, r) {
+  if (isSpriteSel(sel)) {
+    const s = getSprite(sel);
+    if (!s) return;
+    s.x = r.x1; s.y = r.y1;
+    s.w = Math.max(1, r.x2 - r.x1);
+    s.h = Math.max(1, r.y2 - r.y1);
+    return;
+  }
+  const z = zoneById(sel);
+  S.skin[z.x1] = r.x1; S.skin[z.y1] = r.y1;
+  S.skin[z.x2] = r.x2; S.skin[z.y2] = r.y2;
+}
+function itemLabel(sel) {
+  if (isSpriteSel(sel)) {
+    const s = getSprite(sel);
+    return s ? ('Sprite: ' + s.id) : 'Sprite';
+  }
+  const z = zoneById(sel);
+  return z ? z.label : '';
+}
+function sanitizeSpriteId(name) {
+  let id = String(name || 'sprite').replace(/\.[^.]+$/, '')
+    .replace(/^retrocade_frame_/, '')
+    .replace(/[^a-zA-Z0-9_]+/g, '_')
+    .replace(/^_+|_+$/g, '')
+    .toLowerCase() || 'sprite';
+  if (/^[0-9]/.test(id)) id = 's_' + id;
+  const base = id;
+  let n = 2;
+  while (S.sprites.some(s => s.id === id)) id = base + '_' + n++;
+  return id;
+}
+function guessPlatform(name) {
+  const u = String(name || '').toUpperCase();
+  for (const p of PLATFORM_FOLDERS) {
+    if (u.includes(p)) return p;
+  }
+  return S.platformName || 'MAME';
+}
+function isNoneToken(v) {
+  const t = String(v || '').trim().toLowerCase();
+  return t === 'none' || t === 'none.skin' || t === 'none.png' || t === 'none.jpg' || t === 'none.jpeg';
+}
+function isOffToken(v) {
+  const t = String(v || '').trim().toLowerCase();
+  return t === 'off' || t === 'blank' || t === 'clear';
+}
+function isNoneBg() {
+  return isNoneToken(S.skin.backgroundImage);
+}
+function isOffBg() {
+  return isOffToken(S.skin.backgroundImage);
+}
+function isProceduralShow() {
+  if (S.skin.proceduralShow === true) return true;
+  if (S.skin.proceduralShow === false) return false;
+  if (isOffBg()) return false;
+  return isNoneBg();
+}
+function isProceduralDecorShow() {
+  if (S.skin.proceduralDecorShow === true) return true;
+  if (S.skin.proceduralDecorShow === false) return false;
+  return isProceduralShow();
+}
+
+function spritesFromSkin(s) {
+  const order = [];
+  const by = {};
+  for (const key of Object.keys(s)) {
+    if (!key.startsWith('sprite.')) continue;
+    const rest = key.slice(7);
+    const dot = rest.indexOf('.');
+    if (dot < 0) continue;
+    const sid = rest.slice(0, dot);
+    const prop = rest.slice(dot + 1).toLowerCase();
+    if (!sid) continue;
+    if (!by[sid]) {
+      by[sid] = { id:sid, file:'', x:0, y:0, w:null, h:null, show:true };
+      order.push(sid);
+    }
+    const spr = by[sid];
+    const val = s[key];
+    if (prop === 'file' || prop === 'image') spr.file = String(val);
+    else if (prop === 'x' || prop === 'x1') spr.x = parseInt(val, 10) || 0;
+    else if (prop === 'y' || prop === 'y1') spr.y = parseInt(val, 10) || 0;
+    else if (prop === 'w' || prop === 'width') spr.w = parseInt(val, 10) || 0;
+    else if (prop === 'h' || prop === 'height') spr.h = parseInt(val, 10) || 0;
+    else if (prop === 'x2') spr._x2 = parseInt(val, 10) || 0;
+    else if (prop === 'y2') spr._y2 = parseInt(val, 10) || 0;
+    else if (prop === 'show') spr.show = val === true || val === 'True' || val === 'true';
+  }
+  return order.map(id => {
+    const spr = by[id];
+    if ((spr.w == null || spr.w === 0) && spr._x2 != null) spr.w = spr._x2 - spr.x;
+    if ((spr.h == null || spr.h === 0) && spr._y2 != null) spr.h = spr._y2 - spr.y;
+    delete spr._x2; delete spr._y2;
+    if (!spr.w) spr.w = 64;
+    if (!spr.h) spr.h = 64;
+    return spr;
+  });
+}
+
+function tryLoadSpritePreview(spr) {
+  if (!spr) return;
+  if (spr.preview) {
+    const img = new Image();
+    img.onload = () => { S.spriteImgs[spr.id] = img; renderCanvas(); };
+    img.src = spr.preview;
+    return;
+  }
+  const base = (spr.file || '').split('/').pop();
+  if (!base) return;
+  const candidates = [
+    S.spriteDir + '/' + base,
+    'platforms/MAME/sprites/' + base,
+    'sprites/' + base,
+    spr.file,
+  ];
+  const tryNext = i => {
+    if (i >= candidates.length) return;
+    const img = new Image();
+    img.onload = () => {
+      S.spriteImgs[spr.id] = img;
+      if (!spr.w) spr.w = img.naturalWidth;
+      if (!spr.h) spr.h = img.naturalHeight;
+      renderCanvas();
+    };
+    img.onerror = () => tryNext(i + 1);
+    img.src = candidates[i];
+  };
+  tryNext(0);
+}
+
+function spriteImgSrc(spr) {
+  if (spr.preview) return spr.preview;
+  const img = S.spriteImgs[spr.id];
+  return img ? (img.src || '') : '';
+}
+
+/* ── PROCEDURAL RETROCADE (matches ui.py) ──────────────── */
+function rrPath(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  const rad = Math.max(0, Math.min(r, w / 2, h / 2));
+  if (ctx.roundRect) ctx.roundRect(x, y, w, h, rad);
+  else {
+    ctx.moveTo(x + rad, y);
+    ctx.arcTo(x + w, y, x + w, y + h, rad);
+    ctx.arcTo(x + w, y + h, x, y + h, rad);
+    ctx.arcTo(x, y + h, x, y, rad);
+    ctx.arcTo(x, y, x + w, y, rad);
+    ctx.closePath();
+  }
+}
+function drawNeonBox(ctx, x1, y1, x2, y2, radius, borderW) {
+  const x = x1, y = y1, w = x2 - x1, h = y2 - y1;
+  rrPath(ctx, x, y, w, h, radius);
+  ctx.fillStyle = '#121219';
+  ctx.fill();
+  rrPath(ctx, x - 1, y - 1, w + 2, h + 2, radius + 1);
+  ctx.strokeStyle = '#B4142D';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+  rrPath(ctx, x, y, w, h, radius);
+  ctx.strokeStyle = '#F52044';
+  ctx.lineWidth = borderW || 4;
+  ctx.stroke();
+}
+function drawPixelMatrix(ctx, matrix, px, py, scale, color) {
+  ctx.fillStyle = color;
+  for (let r = 0; r < matrix.length; r++) {
+    for (let c = 0; c < matrix[r].length; c++) {
+      if (matrix[r][c] !== ' ') ctx.fillRect(px + c * scale, py + r * scale, scale, scale);
+    }
+  }
+}
+function drawNavCard(ctx, nx1, ny1, nw, nh, keyX, actX, rowH) {
+  rrPath(ctx, nx1, ny1, nw, nh, 14);
+  ctx.fillStyle = '#101018';
+  ctx.fill();
+  rrPath(ctx, nx1 - 1, ny1 - 1, nw + 2, nh + 2, 15);
+  ctx.strokeStyle = '#B4142D';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+  rrPath(ctx, nx1, ny1, nw, nh, 14);
+  ctx.strokeStyle = '#F52044';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  ctx.font = '700 26px Outfit, sans-serif';
+  ctx.fillStyle = '#FFEB00';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('MAMEly', nx1 + nw / 2, ny1 + 22);
+  ctx.strokeStyle = '#FFEB00';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(nx1 + 30, ny1 + 38);
+  ctx.lineTo(nx1 + nw - 30, ny1 + 38);
+  ctx.stroke();
+
+  ctx.font = '20px "JetBrains Mono", monospace';
+  ctx.textBaseline = 'middle';
+  let rowY = ny1 + 48;
+  NAV_ITEMS.forEach(([key, act]) => {
+    ctx.fillStyle = '#ffffff';
+    ctx.textAlign = 'right';
+    ctx.fillText(key, keyX, rowY + 12);
+    ctx.fillStyle = '#00E6FF';
+    ctx.textAlign = 'left';
+    ctx.fillText(act, actX, rowY + 12);
+    rowY += rowH;
+  });
+}
+function drawMarquee(ctx, title, sub, tx, ty, size, shadows) {
+  ctx.font = '700 ' + size + 'px Outfit, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  shadows.forEach(([ox, oy, col]) => {
+    ctx.fillStyle = col;
+    ctx.fillText(title, tx + ox, ty + oy);
+  });
+  ctx.font = '22px Outfit, sans-serif';
+  ctx.fillStyle = '#DCE6F5';
+  ctx.fillText(sub, tx, ty + 46);
+}
+function drawProceduralRetrocade() {
+  const canvas = $('cproc');
+  if (!canvas) return;
+  const portrait = S.res.w < S.res.h;
+  const baseW = portrait ? 1080 : 1920;
+  const baseH = portrait ? 1920 : 1080;
+  const off = document.createElement('canvas');
+  off.width = baseW; off.height = baseH;
+  const ctx = off.getContext('2d');
+
+  const fillCrt = isNoneBg() && !S.bg;
+  if (fillCrt) {
+    ctx.fillStyle = '#0c0c12';
+    ctx.fillRect(0, 0, baseW, baseH);
+    ctx.fillStyle = 'rgba(0,0,0,0.157)';
+    for (let y = 0; y < baseH; y += 4) ctx.fillRect(0, y, baseW, 2);
+  }
+
+  if (!isProceduralShow() && !isProceduralDecorShow()) {
+    canvas.width = S.res.w;
+    canvas.height = S.res.h;
+    const pctx = canvas.getContext('2d');
+    pctx.imageSmoothingEnabled = true;
+    pctx.clearRect(0, 0, canvas.width, canvas.height);
+    pctx.drawImage(off, 0, 0, S.res.w, S.res.h);
+    return;
+  }
+
+  const pName = String(S.platformName || 'MAME').toUpperCase();
+  const subText = (pName.includes('MAME') || pName.includes('ARCADE'))
+    ? 'MULTIPLE ARCADE MACHINE EMULATOR'
+    : (portrait ? (pName + ' ARCADE & CONSOLE EMULATION') : (pName + ' EMULATION SYSTEM'));
+
+  if (!portrait) {
+    if (isProceduralShow()) {
+      drawNeonBox(ctx, 42, 32, 1053, 148, 16, 4);
+      drawNeonBox(ctx, 42, 190, 1053, 900, 18, 4);
+      drawNeonBox(ctx, 42, 928, 1053, 1042, 16, 4);
+      drawNeonBox(ctx, 1348, 343, 1877, 470, 16, 4);
+      drawNeonBox(ctx, 1348, 469, 1877, 926, 16, 4);
+      drawNeonBox(ctx, 1348, 929, 1877, 1047, 16, 4);
+    }
+    if (isProceduralDecorShow()) {
+      if (S.skin.navKeysShow !== false && !S.sprites.some(s => s.show !== false && NAV_SPRITE_IDS.has(s.id))) {
+        const x1 = S.skin.navKeysX1 ?? 1075, y1 = S.skin.navKeysY1 ?? 670;
+        const x2 = S.skin.navKeysX2 ?? 1330, y2 = S.skin.navKeysY2 ?? 1030;
+        const nw = x2 - x1, nh = y2 - y1;
+        drawNavCard(ctx, x1, y1, nw, nh, x1 + Math.round(nw * 0.44), x1 + Math.round(nw * 0.46), Math.max(22, Math.floor((nh - 56) / 9)));
+      }
+      drawMarquee(ctx, pName, subText, 1470, 110, 58, [
+        [-4, -4, '#000000'], [4, 4, '#0a2864'], [2, 2, '#1450b4'], [0, 0, '#00E6FF'],
+      ]);
+      drawPixelMatrix(ctx, INVADER_SPRITE, 1180, 310, 5, '#39FF14');
+      drawPixelMatrix(ctx, GHOST_SPRITE, 1100, 40, 5, '#ff3c3c');
+      drawPixelMatrix(ctx, GHOST_SPRITE, 1160, 40, 5, '#00E6FF');
+      drawPixelMatrix(ctx, GHOST_SPRITE, 1220, 40, 5, '#ffb852');
+      drawPixelMatrix(ctx, GHOST_SPRITE, 1280, 40, 5, '#ffb8ff');
+    }
+  } else {
+    if (isProceduralShow()) {
+      drawNeonBox(ctx, 44, 330, 751, 415, 14, 4);
+      drawNeonBox(ctx, 48, 448, 740, 1708, 16, 4);
+      drawNeonBox(ctx, 44, 1754, 746, 1850, 14, 4);
+      drawNeonBox(ctx, 780, 762, 1050, 828, 12, 4);
+      drawNeonBox(ctx, 780, 828, 1050, 1378, 14, 4);
+      drawNeonBox(ctx, 780, 1379, 1050, 1460, 12, 4);
+    }
+    if (isProceduralDecorShow()) {
+      if (S.skin.navKeysShow !== false && !S.sprites.some(s => s.show !== false && NAV_SPRITE_IDS.has(s.id))) {
+        const x1 = S.skin.navKeysX1 ?? 775, y1 = S.skin.navKeysY1 ?? 1475;
+        const x2 = S.skin.navKeysX2 ?? 1050, y2 = S.skin.navKeysY2 ?? 1860;
+        const nw = x2 - x1, nh = y2 - y1;
+        drawNavCard(ctx, x1, y1, nw, nh, x1 + Math.round(nw * 0.44), x1 + Math.round(nw * 0.46), Math.max(22, Math.floor((nh - 56) / 9)));
+      }
+      drawMarquee(ctx, pName, subText, 540, 160, 52, [
+        [-3, -3, '#000000'], [3, 3, '#0a2864'], [0, 0, '#00E6FF'],
+      ]);
+      drawPixelMatrix(ctx, INVADER_SPRITE, 790, 340, 4, '#39FF14');
+      drawPixelMatrix(ctx, GHOST_SPRITE, 180, 50, 4, '#ff3c3c');
+      drawPixelMatrix(ctx, GHOST_SPRITE, 240, 50, 4, '#00E6FF');
+      drawPixelMatrix(ctx, GHOST_SPRITE, 300, 50, 4, '#ffb852');
+    }
+  }
+
+  canvas.width = S.res.w;
+  canvas.height = S.res.h;
+  const pctx = canvas.getContext('2d');
+  pctx.imageSmoothingEnabled = true;
+  pctx.clearRect(0, 0, canvas.width, canvas.height);
+  pctx.drawImage(off, 0, 0, S.res.w, S.res.h);
+}
+
+function updateBgStatus() {
+  const st = $('bg-status');
+  const noneMode = isNoneBg() && !S.bg;
+  const offMode = isOffBg() && !S.bg;
+  const proc = isProceduralShow();
+  const decor = isProceduralDecorShow();
+  const btn = $('btn-bg-none');
+  const clearBtn = $('btn-clear-bg');
+  const chk = $('chk-procedural');
+  const chkDecor = $('chk-procedural-decor');
+  if (btn) btn.classList.toggle('active', noneMode);
+  if (clearBtn) clearBtn.classList.toggle('active', offMode);
+  if (chk && chk.checked !== proc) chk.checked = proc;
+  if (chkDecor && chkDecor.checked !== decor) chkDecor.checked = decor;
+  if (!st) return;
+  const spriteNote = S.sprites.length ? ` + ${S.sprites.length} sprite${S.sprites.length === 1 ? '' : 's'}` : '';
+  const procNote = proc ? ' + procedural frames' : '';
+  if (S.bg) st.textContent = (S.skin.backgroundImage || 'Custom image') + procNote + spriteNote;
+  else if (noneMode) st.textContent = '[none] CRT fill' + procNote + spriteNote;
+  else if (offMode) st.textContent = 'No image' + procNote + spriteNote;
+  else if (S.skin.backgroundImage) st.textContent = S.skin.backgroundImage + ' (load image to preview)' + procNote + spriteNote;
+  else st.textContent = 'No background' + procNote + spriteNote;
+}
+
+function updateBgDisplay() {
+  const canvas = $('cproc');
+  const noneMode = isNoneBg() && !S.bg;
+  const offMode = isOffBg() && !S.bg;
+  const showProc = noneMode || isProceduralShow() || isProceduralDecorShow();
+  if (S.bg) {
+    cbg.classList.remove('hidden');
+    noBg.classList.add('hidden');
+  } else if (noneMode) {
+    cbg.classList.add('hidden');
+    noBg.classList.add('hidden');
+  } else if (offMode) {
+    cbg.classList.add('hidden');
+    noBg.classList.add('hidden');
+  } else if (isProceduralShow()) {
+    cbg.classList.add('hidden');
+    noBg.classList.add('hidden');
+  } else {
+    cbg.classList.add('hidden');
+    noBg.classList.remove('hidden');
+  }
+  if (canvas) {
+    if (showProc) {
+      canvas.classList.remove('hidden');
+      drawProceduralRetrocade();
+    } else {
+      canvas.classList.add('hidden');
+    }
+  }
+  updateBgStatus();
+}
+
+function setNoneBackground() {
+  S.bg = null;
+  cbg.removeAttribute('src');
+  cbg.src = '';
+  cbg.classList.add('hidden');
+  S.skin.backgroundImage = 'none';
+  if (noBgNm) {
+    noBgNm.textContent = '';
+    noBgNm.classList.remove('show');
+  }
+  updateBgDisplay();
+  commitHistory();
+}
+
+function setOffBackground() {
+  S.bg = null;
+  cbg.removeAttribute('src');
+  cbg.src = '';
+  cbg.classList.add('hidden');
+  S.skin.backgroundImage = 'off';
+  if (noBgNm) {
+    noBgNm.textContent = '';
+    noBgNm.classList.remove('show');
+  }
+  updateBgDisplay();
+  commitHistory();
+}
+
+function buildSpriteList() {
+  const list = $('sprite-list');
+  if (!list) return;
+  list.innerHTML = '';
+  // Front-most (last in S.sprites) at the top of the list
+  [...S.sprites].reverse().forEach(spr => {
+    const row = el('div', 'zone-row', { 'data-zid': SPRITE_PREFIX + spr.id });
+    row.draggable = true;
+    row.dataset.spriteId = spr.id;
+
+    const grip = el('span', 'zdrag');
+    grip.textContent = '⋮⋮';
+    grip.title = 'Drag to change layer order';
+
+    const dot = el('div', 'zdot');
+    dot.style.background = spriteColor(spr.id);
+    const lbl = el('span', 'zlbl');
+    lbl.textContent = spr.id;
+    lbl.title = spr.file || '';
+    row.appendChild(grip);
+    row.appendChild(dot);
+    row.appendChild(lbl);
+    const btn = el('button', 'zvis');
+    btn.title = 'Toggle visibility';
+    btn.textContent = spr.show ? '👁' : '🚫';
+    btn.classList.toggle('off', !spr.show);
+    btn.onclick = e => {
+      e.stopPropagation();
+      spr.show = !spr.show;
+      buildSpriteList();
+      renderCanvas();
+      if (S.sel === SPRITE_PREFIX + spr.id) renderRightPanel();
+      commitHistory();
+    };
+    btn.onmousedown = e => e.stopPropagation();
+    row.appendChild(btn);
+    row.onclick = () => {
+      if (spriteDidDrag) { spriteDidDrag = false; return; }
+      select(SPRITE_PREFIX + spr.id);
+    };
+    bindSpriteRowDrag(row, spr.id);
+    list.appendChild(row);
+  });
+  if (!S.sprites.length) {
+    const empty = el('div');
+    empty.style.cssText = 'font-size:11px;color:var(--txt2);padding:4px 2px';
+    empty.textContent = 'No sprites yet';
+    list.appendChild(empty);
+  }
+  list.ondragover = e => { e.preventDefault(); };
+  list.ondrop = e => {
+    e.preventDefault();
+    const fromId = e.dataTransfer.getData('text/plain');
+    const overRow = e.target.closest && e.target.closest('#sprite-list .zone-row');
+    if (!fromId || overRow) return;
+    // Dropped on empty list space: send to back
+    const from = S.sprites.findIndex(s => s.id === fromId);
+    if (from <= 0) return;
+    const [item] = S.sprites.splice(from, 1);
+    S.sprites.unshift(item);
+    buildSpriteList();
+    renderCanvas();
+    commitHistory();
+  };
+  syncZoneListSel();
+}
+
+let spriteDragId = null;
+let spriteDidDrag = false;
+
+function clearSpriteDropHints() {
+  document.querySelectorAll('#sprite-list .zone-row').forEach(r => {
+    r.classList.remove('drop-before', 'drop-after', 'dragging');
+  });
+}
+
+function bindSpriteRowDrag(row, spriteId) {
+  row.addEventListener('dragstart', e => {
+    spriteDragId = spriteId;
+    spriteDidDrag = true;
+    e.dataTransfer.setData('text/plain', spriteId);
+    e.dataTransfer.effectAllowed = 'move';
+    row.classList.add('dragging');
+  });
+  row.addEventListener('dragend', () => {
+    spriteDragId = null;
+    clearSpriteDropHints();
+  });
+  row.addEventListener('dragover', e => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    if (spriteDragId === spriteId) return;
+    const rect = row.getBoundingClientRect();
+    const before = (e.clientY - rect.top) < rect.height / 2;
+    document.querySelectorAll('#sprite-list .zone-row').forEach(r => {
+      r.classList.toggle('drop-before', r === row && before);
+      r.classList.toggle('drop-after', r === row && !before);
+    });
+  });
+  row.addEventListener('drop', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    const fromId = e.dataTransfer.getData('text/plain') || spriteDragId;
+    const rect = row.getBoundingClientRect();
+    const before = (e.clientY - rect.top) < rect.height / 2;
+    clearSpriteDropHints();
+    reorderSprite(fromId, spriteId, before);
+  });
+}
+
+function reorderSprite(fromId, toId, visualBefore) {
+  if (!fromId || fromId === toId) return;
+  const arr = S.sprites;
+  const from = arr.findIndex(s => s.id === fromId);
+  if (from < 0) return;
+  const [item] = arr.splice(from, 1);
+  let to = toId ? arr.findIndex(s => s.id === toId) : -1;
+  if (to < 0) {
+    arr.push(item);
+  } else {
+    // List is reversed (top = front = end of array).
+    // visualBefore (drop on top half) → in front of target → higher array index.
+    arr.splice(visualBefore ? to + 1 : to, 0, item);
+  }
+  buildSpriteList();
+  renderCanvas();
+  commitHistory();
+}
+
+function appendSpriteOverlay(spr) {
+  const sel = S.sel === SPRITE_PREFIX + spr.id;
+  const w = spr.w || 64, h = spr.h || 64;
+  const color = spriteColor(spr.id);
+  const hideNavSpr = S.skin.navKeysShow === false && NAV_SPRITE_IDS.has(spr.id);
+  const hidden = !spr.show || hideNavSpr;
+  if (hidden && !sel) return;
+  const div = el('div', 'zo sprite' + (sel ? ' sel' : '') + (hidden ? ' hidden-spr' : ''));
+  div.dataset.zid = SPRITE_PREFIX + spr.id;
+  div.style.left = s2d(spr.x) + 'px';
+  div.style.top = s2d(spr.y) + 'px';
+  div.style.width = s2d(w) + 'px';
+  div.style.height = s2d(h) + 'px';
+  div.style.borderColor = color;
+  div.style.background = hexAlpha(color, sel ? 0.22 : 0.08);
+  div.style.color = color;
+  const layer = S.sprites.findIndex(s => s.id === spr.id);
+  div.style.zIndex = sel ? 100 : String(2 + Math.max(0, layer));
+
+  const src = hidden ? null : spriteImgSrc(spr);
+  if (src) {
+    const im = el('img', 'zo-spr');
+    im.src = src;
+    im.alt = spr.id;
+    div.appendChild(im);
+  }
+
+  const lbl = el('div', 'zo-lbl');
+  lbl.textContent = spr.id;
+  lbl.style.color = color;
+  div.appendChild(lbl);
+
+  if (sel) {
+    ['nw','n','ne','w','e','sw','s','se'].forEach(handle => {
+      const rh = el('div', 'rh ' + handle);
+      rh.dataset.h = handle;
+      rh.onmousedown = e => { e.stopPropagation(); startResize(e, SPRITE_PREFIX + spr.id, handle); };
+      div.appendChild(rh);
+    });
+  }
+  div.onmousedown = e => {
+    if (e.target.classList.contains('rh')) return;
+    e.stopPropagation();
+    select(SPRITE_PREFIX + spr.id);
+    startMove(e, SPRITE_PREFIX + spr.id);
+  };
+  zl.appendChild(div);
+}
+
+function deleteSelectedSprite() {
+  if (!isSpriteSel(S.sel)) return;
+  const id = spriteKey(S.sel);
+  S.sprites = S.sprites.filter(s => s.id !== id);
+  delete S.spriteImgs[id];
+  S.sel = null;
+  fullRebuild();
+  commitHistory();
+}
+
+function onSpriteFile(e) {
+  const f = e.target.files[0]; if (!f) return;
+  const id = sanitizeSpriteId(f.name);
+  const rd = new FileReader();
+  rd.onload = ev => {
+    const preview = ev.target.result;
+    const img = new Image();
+    img.onload = () => {
+      S.sprites.push({
+        id, file: f.name, x: 80, y: 80,
+        w: img.naturalWidth, h: img.naturalHeight,
+        show: true, preview,
+      });
+      S.spriteImgs[id] = img;
+      S.sel = SPRITE_PREFIX + id;
+      fullRebuild();
+      commitHistory();
+    };
+    img.src = preview;
+  };
+  rd.readAsDataURL(f);
+  e.target.value = '';
 }
 
 /* ── DOM REFS ──────────────────────────────────────────── */
@@ -944,6 +1767,7 @@ const skinNm  = $('skin-name');
 /* ── INIT ──────────────────────────────────────────────── */
 function init() {
   buildZoneList();
+  buildSpriteList();
   buildShadowList();
   buildColorList();
   computeScale();
@@ -954,7 +1778,44 @@ function init() {
   // Header buttons
   $('btn-load-skin').onclick = () => $('fi-skin').click();
   $('btn-load-bg').onclick   = () => $('fi-bg').click();
-  $('btn-new').onclick       = () => { if (confirm('Reset to defaults?')) { S.skin = defaults(); S.sel = null; fullRebuild(); resetHistory(); } };
+  $('btn-bg-none').onclick   = setNoneBackground;
+  const btnClearBg = $('btn-clear-bg');
+  if (btnClearBg) btnClearBg.onclick = setOffBackground;
+  const chkProc = $('chk-procedural');
+  if (chkProc) {
+    chkProc.checked = isProceduralShow();
+    chkProc.onchange = () => {
+      S.skin.proceduralShow = !!chkProc.checked;
+      updateBgDisplay();
+      commitHistory();
+    };
+  }
+  const chkDecor = $('chk-procedural-decor');
+  if (chkDecor) {
+    chkDecor.checked = isProceduralDecorShow();
+    chkDecor.onchange = () => {
+      S.skin.proceduralDecorShow = !!chkDecor.checked;
+      updateBgDisplay();
+      commitHistory();
+    };
+  }
+  $('btn-add-sprite').onclick = () => $('fi-sprite').click();
+  $('btn-new').onclick       = () => {
+    if (confirm('Reset to defaults?')) {
+      S.skin = defaults();
+      S.sprites = [];
+      S.spriteImgs = {};
+      S.bg = null;
+      S.sel = null;
+      S.platformName = 'MAME';
+      S.spriteDir = 'platforms/MAME/sprites';
+      const pn = $('platform-name');
+      if (pn) pn.value = 'MAME';
+      cbg.removeAttribute('src');
+      fullRebuild();
+      resetHistory();
+    }
+  };
   $('btn-export').onclick    = exportSkin;
   $('btn-preset-h').onclick  = () => { resW.value=1920; resH.value=1080; onResChange(); };
   $('btn-preset-v').onclick  = () => { resW.value=1080; resH.value=1920; onResChange(); };
@@ -967,16 +1828,28 @@ function init() {
     $('snap-grid').value = S.snapGrid;
     if (S.snap) updateGridOverlay();
   };
+  const pn = $('platform-name');
+  if (pn) {
+    pn.onchange = () => {
+      S.platformName = pn.value.trim() || 'MAME';
+      const plat = guessPlatform(S.platformName);
+      S.spriteDir = 'platforms/' + plat + '/sprites';
+      updateBgDisplay();
+      commitHistory();
+    };
+  }
 
   $('fi-skin').onchange = onSkinLoad;
   $('fi-bg').onchange   = onBgLoad;
+  $('fi-sprite').onchange = onSpriteFile;
   resW.onchange = resH.onchange = onResChange;
 
   // Canvas mouse
   cw.addEventListener('mousemove', onCwMove);
   cw.addEventListener('mouseleave', () => { sbXY.textContent = 'x: —  y: —'; });
   cw.addEventListener('mousedown', e => {
-    if (e.target === cw || e.target === cbg || e.target === zl || e.target === noBg) {
+    const cproc = $('cproc');
+    if (e.target === cw || e.target === cbg || e.target === zl || e.target === noBg || e.target === cproc) {
       select(null);
     }
   });
@@ -1010,6 +1883,11 @@ function onKeyDown(e) {
   if (e.key === 'Escape') { select(null); return; }
   if (k === 'g') { toggleSnap(); return; }
   if (k === 'p') { togglePreview(); return; }
+  if ((e.key === 'Delete' || e.key === 'Backspace') && isSpriteSel(S.sel)) {
+    e.preventDefault();
+    deleteSelectedSprite();
+    return;
+  }
 
   if (S.sel && e.key.startsWith('Arrow')) {
     e.preventDefault();
@@ -1090,7 +1968,7 @@ function syncAllVisBtns() {
 }
 
 function syncZoneListSel() {
-  zoneListEl.querySelectorAll('.zone-row').forEach(r => {
+  document.querySelectorAll('.zone-row').forEach(r => {
     r.classList.toggle('sel', r.dataset.zid === S.sel);
   });
 }
@@ -1176,16 +2054,19 @@ function refreshColors() {
 function renderCanvas() {
   zl.innerHTML = '';
   updateGridOverlay();
+  updateBgDisplay();
+  S.sprites.forEach(appendSpriteOverlay);
   ZONES.forEach(z => {
     const vis = !z.showKey || S.skin[z.showKey];
     const sel = S.sel === z.id;
+    const hideNav = z.id === 'navKeys' && !vis;
 
     const x1 = S.skin[z.x1], y1 = S.skin[z.y1];
     const x2 = S.skin[z.x2], y2 = S.skin[z.y2];
     const dX = s2d(x1), dY = s2d(y1);
     const dW = s2d(x2 - x1), dH = s2d(y2 - y1);
 
-    const div = el('div', 'zo' + (sel?' sel':'') + (!vis?' dim':''));
+    const div = el('div', 'zo' + (sel?' sel':'') + (hideNav?' nav-cover':(!vis?' dim':'')));
     div.dataset.zid = z.id;
     div.style.left   = dX + 'px';
     div.style.top    = dY + 'px';
@@ -1204,7 +2085,7 @@ function renderCanvas() {
     lbl.style.color = z.color;
     div.appendChild(lbl);
 
-    if (S.preview) addPreviewContent(div, z);
+    if (S.preview && !hideNav) addPreviewContent(div, z);
 
     if (sel) {
       ['nw','n','ne','w','e','sw','s','se'].forEach(h => {
@@ -1235,21 +2116,19 @@ function hexAlpha(hex, a) {
 
 /* ── DRAG / RESIZE ─────────────────────────────────────── */
 function startMove(e, zid) {
-  const z = zoneById(zid);
   S.drag = {
     type:'move', zoneId:zid,
     sx:e.clientX, sy:e.clientY,
-    r0: { x1:S.skin[z.x1], y1:S.skin[z.y1], x2:S.skin[z.x2], y2:S.skin[z.y2] }
+    r0: getRect(zid)
   };
   e.preventDefault();
 }
 
 function startResize(e, zid, handle) {
-  const z = zoneById(zid);
   S.drag = {
     type:'resize', zoneId:zid, handle,
     sx:e.clientX, sy:e.clientY,
-    r0: { x1:S.skin[z.x1], y1:S.skin[z.y1], x2:S.skin[z.x2], y2:S.skin[z.y2] }
+    r0: getRect(zid)
   };
   e.preventDefault();
 }
@@ -1258,7 +2137,6 @@ function onDocMove(e) {
   if (!S.drag) return;
   const dx = d2s(e.clientX - S.drag.sx);
   const dy = d2s(e.clientY - S.drag.sy);
-  const z  = zoneById(S.drag.zoneId);
   const r  = S.drag.r0;
   const MIN = 10;
   const W = S.res.w, H = S.res.h;
@@ -1271,8 +2149,7 @@ function onDocMove(e) {
       nx1 = clamp(snapV(nx1), 0, W - w);
       ny1 = clamp(snapV(ny1), 0, H - h);
     }
-    S.skin[z.x1] = nx1;       S.skin[z.y1] = ny1;
-    S.skin[z.x2] = nx1 + w;   S.skin[z.y2] = ny1 + h;
+    setRect(S.drag.zoneId, { x1:nx1, y1:ny1, x2:nx1 + w, y2:ny1 + h });
   } else {
     let { x1, y1, x2, y2 } = r;
     const hh = S.drag.handle;
@@ -1280,8 +2157,7 @@ function onDocMove(e) {
     if (hh.includes('e')) { x2 = clamp(r.x2 + dx, r.x1 + MIN, W);   if (S.snap) x2 = clamp(snapV(x2), r.x1 + MIN, W); }
     if (hh.includes('n')) { y1 = clamp(r.y1 + dy, 0,   r.y2 - MIN); if (S.snap) y1 = clamp(snapV(y1), 0, r.y2 - MIN); }
     if (hh.includes('s')) { y2 = clamp(r.y2 + dy, r.y1 + MIN, H);   if (S.snap) y2 = clamp(snapV(y2), r.y1 + MIN, H); }
-    S.skin[z.x1] = x1; S.skin[z.y1] = y1;
-    S.skin[z.x2] = x2; S.skin[z.y2] = y2;
+    setRect(S.drag.zoneId, { x1, y1, x2, y2 });
   }
   renderCanvas();
   patchCoordInputs(S.drag.zoneId);
@@ -1310,7 +2186,17 @@ function renderRightPanel() {
   noselEl.style.display = 'none';
   zpanel.classList.add('show');
 
+  if (isSpriteSel(S.sel)) {
+    renderSpritePanel(getSprite(S.sel));
+    return;
+  }
+
   const z = zoneById(S.sel);
+  if (!z) {
+    noselEl.style.display = '';
+    zpanel.classList.remove('show');
+    return;
+  }
   zhdrDot.style.background = z.color;
   zhdrNm.textContent = z.label;
 
@@ -1402,8 +2288,144 @@ function renderRightPanel() {
   }
 }
 
+function renderSpritePanel(spr) {
+  if (!spr) {
+    noselEl.style.display = '';
+    zpanel.classList.remove('show');
+    return;
+  }
+  zhdrDot.style.background = spriteColor(spr.id);
+  zhdrNm.textContent = 'Sprite: ' + spr.id;
+  zpBody.innerHTML = '';
+
+  const r = getRect(SPRITE_PREFIX + spr.id);
+  const cg = pgroup('Position & Size');
+  const grid = el('div','cgrid');
+  [
+    { k:'x1', lbl:'X1', v:r.x1 }, { k:'y1', lbl:'Y1', v:r.y1 },
+    { k:'x2', lbl:'X2', v:r.x2 }, { k:'y2', lbl:'Y2', v:r.y2 },
+  ].forEach(({k, lbl, v}) => {
+    const cell = el('div','ccell');
+    const cl = el('div','ccell-lbl'); cl.textContent = lbl;
+    const inp = el('input','pinp');
+    inp.type = 'number'; inp.value = v; inp.dataset.ck = k;
+    inp.oninput = () => {
+      const cur = getRect(SPRITE_PREFIX + spr.id);
+      cur[k] = parseInt(inp.value) || 0;
+      setRect(SPRITE_PREFIX + spr.id, cur);
+      renderCanvas();
+      const dw = $('derived-sprite-W');
+      const dh = $('derived-sprite-H');
+      const nr = getRect(SPRITE_PREFIX + spr.id);
+      if (dw) dw.textContent = nr.x2 - nr.x1;
+      if (dh) dh.textContent = nr.y2 - nr.y1;
+    };
+    inp.onchange = commitHistory;
+    cell.appendChild(cl); cell.appendChild(inp);
+    grid.appendChild(cell);
+  });
+  cg.appendChild(grid);
+  const wh = el('div','cgrid'); wh.style.marginTop = '7px';
+  [['W', r.x2 - r.x1], ['H', r.y2 - r.y1]].forEach(([lbl, val]) => {
+    const cell = el('div','ccell');
+    const cl = el('div','ccell-lbl'); cl.textContent = lbl;
+    const dv = el('div','pderived'); dv.id = 'derived-sprite-' + lbl;
+    dv.textContent = val;
+    cell.appendChild(cl); cell.appendChild(dv);
+    wh.appendChild(cell);
+  });
+  cg.appendChild(wh);
+  zpBody.appendChild(cg);
+
+  const pg = pgroup('Sprite File');
+  const row = el('div','prow');
+  const pl = el('div','plbl'); pl.textContent = 'File';
+  const inp = el('input','pinpf');
+  inp.type = 'text';
+  inp.value = spr.file || '';
+  inp.placeholder = 'retrocade_frame_ghosts.png';
+  inp.oninput = () => { spr.file = inp.value; };
+  inp.onchange = () => { tryLoadSpritePreview(spr); commitHistory(); };
+  row.appendChild(pl); row.appendChild(inp);
+  pg.appendChild(row);
+  const loadRow = el('div','prow');
+  const loadBtn = el('button','btn');
+  loadBtn.textContent = 'Load image…';
+  loadBtn.onclick = () => pickReplaceSprite(spr);
+  loadRow.appendChild(loadBtn);
+  pg.appendChild(loadRow);
+  zpBody.appendChild(pg);
+
+  const tg = pgroup('Options');
+  const showRow = el('div','trow');
+  const span = el('span','tlbl'); span.textContent = 'Show Sprite';
+  const label = el('label','tswitch');
+  const chk = el('input');
+  chk.type = 'checkbox';
+  chk.checked = !!spr.show;
+  chk.onchange = () => {
+    spr.show = chk.checked;
+    buildSpriteList();
+    renderCanvas();
+    commitHistory();
+  };
+  label.appendChild(chk);
+  label.appendChild(el('span','tslider'));
+  showRow.appendChild(span);
+  showRow.appendChild(label);
+  tg.appendChild(showRow);
+  zpBody.appendChild(tg);
+
+  const delg = pgroup('Remove');
+  const delBtn = el('button','btn');
+  delBtn.style.borderColor = 'var(--danger)';
+  delBtn.style.color = 'var(--danger)';
+  delBtn.textContent = 'Delete sprite';
+  delBtn.onclick = deleteSelectedSprite;
+  delg.appendChild(delBtn);
+  zpBody.appendChild(delg);
+}
+
+function pickReplaceSprite(spr) {
+  const fi = document.createElement('input');
+  fi.type = 'file';
+  fi.accept = 'image/*';
+  fi.onchange = () => {
+    const f = fi.files[0]; if (!f) return;
+    spr.file = f.name;
+    const rd = new FileReader();
+    rd.onload = ev => {
+      spr.preview = ev.target.result;
+      const img = new Image();
+      img.onload = () => {
+        S.spriteImgs[spr.id] = img;
+        if (!spr.w) spr.w = img.naturalWidth;
+        if (!spr.h) spr.h = img.naturalHeight;
+        fullRebuild();
+        commitHistory();
+      };
+      img.src = spr.preview;
+    };
+    rd.readAsDataURL(f);
+  };
+  fi.click();
+}
+
 function patchCoordInputs(zid) {
+  if (isSpriteSel(zid)) {
+    const r = getRect(zid);
+    ['x1','y1','x2','y2'].forEach(k => {
+      const inp = zpBody.querySelector(`[data-ck="${k}"]`);
+      if (inp && document.activeElement !== inp) inp.value = r[k];
+    });
+    const dw = $('derived-sprite-W');
+    const dh = $('derived-sprite-H');
+    if (dw) dw.textContent = r.x2 - r.x1;
+    if (dh) dh.textContent = r.y2 - r.y1;
+    return;
+  }
   const z = zoneById(zid);
+  if (!z) return;
   [z.x1,z.y1,z.x2,z.y2].forEach(k => {
     const inp = zpBody.querySelector(`[data-ck="${k}"]`);
     if (inp && document.activeElement !== inp) inp.value = S.skin[k];
@@ -1438,7 +2460,7 @@ function onResChange() {
 /* ── STATUS ────────────────────────────────────────────── */
 function updateStatus() {
   sbRes.textContent = `${S.res.w}×${S.res.h}  ·  scale ${S.scale.toFixed(3)}`;
-  sbZone.textContent = S.sel ? ('▶ ' + zoneById(S.sel).label) : '';
+  sbZone.textContent = S.sel ? ('▶ ' + itemLabel(S.sel)) : '';
 }
 
 /* ── FILE I/O ──────────────────────────────────────────── */
@@ -1453,6 +2475,8 @@ function onSkinLoad(e) {
 
 function parseSkin(text) {
   const s = defaults();
+  let sawProceduralShow = false;
+  let sawProceduralDecorShow = false;
   for (const line of text.split('\n')) {
     const t = line.trim();
     if (!t || t.startsWith('#')) continue;
@@ -1461,6 +2485,8 @@ function parseSkin(text) {
     const key = t.slice(0, eq).trim();
     const val = t.slice(eq+1).trim();
     if (!key) continue;
+    if (key === 'proceduralShow') sawProceduralShow = true;
+    if (key === 'proceduralDecorShow') sawProceduralDecorShow = true;
 
     if (val === 'True')  { s[key] = true;  continue; }
     if (val === 'False') { s[key] = false; continue; }
@@ -1476,6 +2502,13 @@ function parseSkin(text) {
     }
 
     s[key] = val;
+  }
+
+  if (!sawProceduralShow) {
+    s.proceduralShow = isNoneToken(s.backgroundImage);
+  }
+  if (!sawProceduralDecorShow) {
+    s.proceduralDecorShow = !!s.proceduralShow;
   }
 
   // Auto-migrate legacy skin files (split romGenre / romRating)
@@ -1495,13 +2528,31 @@ function parseSkin(text) {
     s.romRatingShow = s.romGenreShow !== undefined ? s.romGenreShow : true;
   }
 
+  S.sprites = spritesFromSkin(s);
+  for (const k of Object.keys(s)) {
+    if (k.startsWith('sprite.')) delete s[k];
+  }
   S.skin = s;
+  S.bg = null;
+  cbg.removeAttribute('src');
+  S.spriteImgs = {};
+
+  const plat = guessPlatform(skinNm.value + ' ' + (s.backgroundImage || ''));
+  S.platformName = plat;
+  S.spriteDir = 'platforms/' + plat + '/sprites';
+  const pn = $('platform-name');
+  if (pn) pn.value = plat;
 
   // Set bg name notice
-  if (s.backgroundImage) {
+  if (s.backgroundImage && !isNoneBg() && !isOffBg()) {
     noBgNm.textContent = s.backgroundImage;
     noBgNm.classList.add('show');
+  } else {
+    noBgNm.textContent = '';
+    noBgNm.classList.remove('show');
   }
+
+  S.sprites.forEach(tryLoadSpritePreview);
 
   // Auto-detect resolution from filename or Y coordinates
   let isPortrait = false;
@@ -1534,8 +2585,8 @@ function onBgLoad(e) {
       }
     };
     cbg.src = S.bg;
-    cbg.classList.remove('hidden');
-    noBg.classList.add('hidden');
+    updateBgDisplay();
+    commitHistory();
   };
   rd.readAsDataURL(f);
   e.target.value = '';
@@ -1552,6 +2603,8 @@ function exportSkin() {
   lines.push('');
   lines.push('#skin image');
   lines.push(`backgroundImage = ${S.skin.backgroundImage || ''}`);
+  lines.push(`proceduralShow = ${isProceduralShow() ? 'True' : 'False'}`);
+  lines.push(`proceduralDecorShow = ${isProceduralDecorShow() ? 'True' : 'False'}`);
   lines.push('');
   lines.push('# skinnable colors in the script');
   COLOR_DEFS.forEach(({k}) => {
@@ -1580,6 +2633,19 @@ function exportSkin() {
     });
   });
 
+  if (S.sprites.length) {
+    lines.push('');
+    lines.push('# sprites (platforms/<PLATFORM>/sprites/)');
+    S.sprites.forEach(spr => {
+      lines.push(`sprite.${spr.id}.file = ${spr.file || ''}`);
+      lines.push(`sprite.${spr.id}.x = ${spr.x|0}`);
+      lines.push(`sprite.${spr.id}.y = ${spr.y|0}`);
+      if (spr.w) lines.push(`sprite.${spr.id}.w = ${spr.w|0}`);
+      if (spr.h) lines.push(`sprite.${spr.id}.h = ${spr.h|0}`);
+      lines.push(`sprite.${spr.id}.show = ${spr.show ? 'True' : 'False'}`);
+    });
+  }
+
   lines.push('');
 
   const blob = new Blob([lines.join('\n')], {type:'text/plain'});
@@ -1592,6 +2658,7 @@ function exportSkin() {
 /* ── FULL REBUILD ──────────────────────────────────────── */
 function fullRebuild() {
   buildZoneList();
+  buildSpriteList();
   buildShadowList();
   buildColorList();
   computeScale();

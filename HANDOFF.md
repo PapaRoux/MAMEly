@@ -3,7 +3,7 @@
 **Project**: MAMEly — Python/Pygame arcade cabinet frontend (MAME, SNES, NES, N64, Atari2600, C64, Sega Master System)  
 **Repo**: `/home/laptop/MAMEly` · GitHub `PapaRoux/MAMEly`  
 **Last updated**: 2026-09-19  
-**Git**: `main` clean and synced with `origin/main` (latest: `b7b888f` extracted retrocade sprites)
+**Git**: `main` with **uncommitted local work** (`proceduralShow` overlay on any background, sprite-only `-b` skins). Latest origin: `b7b888f` extracted retrocade sprites
 
 Use this document to resume work without prior chat context.
 
@@ -61,16 +61,13 @@ Fullscreen Pygame 2 frontend for arcade cabinets. Loads per-platform `MAMEly.db`
 
 ## Features In Place
 
-### 1. Procedural In-Engine Retrocade Skin & `"none"` Fallback
-- When a platform's skin is set to `"none"`, `""`, or if a background image file is missing, `UIManager.generate_procedural_retrocade()` (`ui.py`) dynamically renders a pixel-perfect Retrocade skin:
-  - **Exact Bounding Boxes**: Automatically positions Favorites/Genre bar, ROM List, Rating/Info bar, ROM Count, Snapshot/Video, and ROM Filename boxes for both **1920×1080 Landscape** and **1080×1920 Portrait**.
-  - **Neon Glow Framing**: Rounded crimson-red glow borders (`#F52044`), soft diffusion glow, and dark panel backing.
-  - **In-Game Navigation Keys Card**: Built-in 2-column reference card with `MAMEly` yellow header displaying all keybindings (`UP/DN`, `LEFT/RIGHT`, `ENTER/B1`, `TAB/B2`, `E/B3`, `F/B4`, `S/F4`, `D/F1`, `ESC/B9+B10`).
-  - **3D Marquee Title & Sprites**: Layered platform title header with arcade drop-shadows and retro 8-bit sprites (Space Invader, Pac-Man ghosts).
-  - **Scanlines**: Subtle CRT raster scanlines.
-- **In-App Skin Switcher (`S` / `F4`)**:
-  - Lists `"none"` at the top as `[none] Procedural Retrocade (Fallback)`.
-  - Supports live previewing and switching between `.skin` files and the procedural fallback.
+### 1. Procedural chrome overlay (`proceduralShow`) & `"none"` CRT fill
+- **`backgroundImage`**: PNG file, or `"none"` / missing file → dark CRT fill + scanlines (`generate_procedural_retrocade()`). Independent of frames.
+- **`proceduralShow`**: neon frames only (list/snap/info boxes).
+- **`proceduralDecorShow`**: platform title, pixel ghosts/invader, and the nav-keys card. Independent of frames. Editor toggle **Header & nav art**.
+- Missing `proceduralShow`: PNG skins stay off (painted art unchanged); `backgroundImage = none` stays on (classic full procedural). The `"none"` platform fallback sets it True in `DEFAULT_RETROCADE_*`.
+- **Nav card**: drawn when `navKeysShow` and `proceduralShow` (unless nav sprites `up` / `scroll_up` / `mamely` / `pasted_layer` are visible). Hidden: black cover rect, those sprites skipped.
+- **Sprite-only `-b` skins**: `backgroundImage = none` and `proceduralShow = False` so extracted sprites sit on CRT fill without doubled neon boxes.
 
 ### 2. Extracted Retrocade Sprites (`platforms/MAME/sprites/`)
 - All 20 layers from `background_retrocade_MAME_1920x1080.xcf` were extracted with full alpha transparency and tightly cropped:
@@ -90,13 +87,32 @@ Fullscreen Pygame 2 frontend for arcade cabinets. Loads per-platform `MAMEly.db`
   - `retrocade_frame_ghosts.png`
   - `retrocade_frame_mame.png`
 
-### 3. Search (`/`)
+### 3. Sprite overlays (skin-configured)
+`.skin` files can place PNGs from `platforms/<PLATFORM>/sprites/` (fallback: repo `sprites/`):
+
+```
+sprite.ghosts.file = retrocade_frame_ghosts.png
+sprite.ghosts.x = 1000
+sprite.ghosts.y = 40
+sprite.ghosts.w = 240
+sprite.ghosts.h = 80
+sprite.ghosts.show = True
+```
+
+- Parsed in `config.parse_sprite_defs` / `SkinConfig.sprites`
+- Rendered in `UIManager.begin_frame()` after the background (`load_sprites` / `draw_sprites`)
+- `w`/`h` optional (native size if omitted); `x2`/`y2` also accepted
+- Skin editor: **Sprites** panel, **+ Add**, drag/resize overlay boxes, **drag list to reorder layers** (top = front); export writes `sprite.<id>.*` keys
+- **MAME retrocade 1920×1080** (`config_retrocade_MAME_1920x1080.skin`) has 18 sprites positioned by template-matching the cropped XCF layers against `background_retrocade_MAME_1920x1080.png`. Omitted: 1×1 `background` layer, `turtle_shell` (not in the flattened PNG).
+- **Sprite-only variant** (`config_retrocade_*_1920x1080-b.skin`): same sprite layout with `backgroundImage = none` and `proceduralShow = False`. Missing platform sprites fall back to `platforms/MAME/sprites/`.
+
+### 4. Search (`/`)
 Realtime filter; Esc clears; Enter locks. `ACTION_SEARCH`, `ui.draw_search_bar`.
 
-### 4. Lucky Dip Randomizer (Slot Machine)
+### 5. Lucky Dip Randomizer (Slot Machine)
 Triggered by keyboard `1` / `5` or stick buttons `1, 5, 9`. Timed ~3.6s ease-out reel over filtered list, landing with winner flash and automatic launch.
 
-### 5. Attract Mode
+### 6. Attract Mode
 Fullscreen in-engine video playback via OpenCV + headless audio via `ffplay -nodisp -autoexit -loglevel quiet`. Wakes up on any button press.
 
 ---
@@ -105,7 +121,15 @@ Fullscreen in-engine video playback via OpenCV + headless audio via `ffplay -nod
 
 A standalone browser-based visual layout editor for `.skin` files.
 - Open via browser or local server: `python3 -m http.server 8765` → `http://localhost:8765/skin_editor.html`
-- Interactive 8-handle drag & resize for all 6 UI regions.
+- **Procedural frames** (`proceduralShow`): neon boxes only.
+- **Header & nav art** (`proceduralDecorShow`): platform title, pixel ghosts/invader, and the nav-keys card.
+- **`[none]`**: `backgroundImage = none` — CRT fill, sprites stay.
+- **No image**: `backgroundImage = off` — no PNG and no CRT (checkerboard in the editor, flat black in MAMEly). Sprites stay; transparent holes show the empty backdrop.
+- **Sprites** panel: add / drag / resize PNG overlays; drag the list to reorder layers (top = front); export writes `sprite.<id>.*` keys.
+- Workflow for a sprite-only skin: **Load .skin** → **No image** (empty) or **[none]** (CRT) → leave Procedural frames **off** → **Export**.
+- Workflow for PNG + procedural frames: **Load BG** → turn **Procedural frames** **on** → **Export** (`proceduralShow = True`).
+- **Nav Keys** zone: drag/resize the help-card rect; Show toggle writes `navKeysShow` and redraws/covers the card.
+- Interactive 8-handle drag & resize for UI regions (including Nav Keys).
 - Left/center/right text alignment controls (`romListDisplayAlign`, `genreSetAlign`, etc.).
 - Undo/Redo (`Ctrl+Z` / `Ctrl+Y`), Arrow-key nudge (`1px` / `Shift+Arrow 10px`), Snap-to-grid (`G`), Text Preview mode (`P`).
 
@@ -113,21 +137,8 @@ A standalone browser-based visual layout editor for `.skin` files.
 
 ## Next Steps to Implement
 
-### 1. Add Background Graphic `"none"` in Skin Editor (`skin_editor.html`)
-- **Goal**: Allow users in `skin_editor.html` to choose `"none"` as the background image.
-- **In-Editor Drawing for `"none"`**:
-  - When background is set to `"none"` (or procedural toggle active), draw the procedural in-game Retrocade skin directly on the HTML canvas context.
-  - Draw the neon red bounding boxes, dark panel backings, MAMEly navigation keys card, 3D marquee title banner, and CRT scanlines in JavaScript matching the Python `ui.py` dimensions.
-  - This allows skin designers to visually position text elements and boxes against the procedural background without needing an external image file.
-
-### 2. Add Sprite Loading & Rendering from `sprites/` Subfolder
-- **Goal**: Enable MAMEly frontend and skins to load and place custom sprites from `platforms/<PLATFORM>/sprites/` (or common `sprites/`).
-- **Engine Support (`ui.py` / `main.py` / `config.py`)**:
-  - Support sprite definitions in `.skin` files or skin config (e.g. `sprite.<id>.file = retrocade_frame_ghosts.png`, `sprite.<id>.x = 1000`, `sprite.<id>.y = 40`, `sprite.<id>.show = True`).
-  - Render active platform sprites during `ui.begin_frame()` / background composition.
-  - Support sprite caching and transparency scaling in `UIManager`.
-- **Editor Support (`skin_editor.html`)**:
-  - Allow adding / positioning sprite overlay boxes in the visual editor.
+### 1. Portrait zone defaults when switching `[none]` + 1080×1920
+- Editor zone boxes currently keep landscape coordinates when the canvas is switched to portrait; apply `DEFAULT_RETROCADE_1080x1920` (or a confirm dialog) so text regions line up with the procedural portrait boxes.
 
 ---
 
@@ -135,22 +146,19 @@ A standalone browser-based visual layout editor for `.skin` files.
 
 ```bash
 cd /home/laptop/MAMEly
-# 1. Run diagnostic checks
+python3 test_sprites.py
 python3 MAMEly.py --check
-
-# 2. Run frontend with procedural fallback skin
 python3 MAMEly.py --config=config.xml
-
-# 3. Test skin switcher (Press S or F4 in app, select 'none')
-# 4. Open Skin Editor in browser
-python3 -m http.server 8765 &
-xdg-open http://localhost:8765/skin_editor.html
+# In app: S / F4 → select 'none'
+# Skin editor:
+python3 -m http.server 8765
+# open http://localhost:8765/skin_editor.html
+# Load config_retrocade_MAME_1920x1080.skin, then Remove BG / [none]
+# or load config_retrocade_MAME_1920x1080-b.skin (already none + sprites)
 ```
 
 ---
 
 ## Resume Prompt (for next agent)
 
-> Read `HANDOFF.md`. All platforms (MAME, NES, SNES, C64, Atari 2600, Sega Master System) are configured and working. Procedural Retrocade fallback skin is implemented in `ui.py` and `config.py` for `"none"` mode. 20 cropped sprite layers are in `platforms/MAME/sprites/`. The next tasks are:
-> 1. In `skin_editor.html`, add a background graphic option for `"none"` that procedurally renders the in-game Retrocade layout (neon boxes, nav card, marquee title) onto the editor canvas.
-> 2. Implement the sprite loader system in `config.py`, `ui.py`, and `main.py` to support placing and rendering sprites from the `sprites/` subfolder via skin config.
+> Read `HANDOFF.md`. All platforms are configured and working. `proceduralShow` overlays neon frames on PNG or CRT fill (`[none]`). Sprite-only `-b` skins use `backgroundImage = none` and `proceduralShow = False`. Work is **uncommitted**. Optional next: portrait zone defaults when the editor switches to 1080×1920.

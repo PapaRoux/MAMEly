@@ -5,7 +5,7 @@ import shutil
 import subprocess
 import xml.etree.ElementTree as ET
 
-from config import Config, PlatformConfig, SkinConfig
+from config import Config, PlatformConfig, SkinConfig, is_none_token, is_off_token, is_procedural_show, is_procedural_decor_show, resolve_sprite_path
 
 
 class DiagnosticIssue:
@@ -223,10 +223,7 @@ def check_platform(base_path, platform_def):
         ))
         return issues
 
-    is_none_skin = (
-        not platform_def.skin_file
-        or platform_def.skin_file.lower() in ("none", "none.skin", "")
-    )
+    is_none_skin = is_none_token(platform_def.skin_file)
     if not is_none_skin and not os.path.isfile(skin_path):
         issues.append(DiagnosticIssue(
             "error", "paths",
@@ -313,7 +310,12 @@ def check_platform(base_path, platform_def):
             ))
 
     bg = skin.get("backgroundImage")
-    if bg:
+    if is_off_token(bg):
+        issues.append(DiagnosticIssue(
+            "info", "skin",
+            "Background is 'off' — no PNG and no CRT fill (flat black)",
+        ))
+    elif bg and not is_none_token(bg):
         bg_path = os.path.join(platform_path, bg)
         if not os.path.isfile(bg_path):
             issues.append(DiagnosticIssue(
@@ -322,6 +324,45 @@ def check_platform(base_path, platform_def):
                 "Add the image or update backgroundImage in the .skin file",
                 bg_path,
             ))
+    elif is_none_token(bg):
+        n_sprites = len(getattr(skin, "sprites", None) or [])
+        extra = f" with {n_sprites} sprite overlay(s)" if n_sprites else ""
+        issues.append(DiagnosticIssue(
+            "info", "skin",
+            f"Background is 'none' — CRT fill will be used{extra}",
+        ))
+
+    if is_procedural_show(skin):
+        issues.append(DiagnosticIssue(
+            "info", "skin",
+            "proceduralShow is on — neon frames overlay the background",
+        ))
+    if is_procedural_decor_show(skin):
+        issues.append(DiagnosticIssue(
+            "info", "skin",
+            "proceduralDecorShow is on — header, pixel art, and nav card will draw",
+        ))
+
+    sprites = getattr(skin, "sprites", None) or []
+    if sprites:
+        missing = 0
+        for spr in sprites:
+            fname = spr.get("file")
+            if not fname or not spr.get("show", True):
+                continue
+            spath = resolve_sprite_path(fname, platform_path)
+            if not spath:
+                missing += 1
+                issues.append(DiagnosticIssue(
+                    "warn", "skin",
+                    f"Sprite not found: {fname}",
+                    "Place the PNG in platforms/<PLATFORM>/sprites/ or update sprite.<id>.file",
+                ))
+        shown = sum(1 for s in sprites if s.get("show", True))
+        issues.append(DiagnosticIssue(
+            "info", "skin",
+            f"{shown} sprite(s) configured in skin" + (f" ({missing} missing)" if missing else ""),
+        ))
 
     for font_key in ("romListDisplayFont", "genreSetFont", "romFileNameDisplayBoxFont"):
         font_name = skin.get(font_key)

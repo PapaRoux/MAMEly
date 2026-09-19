@@ -5,7 +5,7 @@ import random
 import shlex
 import subprocess
 import pygame
-from config import Config, PlatformConfig, SkinConfig
+from config import Config, PlatformConfig, SkinConfig, is_none_token
 from roms import RomManager
 from ui import UIManager
 from input import InputManager
@@ -109,6 +109,7 @@ class MAMElyApp:
              self.ui.close_video()
              self.ui.skin = self.skin
              self.ui.load_background(platform_name=p_def.name)
+             self.ui.load_sprites()
 
         # Load ROMs
         self.ui.begin_frame()
@@ -137,7 +138,7 @@ class MAMElyApp:
         """Dynamically reload skin and background, and optionally persist to config.xml."""
         p_def = self._current_platform_def()
         platform_path = os.path.join(self.base_path, "platforms", p_def.folder)
-        is_none = not skin_filename or skin_filename.lower() in ("none", "none.skin", "")
+        is_none = is_none_token(skin_filename)
         if not is_none:
             full_path = os.path.join(platform_path, skin_filename)
             if not os.path.exists(full_path):
@@ -151,6 +152,7 @@ class MAMElyApp:
             self.ui.close_video()
             self.ui.skin = self.skin
             self.ui.load_background(platform_name=p_def.name)
+            self.ui.load_sprites()
         
         if save:
             self.config.save_main_config()
@@ -170,7 +172,7 @@ class MAMElyApp:
         self.skin_picker_initial_skin = p_def.skin_file
         if p_def.skin_file in skins:
             self.skin_picker_idx = skins.index(p_def.skin_file)
-        elif not p_def.skin_file or p_def.skin_file.lower() in ("none", "none.skin", ""):
+        elif is_none_token(p_def.skin_file):
             self.skin_picker_idx = 0
         else:
             self.skin_picker_idx = 0
@@ -209,6 +211,8 @@ class MAMElyApp:
                 extra = f" (+{problem_count - 1} more — run: python MAMEly.py --check)"
             diag_duration = self.skin.get("diagnosticMessageTime", 15)
             self.set_message(msg + extra + " (F1 for details)", duration=diag_duration)
+        else:
+            self.message = ""
 
     def update_view_lists(self, reset_selection=True):
         self.genre_list = self.rom_manager.get_genre_list()
