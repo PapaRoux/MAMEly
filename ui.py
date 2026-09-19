@@ -4,7 +4,7 @@ import math
 from version import __version__
 
 class UIManager:
-    def __init__(self, config, skin_config):
+    def __init__(self, config, skin_config, platform_name=None):
         self.config = config
         self.skin = skin_config
         self.screen_width = config.screen_width
@@ -25,26 +25,254 @@ class UIManager:
         
         # Load Background
         self.background = None
-        self.load_background()
+        self.load_background(platform_name)
 
         # Video Capture State
         self.video_cap = None
         self.current_video_path = None
         self.last_video_frame_surf = None
 
-    def load_background(self):
-        bg_path = self.skin.get("backgroundImage")
-        if bg_path:
+    def generate_procedural_retrocade(self, platform_name=None):
+        """Procedurally render a crisp in-engine Retrocade background matching exact skin boxes."""
+        is_portrait = (self.screen_width < self.screen_height)
+        base_w, base_h = (1080, 1920) if is_portrait else (1920, 1080)
+        surf = pygame.Surface((base_w, base_h))
+        surf.fill((12, 12, 18))
+
+        # Scanlines
+        scanline_surf = pygame.Surface((base_w, 2), pygame.SRCALPHA)
+        scanline_surf.fill((0, 0, 0, 40))
+        for y in range(0, base_h, 4):
+            surf.blit(scanline_surf, (0, y))
+
+        neon_red = (245, 32, 68)
+        neon_glow = (180, 20, 45)
+        neon_yellow = (255, 235, 0)
+        neon_cyan = (0, 230, 255)
+        neon_green = (57, 255, 20)
+
+        def draw_neon_box(x1, y1, x2, y2, radius=16, border_w=4):
+            rect = pygame.Rect(x1, y1, x2 - x1, y2 - y1)
+            # Dark panel backing
+            pygame.draw.rect(surf, (18, 18, 25), rect, border_radius=radius)
+            # Outer glow
+            glow_rect = rect.inflate(2, 2)
+            pygame.draw.rect(surf, neon_glow, glow_rect, width=1, border_radius=radius + 1)
+            # Inner sharp neon border
+            pygame.draw.rect(surf, neon_red, rect, width=border_w, border_radius=radius)
+
+        def get_proc_font(size):
+            return self.get_font("Continuum-Bold-Regular.ttf", size)
+
+        # Resolve platform name
+        p_name = platform_name
+        if not p_name:
+            if hasattr(self.skin, "platform_path") and self.skin.platform_path:
+                p_name = os.path.basename(self.skin.platform_path)
+            else:
+                p_name = "MAME"
+
+        if not is_portrait:
+            # Landscape (1920x1080)
+            # 1. Favorites / Genre Set Bar
+            draw_neon_box(42, 32, 1053, 148, radius=16)
+            # 2. ROM List Area
+            draw_neon_box(42, 190, 1053, 900, radius=18)
+            # 3. Genre & Rating Info Bar
+            draw_neon_box(42, 928, 1053, 1042, radius=16)
+
+            # Right side boxes
+            rx1, rx2 = 1348, 1877
+            # 4. ROM Count Box
+            draw_neon_box(rx1, 343, rx2, 470, radius=16)
+            # 5. Snap / Video Box
+            draw_neon_box(rx1, 469, rx2, 926, radius=16)
+            # 6. ROM Filename Box
+            draw_neon_box(rx1, 929, rx2, 1047, radius=16)
+
+            # 7. Navigation Keys & Buttons Card
+            nx1, ny1, nw, nh = 1075, 670, 255, 360
+            card_rect = pygame.Rect(nx1, ny1, nw, nh)
+            pygame.draw.rect(surf, (16, 16, 24), card_rect, border_radius=14)
+            glow_rect = card_rect.inflate(2, 2)
+            pygame.draw.rect(surf, neon_glow, glow_rect, width=1, border_radius=15)
+            pygame.draw.rect(surf, neon_red, card_rect, width=3, border_radius=14)
+
+            header_font = get_proc_font(26)
+            header_surf = header_font.render("MAMEly", True, neon_yellow)
+            surf.blit(header_surf, header_surf.get_rect(center=(nx1 + nw // 2, ny1 + 22)))
+            pygame.draw.line(surf, neon_yellow, (nx1 + 30, ny1 + 38), (nx1 + nw - 30, ny1 + 38), 2)
+
+            nav_font = self.get_font(None, 20)
+            nav_items = [
+                ("UP / DN:", "Scroll"),
+                ("LEFT / RIGHT:", "Page Up / Dn"),
+                ("ENTER / B1:", "Select / Play"),
+                ("TAB / B2:", "Genre / Favs"),
+                ("E / B3:", "Next Emu"),
+                ("F / B4:", "+/- Favorite"),
+                ("S / F4:", "Skin Switcher"),
+                ("D / F1:", "Diagnostics"),
+                ("ESC / B9+10:", "Exit"),
+            ]
+            row_y = ny1 + 48
+            for key_lbl, act_lbl in nav_items:
+                k_surf = nav_font.render(key_lbl, True, (255, 255, 255))
+                a_surf = nav_font.render(act_lbl, True, neon_cyan)
+                surf.blit(k_surf, k_surf.get_rect(midright=(nx1 + 112, row_y + 12)))
+                surf.blit(a_surf, a_surf.get_rect(midleft=(nx1 + 118, row_y + 12)))
+                row_y += 33
+
+            # Platform Header Marquee (Top Right)
+            plat_title = p_name.upper()
+            title_font = get_proc_font(58)
+            sub_font = self.get_font(None, 22)
+            tx, ty = 1470, 110
+            for ox, oy, s_col in [(-4, -4, (0, 0, 0)), (4, 4, (10, 40, 100)), (2, 2, (20, 80, 180)), (0, 0, neon_cyan)]:
+                t_surf = title_font.render(plat_title, True, s_col)
+                surf.blit(t_surf, t_surf.get_rect(center=(tx + ox, ty + oy)))
+
+            if "MAME" in plat_title or "ARCADE" in plat_title:
+                sub_text = "MULTIPLE ARCADE MACHINE EMULATOR"
+            else:
+                sub_text = f"{plat_title} EMULATION SYSTEM"
+            sub_surf = sub_font.render(sub_text, True, (220, 230, 245))
+            surf.blit(sub_surf, sub_surf.get_rect(center=(tx, ty + 46)))
+
+        else:
+            # Portrait (1080x1920)
+            # 1. Favorites / Genre Set Bar
+            draw_neon_box(44, 330, 751, 415, radius=14)
+            # 2. ROM List Area
+            draw_neon_box(48, 448, 740, 1708, radius=16)
+            # 3. Genre & Rating Info Bar
+            draw_neon_box(44, 1754, 746, 1850, radius=14)
+
+            # Right side boxes
+            rx1, rx2 = 780, 1050
+            # 4. ROM Count Box
+            draw_neon_box(rx1, 762, rx2, 828, radius=12)
+            # 5. Snap / Video Box
+            draw_neon_box(rx1, 828, rx2, 1378, radius=14)
+            # 6. ROM Filename Box
+            draw_neon_box(rx1, 1379, rx2, 1460, radius=12)
+
+            # 7. Navigation Keys & Buttons Card
+            nx1, ny1, nw, nh = 775, 1475, 275, 385
+            card_rect = pygame.Rect(nx1, ny1, nw, nh)
+            pygame.draw.rect(surf, (16, 16, 24), card_rect, border_radius=14)
+            glow_rect = card_rect.inflate(2, 2)
+            pygame.draw.rect(surf, neon_glow, glow_rect, width=1, border_radius=15)
+            pygame.draw.rect(surf, neon_red, card_rect, width=3, border_radius=14)
+
+            header_font = get_proc_font(26)
+            header_surf = header_font.render("MAMEly", True, neon_yellow)
+            surf.blit(header_surf, header_surf.get_rect(center=(nx1 + nw // 2, ny1 + 22)))
+            pygame.draw.line(surf, neon_yellow, (nx1 + 30, ny1 + 38), (nx1 + nw - 30, ny1 + 38), 2)
+
+            nav_font = self.get_font(None, 20)
+            nav_items = [
+                ("UP / DN:", "Scroll"),
+                ("LEFT / RIGHT:", "Page Up / Dn"),
+                ("ENTER / B1:", "Select / Play"),
+                ("TAB / B2:", "Genre / Favs"),
+                ("E / B3:", "Next Emu"),
+                ("F / B4:", "+/- Favorite"),
+                ("S / F4:", "Skin Switcher"),
+                ("D / F1:", "Diagnostics"),
+                ("ESC / B9+10:", "Exit"),
+            ]
+            row_y = ny1 + 48
+            for key_lbl, act_lbl in nav_items:
+                k_surf = nav_font.render(key_lbl, True, (255, 255, 255))
+                a_surf = nav_font.render(act_lbl, True, neon_cyan)
+                surf.blit(k_surf, k_surf.get_rect(midright=(nx1 + 120, row_y + 14)))
+                surf.blit(a_surf, a_surf.get_rect(midleft=(nx1 + 128, row_y + 14)))
+                row_y += 35
+
+            # Platform Banner (Top Center)
+            plat_title = p_name.upper()
+            title_font = get_proc_font(52)
+            sub_font = self.get_font(None, 22)
+            tx, ty = 540, 160
+            for ox, oy, s_col in [(-3, -3, (0, 0, 0)), (3, 3, (10, 40, 100)), (0, 0, neon_cyan)]:
+                t_surf = title_font.render(plat_title, True, s_col)
+                surf.blit(t_surf, t_surf.get_rect(center=(tx + ox, ty + oy)))
+            if "MAME" in plat_title or "ARCADE" in plat_title:
+                sub_text = "MULTIPLE ARCADE MACHINE EMULATOR"
+            else:
+                sub_text = f"{plat_title} ARCADE & CONSOLE EMULATION"
+            sub_surf = sub_font.render(sub_text, True, (220, 230, 245))
+            surf.blit(sub_surf, sub_surf.get_rect(center=(tx, ty + 46)))
+
+        # Pixel Art Sprites
+        def draw_pixel_matrix(matrix, px, py, scale, color):
+            for r_i, row in enumerate(matrix):
+                for c_i, char in enumerate(row):
+                    if char != " ":
+                        pygame.draw.rect(surf, color, (px + c_i * scale, py + r_i * scale, scale, scale))
+
+        invader_sprite = [
+            "  #     #  ",
+            "   #   #   ",
+            "  #######  ",
+            " ## ### ## ",
+            "###########",
+            "# ####### #",
+            "# #     # #",
+            "   ## ##   ",
+        ]
+        ghost_sprite = [
+            "  #####  ",
+            " ####### ",
+            "##  #  ##",
+            "##  #  ##",
+            "#########",
+            "#########",
+            "# # # # #",
+            "#   #   #",
+        ]
+
+        if not is_portrait:
+            draw_pixel_matrix(invader_sprite, 1180, 310, 5, neon_green)
+            draw_pixel_matrix(ghost_sprite, 1100, 40, 5, (255, 60, 60))
+            draw_pixel_matrix(ghost_sprite, 1160, 40, 5, neon_cyan)
+            draw_pixel_matrix(ghost_sprite, 1220, 40, 5, (255, 184, 82))
+            draw_pixel_matrix(ghost_sprite, 1280, 40, 5, (255, 184, 255))
+        else:
+            draw_pixel_matrix(invader_sprite, 790, 340, 4, neon_green)
+            draw_pixel_matrix(ghost_sprite, 180, 50, 4, (255, 60, 60))
+            draw_pixel_matrix(ghost_sprite, 240, 50, 4, neon_cyan)
+            draw_pixel_matrix(ghost_sprite, 300, 50, 4, (255, 184, 82))
+
+        if (self.screen_width, self.screen_height) != (base_w, base_h):
+            surf = pygame.transform.smoothscale(surf, (self.screen_width, self.screen_height))
+
+        return surf
+
+    def load_background(self, platform_name=None):
+        bg_path = self.skin.get("backgroundImage") if self.skin else None
+        is_none_skin = (
+            not self.skin
+            or not getattr(self.skin, "skin_file", None)
+            or str(self.skin.skin_file).lower() in ("none", "none.skin", "")
+        )
+        loaded = False
+        if bg_path and not is_none_skin:
             full_path = os.path.join(self.skin.platform_path, bg_path)
             if os.path.exists(full_path):
                 try:
                     self.background = pygame.image.load(full_path)
-                except:
-                    print(f"Failed to load background: {full_path}")
-        
-        if self.background is None:
-            self.background = pygame.Surface((self.screen_width, self.screen_height))
-            self.background.fill((0, 0, 0))
+                    if self.background.get_size() != (self.screen_width, self.screen_height):
+                        self.background = pygame.transform.smoothscale(
+                            self.background, (self.screen_width, self.screen_height)
+                        )
+                    loaded = True
+                except Exception as e:
+                    print(f"Failed to load background: {full_path}: {e}")
+
+        if not loaded:
+            self.background = self.generate_procedural_retrocade(platform_name)
 
     def get_font(self, font_name, size):
         try:
@@ -600,7 +828,13 @@ class UIManager:
                 item_rect = pygame.Rect(cx - (box_w - 60) // 2, item_y, box_w - 60, item_h - 6)
 
                 is_selected = (i == selected_idx)
-                is_active = (skin_name == active_skin_filename)
+                is_active = (skin_name == active_skin_filename) or (
+                    skin_name == "none"
+                    and (
+                        not active_skin_filename
+                        or str(active_skin_filename).lower() in ("none", "none.skin", "")
+                    )
+                )
 
                 if is_selected:
                     pygame.draw.rect(self.screen, (137, 180, 250), item_rect, border_radius=6)
@@ -614,9 +848,12 @@ class UIManager:
 
                 # Skin filename text
                 item_font = self.get_font(None, 24)
-                display_name = skin_name
-                if len(display_name) > 42:
-                    display_name = display_name[:41] + "…"
+                if skin_name == "none":
+                    display_name = "none (Procedural Retrocade)"
+                else:
+                    display_name = skin_name
+                    if len(display_name) > 42:
+                        display_name = display_name[:41] + "…"
                 t_surf = item_font.render(display_name, True, text_col)
                 self.screen.blit(t_surf, (item_rect.left + 20, item_rect.centery - t_surf.get_height() // 2))
 

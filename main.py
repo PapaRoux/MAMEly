@@ -97,18 +97,18 @@ class MAMElyApp:
         
         # Load Configs
         p_conf = PlatformConfig(platform_path, p_def.config_file)
-        self.skin = SkinConfig(platform_path, p_def.skin_file)
+        self.skin = SkinConfig(platform_path, p_def.skin_file, self.config.screen_width, self.config.screen_height)
         self.message_duration = self.skin.get("messageTime", 2)
         
         # Initialize UI (re-init for potentially different background/res)
         # Note: In real scenarios we might want to keep the window open, 
         # but here we follow original flow closest regarding skin loading.
         if self.ui is None:
-             self.ui = UIManager(self.config, self.skin)
+             self.ui = UIManager(self.config, self.skin, platform_name=p_def.name)
         else:
              self.ui.close_video()
              self.ui.skin = self.skin
-             self.ui.load_background()
+             self.ui.load_background(platform_name=p_def.name)
 
         # Load ROMs
         self.ui.begin_frame()
@@ -137,18 +137,20 @@ class MAMElyApp:
         """Dynamically reload skin and background, and optionally persist to config.xml."""
         p_def = self._current_platform_def()
         platform_path = os.path.join(self.base_path, "platforms", p_def.folder)
-        full_path = os.path.join(platform_path, skin_filename)
-        if not os.path.exists(full_path):
-            print(f"Skin file not found: {full_path}")
-            return False
+        is_none = not skin_filename or skin_filename.lower() in ("none", "none.skin", "")
+        if not is_none:
+            full_path = os.path.join(platform_path, skin_filename)
+            if not os.path.exists(full_path):
+                print(f"Skin file not found: {full_path}")
+                return False
 
         p_def.skin_file = skin_filename
-        self.skin = SkinConfig(platform_path, skin_filename)
+        self.skin = SkinConfig(platform_path, skin_filename, self.config.screen_width, self.config.screen_height)
         self.message_duration = self.skin.get("messageTime", 2)
         if self.ui:
             self.ui.close_video()
             self.ui.skin = self.skin
-            self.ui.load_background()
+            self.ui.load_background(platform_name=p_def.name)
         
         if save:
             self.config.save_main_config()
@@ -159,19 +161,17 @@ class MAMElyApp:
         p_def = self._current_platform_def()
         platform_dir = os.path.join(self.base_path, "platforms", p_def.folder)
         
-        if not os.path.exists(platform_dir):
-            skins = []
-        else:
-            skins = sorted([f for f in os.listdir(platform_dir) if f.endswith(".skin")])
-            
-        if not skins:
-            self.set_message("No .skin files found for this platform")
-            return
+        skins = ["none"]
+        if os.path.exists(platform_dir):
+            found_skins = sorted([f for f in os.listdir(platform_dir) if f.endswith(".skin") and f != "none"])
+            skins.extend(found_skins)
             
         self.skin_picker_items = skins
         self.skin_picker_initial_skin = p_def.skin_file
         if p_def.skin_file in skins:
             self.skin_picker_idx = skins.index(p_def.skin_file)
+        elif not p_def.skin_file or p_def.skin_file.lower() in ("none", "none.skin", ""):
+            self.skin_picker_idx = 0
         else:
             self.skin_picker_idx = 0
             

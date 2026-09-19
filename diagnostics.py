@@ -223,7 +223,11 @@ def check_platform(base_path, platform_def):
         ))
         return issues
 
-    if not os.path.isfile(skin_path):
+    is_none_skin = (
+        not platform_def.skin_file
+        or platform_def.skin_file.lower() in ("none", "none.skin", "")
+    )
+    if not is_none_skin and not os.path.isfile(skin_path):
         issues.append(DiagnosticIssue(
             "error", "paths",
             f"Skin file not found: {platform_def.skin_file}",
@@ -336,10 +340,11 @@ def check_platform(base_path, platform_def):
         f"Platform config: {platform_def.config_file}",
         path=config_path,
     ))
+    skin_display = platform_def.skin_file if not is_none_skin else "none (Procedural Retrocade fallback)"
     issues.append(DiagnosticIssue(
         "info", "config",
-        f"Skin / UI layout: {platform_def.skin_file}",
-        path=skin_path,
+        f"Skin / UI layout: {skin_display}",
+        path=skin_path if not is_none_skin else None,
     ))
 
     return issues

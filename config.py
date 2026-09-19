@@ -315,45 +315,237 @@ DEFAULT_SKIN_COLORS = {
 }
 
 
+DEFAULT_RETROCADE_1920x1080 = {
+    "backgroundImage": "",
+    "defaultFontForegroundColor": (255, 255, 255),
+    "defaultHighlightFontForegroundColor": (255, 255, 0),
+    "defaultRomNameDisplayLineShadowColor": (0, 0, 0),
+    "defaultRomNameDisplayLineHighlightShadowColor": (119, 119, 119),
+    "defaultRomNameDisplayBoxShadowColor": (0, 0, 0),
+    "defaultRomNameDisplayBoxColor": (255, 255, 255),
+    "defaultTitleBarColor": (255, 255, 255),
+    "defaultTitleBarShadowColor": (0, 0, 0),
+    "defaultRomCountColor": (255, 255, 255),
+    "defaultRomCountShadowColor": (0, 0, 0),
+    "defaultMessageColor": (255, 255, 0),
+    "defaultGameSetBarColor": (255, 255, 255),
+    "defaultGameSetBarShadowColor": (0, 0, 0),
+    "defaultRomGenreColor": (255, 255, 255),
+    "defaultRomGenreShadowColor": (0, 0, 0),
+    "defaultRomRatingColor": (255, 255, 255),
+    "defaultRomRatingShadowColor": (0, 0, 0),
+    "defaultRomFileNameColor": (255, 255, 255),
+    "defaultRomFileNameShadowColor": (0, 0, 0),
+    "romListDisplayShadow": False,
+    "romListDisplayHighlightShadow": False,
+    "romCountShadow": False,
+    "romGenreShadow": False,
+    "romRatingShadow": False,
+    "romFileNameShadow": False,
+    "genreSetShadow": False,
+    "messageShadow": False,
+    "romGenreShow": True,
+    "romRatingShow": True,
+    "romFileNameDisplayBoxShow": True,
+    "genreSetShow": True,
+    "romSnapShow": True,
+    "romCountShow": True,
+    "romListDisplayAreaX1": 50,
+    "romListDisplayAreaY1": 210,
+    "romListDisplayAreaX2": 1045,
+    "romListDisplayAreaY2": 880,
+    "romListDisplayFont": "Continuum-Bold-Regular.ttf",
+    "romListDisplayFontSize": 30,
+    "romListDisplaySpacing": 30,
+    "romListDisplayAlign": "center",
+    "romListDisplayTruncateLen": 60,
+    "romGenreX1": 50,
+    "romGenreY1": 940,
+    "romGenreX2": 1045,
+    "romGenreY2": 990,
+    "romGenreFont": "Continuum-Bold-Regular.ttf",
+    "romGenreFontSize": 30,
+    "romGenreAlign": "center",
+    "romGenreTruncateLen": 57,
+    "messageFont": "Continuum-Bold-Regular.ttf",
+    "messageFontSize": 40,
+    "messageAlign": "center",
+    "messageTime": 1,
+    "messageTruncateLen": 41,
+    "romRatingX1": 50,
+    "romRatingY1": 990,
+    "romRatingX2": 1045,
+    "romRatingY2": 1030,
+    "romRatingFont": "Continuum-Bold-Regular.ttf",
+    "romRatingFontSize": 30,
+    "romRatingAlign": "center",
+    "romRatingTruncateLen": 57,
+    "romFileNameDisplayBoxX1": 1360,
+    "romFileNameDisplayBoxY1": 935,
+    "romFileNameDisplayBoxX2": 1865,
+    "romFileNameDisplayBoxY2": 1035,
+    "romFileNameDisplayBoxFont": "Continuum-Bold-Regular.ttf",
+    "romFileNameDisplayBoxFontSize": 51,
+    "romFileNameDisplayBoxAlign": "center",
+    "romFileNameDisplayBoxTruncateLen": 19,
+    "genreSetX1": 50,
+    "genreSetY1": 40,
+    "genreSetX2": 1045,
+    "genreSetY2": 140,
+    "genreSetFont": "Continuum-Bold-Regular.ttf",
+    "genreSetFontSize": 30,
+    "genreSetAlign": "center",
+    "genreSetTruncateLen": 56,
+    "romSnapX1": 1360,
+    "romSnapY1": 475,
+    "romSnapX2": 1865,
+    "romSnapY2": 920,
+    "romCountX1": 1360,
+    "romCountY1": 355,
+    "romCountX2": 1865,
+    "romCountY2": 470,
+    "romCountFont": "Continuum-Bold-Regular.ttf",
+    "romCountFontSize": 45,
+    "romCountAlign": "center",
+    "romCountTruncateLen": 14,
+}
+
+DEFAULT_RETROCADE_1080x1920 = {
+    "backgroundImage": "",
+    "defaultFontForegroundColor": (255, 255, 255),
+    "defaultHighlightFontForegroundColor": (255, 255, 0),
+    "defaultRomNameDisplayLineShadowColor": (0, 0, 0),
+    "defaultRomNameDisplayLineHighlightShadowColor": (119, 119, 119),
+    "defaultRomNameDisplayBoxShadowColor": (0, 0, 0),
+    "defaultRomNameDisplayBoxColor": (255, 255, 255),
+    "defaultTitleBarColor": (255, 255, 255),
+    "defaultTitleBarShadowColor": (0, 0, 0),
+    "defaultRomCountColor": (255, 255, 255),
+    "defaultRomCountShadowColor": (0, 0, 0),
+    "defaultMessageColor": (255, 255, 0),
+    "defaultGameSetBarColor": (255, 255, 255),
+    "defaultGameSetBarShadowColor": (0, 0, 0),
+    "defaultRomGenreColor": (255, 255, 255),
+    "defaultRomGenreShadowColor": (0, 0, 0),
+    "defaultRomFileNameShadowColor": (0, 0, 0),
+    "defaultRomFileNameColor": (255, 255, 255),
+    "romCountShadow": False,
+    "romGenreShadow": False,
+    "romFileNameShadow": False,
+    "genreSetShadow": False,
+    "romListDisplayHighlightShadow": False,
+    "romListDisplayShadow": False,
+    "messageShadow": False,
+    "genreSetShow": True,
+    "romGenreShow": True,
+    "romCountShow": True,
+    "romFileNameDisplayBoxShow": True,
+    "romSnapShow": True,
+    "romListDisplayAreaX1": 54,
+    "romListDisplayAreaY1": 464,
+    "romListDisplayAreaX2": 734,
+    "romListDisplayAreaY2": 1692,
+    "romListDisplayFont": "Continuum-Bold-Regular.ttf",
+    "romListDisplayFontSize": 25,
+    "romListDisplaySpacing": 25,
+    "romListDisplayTruncateLen": 50,
+    "romGenreX1": 50,
+    "romGenreY1": 1770,
+    "romGenreX2": 740,
+    "romGenreY2": 1810,
+    "romGenreFont": "Continuum-Bold-Regular.ttf",
+    "romGenreFontSize": 19,
+    "romGenreTruncateLen": 60,
+    "messageFont": "Continuum-Bold-Regular.ttf",
+    "messageFontSize": 40,
+    "messageTime": 1,
+    "messageTruncateLen": 30,
+    "romFileNameDisplayBoxX1": 790,
+    "romFileNameDisplayBoxY1": 1385,
+    "romFileNameDisplayBoxX2": 1040,
+    "romFileNameDisplayBoxY2": 1450,
+    "romFileNameDisplayBoxFont": "Continuum-Bold-Regular.ttf",
+    "romFileNameDisplayBoxFontSize": 40,
+    "romFileNameDisplayBoxTruncateLen": 12,
+    "genreSetX1": 50,
+    "genreSetY1": 340,
+    "genreSetX2": 745,
+    "genreSetY2": 405,
+    "genreSetFont": "Continuum-Bold-Regular.ttf",
+    "genreSetFontSize": 41,
+    "genreSetTruncateLen": 30,
+    "romSnapX1": 791,
+    "romSnapY1": 834,
+    "romSnapX2": 1041,
+    "romSnapY2": 1372,
+    "romCountX1": 790,
+    "romCountY1": 770,
+    "romCountX2": 1040,
+    "romCountY2": 820,
+    "romCountFont": "Continuum-Bold-Regular.ttf",
+    "romCountFontSize": 27,
+    "romCountTruncateLen": 14,
+}
+
+
 class SkinConfig:
-    def __init__(self, platform_path, skin_file):
+    def __init__(self, platform_path, skin_file, screen_width=1920, screen_height=1080):
         self.platform_path = platform_path
-        self.skin_file = skin_file
+        self.skin_file = skin_file or "none"
+        self.screen_width = screen_width
+        self.screen_height = screen_height
         self.config = {}
         self.load_skin()
 
     def load_skin(self):
-        full_path = os.path.join(self.platform_path, self.skin_file)
-        print(f"Loading skin config from: {full_path}")
-        if not os.path.exists(full_path):
-            print(f"Skin file not found: {full_path}")
-            return
+        is_none_or_fallback = (
+            not self.skin_file
+            or self.skin_file.lower() in ("none", "none.skin", "")
+        )
 
-        try:
-            with open(full_path, "r") as f:
-                for line in f:
-                    line = line.strip()
-                    if "=" in line:
-                        var, val = line.split("=", 1)
-                        var = var.strip()
-                        val = val.strip()
-                        
-                        # Store everything in a dict for flexibility
-                        if "Color" in var:
-                            self.config[var] = hex_to_color(val)
-                        elif any(x in var for x in ["X1", "Y1", "X2", "Y2", "Size", "Len", "Offset", "Time", "Spacing"]):
-                             try:
-                                  self.config[var] = int(val)
-                             except ValueError:
-                                  self.config[var] = val
-                        elif val == "True":
-                            self.config[var] = True
-                        elif val == "False":
-                            self.config[var] = False
-                        else:
-                            self.config[var] = val
-        except Exception as e:
-            print(f"Error reading skin config: {e}")
+        if not is_none_or_fallback:
+            full_path = os.path.join(self.platform_path, self.skin_file)
+            print(f"Loading skin config from: {full_path}")
+            if os.path.exists(full_path):
+                try:
+                    with open(full_path, "r") as f:
+                        for line in f:
+                            line = line.strip()
+                            if "=" in line:
+                                var, val = line.split("=", 1)
+                                var = var.strip()
+                                val = val.strip()
+                                
+                                # Store everything in a dict for flexibility
+                                if "Color" in var:
+                                    self.config[var] = hex_to_color(val)
+                                elif any(x in var for x in ["X1", "Y1", "X2", "Y2", "Size", "Len", "Offset", "Time", "Spacing"]):
+                                     try:
+                                          self.config[var] = int(val)
+                                     except ValueError:
+                                          self.config[var] = val
+                                elif val == "True":
+                                    self.config[var] = True
+                                elif val == "False":
+                                    self.config[var] = False
+                                else:
+                                    self.config[var] = val
+                except Exception as e:
+                    print(f"Error reading skin config: {e}")
+            else:
+                print(f"Skin file not found: {full_path}, using procedural retrocade fallback")
+                is_none_or_fallback = True
+
+        if is_none_or_fallback or not self.config:
+            # Fallback to programmatic Retrocade defaults
+            defaults = (
+                DEFAULT_RETROCADE_1080x1920
+                if self.screen_width < self.screen_height
+                else DEFAULT_RETROCADE_1920x1080
+            )
+            for k, v in defaults.items():
+                if k not in self.config:
+                    self.config[k] = v
 
         # Calculate Derived Values (mimicking MAMEly.py logic)
         try:
