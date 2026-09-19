@@ -293,7 +293,7 @@ class MAMElyApp:
         if ext and not rom_file.endswith(ext):
             rom_file = rom_file + ext
 
-        full_rom_path = os.path.join(self.rom_manager.config.rom_directory, rom_file)
+        full_rom_path = os.path.join(self.rom_manager.config.emulator_base_path, self.rom_manager.config.rom_directory, rom_file)
         flags = self.rom_manager.get_rom_flags(rom.name)
         exe = self.rom_manager.config.emulator_executable
 
