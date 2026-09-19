@@ -24,3 +24,12 @@ history/
 *.swp
 *~
 .DS_Store
+
+# Root configs (machine-specific)
+config.xml
+config-vertical.xml
+config2.xml
+
+# Platform configs (machine-specific)
+platform_*.txt
+!platform_*.example.txt
