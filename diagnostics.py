@@ -200,7 +200,6 @@ def _count_unset_joypad_buttons(conf_path):
 def check_platform(base_path, platform_def):
     issues = []
     platform_path = os.path.join(base_path, "platforms", platform_def.folder)
-    config_path = os.path.join(platform_path, platform_def.config_file)
     skin_path = os.path.join(platform_path, platform_def.skin_file)
     db_path = os.path.join(platform_path, "MAMEly.db")
     xml_path = os.path.join(platform_path, "MAMEly.xml")
@@ -213,6 +212,19 @@ def check_platform(base_path, platform_def):
             platform_path,
         ))
         return issues
+
+    config_path = os.path.join(platform_path, platform_def.config_file)
+    if not os.path.isfile(config_path):
+        alt_candidates = []
+        if platform_def.config_file.endswith(".txt") and not platform_def.config_file.endswith(".example.txt"):
+            alt_candidates.append(platform_def.config_file[:-4] + ".example.txt")
+        elif platform_def.config_file.endswith(".example.txt"):
+            alt_candidates.append(platform_def.config_file.replace(".example.txt", ".txt"))
+        for alt in alt_candidates:
+            alt_path = os.path.join(platform_path, alt)
+            if os.path.isfile(alt_path):
+                config_path = alt_path
+                break
 
     if not os.path.isfile(config_path):
         issues.append(DiagnosticIssue(

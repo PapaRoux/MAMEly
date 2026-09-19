@@ -222,15 +222,31 @@ class Config:
                 if os.path.isdir(d_path):
                     config_file = None
                     skin_file = None
-                    for f in os.listdir(d_path):
-                        if f.endswith(".txt") and not f.startswith("_"):
-                            config_file = f
-                        elif f.endswith(".skin") and (skin_file is None or "synthwave" in f):
-                            skin_file = f
+                    # Search specifically for platform config files
+                    candidates = [
+                        f"platform_{d}.txt",
+                        f"platform_{d}.example.txt",
+                    ]
+                    for cand in candidates:
+                        if os.path.exists(os.path.join(d_path, cand)):
+                            config_file = cand
+                            break
+                    if not config_file:
+                        for f in os.listdir(d_path):
+                            if f.startswith("platform_") and f.endswith(".txt") and not f.startswith("_"):
+                                config_file = f
+                                break
+                            elif f.startswith("platform_") and f.endswith(".example.txt"):
+                                config_file = f
+                                break
                     if not config_file:
                         config_file = f"platform_{d}.txt"
+
+                    for f in os.listdir(d_path):
+                        if f.endswith(".skin") and (skin_file is None or "retrocade" in f or "synthwave" in f):
+                            skin_file = f
                     if not skin_file:
-                        skin_file = f"synthwave_1920x1080.skin"
+                        skin_file = "none"
                     
                     # Convert platform folder name to friendly name
                     friendly_name = d
@@ -244,6 +260,8 @@ class Config:
                         friendly_name = "Sega Master System"
                     elif d == "N64":
                         friendly_name = "Nintendo 64"
+                    elif d == "C64":
+                        friendly_name = "Commodore 64"
                     found_platforms.append((friendly_name, d, config_file, skin_file))
         
         with open(config_path, "w") as f:
@@ -302,6 +320,18 @@ class PlatformConfig:
 
     def load_config(self):
         full_path = os.path.join(self.platform_path, self.config_file)
+        if not os.path.exists(full_path):
+            alt_candidates = []
+            if self.config_file.endswith(".txt") and not self.config_file.endswith(".example.txt"):
+                alt_candidates.append(self.config_file[:-4] + ".example.txt")
+            elif self.config_file.endswith(".example.txt"):
+                alt_candidates.append(self.config_file.replace(".example.txt", ".txt"))
+            for alt in alt_candidates:
+                alt_path = os.path.join(self.platform_path, alt)
+                if os.path.exists(alt_path):
+                    full_path = alt_path
+                    break
+
         print(f"Loading platform config from: {full_path}")
         if not os.path.exists(full_path):
             print(f"Platform config not found: {full_path}")

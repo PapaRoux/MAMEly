@@ -3,7 +3,7 @@
 # Comments added to this file will be lost
 
 #skin image
-backgroundImage = background_retrocade_N64_1920x1080.png
+backgroundImage = off
 proceduralShow = True
 proceduralDecorShow = False
 
