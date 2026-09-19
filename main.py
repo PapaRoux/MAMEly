@@ -322,7 +322,9 @@ class MAMElyApp:
         print(f"Executing: {' '.join(shlex.quote(arg) for arg in cmd)}")
         self._release_joysticks()
         try:
-            subprocess.run(cmd, env=env)
+            with open("debug.log", "a") as f:
+                f.write(f"Executing: {cmd}\n")
+                subprocess.run(cmd, env=env, stdout=f, stderr=subprocess.STDOUT)
         finally:
             self._init_joysticks()
             pygame.event.clear()
