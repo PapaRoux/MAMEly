@@ -81,20 +81,21 @@ def _executable_issues(emulator_executable):
                 "flatpak is not installed but emulatorExecutable uses Flatpak",
                 "Install flatpak or change emulatorExecutable to a local binary",
             ))
-    elif exe.startswith("/"):
-        if not os.path.isfile(exe) and not os.path.islink(exe):
+    first_token = shlex_first_token(exe)
+    if first_token.startswith("/"):
+        if not os.path.isfile(first_token) and not os.path.islink(first_token):
             issues.append(DiagnosticIssue(
                 "error", "emulator",
-                f"Emulator path not found: {exe}",
+                f"Emulator path not found: {first_token}",
                 "Install the emulator or update emulatorExecutable",
-                exe,
+                first_token,
             ))
     else:
-        resolved = shutil.which(shlex_first_token(exe))
+        resolved = shutil.which(first_token)
         if not resolved:
             issues.append(DiagnosticIssue(
                 "error", "emulator",
-                f"Emulator command not found in PATH: {shlex_first_token(exe)}",
+                f"Emulator command not found in PATH: {first_token}",
                 "Install the emulator or use the full path in emulatorExecutable",
             ))
 
