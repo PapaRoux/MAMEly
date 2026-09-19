@@ -75,6 +75,35 @@ class RomManager:
         try:
             import xml.etree.ElementTree as ET
             print(f"Auto-migrating legacy XML {xml_path} to SQLite...")
+            
+            # Check for companion txt files to ensure 100% data preservation
+            fav_set = set()
+            fav_file = os.path.join(self.platform_path, "favorites.txt")
+            if os.path.exists(fav_file):
+                with open(fav_file, "r", encoding="utf-8", errors="ignore") as f:
+                    for line in f:
+                        line = line.strip()
+                        if line and not line.startswith("#"):
+                            fav_set.add(line)
+
+            ign_set = set()
+            ign_file = os.path.join(self.platform_path, "ignore.txt")
+            if os.path.exists(ign_file):
+                with open(ign_file, "r", encoding="utf-8", errors="ignore") as f:
+                    for line in f:
+                        line = line.strip()
+                        if line and not line.startswith("#"):
+                            ign_set.add(line)
+
+            flags_dict = {}
+            flags_file = os.path.join(self.platform_path, "_flags.txt")
+            if os.path.exists(flags_file):
+                with open(flags_file, "r", encoding="utf-8", errors="ignore") as f:
+                    for line in f:
+                        if "#" not in line and "=" in line:
+                            parts = line.split("=", 1)
+                            flags_dict[parts[0].strip()] = parts[1].strip()
+
             tree = ET.parse(xml_path)
             root = tree.getroot()
             rows = []
@@ -87,7 +116,14 @@ class RomManager:
                 rating = child.findtext("rating", "General")
                 fav = int(child.findtext("favorite", "0") or "0")
                 ign = int(child.findtext("ignore", "0") or "0")
-                rows.append((name, desc, genre, rating, fav, ign, 0, None, ""))
+
+                if name in fav_set:
+                    fav = 1
+                if name in ign_set:
+                    ign = 1
+                flags = flags_dict.get(name, "")
+
+                rows.append((name, desc, genre, rating, fav, ign, 0, None, flags))
             
             cur = conn.cursor()
             cur.executemany("""
