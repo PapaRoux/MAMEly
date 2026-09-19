@@ -181,8 +181,8 @@ class PlatformConfig:
                              import re
                              val = re.sub(r'^/home/[^/]+', current_home, val)
                              val = re.sub(r'(?<=\s)/home/[^/]+', current_home, val)
-                             if val.startswith("~"):
-                                 val = os.path.expanduser(val)
+                             val = re.sub(r'^~(?=/|\s|$)', current_home, val)
+                             val = re.sub(r'(?<=\s)~(?=/|\s|$)', current_home, val)
                         
                         if var == "emulatorExecutable":
                             self.emulator_executable = val
