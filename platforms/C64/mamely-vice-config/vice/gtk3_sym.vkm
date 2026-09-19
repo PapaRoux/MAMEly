@@ -213,7 +213,7 @@ quotedbl        7 3 1
 space           7 4 8
 Tab             7 5 8200      /* Tab = CBM */
 ISO_Left_Tab    7 5 8200      /* Shift + Tab = CBM */
-# Escape 7 7 8 (freed for MAMEly quit hotkey)
+Escape          7 7 8         /* Escape = RUN/STOP */
 
 #####################
 # letters and numbers

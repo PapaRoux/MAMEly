@@ -24,7 +24,7 @@
     monitor-open            <Alt>h
     machine-reset-cpu       <Alt>F9
     machine-power-cycle     <Alt>F12
-    quit                    Escape
+    quit                    <Alt>Escape
     quit                    <Alt>q
 !else
     smart-attach            <Command>a
