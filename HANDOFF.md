@@ -142,23 +142,51 @@ A standalone browser-based visual layout editor for `.skin` files.
 
 ---
 
-## Quick Test Plan
+## Mini Machine AGY Setup & Execution Guide
+
+To bring the **mini** cabinet/machine to parity with this laptop:
 
 ```bash
-cd /home/laptop/MAMEly
+# 1. Update repo
+cd ~/MAMEly
+git pull origin main
+
+# 2. Ensure Snes9x config is synced (fullscreen on launch + instant ESC exit)
+mkdir -p ~/.var/app/com.snes9x.Snes9x/config/snes9x/
+cp platforms/SNES/mamely-snes9x-config/snes9x/snes9x.conf ~/.var/app/com.snes9x.Snes9x/config/snes9x/snes9x.conf
+mkdir -p ~/.config/snes9x/
+cp platforms/SNES/mamely-snes9x-config/snes9x/snes9x.conf ~/.config/snes9x/snes9x.conf 2>/dev/null || true
+
+# 3. Create local config.xml from example if missing
+if [ ! -f config.xml ]; then
+  cp config.example.xml config.xml
+fi
+
+# 4. Verify all platforms and sprites
 python3 test_sprites.py
 python3 MAMEly.py --check
-python3 MAMEly.py --config=config.xml
-# In app: S / F4 → select 'none'
-# Skin editor:
-python3 -m http.server 8765
-# open http://localhost:8765/skin_editor.html
-# Load config_retrocade_MAME_1920x1080.skin, then Remove BG / [none]
-# or load config_retrocade_MAME_1920x1080-b.skin (already none + sprites)
+
+# 5. Launch frontend
+python3 MAMEly.py
 ```
 
 ---
 
-## Resume Prompt (for next agent)
+## Quick Test Plan
 
-> Read `HANDOFF.md`. All platforms are configured and working. `proceduralShow` overlays neon frames on PNG or CRT fill (`[none]`). Sprite-only `-b` skins use `backgroundImage = none` and `proceduralShow = False`. Work is **uncommitted**. Optional next: portrait zone defaults when the editor switches to 1080×1920.
+```bash
+cd ~/MAMEly
+python3 test_sprites.py
+python3 MAMEly.py --check
+python3 MAMEly.py --config=config.xml
+# In app: S / F4 → select 'none' or custom skin
+# Skin editor:
+python3 -m http.server 8765
+# open http://localhost:8765/skin_editor.html
+```
+
+---
+
+## Resume Prompt (for next agent / Mini AGY)
+
+> Read `HANDOFF.md`. On machine "mini", run the "Mini Machine AGY Setup & Execution Guide" steps: pull `main`, copy `platforms/SNES/mamely-snes9x-config/snes9x/snes9x.conf` to `~/.var/app/com.snes9x.Snes9x/config/snes9x/snes9x.conf`, verify with `python3 test_sprites.py` and `python3 MAMEly.py --check`, and launch `python3 MAMEly.py`.
