@@ -196,13 +196,13 @@ class PlatformConfig:
                             self.video_extension = val
                         elif var == "romDirectory":
                             self.rom_directory = val
-                        elif var == "MAMElyxmlPath":
+                        elif var in ("MAMElydbPath", "MAMElyxmlPath"):
                             self.mamely_xml_path = val
                         elif var == "favoritesDirectory":
                             self.favorites_directory = val
                         elif var == "showXMLprogressBar":
                             self.show_xml_progress_bar = (val == "True")
-                        elif var == "compareXMLtoRoms":
+                        elif var in ("compareDBtoRoms", "compareXMLtoRoms"):
                             self.compare_xml_to_roms = (val == "True")
                         elif var == "emulatorDefaultFlags":
                             self.emulator_default_flags = val

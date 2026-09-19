@@ -5,9 +5,11 @@ __pycache__/
 
 # Runtime generated XMLs & backups
 MAMEly.xml
+mame-listxml.xml
 *.xml.old
 *.xml.bkp
 *.xml.tmp
+*.tar
 
 # User favorites & ignore lists
 favorites.txt

@@ -112,7 +112,7 @@ class MAMElyApp:
 
         # Load ROMs
         self.ui.begin_frame()
-        self.ui.show_message("Reading MAMEly.xml", self.skin.get("defaultMessageColor"))
+        self.ui.show_message("Reading database...", self.skin.get("defaultMessageColor"))
         self.ui.end_frame()
         
         self.rom_manager = RomManager(platform_path, p_conf)
@@ -283,6 +283,7 @@ class MAMElyApp:
         if not self.rom_list: return
         
         rom = self.rom_list[self.selected_rom_idx]
+        self.rom_manager.record_play(rom.name)
         rom_file = rom.name
         ext = self.rom_manager.config.rom_extension
         if ext and not rom_file.endswith(ext):

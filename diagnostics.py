@@ -38,7 +38,7 @@ App entry / launcher
 Per-platform folder: platforms/<PLATFORM>/
   config_*_<resolution>.txt Emulator command, ROM paths, extensions
   config_*_<resolution>.skin UI layout, fonts, colors, background image
-  MAMEly.xml                Game database (titles, genres, favorites)
+  MAMEly.db                 Game database (titles, genres, favorites, stats)
   _flags.txt                Per-ROM emulator flags (optional)
   _skipGenre.txt / _skipRating.txt  Filter lists (optional)
 
@@ -201,6 +201,7 @@ def check_platform(base_path, platform_def):
     platform_path = os.path.join(base_path, "platforms", platform_def.folder)
     config_path = os.path.join(platform_path, platform_def.config_file)
     skin_path = os.path.join(platform_path, platform_def.skin_file)
+    db_path = os.path.join(platform_path, "MAMEly.db")
     xml_path = os.path.join(platform_path, "MAMEly.xml")
 
     if not os.path.isdir(platform_path):
@@ -274,27 +275,36 @@ def check_platform(base_path, platform_def):
             p_conf.rom_snap_directory,
         ))
 
-    if not os.path.isfile(xml_path):
-        issues.append(DiagnosticIssue(
-            "error", "roms",
-            "MAMEly.xml not found",
-            "Generate it with the platform's *_generateMAMElyXML.py script",
-            xml_path,
-        ))
+    if not os.path.isfile(db_path):
+        # Check if legacy XML is present
+        if os.path.isfile(xml_path):
+            issues.append(DiagnosticIssue(
+                "warn", "roms",
+                "MAMEly.db not found (legacy MAMEly.xml present)",
+                "Launch MAMEly or run generator script to compile SQLite database",
+                db_path,
+            ))
+        else:
+            issues.append(DiagnosticIssue(
+                "error", "roms",
+                "MAMEly.db not found",
+                "Generate it with the platform's generator script or wizard",
+                db_path,
+            ))
     else:
-        game_count = _count_xml_games(xml_path)
+        game_count = _count_db_games(db_path)
         if game_count == 0:
             issues.append(DiagnosticIssue(
                 "warn", "roms",
-                "MAMEly.xml contains no games",
-                "Regenerate MAMEly.xml from your ROM list",
-                xml_path,
+                "MAMEly.db contains no games",
+                "Regenerate MAMEly.db from your ROM list",
+                db_path,
             ))
         else:
             issues.append(DiagnosticIssue(
                 "info", "roms",
-                f"MAMEly.xml lists {game_count} game(s)",
-                path=xml_path,
+                f"MAMEly.db lists {game_count} game(s)",
+                path=db_path,
             ))
 
     bg = skin.get("backgroundImage")
@@ -346,11 +356,15 @@ def _count_rom_files(rom_directory, extension):
     return count
 
 
-def _count_xml_games(xml_path):
+def _count_db_games(db_path):
+    import sqlite3
     try:
-        tree = ET.parse(xml_path)
-        return sum(1 for child in tree.getroot() if child.tag == "game")
-    except ET.ParseError:
+        with sqlite3.connect(db_path) as conn:
+            cur = conn.cursor()
+            cur.execute("SELECT COUNT(*) FROM games")
+            row = cur.fetchone()
+            return row[0] if row else 0
+    except Exception:
         return 0
 
 
@@ -442,7 +456,7 @@ def build_osd_lines(base_path, platform_def, platform_config, rom_count, issues)
         "  config.xml              — platforms & resolution",
         "  platforms/<P>/config_*.txt — emulator & ROM paths",
         "  platforms/<P>/config_*.skin — UI layout",
-        "  platforms/<P>/MAMEly.xml    — game database",
+        "  platforms/<P>/MAMEly.db     — game database",
         "  Emulator prefs (e.g. Snap Snes9x):",
         "    ~/snap/snes9x-gtk/current/.config/snes9x/snes9x.conf",
         "",

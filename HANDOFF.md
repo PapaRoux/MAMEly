@@ -11,7 +11,7 @@ Use this document to resume work without prior chat context.
 
 ## Project Overview
 
-Fullscreen Pygame 2 frontend for arcade cabinets. Loads per-platform `MAMEly.xml`, shows a scrollable ROM list with snaps/video, launches emulators via configurable command lines.
+Fullscreen Pygame 2 frontend for arcade cabinets. Loads per-platform `MAMEly.db` (SQLite), shows a scrollable ROM list with snaps/video, launches emulators via configurable command lines.
 
 ### Key Files
 
@@ -22,11 +22,11 @@ Fullscreen Pygame 2 frontend for arcade cabinets. Loads per-platform `MAMEly.xml
 | `config.py` | Config load/save; expands `~` paths (portable across machines) |
 | `input.py` | `InputManager` — keyboard + joystick actions |
 | `ui.py` | Drawing, video snaps, search bar, **slot-machine overlay** |
-| `roms.py` | XML / favorites / ignore / skip lists |
-| `wizard.py` | Graphical setup wizard (F2 / `--wizard`) |
+| `roms.py` | SQLite database engine (`MAMEly.db`), playlists, favorites, ignores, play stats |
+| `wizard.py` | Graphical setup wizard (F2 / `--wizard`) with database generation |
 | `diagnostics.py` | `--check` + F1 OSD |
-| `platforms/*/` | Per-platform `.txt`, `.skin`, `MAMEly.xml` |
-| `skin_editor.html` | **NEW** — standalone browser-based visual skin editor |
+| `platforms/*/` | Per-platform `.txt`, `.skin`, `MAMEly.db`, generator scripts |
+| `skin_editor.html` | Standalone browser-based visual skin editor |
 
 ### Machines / paths
 

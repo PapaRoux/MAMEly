@@ -184,9 +184,9 @@ class SetupWizard:
                 p_path = os.path.join(self.base_path, "platforms", p_def.folder)
                 p_conf = selected_item.get("conf") or PlatformConfig(p_path, p_def.config_file)
                 
-                # Check ROMs & XML status
+                # Check ROMs & DB status
                 roms_ok = os.path.isdir(p_conf.rom_directory) if p_conf.rom_directory else False
-                xml_ok = os.path.isfile(os.path.join(p_path, "MAMEly.xml"))
+                db_ok = os.path.isfile(os.path.join(p_path, "MAMEly.db"))
                 
                 # Render Info
                 y_offset = self.height - 280
@@ -195,7 +195,7 @@ class SetupWizard:
                     f"Emulator Command: {p_conf.emulator_executable or '(not set)'}",
                     f"Emulator Base Path: {p_conf.emulator_base_path or '(not set)'}",
                     f"ROMs Folder:      {p_conf.rom_directory or '(not set)'} ({'OK' if roms_ok else 'NOT FOUND'})",
-                    f"Database XML:     MAMEly.xml ({'OK' if xml_ok else 'MISSING'})"
+                    f"Database SQLite:  MAMEly.db ({'OK' if db_ok else 'MISSING'})"
                 ]
                 
                 for label in labels:
@@ -250,7 +250,7 @@ class SetupWizard:
             base_ok = os.path.isdir(config_data["emulator_base_path"]) if config_data["emulator_base_path"] else False
             rom_ok = os.path.isdir(config_data["rom_directory"]) if config_data["rom_directory"] else False
             snap_ok = os.path.isdir(config_data["rom_snap_directory"]) if config_data["rom_snap_directory"] else False
-            xml_ok = os.path.isfile(os.path.join(p_path, "MAMEly.xml"))
+            db_ok = os.path.isfile(os.path.join(p_path, "MAMEly.db"))
             
             menu_items = [
                 {"label": "Emulator Executable / Command", "value": config_data["emulator_executable"] or "(not set)", "ok": exe_ok, "key": "emulator_executable"},
@@ -258,7 +258,7 @@ class SetupWizard:
                 {"label": "ROMs Directory", "value": config_data["rom_directory"] or "(not set)", "ok": rom_ok, "key": "rom_directory", "browse": True},
                 {"label": "ROM File Extension", "value": config_data["rom_extension"] or "(not set)", "ok": True, "key": "rom_extension"},
                 {"label": "Snapshots Directory", "value": config_data["rom_snap_directory"] or "(not set)", "ok": snap_ok, "key": "rom_snap_directory", "browse": True},
-                {"label": "Generate MAMEly.xml Database", "value": "MAMEly.xml exists" if xml_ok else "MISSING! Generate now", "ok": xml_ok, "action": "generate_xml"},
+                {"label": "Generate MAMEly.db Database", "value": "MAMEly.db exists" if db_ok else "MISSING! Generate now", "ok": db_ok, "action": "generate_db"},
                 {"label": "Save Changes & Return", "value": "", "ok": True, "action": "save"},
                 {"label": "Discard Changes & Return", "value": "", "ok": True, "action": "cancel"},
             ]
@@ -288,8 +288,8 @@ class SetupWizard:
                             new_val = self.text_input(item["label"], val)
                         if new_val is not None:
                             config_data[item["key"]] = new_val
-                elif item.get("action") == "generate_xml":
-                    self.generate_xml(p_path, config_data["rom_directory"], config_data["rom_extension"])
+                elif item.get("action") in ("generate_db", "generate_xml"):
+                    self.generate_db(p_path, config_data["rom_directory"], config_data["rom_extension"])
                 elif item.get("action") == "save":
                     # Write to config
                     p_conf.emulator_executable = config_data["emulator_executable"]
@@ -640,14 +640,13 @@ class SetupWizard:
             pygame.display.flip()
             self.clock.tick(60)
 
-    def generate_xml(self, platform_path, rom_dir, rom_ext):
-        """Scans ROMs folder and compiles new MAMEly.xml database."""
+    def generate_db(self, platform_path, rom_dir, rom_ext):
+        """Scans ROMs folder and compiles new MAMEly.db database."""
         if not rom_dir or not os.path.exists(rom_dir):
-            # Error modal
             self.show_error_modal("ROM Directory not valid or doesn't exist.")
             return
             
-        xml_path = os.path.join(platform_path, "MAMEly.xml")
+        db_path = os.path.join(platform_path, "MAMEly.db")
         
         # Load progress screen
         self.screen.fill(BG_COLOR)
@@ -670,40 +669,62 @@ class SetupWizard:
             self.show_error_modal(f"No files matching '{rom_ext}' extension found.")
             return
             
-        # Write XML
-        tmp_path = xml_path + ".tmp"
+        # Write SQLite Database
+        import sqlite3
         try:
-            with open(tmp_path, "w") as f:
-                f.write('<?xml version="1.0"?>\n')
-                f.write('<menu>\n')
-                f.write('  <header>\n')
-                f.write('    <listname>MAMEly</listname>\n')
-                f.write(f'    <lastlistupdate>{datetime.datetime.now()}</lastlistupdate>\n')
-                f.write('    <listgeneratorversion>MAMEly Setup Wizard v1.0</listgeneratorversion>\n')
-                f.write('  </header>\n')
+            conn = sqlite3.connect(db_path)
+            cur = conn.cursor()
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS games (
+                    name TEXT PRIMARY KEY,
+                    description TEXT NOT NULL,
+                    genre TEXT DEFAULT 'General',
+                    rating TEXT DEFAULT 'General',
+                    favorite INTEGER DEFAULT 0,
+                    ignore INTEGER DEFAULT 0,
+                    play_count INTEGER DEFAULT 0,
+                    last_played TIMESTAMP,
+                    custom_flags TEXT DEFAULT ''
+                )
+            """)
+            cur.execute("CREATE INDEX IF NOT EXISTS idx_games_genre ON games(genre)")
+            cur.execute("CREATE INDEX IF NOT EXISTS idx_games_favorite ON games(favorite)")
+            cur.execute("CREATE INDEX IF NOT EXISTS idx_games_ignore ON games(ignore)")
+            cur.execute("CREATE INDEX IF NOT EXISTS idx_games_description ON games(description)")
+            
+            # Preserve existing user metadata
+            existing_meta = {}
+            try:
+                cur.execute("SELECT name, favorite, ignore, play_count, last_played, custom_flags FROM games")
+                for row in cur.fetchall():
+                    existing_meta[row[0]] = (row[1], row[2], row[3], row[4], row[5])
+            except Exception:
+                pass
                 
-                for r_file in sorted(rom_files):
-                    desc = make_description(r_file, rom_ext)
-                    f.write(f'  <game name="{r_file}">\n')
-                    f.write(f'     <description>{desc}</description>\n')
-                    f.write('     <genre>General</genre>\n')
-                    f.write('     <rating>Rating: General</rating>\n')
-                    f.write('     <favorite>0</favorite>\n')
-                    f.write('     <ignore>0</ignore>\n')
-                    f.write('  </game>\n')
-                    
-                f.write('</menu>\n')
+            rows = []
+            for r_file in sorted(rom_files):
+                desc = make_description(r_file, rom_ext)
+                if r_file in existing_meta:
+                    fav, ign, pc, lp, flags = existing_meta[r_file]
+                else:
+                    fav, ign, pc, lp, flags = 0, 0, 0, None, ""
+                rows.append((r_file, desc, "General", "Rating: General", fav, ign, pc, lp, flags))
                 
-            if os.path.exists(xml_path):
-                if os.path.exists(xml_path + ".old"):
-                    os.remove(xml_path + ".old")
-                os.rename(xml_path, xml_path + ".old")
-            os.rename(tmp_path, xml_path)
+            cur.executemany("""
+                INSERT OR REPLACE INTO games (name, description, genre, rating, favorite, ignore, play_count, last_played, custom_flags)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, rows)
+            conn.commit()
+            conn.close()
             
             # Show success modal
-            self.show_success_modal(f"Generated MAMEly.xml successfully! ({len(rom_files)} games)")
+            self.show_success_modal(f"Generated MAMEly.db successfully! ({len(rom_files)} games)")
         except Exception as e:
-            self.show_error_modal(f"Failed to write XML: {e}")
+            self.show_error_modal(f"Failed to write database: {e}")
+
+    def generate_xml(self, platform_path, rom_dir, rom_ext):
+        """Legacy alias pointing to generate_db."""
+        return self.generate_db(platform_path, rom_dir, rom_ext)
 
     def show_error_modal(self, message):
         """Displays error modal."""
