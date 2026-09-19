@@ -1,0 +1,11 @@
+# Sega Master System Platform Configuration
+emulatorBasePath = /mnt/8TB/platforms/segamaster/
+romDirectory = roms/
+romSnapDirectory = snap/
+romVideoDirectory = video/
+emulatorExecutable = mednafen
+romExtension = .zip
+snapExtension = .gif
+videoExtension = .mp4
+compareDBtoRoms = False
+showXMLprogressBar = False

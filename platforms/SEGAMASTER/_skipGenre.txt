@@ -1,0 +1,17 @@
+# ignore games with these genres
+Arcade
+Board Game
+Calculator
+Casino
+Computer
+Computer Graphic Workstation
+Digital Simulator
+Electromechanical
+Game Console
+Medical Equipment
+Music
+Printer
+Slot Machine
+System
+Telephone
+Utilities

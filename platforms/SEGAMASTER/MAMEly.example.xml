@@ -1,0 +1,553 @@
+<?xml version="1.0"?>
+<menu>
+  <header>
+    <listname>MAMEly</listname>
+    <lastlistupdate>2026-09-19 01:11:11.221614</lastlistupdate>
+    <listgeneratorversion>makeMAMEly-xml v1.0</listgeneratorversion>
+  </header>
+  <game name="ALF (UE) [!].zip">
+    <description>Alf (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Action Fighter (UE) [!].zip">
+    <description>Action Fighter (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Aerial Assault (UE) [!].zip">
+    <description>Aerial Assault (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="After Burner (UE) [!].zip">
+    <description>After Burner (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Alex Kidd - The Lost Stars (UE) [!].zip">
+    <description>Alex Kidd - The Lost Stars (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Alex Kidd in High Tech World (UE) [!].zip">
+    <description>Alex Kidd In High Tech World (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Alex Kidd in Miracle World (UE) [o1].zip">
+    <description>Alex Kidd In Miracle World (Ue) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Alex Kidd in Shinobi World (UE) [b1].zip">
+    <description>Alex Kidd In Shinobi World (Ue) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Alien Syndrome (UE) [!].zip">
+    <description>Alien Syndrome (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Altered Beast (UE) [!].zip">
+    <description>Altered Beast (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Astro Warrior & Pit Pot (UE) [!].zip">
+    <description>Astro Warrior And Pit Pot (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Aztec Adventure - The Golden Road to Paradise (UE) [o1].zip">
+    <description>Aztec Adventure - The Golden Road To Paradise (Ue) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Black Belt (UE) [!].zip">
+    <description>Black Belt (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Blade Eagle 3D (UE) [!].zip">
+    <description>Blade Eagle 3D (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Bomber Raid (UE) [!].zip">
+    <description>Bomber Raid (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="California Games (UE) [!].zip">
+    <description>California Games (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Captain Silver (E) [!].zip">
+    <description>Captain Silver (E) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Casino Games (UE) [!].zip">
+    <description>Casino Games (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Choplifter (UE) [!].zip">
+    <description>Choplifter (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Cloud Master (JUE).zip">
+    <description>Cloud Master (Jue)</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Columns (UE) [!].zip">
+    <description>Columns (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Cyborg Hunter (UE) [!].zip">
+    <description>Cyborg Hunter (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dead Angle (UE) [!].zip">
+    <description>Dead Angle (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Dick Tracy (UE) [!].zip">
+    <description>Dick Tracy (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Double Dragon (UE) [!].zip">
+    <description>Double Dragon (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="E-SWAT - City Under Siege (UE) [a1][!].zip">
+    <description>E-Swat - City Under Siege (Ue) [A1][!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Enduro Racer (UE) [!].zip">
+    <description>Enduro Racer (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="F16 Fighting Falcon (UE) [!].zip">
+    <description>F16 Fighting Falcon (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Fantasy Zone 2 - The Tears of Opa-Opa (UE) [!].zip">
+    <description>Fantasy Zone 2 - The Tears Of Opa-Opa (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Fantasy Zone 3 - The Maze (UE) [o1].zip">
+    <description>Fantasy Zone 3 - The Maze (Ue) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Galaxy Force (UE) [!].zip">
+    <description>Galaxy Force (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Gangster Town (UE) [!].zip">
+    <description>Gangster Town (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ghost House (UE) [!].zip">
+    <description>Ghost House (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ghostbusters (UE) [!].zip">
+    <description>Ghostbusters (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ghouls 'n Ghosts (UE) [!].zip">
+    <description>Ghouls 'N Ghosts (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Global Defense (UE) [!].zip">
+    <description>Global Defense (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Golden Axe (UE) [!].zip">
+    <description>Golden Axe (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Golden Axe Warrior (UE) [!].zip">
+    <description>Golden Axe Warrior (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Golvellius - Valley of Doom (UE) [!].zip">
+    <description>Golvellius - Valley Of Doom (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Great Baseball (UE) [!].zip">
+    <description>Great Baseball (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Great Basketball (UE) [!].zip">
+    <description>Great Basketball (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Great Football (UE) [!].zip">
+    <description>Great Football (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Great Golf (J) [!].zip">
+    <description>Great Golf (J) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Great Ice Hockey (UE) [!].zip">
+    <description>Great Ice Hockey (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Great Soccer (J) [!].zip">
+    <description>Great Soccer (J) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Great Volleyball (E) [!].zip">
+    <description>Great Volleyball (E) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Hang-On (UE) [!].zip">
+    <description>Hang-On (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Joe Montana Football (U) [!].zip">
+    <description>Joe Montana Football (U) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Kenseiden (UE) [!].zip">
+    <description>Kenseiden (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="King's Quest (UE) [!].zip">
+    <description>King'S Quest (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Kung Fu Kid (UE) [!].zip">
+    <description>Kung Fu Kid (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Maze Hunter 3D (U) [!].zip">
+    <description>Maze Hunter 3D (U) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Michael Jackson's Moonwalker (UE) [!].zip">
+    <description>Michael Jackson'S Moonwalker (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Mickey Mouse - Castle of Illusion (UE) [!].zip">
+    <description>Mickey Mouse - Castle Of Illusion (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Miracle Warriors - Seal of the Dark Lord (UE) [!].zip">
+    <description>Miracle Warriors - Seal Of The Dark Lord (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Missile Defense 3D (UE) [!].zip">
+    <description>Missile Defense 3D (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Monopoly (U) [!].zip">
+    <description>Monopoly (U) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Montezuma's Revenge (UE) [!].zip">
+    <description>Montezuma'S Revenge (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="My Hero (UE) [!].zip">
+    <description>My Hero (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Ninja, The (UE) [!].zip">
+    <description>Ninja, The (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="OutRun (UE) [!].zip">
+    <description>Outrun (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Paperboy (UE) [!].zip">
+    <description>Paperboy (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Parlour Games (UE) [!].zip">
+    <description>Parlour Games (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Penguin Land (UE) [!].zip">
+    <description>Penguin Land (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Phantasy Star (UE) [!].zip">
+    <description>Phantasy Star (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Poseidon Wars 3D (UE) [!].zip">
+    <description>Poseidon Wars 3D (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Power Strike (UE) [o1].zip">
+    <description>Power Strike (Ue) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Pro Wrestling (UE) [!].zip">
+    <description>Pro Wrestling (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Psycho Fox (UE) [!].zip">
+    <description>Psycho Fox (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Quartet (UE) [!].zip">
+    <description>Quartet (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="R-Type (UE) [!].zip">
+    <description>R-Type (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="R.C. Grand Prix (UE) [!].zip">
+    <description>R.C. Grand Prix (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rambo - First Blood Part 2 (UE) [!].zip">
+    <description>Rambo - First Blood Part 2 (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rambo 3 (UE) [!].zip">
+    <description>Rambo 3 (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rampage (UE) [!].zip">
+    <description>Rampage (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rastan (UE) [!].zip">
+    <description>Rastan (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Reggie Jackson Baseball (U) [!].zip">
+    <description>Reggie Jackson Baseball (U) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rescue Mission (UE) [!].zip">
+    <description>Rescue Mission (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Rocky (UE) [b1].zip">
+    <description>Rocky (Ue) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Shanghai (UE) [!].zip">
+    <description>Shanghai (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Shinobi (UE) [!].zip">
+    <description>Shinobi (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Shooting Gallery (UE) [!].zip">
+    <description>Shooting Gallery (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Slap Shot (UE) [!].zip">
+    <description>Slap Shot (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Sonic the Hedgehog (UE) [!].zip">
+    <description>Sonic The Hedgehog (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Space Harrier (UE) [!].zip">
+    <description>Space Harrier (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Space Harrier 3D (UE) [!].zip">
+    <description>Space Harrier 3D (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Spellcaster (UE) [!].zip">
+    <description>Spellcaster (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Spider-man - Return of the Sinister Six (UE) [!].zip">
+    <description>Spider-Man - Return Of The Sinister Six (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Spy vs. Spy (UE) [!].zip">
+    <description>Spy Vs. Spy (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Strider (UE) [b1].zip">
+    <description>Strider (Ue) [B1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Super Monaco GP (UE) [!].zip">
+    <description>Super Monaco Gp (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Super Tennis (UE) [!].zip">
+    <description>Super Tennis (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Teddy Boy (UE) [!].zip">
+    <description>Teddy Boy (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Thunder Blade (UE) [!].zip">
+    <description>Thunder Blade (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Time Soldiers (UE) [!].zip">
+    <description>Time Soldiers (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Trans-Bot (UE) [o1].zip">
+    <description>Trans-Bot (Ue) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Trap Shooting - Marksman Shooting - Safari Hunt (UE) [!].zip">
+    <description>Trap Shooting - Marksman Shooting - Safari Hunt (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Vigilante (UE) [!].zip">
+    <description>Vigilante (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wanted (UE) [!].zip">
+    <description>Wanted (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Where in the World is Carmen Sandiego (U) [!].zip">
+    <description>Where In The World Is Carmen Sandiego (U) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wonder Boy (UE) [o1].zip">
+    <description>Wonder Boy (Ue) [O1]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wonder Boy 2 - Wonderboy in Monsterland (UE) [!].zip">
+    <description>Wonder Boy 2 - Wonderboy In Monsterland (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Wonder Boy 3 - The Dragon's Trap (UE) [!].zip">
+    <description>Wonder Boy 3 - The Dragon'S Trap (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="World Grand Prix (UE) [!].zip">
+    <description>World Grand Prix (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Y's - The Vanished Omens (UE) [!].zip">
+    <description>Y'S - The Vanished Omens (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Zaxxon 3D (UE) [!].zip">
+    <description>Zaxxon 3D (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="Zillion (UE) [!].zip">
+    <description>Zillion (Ue) [!]</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="fantasyzone.zip">
+    <description>Fantasyzone</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+  <game name="lordofthesword.zip">
+    <description>Lordofthesword</description>
+    <genre>General</genre>
+    <rating>Rating: General</rating>
+  </game>
+</menu>
