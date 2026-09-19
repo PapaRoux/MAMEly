@@ -1,0 +1,760 @@
+Executing: ['flatpak', 'run', '--file-forwarding', 'io.github.stella_emu.Stella', '-fullscreen', '1', '-exitlauncher', '0', '-confirmexit', '0', '@@', '/mnt/nfs/8TB/platforms/atari2600/roms/Adventure.bin', '@@']
+Gtk-Message: 11:48:08.254: Failed to load module "xapp-gtk3-module"
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+ALSA lib ../../oss/pcm_oss.c:404:(_snd_pcm_oss_open) Cannot open device /dev/dsp
+ALSA lib ../../oss/pcm_oss.c:404:(_snd_pcm_oss_open) Cannot open device /dev/dsp
+ALSA lib ../../src/confmisc.c:160:(snd_config_get_card) Invalid field card
+ALSA lib ../../usb_stream/pcm_usb_stream.c:481:(_snd_pcm_usb_stream_open) Invalid card 'card'
+ALSA lib ../../src/confmisc.c:160:(snd_config_get_card) Invalid field card
+ALSA lib ../../usb_stream/pcm_usb_stream.c:481:(_snd_pcm_usb_stream_open) Invalid card 'card'
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+snes9x-gtk-Message: 11:48:08.784: Port 1: Pad #1. Port 2: Pad #2. 
+snes9x-gtk-Message: 11:48:08.802: Found ROM file header (and ignored it).
+Joystick 1, Logitech Gamepad F710: 11 buttons, 6 axes, 1 hats
+Joystick 2, Logitech Gamepad F710: 11 buttons, 6 axes, 1 hats
+PortAudio sound driver initializing...
+(ALSA : default, latency 48ms)...
+PortAudio set buffer size to 2880 frames.
+OK
+Map_HiROMMap
+Executing: ['flatpak', 'run', '--file-forwarding', '--env=XDG_CONFIG_HOME=/home/mini/MAMEly/platforms/SNES/mamely-snes9x-config', 'com.snes9x.Snes9x', '@@', "/mnt/nfs/8TB/platforms/snes/roms/Diddy's Kong Quest (V1.1) (U).smc", '@@']
+Gtk-Message: 11:48:48.635: Failed to load module "xapp-gtk3-module"
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+ALSA lib ../../oss/pcm_oss.c:404:(_snd_pcm_oss_open) Cannot open device /dev/dsp
+ALSA lib ../../oss/pcm_oss.c:404:(_snd_pcm_oss_open) Cannot open device /dev/dsp
+ALSA lib ../../src/confmisc.c:160:(snd_config_get_card) Invalid field card
+ALSA lib ../../usb_stream/pcm_usb_stream.c:481:(_snd_pcm_usb_stream_open) Invalid card 'card'
+ALSA lib ../../src/confmisc.c:160:(snd_config_get_card) Invalid field card
+ALSA lib ../../usb_stream/pcm_usb_stream.c:481:(_snd_pcm_usb_stream_open) Invalid card 'card'
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+snes9x-gtk-Message: 11:48:49.143: Port 1: Pad #1. Port 2: Pad #2. 
+snes9x-gtk-Message: 11:48:49.146: Found ROM file header (and ignored it).
+Joystick 1, Logitech Gamepad F710: 11 buttons, 6 axes, 1 hats
+Joystick 2, Logitech Gamepad F710: 11 buttons, 6 axes, 1 hats
+PortAudio sound driver initializing...
+(ALSA : default, latency 48ms)...
+PortAudio set buffer size to 2880 frames.
+OK
+Map_HiROMMap
+Executing: ['flatpak', 'run', '--file-forwarding', '--env=XDG_CONFIG_HOME=/home/mini/MAMEly/platforms/SNES/mamely-snes9x-config', 'com.snes9x.Snes9x', '@@', "/mnt/nfs/8TB/platforms/snes/roms/Diddy's Kong Quest (V1.1) (U).smc", '@@']
+Gtk-Message: 11:53:25.191: Failed to load module "xapp-gtk3-module"
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+ALSA lib ../../oss/pcm_oss.c:404:(_snd_pcm_oss_open) Cannot open device /dev/dsp
+ALSA lib ../../oss/pcm_oss.c:404:(_snd_pcm_oss_open) Cannot open device /dev/dsp
+ALSA lib ../../src/confmisc.c:160:(snd_config_get_card) Invalid field card
+ALSA lib ../../usb_stream/pcm_usb_stream.c:481:(_snd_pcm_usb_stream_open) Invalid card 'card'
+ALSA lib ../../src/confmisc.c:160:(snd_config_get_card) Invalid field card
+ALSA lib ../../usb_stream/pcm_usb_stream.c:481:(_snd_pcm_usb_stream_open) Invalid card 'card'
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+snes9x-gtk-Message: 11:53:25.728: Port 1: Pad #1. Port 2: Pad #2. 
+snes9x-gtk-Message: 11:53:25.735: Found ROM file header (and ignored it).
+Joystick 1, Logitech Gamepad F710: 11 buttons, 6 axes, 1 hats
+Joystick 2, Logitech Gamepad F710: 11 buttons, 6 axes, 1 hats
+PortAudio sound driver initializing...
+(ALSA : default, latency 48ms)...
+PortAudio set buffer size to 2880 frames.
+OK
+Map_HiROMMap
+Executing: ['flatpak', 'run', '--file-forwarding', '--env=XDG_CONFIG_HOME=/home/mini/MAMEly/platforms/SNES/mamely-snes9x-config', 'com.snes9x.Snes9x', '-fullscreen', '@@', "/mnt/nfs/8TB/platforms/snes/roms/Diddy's Kong Quest (V1.1) (U).smc", '@@']
+Gtk-Message: 11:56:37.196: Failed to load module "xapp-gtk3-module"
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+ALSA lib ../../oss/pcm_oss.c:404:(_snd_pcm_oss_open) Cannot open device /dev/dsp
+ALSA lib ../../oss/pcm_oss.c:404:(_snd_pcm_oss_open) Cannot open device /dev/dsp
+ALSA lib ../../src/confmisc.c:160:(snd_config_get_card) Invalid field card
+ALSA lib ../../usb_stream/pcm_usb_stream.c:481:(_snd_pcm_usb_stream_open) Invalid card 'card'
+ALSA lib ../../src/confmisc.c:160:(snd_config_get_card) Invalid field card
+ALSA lib ../../usb_stream/pcm_usb_stream.c:481:(_snd_pcm_usb_stream_open) Invalid card 'card'
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+snes9x-gtk-Message: 11:56:37.723: Port 1: Pad #1. Port 2: Pad #2. 
+snes9x-gtk-Message: 11:56:37.741: Found ROM file header (and ignored it).
+
+(snes9x-gtk:2): Gtk-CRITICAL **: 11:56:53.377: gtk_window_resize: assertion 'width > 0' failed
+Joystick 1, Logitech Gamepad F710: 11 buttons, 6 axes, 1 hats
+Joystick 2, Logitech Gamepad F710: 11 buttons, 6 axes, 1 hats
+PortAudio sound driver initializing...
+(ALSA : default, latency 48ms)...
+PortAudio set buffer size to 2880 frames.
+OK
+Map_HiROMMap
+Executing: ['flatpak', 'run', '--file-forwarding', '--env=XDG_CONFIG_HOME=/home/mini/MAMEly/platforms/SNES/mamely-snes9x-config', 'com.snes9x.Snes9x', '-fullscreen', '@@', "/mnt/nfs/8TB/platforms/snes/roms/Diddy's Kong Quest (V1.1) (U).smc", '@@']
+Gtk-Message: 12:02:02.324: Failed to load module "xapp-gtk3-module"
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+ALSA lib ../../oss/pcm_oss.c:404:(_snd_pcm_oss_open) Cannot open device /dev/dsp
+ALSA lib ../../oss/pcm_oss.c:404:(_snd_pcm_oss_open) Cannot open device /dev/dsp
+ALSA lib ../../src/confmisc.c:160:(snd_config_get_card) Invalid field card
+ALSA lib ../../usb_stream/pcm_usb_stream.c:481:(_snd_pcm_usb_stream_open) Invalid card 'card'
+ALSA lib ../../src/confmisc.c:160:(snd_config_get_card) Invalid field card
+ALSA lib ../../usb_stream/pcm_usb_stream.c:481:(_snd_pcm_usb_stream_open) Invalid card 'card'
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+snes9x-gtk-Message: 12:02:02.865: Port 1: Pad #1. Port 2: Pad #2. 
+snes9x-gtk-Message: 12:02:02.873: Found ROM file header (and ignored it).
+
+(snes9x-gtk:2): Gtk-CRITICAL **: 12:02:23.028: gtk_window_resize: assertion 'height > 0' failed
+Joystick 1, Logitech Gamepad F710: 11 buttons, 6 axes, 1 hats
+Joystick 2, Logitech Gamepad F710: 11 buttons, 6 axes, 1 hats
+PortAudio sound driver initializing...
+(ALSA : default, latency 48ms)...
+PortAudio set buffer size to 2880 frames.
+OK
+Map_HiROMMap
+Executing: ['flatpak', 'run', '--file-forwarding', '--env=XDG_CONFIG_HOME=/home/mini/MAMEly/platforms/SNES/mamely-snes9x-config', 'com.snes9x.Snes9x', '-fullscreen', '@@', "/mnt/nfs/8TB/platforms/snes/roms/Diddy's Kong Quest (V1.1) (U).smc", '@@']
+Gtk-Message: 12:04:31.834: Failed to load module "xapp-gtk3-module"
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+ALSA lib ../../../src/pcm/pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+ALSA lib ../../oss/pcm_oss.c:404:(_snd_pcm_oss_open) Cannot open device /dev/dsp
+ALSA lib ../../oss/pcm_oss.c:404:(_snd_pcm_oss_open) Cannot open device /dev/dsp
+ALSA lib ../../src/confmisc.c:160:(snd_config_get_card) Invalid field card
+ALSA lib ../../usb_stream/pcm_usb_stream.c:481:(_snd_pcm_usb_stream_open) Invalid card 'card'
+ALSA lib ../../src/confmisc.c:160:(snd_config_get_card) Invalid field card
+ALSA lib ../../usb_stream/pcm_usb_stream.c:481:(_snd_pcm_usb_stream_open) Invalid card 'card'
+ALSA lib ../../../src/pcm/pcm_direct.c:2050:(snd1_pcm_direct_parse_open_conf) The field ipc_gid must be a valid group (create group audio)
+snes9x-gtk-Message: 12:04:32.369: Port 1: Pad #1. Port 2: Pad #2. 
+snes9x-gtk-Message: 12:04:32.383: Found ROM file header (and ignored it).
+Joystick 1, Logitech Gamepad F710: 11 buttons, 6 axes, 1 hats
+Joystick 2, Logitech Gamepad F710: 11 buttons, 6 axes, 1 hats
+PortAudio sound driver initializing...
+(ALSA : default, latency 48ms)...
+PortAudio set buffer size to 2880 frames.
+OK
+Map_HiROMMap
+Executing: ['flatpak', 'run', '--file-forwarding', '--env=XDG_CONFIG_HOME=/home/mini/MAMEly/platforms/SNES/mamely-snes9x-config', 'com.snes9x.Snes9x', '@@', "/mnt/nfs/8TB/platforms/snes/roms/Diddy's Kong Quest (V1.1) (U).smc", '@@']
+ __  __                         __   _  _   ____  _             
+|  \/  |_   _ _ __   ___ _ __  / /_ | || | |  _ \| |_   _ ___ 
+| |\/| | | | | '_ \ / _ \ '_ \| '_ \| || |_| |_) | | | | / __|  
+| |  | | |_| | |_) |  __/ | | | (_) |__   _|  __/| | |_| \__ \  
+|_|  |_|\__,_| .__/ \___|_| |_|\___/   |_| |_|   |_|\__,_|___/  
+             |_|         https://mupen64plus.org/               
+Mupen64Plus Console User-Interface Version 2.5.9
+
+UI-Console: attached to core library 'Mupen64Plus Core' version 2.5.9
+UI-Console:             Includes support for Dynamic Recompiler.
+UI-Console:             Includes support for MIPS r4300 Debugger.
+Core: Using full mem base
+Core: Goodname: 1080 Snowboarding (JU) (M2) [!]
+Core: Name: 1080 SNOWBOARDING   
+Core: MD5: FA27089C425DBAB99F19245C5C997613
+Core: CRC: 1FBAF161 2C1C54F1
+Core: Imagetype: .z64 (native)
+Core: Rom size: 16777216 bytes (or 16 Mb or 128 Megabits)
+Core: Version: 1449
+Core: Manufacturer: Nintendo
+Core: Country: USA/Japan
+UI-Console Status: Cheat codes disabled.
+UI-Console: using Video plugin: 'Glide64mk2 Video Plugin' v2.5.9
+UI-Console: using Audio plugin: 'Mupen64Plus SDL Audio Plugin' v2.5.9
+Input: Using auto-config file at: '/usr/share/games/mupen64plus/InputAutoCfg.ini'
+Input: Using auto-config file at: '/usr/share/games/mupen64plus/InputAutoCfg.ini'
+UI-Console: using Input plugin: 'Mupen64Plus SDL Input Plugin' v2.5.9
+UI-Console: using RSP plugin: 'Hacktarux/Azimer High-Level Emulation RSP Plugin' v2.5.9
+Video: opening /usr/share/games/mupen64plus/Glide64mk2.ini
+
+Video: 3DNOW! detected.
+
+Core Warning: Input plugin does not contain VRU support.
+Core: input plugin did not specify a render callback; there will be no on screen display by the input plugin.
+Input: 2 SDL joysticks were found.
+Input: Using auto-config file at: '/usr/share/games/mupen64plus/InputAutoCfg.ini'
+Input: N64 Controller #1: Using auto-config with SDL joystick 0 ('Logitech Gamepad F710')
+Input: Using auto-config file at: '/usr/share/games/mupen64plus/InputAutoCfg.ini'
+Input: N64 Controller #2: Using auto-config with SDL joystick 1 ('Logitech Gamepad F710')
+Input: 2 controller(s) found, 2 plugged in and usable in the emulator
+Input: Rumble activated on N64 joystick #1
+Input: Rumble activated on N64 joystick #2
+Input Warning: Couldn't open rumble support for joystick #3
+Input Warning: Couldn't open rumble support for joystick #4
+Input: Mupen64Plus SDL Input Plugin version 2.5.9 initialized.
+RSP: RSP Fallback disabled !
+Core: Using video capture backend: opencv
+[ WARN:0@0.558] global ./modules/videoio/src/cap_gstreamer.cpp (2401) handleMessage OpenCV | GStreamer warning: Embedded video playback halted; module v4l2src0 reported: Cannot identify device '/dev/video0'.
+[ WARN:0@0.558] global ./modules/videoio/src/cap_gstreamer.cpp (1356) open OpenCV | GStreamer warning: unable to start pipeline
+[ WARN:0@0.558] global ./modules/videoio/src/cap_gstreamer.cpp (862) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+[ WARN:0@0.558] global ./modules/videoio/src/cap_v4l.cpp (902) open VIDEOIO(V4L2:/dev/video0): can't open camera by index
+Core Error: Failed to open video device 0
+Core: Game controller 0 (Standard controller) has a Memory pak plugged in
+Core: Game controller 1 (Standard controller) has a Memory pak plugged in
+Core: Game controller 2 (Standard controller) has a Memory pak plugged in
+Core: Game controller 3 (Standard controller) has a Memory pak plugged in
+Core: Using CIC type X103
+Video: Using TEXUMA extension.
+
+&ConfigOpenSection is 0x75ff53390628
+(II) Setting video mode 1920x1080...
+Core: Setting video mode: 1920x1080
+packed pixels extension used
+NPOT extension used
+use_fbo 1
+Video: InitCombine() 
+Video: extensions 
+Video: initialized.
+Video: 
+
+Audio: Using resampler speex
+Audio: Initializing SDL audio subsystem...
+Input: Rumble activated on N64 joystick #1
+Input: Rumble activated on N64 joystick #2
+Input Warning: Couldn't open rumble support for joystick #3
+Input Warning: Couldn't open rumble support for joystick #4
+Core: Initializing 4 RDRAM modules for a total of 8 MB
+Core: Starting R4300 emulator: Dynamic Recompiler
+Audio: Initializing SDL audio subsystem...
+Core Status: Stopping emulation.
+Core: R4300 emulator finished.
+Core: Video closed
+Core Status: Rom closed.
+Executing: ['mupen64plus', '--gfx', 'mupen64plus-video-glide64mk2', '--fullscreen', '--resolution', '1920x1080', '--sshotdir', '/mnt/nfs/8TB/platforms/n64/snap/', '/mnt/nfs/8TB/platforms/n64/roms/1080 Snowboarding (JU) [!].v64']
+Average speed: 99.98% (1 seconds)
+Executing: ['mame', 'sms', '-rompath', '/home/mini/.mame/roms', '-cart', '/mnt/nfs/8TB/platforms/segamaster/roms/Action Fighter (UE) [!].zip']
+error: app/net.sf.VICE/x86_64/master not installed
+Executing: ['flatpak', 'run', '--file-forwarding', '--env=XDG_CONFIG_HOME=/home/mini/MAMEly/platforms/C64/mamely-vice-config', 'net.sf.VICE', '-VICIIfull', '+confirmonexit', '-autostart', '@@', '/mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip', '@@']
+Executing: ['flatpak', 'run', '--file-forwarding', 'io.github.stella_emu.Stella', '-fullscreen', '1', '-exitlauncher', '0', '-confirmexit', '0', '@@', '/mnt/nfs/8TB/platforms/atari2600/roms/Adventure.bin', '@@']
+Executing: ['mame', '-rompath', '/home/mini/.mame/roms/', '1941']
+Gtk-Message: 12:07:32.272: Failed to load module "xapp-gtk3-module"
+
+Reading configuration file `/home/mini/.var/app/net.sf.VICE/config/vice/vicerc'.
+Font: registered '/app/share/vice/common/C64_Pro_Mono-STYLE.ttf'.
+Font: registered '/app/share/vice/common/PetMe1282Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe128.ttf'.
+Font: registered '/app/share/vice/common/PetMe2X.ttf'.
+Font: registered '/app/share/vice/common/PetMe2Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe642Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe64.ttf'.
+Font: registered '/app/share/vice/common/PetMe.ttf'.
+ 
+*** VICE Version 3.10 ***
+ 
+This is the condensed log, for the full log use --verbose or --debug.
+ 
+Main: random seed was: 0x6aaeb344
+Main: command line was: x64sc -VICIIfull +confirmonexit -autostart /mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip
+Main: VICE system file directory: '/app/share/vice'.
+Main: VICE system file search path: '/home/mini/.var/app/net.sf.VICE/data/vice:/app/bin:/app/share/vice'.
+Sysfile: Loading `/app/share/vice/C64/kernal-901227-03.bin'.
+C64MEM: Kernal rev #3 ($03) Sum: 50954 ($C70A) SHA1: 1d503e56df85a62fee696e7618dc5b4e781df1bb.
+Sysfile: Loading `/app/share/vice/C64/basic-901226-01.bin'.
+Sysfile: Loading `/app/share/vice/C64/chargen-901225-01.bin'.
+DriveROM: Error - 2000 ROM image not found. Hardware-level 2000 emulation is not available.
+DriveROM: Error - 4000 ROM image not found. Hardware-level 4000 emulation is not available.
+DriveROM: Error - CMDHD ROM image not found. Hardware-level CMDHD emulation is not available.
+Sysfile: Loading `/app/share/vice/DRIVES/dos1541ii-251968-03.bin'.
+VIC-II: Initializing chip model "MOS8565" (63 cycles per line, 312 raster lines).
+Window: Chip 'VICII' using GTK3 backend 'OpenGL'.
+OpenGL: Obtained OpenGL 4.6 context  
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/builtin.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/builtin-interlaced.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/bicubic.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/bicubic-interlaced.frag
+Sound: Available sound devices: pulse alsa dummy dump fs wav voc iff aiff soundmovie
+evdev Joystick: Initializing Linux evdev joystick driver.
+Joystick: Registered device "Logitech Gamepad F710" [046d:c21f] (8 axes, 11 buttons, 0 hats)
+Joystick: Registered device "Logitech Gamepad F710" [046d:c21f] (8 axes, 11 buttons, 0 hats)
+Joystick: Warning - Failed to open `/home/mini/.var/app/net.sf.VICE/config/vice/gtk3-joymap-C64SC.vjm'.
+Joystick: Warning - using minimal default mapping.
+Keymap: Loading keymap `/app/share/vice/C64/gtk3_sym.vkm'.
+
+Main CPU: starting at ($FFFC).
+Main CPU: RESET.
+VIC-II: VSP Bug: safe channels are: 0567. Emulation of memory corruption is disabled.
+AUTOSTART: Autodetecting image type of `/mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip'.
+Spawn: forking process 'unzip'
+
+Reading configuration file `/home/mini/.var/app/net.sf.VICE/config/vice/vicerc'.
+Font: registered '/app/share/vice/common/C64_Pro_Mono-STYLE.ttf'.
+Font: registered '/app/share/vice/common/PetMe1282Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe128.ttf'.
+Font: registered '/app/share/vice/common/PetMe2X.ttf'.
+Font: registered '/app/share/vice/common/PetMe2Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe642Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe64.ttf'.
+Font: registered '/app/share/vice/common/PetMe.ttf'.
+ 
+*** VICE Version 3.10 ***
+ 
+This is the condensed log, for the full log use --verbose or --debug.
+ 
+Main: random seed was: 0x6aaeb344
+Main: command line was: x64sc -VICIIfull +confirmonexit -autostart /mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip
+Main: VICE system file directory: '/app/share/vice'.
+Main: VICE system file search path: '/home/mini/.var/app/net.sf.VICE/data/vice:/app/bin:/app/share/vice'.
+Sysfile: Loading `/app/share/vice/C64/kernal-901227-03.bin'.
+C64MEM: Kernal rev #3 ($03) Sum: 50954 ($C70A) SHA1: 1d503e56df85a62fee696e7618dc5b4e781df1bb.
+Sysfile: Loading `/app/share/vice/C64/basic-901226-01.bin'.
+Sysfile: Loading `/app/share/vice/C64/chargen-901225-01.bin'.
+DriveROM: Error - 2000 ROM image not found. Hardware-level 2000 emulation is not available.
+DriveROM: Error - 4000 ROM image not found. Hardware-level 4000 emulation is not available.
+DriveROM: Error - CMDHD ROM image not found. Hardware-level CMDHD emulation is not available.
+Sysfile: Loading `/app/share/vice/DRIVES/dos1541ii-251968-03.bin'.
+VIC-II: Initializing chip model "MOS8565" (63 cycles per line, 312 raster lines).
+Window: Chip 'VICII' using GTK3 backend 'OpenGL'.
+OpenGL: Obtained OpenGL 4.6 context  
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/builtin.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/builtin-interlaced.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/bicubic.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/bicubic-interlaced.frag
+Sound: Available sound devices: pulse alsa dummy dump fs wav voc iff aiff soundmovie
+evdev Joystick: Initializing Linux evdev joystick driver.
+Joystick: Registered device "Logitech Gamepad F710" [046d:c21f] (8 axes, 11 buttons, 0 hats)
+Joystick: Registered device "Logitech Gamepad F710" [046d:c21f] (8 axes, 11 buttons, 0 hats)
+Joystick: Warning - Failed to open `/home/mini/.var/app/net.sf.VICE/config/vice/gtk3-joymap-C64SC.vjm'.
+Joystick: Warning - using minimal default mapping.
+Keymap: Loading keymap `/app/share/vice/C64/gtk3_sym.vkm'.
+
+Main CPU: starting at ($FFFC).
+Main CPU: RESET.
+VIC-II: VSP Bug: safe channels are: 0567. Emulation of memory corruption is disabled.
+AUTOSTART: Autodetecting image type of `/mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip'.
+Spawn: forking process 'unzip'
+Spawn: forking process 'unzip'
+
+Reading configuration file `/home/mini/.var/app/net.sf.VICE/config/vice/vicerc'.
+Font: registered '/app/share/vice/common/C64_Pro_Mono-STYLE.ttf'.
+Font: registered '/app/share/vice/common/PetMe1282Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe128.ttf'.
+Font: registered '/app/share/vice/common/PetMe2X.ttf'.
+Font: registered '/app/share/vice/common/PetMe2Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe642Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe64.ttf'.
+Font: registered '/app/share/vice/common/PetMe.ttf'.
+ 
+*** VICE Version 3.10 ***
+ 
+This is the condensed log, for the full log use --verbose or --debug.
+ 
+Main: random seed was: 0x6aaeb344
+Main: command line was: x64sc -VICIIfull +confirmonexit -autostart /mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip
+Main: VICE system file directory: '/app/share/vice'.
+Main: VICE system file search path: '/home/mini/.var/app/net.sf.VICE/data/vice:/app/bin:/app/share/vice'.
+Sysfile: Loading `/app/share/vice/C64/kernal-901227-03.bin'.
+C64MEM: Kernal rev #3 ($03) Sum: 50954 ($C70A) SHA1: 1d503e56df85a62fee696e7618dc5b4e781df1bb.
+Sysfile: Loading `/app/share/vice/C64/basic-901226-01.bin'.
+Sysfile: Loading `/app/share/vice/C64/chargen-901225-01.bin'.
+DriveROM: Error - 2000 ROM image not found. Hardware-level 2000 emulation is not available.
+DriveROM: Error - 4000 ROM image not found. Hardware-level 4000 emulation is not available.
+DriveROM: Error - CMDHD ROM image not found. Hardware-level CMDHD emulation is not available.
+Sysfile: Loading `/app/share/vice/DRIVES/dos1541ii-251968-03.bin'.
+VIC-II: Initializing chip model "MOS8565" (63 cycles per line, 312 raster lines).
+Window: Chip 'VICII' using GTK3 backend 'OpenGL'.
+OpenGL: Obtained OpenGL 4.6 context  
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/builtin.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/builtin-interlaced.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/bicubic.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/bicubic-interlaced.frag
+Sound: Available sound devices: pulse alsa dummy dump fs wav voc iff aiff soundmovie
+evdev Joystick: Initializing Linux evdev joystick driver.
+Joystick: Registered device "Logitech Gamepad F710" [046d:c21f] (8 axes, 11 buttons, 0 hats)
+Joystick: Registered device "Logitech Gamepad F710" [046d:c21f] (8 axes, 11 buttons, 0 hats)
+Joystick: Warning - Failed to open `/home/mini/.var/app/net.sf.VICE/config/vice/gtk3-joymap-C64SC.vjm'.
+Joystick: Warning - using minimal default mapping.
+Keymap: Loading keymap `/app/share/vice/C64/gtk3_sym.vkm'.
+
+Main CPU: starting at ($FFFC).
+Main CPU: RESET.
+VIC-II: VSP Bug: safe channels are: 0567. Emulation of memory corruption is disabled.
+AUTOSTART: Autodetecting image type of `/mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip'.
+Spawn: forking process 'unzip'
+Spawn: forking process 'unzip'
+Spawn: forking process 'unzip'
+
+Reading configuration file `/home/mini/.var/app/net.sf.VICE/config/vice/vicerc'.
+Font: registered '/app/share/vice/common/C64_Pro_Mono-STYLE.ttf'.
+Font: registered '/app/share/vice/common/PetMe1282Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe128.ttf'.
+Font: registered '/app/share/vice/common/PetMe2X.ttf'.
+Font: registered '/app/share/vice/common/PetMe2Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe642Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe64.ttf'.
+Font: registered '/app/share/vice/common/PetMe.ttf'.
+ 
+*** VICE Version 3.10 ***
+ 
+This is the condensed log, for the full log use --verbose or --debug.
+ 
+Main: random seed was: 0x6aaeb344
+Main: command line was: x64sc -VICIIfull +confirmonexit -autostart /mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip
+Main: VICE system file directory: '/app/share/vice'.
+Main: VICE system file search path: '/home/mini/.var/app/net.sf.VICE/data/vice:/app/bin:/app/share/vice'.
+Sysfile: Loading `/app/share/vice/C64/kernal-901227-03.bin'.
+C64MEM: Kernal rev #3 ($03) Sum: 50954 ($C70A) SHA1: 1d503e56df85a62fee696e7618dc5b4e781df1bb.
+Sysfile: Loading `/app/share/vice/C64/basic-901226-01.bin'.
+Sysfile: Loading `/app/share/vice/C64/chargen-901225-01.bin'.
+DriveROM: Error - 2000 ROM image not found. Hardware-level 2000 emulation is not available.
+DriveROM: Error - 4000 ROM image not found. Hardware-level 4000 emulation is not available.
+DriveROM: Error - CMDHD ROM image not found. Hardware-level CMDHD emulation is not available.
+Sysfile: Loading `/app/share/vice/DRIVES/dos1541ii-251968-03.bin'.
+VIC-II: Initializing chip model "MOS8565" (63 cycles per line, 312 raster lines).
+Window: Chip 'VICII' using GTK3 backend 'OpenGL'.
+OpenGL: Obtained OpenGL 4.6 context  
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/builtin.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/builtin-interlaced.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/bicubic.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/bicubic-interlaced.frag
+Sound: Available sound devices: pulse alsa dummy dump fs wav voc iff aiff soundmovie
+evdev Joystick: Initializing Linux evdev joystick driver.
+Joystick: Registered device "Logitech Gamepad F710" [046d:c21f] (8 axes, 11 buttons, 0 hats)
+Joystick: Registered device "Logitech Gamepad F710" [046d:c21f] (8 axes, 11 buttons, 0 hats)
+Joystick: Warning - Failed to open `/home/mini/.var/app/net.sf.VICE/config/vice/gtk3-joymap-C64SC.vjm'.
+Joystick: Warning - using minimal default mapping.
+Keymap: Loading keymap `/app/share/vice/C64/gtk3_sym.vkm'.
+
+Main CPU: starting at ($FFFC).
+Main CPU: RESET.
+VIC-II: VSP Bug: safe channels are: 0567. Emulation of memory corruption is disabled.
+AUTOSTART: Autodetecting image type of `/mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip'.
+Spawn: forking process 'unzip'
+Spawn: forking process 'unzip'
+Spawn: forking process 'unzip'
+AUTOSTART: Attached file `/mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip' as a disk image.
+AUTOSTART: mounted image is type: 1541, not changing drive.
+Spawn: forking process 'unzip'
+
+Reading configuration file `/home/mini/.var/app/net.sf.VICE/config/vice/vicerc'.
+Font: registered '/app/share/vice/common/C64_Pro_Mono-STYLE.ttf'.
+Font: registered '/app/share/vice/common/PetMe1282Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe128.ttf'.
+Font: registered '/app/share/vice/common/PetMe2X.ttf'.
+Font: registered '/app/share/vice/common/PetMe2Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe642Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe64.ttf'.
+Font: registered '/app/share/vice/common/PetMe.ttf'.
+ 
+*** VICE Version 3.10 ***
+ 
+This is the condensed log, for the full log use --verbose or --debug.
+ 
+Main: random seed was: 0x6aaeb344
+Main: command line was: x64sc -VICIIfull +confirmonexit -autostart /mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip
+Main: VICE system file directory: '/app/share/vice'.
+Main: VICE system file search path: '/home/mini/.var/app/net.sf.VICE/data/vice:/app/bin:/app/share/vice'.
+Sysfile: Loading `/app/share/vice/C64/kernal-901227-03.bin'.
+C64MEM: Kernal rev #3 ($03) Sum: 50954 ($C70A) SHA1: 1d503e56df85a62fee696e7618dc5b4e781df1bb.
+Sysfile: Loading `/app/share/vice/C64/basic-901226-01.bin'.
+Sysfile: Loading `/app/share/vice/C64/chargen-901225-01.bin'.
+DriveROM: Error - 2000 ROM image not found. Hardware-level 2000 emulation is not available.
+DriveROM: Error - 4000 ROM image not found. Hardware-level 4000 emulation is not available.
+DriveROM: Error - CMDHD ROM image not found. Hardware-level CMDHD emulation is not available.
+Sysfile: Loading `/app/share/vice/DRIVES/dos1541ii-251968-03.bin'.
+VIC-II: Initializing chip model "MOS8565" (63 cycles per line, 312 raster lines).
+Window: Chip 'VICII' using GTK3 backend 'OpenGL'.
+OpenGL: Obtained OpenGL 4.6 context  
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/builtin.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/builtin-interlaced.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/bicubic.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/bicubic-interlaced.frag
+Sound: Available sound devices: pulse alsa dummy dump fs wav voc iff aiff soundmovie
+evdev Joystick: Initializing Linux evdev joystick driver.
+Joystick: Registered device "Logitech Gamepad F710" [046d:c21f] (8 axes, 11 buttons, 0 hats)
+Joystick: Registered device "Logitech Gamepad F710" [046d:c21f] (8 axes, 11 buttons, 0 hats)
+Joystick: Warning - Failed to open `/home/mini/.var/app/net.sf.VICE/config/vice/gtk3-joymap-C64SC.vjm'.
+Joystick: Warning - using minimal default mapping.
+Keymap: Loading keymap `/app/share/vice/C64/gtk3_sym.vkm'.
+
+Main CPU: starting at ($FFFC).
+Main CPU: RESET.
+VIC-II: VSP Bug: safe channels are: 0567. Emulation of memory corruption is disabled.
+AUTOSTART: Autodetecting image type of `/mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip'.
+Spawn: forking process 'unzip'
+Spawn: forking process 'unzip'
+Spawn: forking process 'unzip'
+AUTOSTART: Attached file `/mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip' as a disk image.
+AUTOSTART: mounted image is type: 1541, not changing drive.
+Spawn: forking process 'unzip'
+Spawn: forking process 'unzip'
+
+Reading configuration file `/home/mini/.var/app/net.sf.VICE/config/vice/vicerc'.
+Font: registered '/app/share/vice/common/C64_Pro_Mono-STYLE.ttf'.
+Font: registered '/app/share/vice/common/PetMe1282Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe128.ttf'.
+Font: registered '/app/share/vice/common/PetMe2X.ttf'.
+Font: registered '/app/share/vice/common/PetMe2Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe642Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe64.ttf'.
+Font: registered '/app/share/vice/common/PetMe.ttf'.
+ 
+*** VICE Version 3.10 ***
+ 
+This is the condensed log, for the full log use --verbose or --debug.
+ 
+Main: random seed was: 0x6aaeb344
+Main: command line was: x64sc -VICIIfull +confirmonexit -autostart /mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip
+Main: VICE system file directory: '/app/share/vice'.
+Main: VICE system file search path: '/home/mini/.var/app/net.sf.VICE/data/vice:/app/bin:/app/share/vice'.
+Sysfile: Loading `/app/share/vice/C64/kernal-901227-03.bin'.
+C64MEM: Kernal rev #3 ($03) Sum: 50954 ($C70A) SHA1: 1d503e56df85a62fee696e7618dc5b4e781df1bb.
+Sysfile: Loading `/app/share/vice/C64/basic-901226-01.bin'.
+Sysfile: Loading `/app/share/vice/C64/chargen-901225-01.bin'.
+DriveROM: Error - 2000 ROM image not found. Hardware-level 2000 emulation is not available.
+DriveROM: Error - 4000 ROM image not found. Hardware-level 4000 emulation is not available.
+DriveROM: Error - CMDHD ROM image not found. Hardware-level CMDHD emulation is not available.
+Sysfile: Loading `/app/share/vice/DRIVES/dos1541ii-251968-03.bin'.
+VIC-II: Initializing chip model "MOS8565" (63 cycles per line, 312 raster lines).
+Window: Chip 'VICII' using GTK3 backend 'OpenGL'.
+OpenGL: Obtained OpenGL 4.6 context  
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/builtin.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/builtin-interlaced.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/bicubic.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/bicubic-interlaced.frag
+Sound: Available sound devices: pulse alsa dummy dump fs wav voc iff aiff soundmovie
+evdev Joystick: Initializing Linux evdev joystick driver.
+Joystick: Registered device "Logitech Gamepad F710" [046d:c21f] (8 axes, 11 buttons, 0 hats)
+Joystick: Registered device "Logitech Gamepad F710" [046d:c21f] (8 axes, 11 buttons, 0 hats)
+Joystick: Warning - Failed to open `/home/mini/.var/app/net.sf.VICE/config/vice/gtk3-joymap-C64SC.vjm'.
+Joystick: Warning - using minimal default mapping.
+Keymap: Loading keymap `/app/share/vice/C64/gtk3_sym.vkm'.
+
+Main CPU: starting at ($FFFC).
+Main CPU: RESET.
+VIC-II: VSP Bug: safe channels are: 0567. Emulation of memory corruption is disabled.
+AUTOSTART: Autodetecting image type of `/mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip'.
+Spawn: forking process 'unzip'
+Spawn: forking process 'unzip'
+Spawn: forking process 'unzip'
+AUTOSTART: Attached file `/mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip' as a disk image.
+AUTOSTART: mounted image is type: 1541, not changing drive.
+Spawn: forking process 'unzip'
+Spawn: forking process 'unzip'
+Spawn: forking process 'unzip'
+
+Reading configuration file `/home/mini/.var/app/net.sf.VICE/config/vice/vicerc'.
+Font: registered '/app/share/vice/common/C64_Pro_Mono-STYLE.ttf'.
+Font: registered '/app/share/vice/common/PetMe1282Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe128.ttf'.
+Font: registered '/app/share/vice/common/PetMe2X.ttf'.
+Font: registered '/app/share/vice/common/PetMe2Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe642Y.ttf'.
+Font: registered '/app/share/vice/common/PetMe64.ttf'.
+Font: registered '/app/share/vice/common/PetMe.ttf'.
+ 
+*** VICE Version 3.10 ***
+ 
+This is the condensed log, for the full log use --verbose or --debug.
+ 
+Main: random seed was: 0x6aaeb344
+Main: command line was: x64sc -VICIIfull +confirmonexit -autostart /mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip
+Main: VICE system file directory: '/app/share/vice'.
+Main: VICE system file search path: '/home/mini/.var/app/net.sf.VICE/data/vice:/app/bin:/app/share/vice'.
+Sysfile: Loading `/app/share/vice/C64/kernal-901227-03.bin'.
+C64MEM: Kernal rev #3 ($03) Sum: 50954 ($C70A) SHA1: 1d503e56df85a62fee696e7618dc5b4e781df1bb.
+Sysfile: Loading `/app/share/vice/C64/basic-901226-01.bin'.
+Sysfile: Loading `/app/share/vice/C64/chargen-901225-01.bin'.
+DriveROM: Error - 2000 ROM image not found. Hardware-level 2000 emulation is not available.
+DriveROM: Error - 4000 ROM image not found. Hardware-level 4000 emulation is not available.
+DriveROM: Error - CMDHD ROM image not found. Hardware-level CMDHD emulation is not available.
+Sysfile: Loading `/app/share/vice/DRIVES/dos1541ii-251968-03.bin'.
+VIC-II: Initializing chip model "MOS8565" (63 cycles per line, 312 raster lines).
+Window: Chip 'VICII' using GTK3 backend 'OpenGL'.
+OpenGL: Obtained OpenGL 4.6 context  
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/builtin.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/builtin-interlaced.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/bicubic.frag
+OpenGL: Loading vertex shader: /app/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /app/share/vice/GLSL/bicubic-interlaced.frag
+Sound: Available sound devices: pulse alsa dummy dump fs wav voc iff aiff soundmovie
+evdev Joystick: Initializing Linux evdev joystick driver.
+Joystick: Registered device "Logitech Gamepad F710" [046d:c21f] (8 axes, 11 buttons, 0 hats)
+Joystick: Registered device "Logitech Gamepad F710" [046d:c21f] (8 axes, 11 buttons, 0 hats)
+Joystick: Warning - Failed to open `/home/mini/.var/app/net.sf.VICE/config/vice/gtk3-joymap-C64SC.vjm'.
+Joystick: Warning - using minimal default mapping.
+Keymap: Loading keymap `/app/share/vice/C64/gtk3_sym.vkm'.
+
+Main CPU: starting at ($FFFC).
+Main CPU: RESET.
+VIC-II: VSP Bug: safe channels are: 0567. Emulation of memory corruption is disabled.
+AUTOSTART: Autodetecting image type of `/mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip'.
+Spawn: forking process 'unzip'
+Spawn: forking process 'unzip'
+Spawn: forking process 'unzip'
+AUTOSTART: Attached file `/mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip' as a disk image.
+AUTOSTART: mounted image is type: 1541, not changing drive.
+Spawn: forking process 'unzip'
+Spawn: forking process 'unzip'
+Spawn: forking process 'unzip'
+AUTOSTART: Resetting drive 8
+AUTOSTART: Resetting the machine to autostart '*'
+VIC-II: VSP Bug: safe channels are: 023. Emulation of memory corruption is disabled.
+AUTOSTART: Turning Warp mode on.
+AUTOSTART: `/mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip' recognized as disk image.
+Main CPU: RESET.
+Sound: Opened device `pulse', speed 48000Hz, fragment size 2.67ms, buffer size 32.00ms
+Sound: reSID: MOS8580, filter on, sampling rate 48000Hz - resampling, pass to 21600Hz
+VSync: Sync reset
+Unit 8: RESET.
+AUTOSTART: Loading program '*'
+AUTOSTART: Entered ROM at $e5d4
+AUTOSTART: Searching for ...
+AUTOSTART: Loading
+AUTOSTART: Entered ROM at $ea21
+
+Configure Flags:
+--prefix=/app --enable-native-gtk3ui --enable-external-ffmpeg --disable-pdf-docs --without-oss
+
+Resources with non default values:
+ConfirmOnExit=0
+Window0Height=1080
+Window0Width=1920
+Window0Xpos=0
+Window0Ypos=0
+VICIIFullscreen=1
+HotkeyFile="hotkeys.vhk"
+
+reconstructed commandline options (might be incomplete):
+-default +confirmonexit -windowxpos "0" -windowypos "0" -windowwidth "1920" -windowheight "1080" -VICIIfull -hotkeyfile "hotkeys.vhk"
+
+VIC-II: VSP Bug: safe channels are: 12357. Emulation of memory corruption is disabled.
+Executing: ['flatpak', 'run', '--file-forwarding', '--env=XDG_CONFIG_HOME=/home/mini/MAMEly/platforms/C64/mamely-vice-config', 'net.sf.VICE', '-VICIIfull', '+confirmonexit', '-autostart', '@@', '/mnt/nfs/8TB/platforms/c64/roms/Paradroid.zip', '@@']
+Loading SDL sound with pulseaudio driver...
+Starting FCEUX 2.6.5...
+NTSC mode set
+NTSC mode set
+Loading /mnt/nfs/8TB/platforms/nes/roms/10-Yard Fight (J) [o1].nes...
+
+ PRG ROM: 2 x 16KiB = 32 KiB
+ CHR ROM: 1 x  8KiB = 8 KiB
+ ROM CRC32: 0x917c55d8
+ ROM MD5:  0x33a46775c9d76149b7623a43b60be9db
+ Mapper #: 0
+ Mapper name: NROM
+ Mirroring: Vertical
+ Battery-backed: No
+ Trained: No
+
+Power on
+No Debug Windows Open: Skipping loading of breakpoint data
+Initializing video... Video Mode: 256 x 224 x 32 bpp full screen
+NTSC mode set
+NTSC mode set
+Running on Platform: xcb
+Emulator Start
+Warning: Emulator Thread Failed to Acquire Mutex - GUI has Lock
+GL Version: 4.6 (Compatibility Profile) Mesa 25.2.8-0ubuntu0.24.04.2 
+Emulator Exit
+Executing: ['fceux', '--fullscreen', '1', '/mnt/nfs/8TB/platforms/nes/roms/10-Yard Fight (J) [o1].nes']
+Loading SDL sound with pulseaudio driver...
+Starting FCEUX 2.6.5...
+NTSC mode set
+NTSC mode set
+Loading /mnt/nfs/8TB/platforms/nes/roms/10-Yard Fight (J) [o1].nes...
+
+ PRG ROM: 2 x 16KiB = 32 KiB
+ CHR ROM: 1 x  8KiB = 8 KiB
+ ROM CRC32: 0x917c55d8
+ ROM MD5:  0x33a46775c9d76149b7623a43b60be9db
+ Mapper #: 0
+ Mapper name: NROM
+ Mirroring: Vertical
+ Battery-backed: No
+ Trained: No
+
+Power on
+No Debug Windows Open: Skipping loading of breakpoint data
+Initializing video... Video Mode: 256 x 224 x 32 bpp full screen
+NTSC mode set
+NTSC mode set
+Running on Platform: xcb
+Emulator Start
+Warning: Emulator Thread Failed to Acquire Mutex - GUI has Lock
+GL Version: 4.6 (Compatibility Profile) Mesa 25.2.8-0ubuntu0.24.04.2 
+Emulator Exit
+Executing: ['fceux', '--fullscreen', '1', '/mnt/nfs/8TB/platforms/nes/roms/10-Yard Fight (J) [o1].nes']
+Loading SDL sound with pulseaudio driver...
+Starting FCEUX 2.6.5...
+NTSC mode set
+NTSC mode set
+Loading /mnt/nfs/8TB/platforms/nes/roms/10-Yard Fight (J) [o1].nes...
+
+ PRG ROM: 2 x 16KiB = 32 KiB
+ CHR ROM: 1 x  8KiB = 8 KiB
+ ROM CRC32: 0x917c55d8
+ ROM MD5:  0x33a46775c9d76149b7623a43b60be9db
+ Mapper #: 0
+ Mapper name: NROM
+ Mirroring: Vertical
+ Battery-backed: No
+ Trained: No
+
+Power on
+No Debug Windows Open: Skipping loading of breakpoint data
+Initializing video... Video Mode: 256 x 224 x 32 bpp full screen
+NTSC mode set
+NTSC mode set
+Running on Platform: xcb
+Emulator Start
+Warning: Emulator Thread Failed to Acquire Mutex - GUI has Lock
+GL Version: 4.6 (Compatibility Profile) Mesa 25.2.8-0ubuntu0.24.04.2 
+Emulator Exit
+Executing: ['fceux', '--fullscreen', '1', '/mnt/nfs/8TB/platforms/nes/roms/10-Yard Fight (J) [o1].nes']
+Loading SDL sound with pulseaudio driver...
+Starting FCEUX 2.6.5...
+NTSC mode set
+NTSC mode set
+Loading /mnt/nfs/8TB/platforms/nes/roms/10-Yard Fight (J) [o1].nes...
+
+ PRG ROM: 2 x 16KiB = 32 KiB
+ CHR ROM: 1 x  8KiB = 8 KiB
+ ROM CRC32: 0x917c55d8
+ ROM MD5:  0x33a46775c9d76149b7623a43b60be9db
+ Mapper #: 0
+ Mapper name: NROM
+ Mirroring: Vertical
+ Battery-backed: No
+ Trained: No
+
+Power on
+No Debug Windows Open: Skipping loading of breakpoint data
+Initializing video... Video Mode: 256 x 224 x 32 bpp full screen
+NTSC mode set
+NTSC mode set
+Running on Platform: xcb
+Emulator Start
+Warning: Emulator Thread Failed to Acquire Mutex - GUI has Lock
+GL Version: 4.6 (Compatibility Profile) Mesa 25.2.8-0ubuntu0.24.04.2 
+Emulator Exit
+Executing: ['fceux', '--fullscreen', '1', '/mnt/nfs/8TB/platforms/nes/roms/10-Yard Fight (J) [o1].nes']
