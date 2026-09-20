@@ -5,6 +5,7 @@ This script launches the refactored main application.
 """
 import sys
 import os
+from mamely_log import setup_logging, get_logger
 
 # Ensure the current directory is in python path
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -25,6 +26,9 @@ def _config_file_from_args(argv):
 
 
 if __name__ == "__main__":
+    setup_logging(current_dir)
+    log = get_logger("boot")
+
     if "--config-map" in sys.argv:
         from diagnostics import CONFIG_MAP
         print(CONFIG_MAP.strip())
@@ -41,15 +45,13 @@ if __name__ == "__main__":
     try:
         from main import MAMElyApp
     except ImportError as e:
-        print(f"Error starting MAMEly: {e}")
+        log.error("Error starting MAMEly: %s", e)
         sys.exit(1)
 
     app = MAMElyApp()
     try:
         app.run()
     except KeyboardInterrupt:
-        pass
-    except Exception as e:
-        import traceback
-        print(f"Application crashed: {e}")
-        traceback.print_exc()
+        log.info("interrupted")
+    except Exception:
+        log.exception("Application crashed")

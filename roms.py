@@ -2,6 +2,9 @@ import os
 import sqlite3
 import datetime
 import operator
+from mamely_log import get_logger
+
+log = get_logger("roms")
 
 class Rom:
     def __init__(self, name, description, genre="General", rating="General",
@@ -67,14 +70,14 @@ class RomManager:
                     
                     if src_xml:
                         self._migrate_xml_to_sqlite(src_xml, conn)
-        except Exception as e:
-            print(f"Error initializing SQLite database {self.db_path}: {e}")
+        except Exception:
+            log.exception("error initializing SQLite database path=%s", self.db_path)
 
     def _migrate_xml_to_sqlite(self, xml_path, conn):
         """Helper to migrate legacy XML file to SQLite database."""
         try:
             import xml.etree.ElementTree as ET
-            print(f"Auto-migrating legacy XML {xml_path} to SQLite...")
+            log.info("auto-migrating legacy XML path=%s", xml_path)
             
             # Check for companion txt files to ensure 100% data preservation
             fav_set = set()
@@ -131,9 +134,9 @@ class RomManager:
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, rows)
             conn.commit()
-            print(f"Auto-migrated {len(rows)} games into {self.db_path}")
-        except Exception as e:
-            print(f"Failed to auto-migrate XML to SQLite: {e}")
+            log.info("auto-migrated games=%d db=%s", len(rows), self.db_path)
+        except Exception:
+            log.exception("failed to auto-migrate XML path=%s", xml_path)
 
     def load_skips_and_flags(self):
         """Load skip lists and run flags from files."""
@@ -228,8 +231,8 @@ class RomManager:
                     if callback_progress and total_nodes > 0:
                         callback_progress((i + 1) / total_nodes * 100)
 
-        except Exception as e:
-            print(f"Error loading ROMs from SQLite database {self.db_path}: {e}")
+        except Exception:
+            log.exception("error loading ROMs from SQLite database path=%s", self.db_path)
 
         # Directory Comparison Logic
         if self.config.compare_xml_to_roms:
@@ -247,8 +250,13 @@ class RomManager:
                                 self.roms[base_name] = db_roms[base_name]
                             elif f in db_roms:
                                 self.roms[f] = db_roms[f]
+            log.info(
+                "roms filtered to directory kept=%d db=%d dir=%s",
+                len(self.roms), len(db_roms), self.config.rom_directory,
+            )
         else:
             self.roms = db_roms
+            log.debug("roms loaded db=%s count=%d genres=%d", self.db_path, len(self.roms), len(self.genres))
 
     def toggle_favorite(self, rom_name):
         """Toggle favorite status in memory and persist immediately to SQLite."""
@@ -260,8 +268,8 @@ class RomManager:
                     conn.execute("UPDATE games SET favorite = ? WHERE name = ?", (rom.favorite, rom_name))
                 # Sync text list for companion tooling
                 self._sync_txt_lists()
-            except Exception as e:
-                print(f"Error updating favorite in database: {e}")
+            except Exception:
+                log.exception("error updating favorite rom=%s", rom_name)
             return rom.favorite == 1
         return False
 
@@ -274,8 +282,8 @@ class RomManager:
                 with sqlite3.connect(self.db_path) as conn:
                     conn.execute("UPDATE games SET ignore = ? WHERE name = ?", (rom.ignore, rom_name))
                 self._sync_txt_lists()
-            except Exception as e:
-                print(f"Error updating ignore in database: {e}")
+            except Exception:
+                log.exception("error updating ignore rom=%s", rom_name)
             return rom.ignore == 1
         return False
 
@@ -292,8 +300,8 @@ class RomManager:
                         "UPDATE games SET play_count = play_count + 1, last_played = ? WHERE name = ?",
                         (now, rom_name)
                     )
-            except Exception as e:
-                print(f"Error recording play stats for {rom_name}: {e}")
+            except Exception:
+                log.exception("error recording play stats rom=%s", rom_name)
 
     def _sync_txt_lists(self):
         """Write out companion favorites.txt and ignore.txt lists."""
@@ -307,7 +315,7 @@ class RomManager:
                     if rom.ignore == 1:
                         f_ign.write(f"{rom.name}\n")
         except Exception:
-            pass
+            log.exception("error syncing favorites/ignore text lists")
 
     def get_genre_list(self):
         """Return sorted list of genres including dynamic playlist categories."""

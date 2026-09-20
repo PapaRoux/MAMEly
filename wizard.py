@@ -6,6 +6,9 @@ import pygame
 import xml.etree.ElementTree as ET
 from config import PlatformConfig
 from diagnostics import check_platform, check_all, has_errors
+from mamely_log import get_logger
+
+log = get_logger("wizard")
 
 # Harmonious design color system
 BG_COLOR = (24, 24, 37)       # Catppuccin Mocha Base
@@ -83,7 +86,7 @@ class SetupWizard:
         return platforms_status
 
     def run(self):
-        """Main loop of the setup wizard."""
+        log.info("wizard start")
         # Make mouse visible during setup for easier debugging/use if needed
         pygame.mouse.set_visible(True)
         
@@ -219,9 +222,11 @@ class SetupWizard:
             self.clock.tick(60)
             
         pygame.mouse.set_visible(False)
+        log.info("wizard end")
 
     def configure_platform(self, platform_def):
         """Platform specific sub-configuration wizard screen."""
+        log.info("wizard configure platform=%s", platform_def.name)
         p_path = os.path.join(self.base_path, "platforms", platform_def.folder)
         p_conf = PlatformConfig(p_path, platform_def.config_file)
         
@@ -270,6 +275,7 @@ class SetupWizard:
             elif action == self.input.ACTION_DOWN:
                 selected_idx = (selected_idx + 1) % len(menu_items)
             elif action == self.input.ACTION_EXIT:
+                log.info("wizard cancel platform=%s", platform_def.name)
                 running = False # discard and exit
             elif action == self.input.ACTION_RUN:
                 item = menu_items[selected_idx]
@@ -298,8 +304,13 @@ class SetupWizard:
                     p_conf.rom_extension = config_data["rom_extension"]
                     p_conf.rom_snap_directory = config_data["rom_snap_directory"]
                     p_conf.save_config()
+                    log.info(
+                        "wizard save platform=%s exe=%s roms=%s",
+                        platform_def.name, p_conf.emulator_executable, p_conf.rom_directory,
+                    )
                     running = False
                 elif item.get("action") == "cancel":
+                    log.info("wizard cancel platform=%s", platform_def.name)
                     running = False
             
             # Mouse input
@@ -339,8 +350,13 @@ class SetupWizard:
                                 p_conf.rom_extension = config_data["rom_extension"]
                                 p_conf.rom_snap_directory = config_data["rom_snap_directory"]
                                 p_conf.save_config()
+                                log.info(
+                                    "wizard save platform=%s exe=%s roms=%s",
+                                    platform_def.name, p_conf.emulator_executable, p_conf.rom_directory,
+                                )
                                 running = False
                             elif menu_item.get("action") == "cancel":
+                                log.info("wizard cancel platform=%s", platform_def.name)
                                 running = False
             
             # Draw Platform Config Screen
@@ -643,6 +659,7 @@ class SetupWizard:
     def generate_db(self, platform_path, rom_dir, rom_ext):
         """Scans ROMs folder and compiles new MAMEly.db database."""
         if not rom_dir or not os.path.exists(rom_dir):
+            log.warning("wizard generate_db invalid rom dir=%s", rom_dir)
             self.show_error_modal("ROM Directory not valid or doesn't exist.")
             return
             
@@ -662,10 +679,12 @@ class SetupWizard:
                 if entry.is_file() and (not rom_ext or entry.name.endswith(rom_ext)):
                     rom_files.append(entry.name)
         except Exception as e:
+            log.exception("wizard generate_db scan failed dir=%s", rom_dir)
             self.show_error_modal(f"Error scanning folder: {e}")
             return
             
         if not rom_files:
+            log.warning("wizard generate_db no files ext=%s dir=%s", rom_ext, rom_dir)
             self.show_error_modal(f"No files matching '{rom_ext}' extension found.")
             return
             
@@ -717,9 +736,10 @@ class SetupWizard:
             conn.commit()
             conn.close()
             
-            # Show success modal
+            log.info("wizard generate_db path=%s games=%d", db_path, len(rom_files))
             self.show_success_modal(f"Generated MAMEly.db successfully! ({len(rom_files)} games)")
         except Exception as e:
+            log.exception("wizard generate_db write failed path=%s", db_path)
             self.show_error_modal(f"Failed to write database: {e}")
 
     def generate_xml(self, platform_path, rom_dir, rom_ext):

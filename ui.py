@@ -3,6 +3,9 @@ import os
 import math
 from version import __version__
 from config import is_none_token, is_off_token, is_procedural_show, is_procedural_decor_show, resolve_sprite_path
+from mamely_log import get_logger
+
+log = get_logger("ui")
 
 NAV_KEY_ITEMS = [
     ("UP / DN:", "Scroll"),
@@ -235,7 +238,7 @@ class UIManager:
                         )
                     loaded = True
                 except Exception as e:
-                    print(f"Failed to load background: {full_path}: {e}")
+                    log.warning("failed to load background path=%s: %s", full_path, e)
 
         if not loaded:
             self.background = self.generate_procedural_retrocade(platform_name)
@@ -256,7 +259,7 @@ class UIManager:
             path = resolve_sprite_path(filename, platform_path)
             if not path:
                 if filename:
-                    print(f"Sprite not found: {filename}")
+                    log.warning("sprite not found file=%s", filename)
                 continue
             try:
                 if path in self.image_cache:
@@ -277,7 +280,7 @@ class UIManager:
                     "show": True,
                 })
             except Exception as e:
-                print(f"Failed to load sprite {path}: {e}")
+                log.warning("failed to load sprite path=%s: %s", path, e)
 
     def draw_sprites(self):
         """Blit active skin sprites over the background."""
@@ -452,9 +455,12 @@ class UIManager:
                 try:
                     self.video_cap = cv2.VideoCapture(video_path)
                     if not self.video_cap.isOpened():
+                        log.debug("video snap not opened path=%s", video_path)
                         self.video_cap = None
+                    else:
+                        log.debug("video snap start path=%s", video_path)
                 except Exception as e:
-                    print(f"Error opening video: {e}")
+                    log.warning("error opening video path=%s: %s", video_path, e)
                     self.video_cap = None
 
     def draw_video_frame(self, x1, y1, x2, y2, paused=False):
@@ -496,7 +502,7 @@ class UIManager:
                 self.screen.blit(scaled_img, (x_center - new_w // 2, y_center - new_h // 2))
                 return True
         except Exception as e:
-            print(f"Error rendering video frame: {e}")
+            log.warning("error rendering video frame: %s", e)
             self.close_video()
             
         return False

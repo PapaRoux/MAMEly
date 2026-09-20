@@ -1,5 +1,8 @@
 import os
 import xml.etree.ElementTree as ET
+from mamely_log import get_logger
+
+log = get_logger("config")
 
 def hex_to_color(color_hex):
     """Convert hex string (e.g., 'RRGGBB') to RGB tuple."""
@@ -176,9 +179,9 @@ class Config:
 
     def load_main_config(self):
         config_path = os.path.join(self.base_path, self.config_file)
-        print(f"Loading main config from: {config_path}")
+        log.debug("loading main config path=%s", config_path)
         if not os.path.exists(config_path):
-            print(f"Config file not found: {config_path}")
+            log.warning("main config not found path=%s", config_path)
             self.generate_default_config()
             if not os.path.exists(config_path):
                 return
@@ -208,9 +211,13 @@ class Config:
                             
                     if name and folder and config and skin:
                         self.platforms.append(Platform(name, folder, config, skin))
-                        
+
+            log.info(
+                "main config loaded path=%s size=%dx%d platforms=%d",
+                config_path, self.screen_width, self.screen_height, len(self.platforms),
+            )
         except ET.ParseError as e:
-            print(f"Error parsing config.xml: {e}")
+            log.error("error parsing config.xml: %s", e)
 
     def generate_default_config(self):
         config_path = os.path.join(self.base_path, self.config_file)
@@ -275,7 +282,7 @@ class Config:
                 f.write(f'        <skin>{skin_f}</skin>\n')
                 f.write('    </platform>\n')
             f.write('</platforms>\n')
-        print(f"Generated default main config at: {config_path}")
+        log.info("generated default main config path=%s platforms=%d", config_path, len(found_platforms))
 
     def save_main_config(self):
         config_path = os.path.join(self.base_path, self.config_file)
@@ -291,9 +298,9 @@ class Config:
                     f.write(f'        <skin>{p.skin_file}</skin>\n')
                     f.write('    </platform>\n')
                 f.write('</platforms>\n')
-            print(f"Saved main config to: {config_path}")
+            log.info("saved main config path=%s", config_path)
         except Exception as e:
-            print(f"Error saving main config: {e}")
+            log.error("error saving main config: %s", e)
 
 
 class PlatformConfig:
@@ -332,9 +339,9 @@ class PlatformConfig:
                     full_path = alt_path
                     break
 
-        print(f"Loading platform config from: {full_path}")
+        log.debug("loading platform config path=%s", full_path)
         if not os.path.exists(full_path):
-            print(f"Platform config not found: {full_path}")
+            log.warning("platform config not found path=%s", full_path)
             return
 
         try:
@@ -390,9 +397,13 @@ class PlatformConfig:
                 self.rom_video_directory = os.path.join(self.emulator_base_path, self.rom_video_directory)
             if self.rom_directory and not self.rom_directory.startswith("/"):
                 self.rom_directory = os.path.join(self.emulator_base_path, self.rom_directory)
-                            
+
+            log.debug(
+                "platform config loaded path=%s exe=%s roms=%s",
+                full_path, self.emulator_executable, self.rom_directory,
+            )
         except Exception as e:
-            print(f"Error reading platform config: {e}")
+            log.error("error reading platform config path=%s: %s", full_path, e)
 
     def save_config(self):
         full_path = os.path.join(self.platform_path, self.config_file)
@@ -462,7 +473,7 @@ class PlatformConfig:
 
         with open(full_path, "w") as f:
             f.writelines(lines)
-        print(f"Saved platform config to: {full_path}")
+        log.info("saved platform config path=%s", full_path)
 
 DEFAULT_SKIN_COLORS = {
     "defaultFontForegroundColor": (255, 255, 255),
@@ -689,7 +700,7 @@ class SkinConfig:
 
         if not is_none_or_fallback:
             full_path = os.path.join(self.platform_path, self.skin_file)
-            print(f"Loading skin config from: {full_path}")
+            log.debug("loading skin config path=%s", full_path)
             if os.path.exists(full_path):
                 try:
                     with open(full_path, "r") as f:
@@ -720,9 +731,9 @@ class SkinConfig:
                                 else:
                                     self.config[var] = val
                 except Exception as e:
-                    print(f"Error reading skin config: {e}")
+                    log.error("error reading skin config path=%s: %s", full_path, e)
             else:
-                print(f"Skin file not found: {full_path}, using procedural retrocade fallback")
+                log.warning("skin file not found path=%s; using procedural fallback", full_path)
                 is_none_or_fallback = True
 
         if is_none_or_fallback or not self.config:
@@ -811,7 +822,7 @@ class SkinConfig:
              self.config["romCountYCenter"] = y1 + (y2 - y1) // 2
              
         except Exception as e:
-            print(f"Error calculating derived skin values: {e}")
+            log.error("error calculating derived skin values: %s", e)
 
     def get(self, key, default=None):
         if key in self.config:

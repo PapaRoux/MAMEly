@@ -16,19 +16,22 @@ from ui import UIManager
 from input import InputManager
 from version import __version__
 from diagnostics import build_osd_lines, check_platform, startup_message, check_all, has_errors
+from mamely_log import setup_logging, get_logger
+
+log = get_logger("main")
 
 class MAMElyApp:
     def __init__(self):
-        # Initialize Pygame
-        pygame.init()
-        pygame.font.init()
-        
-        print(f"MAMEly v{__version__} Starting...")
-
-        # Base Path
         self.base_path = os.path.dirname(os.path.abspath(__file__))
         os.chdir(self.base_path)
-        
+        setup_logging(self.base_path)
+        self._started_at = time.time()
+
+        pygame.init()
+        pygame.font.init()
+
+        log.info("MAMEly v%s starting pid=%s", __version__, os.getpid())
+
         # Parse Args
         self.config_file = "config.xml"
         self.launch_wizard = False
@@ -39,6 +42,8 @@ class MAMElyApp:
                 self.config_file = sys.argv[i + 1]
             elif arg == "--wizard":
                 self.launch_wizard = True
+
+        log.info("config file=%s wizard=%s", self.config_file, self.launch_wizard)
 
         # Load Main Config
         self.config = Config(self.base_path, self.config_file)
@@ -91,14 +96,14 @@ class MAMElyApp:
 
     def load_platform(self):
         if not self.config.platforms:
-            print("No platforms definitions found.")
+            log.error("no platform definitions found")
             self.running = False
             return
 
         p_def = self.config.platforms[self.platform_idx]
         platform_path = os.path.join(self.base_path, "platforms", p_def.folder)
-        
-        print(f"Loading platform: {p_def.name}")
+
+        log.info("platform load name=%s folder=%s skin=%s", p_def.name, p_def.folder, p_def.skin_file)
         
         # Load Configs
         p_conf = PlatformConfig(platform_path, p_def.config_file)
@@ -134,6 +139,13 @@ class MAMElyApp:
                  self.current_genre_idx = 0
         
         self.update_view_lists()
+        genre = self.genre_list[self.current_genre_idx] if self.genre_list else "-"
+        favs = sum(1 for r in self.rom_manager.roms.values() if r.favorite)
+        ignored = sum(1 for r in self.rom_manager.roms.values() if r.ignore)
+        log.info(
+            "platform ready name=%s roms=%d favorites=%d ignored=%d genre=%s listed=%d",
+            p_def.name, len(self.rom_manager.roms), favs, ignored, genre, len(self.rom_list),
+        )
         self._report_platform_diagnostics(p_def)
 
     def _current_platform_def(self):
@@ -147,7 +159,7 @@ class MAMElyApp:
         if not is_none:
             full_path = os.path.join(platform_path, skin_filename)
             if not os.path.exists(full_path):
-                print(f"Skin file not found: {full_path}")
+                log.warning("skin file not found path=%s", full_path)
                 return False
 
         p_def.skin_file = skin_filename
@@ -161,6 +173,7 @@ class MAMElyApp:
         
         if save:
             self.config.save_main_config()
+        log.info("skin switch file=%s save=%s", skin_filename, save)
         return True
 
     def open_skin_picker(self):
@@ -183,6 +196,7 @@ class MAMElyApp:
             self.skin_picker_idx = 0
             
         self.skin_picker_active = True
+        log.info("skin picker open current=%s count=%d", self.skin_picker_initial_skin, len(self.skin_picker_items))
         self.confirm_action = None
         self.confirm_message = ""
         self.search_active = False
@@ -205,8 +219,12 @@ class MAMElyApp:
         issues = check_platform(self.base_path, platform_def)
         self.platform_issues = issues
         for issue in issues:
-            if issue.level in ("error", "warn"):
-                print(issue.format())
+            if issue.level == "error":
+                log.error("%s", issue.format())
+            elif issue.level == "warn":
+                log.warning("%s", issue.format())
+            else:
+                log.debug("%s", issue.format())
 
         msg = startup_message(issues)
         if msg:
@@ -251,6 +269,11 @@ class MAMElyApp:
             duration if duration is not None else self.message_duration
         )
 
+    def _selected_rom(self):
+        if self.rom_list and 0 <= self.selected_rom_idx < len(self.rom_list):
+            return self.rom_list[self.selected_rom_idx]
+        return None
+
     def _resolve_emulator_flags(self, flags_str):
         if not flags_str:
             return []
@@ -287,10 +310,12 @@ class MAMElyApp:
             j = pygame.joystick.Joystick(i)
             j.init()
             self.input.joysticks.append(j)
+        log.debug("joysticks re-init count=%d", len(self.input.joysticks))
 
     def run_rom(self):
-        if not self.rom_list: return
-        
+        if not self.rom_list:
+            return
+
         rom = self.rom_list[self.selected_rom_idx]
         self.rom_manager.record_play(rom.name)
         rom_file = rom.name
@@ -324,12 +349,28 @@ class MAMElyApp:
                         self._inject_flatpak_env(cmd, {"XDG_CONFIG_HOME": os.path.abspath(config_home)})
                         break
 
-        print(f"Executing: {' '.join(shlex.quote(arg) for arg in cmd)}")
+        quoted = " ".join(shlex.quote(arg) for arg in cmd)
+        platform_name = self._current_platform_def().name
+        log.info(
+            "launch start platform=%s rom=%s desc=%r plays=%s cmd=%s",
+            platform_name, rom.name, rom.description, rom.play_count, quoted,
+        )
         self._release_joysticks()
+        rc = None
+        t0 = time.time()
         try:
             with open("debug.log", "a") as f:
                 f.write(f"Executing: {cmd}\n")
-                subprocess.run(cmd, env=env, stdout=f, stderr=subprocess.STDOUT)
+                result = subprocess.run(cmd, env=env, stdout=f, stderr=subprocess.STDOUT)
+                rc = result.returncode
+        except Exception:
+            log.exception("launch failed rom=%s cmd=%s", rom.name, quoted)
+        else:
+            elapsed = time.time() - t0
+            if rc:
+                log.warning("launch end rom=%s rc=%s elapsed=%.1fs", rom.name, rc, elapsed)
+            else:
+                log.info("launch end rom=%s rc=%s elapsed=%.1fs", rom.name, rc, elapsed)
         finally:
             self._init_joysticks()
             pygame.event.clear()
@@ -338,14 +379,21 @@ class MAMElyApp:
         if self.search_active:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
+                    log.info("quit during search")
                     self.running = False
                 elif event.type == pygame.KEYDOWN:
                     self.last_interaction_time = time.time()  # Reset idle timer!
                     if event.key == pygame.K_ESCAPE:
+                        log.info("search cancel query=%r matches=%d", self.search_query, len(self.rom_list))
                         self.search_active = False
                         self.search_query = ""
                         self.update_view_lists()
                     elif event.key == pygame.K_RETURN:
+                        rom = self._selected_rom()
+                        log.info(
+                            "search apply query=%r matches=%d selected=%s",
+                            self.search_query, len(self.rom_list), rom.name if rom else "-",
+                        )
                         self.search_active = False
                     elif event.key == pygame.K_BACKSPACE:
                         self.search_query = self.search_query[:-1]
@@ -370,10 +418,12 @@ class MAMElyApp:
 
         if self.show_info_osd:
             if action == self.input.ACTION_HELP:
+                log.info("osd close")
                 self.show_info_osd = False
                 pygame.event.clear()
                 return
             if action == self.input.ACTION_EXIT:
+                log.info("osd close")
                 self.show_info_osd = False
                 pygame.event.clear()
                 return
@@ -388,6 +438,7 @@ class MAMElyApp:
 
         if self.skin_picker_active:
             if action in (self.input.ACTION_SKIN, self.input.ACTION_EXIT):
+                log.info("skin picker cancel restored=%s", self.skin_picker_initial_skin)
                 self.switch_skin(self.skin_picker_initial_skin, save=False)
                 self.skin_picker_active = False
                 pygame.event.clear()
@@ -415,12 +466,14 @@ class MAMElyApp:
         # Confirmation Overlay Logic
         if self.confirm_action:
             if action == self.input.ACTION_RUN:
+                log.info("confirm yes message=%r", self.confirm_message)
                 self.confirm_action()
                 self.confirm_action = None
                 self.confirm_message = ""
                 # Prevent repeat action immediately
                 pygame.event.clear()
             elif action == self.input.ACTION_RANDOMIZE:
+                log.info("confirm redirected to randomizer message=%r", self.confirm_message)
                 self.confirm_action = None
                 self.confirm_message = ""
                 self.run_randomizer()
@@ -431,16 +484,18 @@ class MAMElyApp:
                 self.input.ACTION_FAVORITE,
                 self.input.ACTION_IGNORE
             ]:
-                # Cancel
+                log.info("confirm cancel message=%r", self.confirm_message)
                 self.confirm_action = None
                 self.confirm_message = ""
             return
         
         if action == self.input.ACTION_EXIT:
             if self.search_query:
+                log.info("search clear query=%r", self.search_query)
                 self.search_query = ""
                 self.update_view_lists()
             else:
+                log.info("quit requested")
                 self.running = False
             
         elif action == self.input.ACTION_PLATFORM:
@@ -450,6 +505,8 @@ class MAMElyApp:
         elif action == self.input.ACTION_GENRE:
             self.current_genre_idx = (self.current_genre_idx + 1) % len(self.genre_list)
             self.update_view_lists()
+            genre = self.genre_list[self.current_genre_idx] if self.genre_list else "-"
+            log.info("genre %s listed=%d", genre, len(self.rom_list))
             
         elif action == self.input.ACTION_UP:
             if self.rom_list:
@@ -481,12 +538,14 @@ class MAMElyApp:
                 def do_fav():
                     is_fav = self.rom_manager.toggle_favorite(rom.name)
                     state = "added to" if is_fav else "removed from"
+                    log.info("favorite rom=%s %s favorites", rom.name, state)
                     self.set_message(f"{rom.name} {state} Favorites")
                     if self.genre_list[self.current_genre_idx] == "Favorites":
                         self.update_view_lists(reset_selection=False)
                 
                 self.confirm_action = do_fav
                 self.confirm_message = confirm_str
+                log.info("confirm ask %s", confirm_str)
 
         elif action == self.input.ACTION_IGNORE:
             if self.rom_list:
@@ -500,6 +559,7 @@ class MAMElyApp:
                 def do_ignore():
                     is_ign = self.rom_manager.toggle_ignore(rom.name)
                     state = "added to" if is_ign else "removed from"
+                    log.info("ignore rom=%s %s ignore list", rom.name, state)
                     self.set_message(f"{rom.name} {state} Ignore List")
                     # Reload list if we are in Ignore view
                     if self.genre_list[self.current_genre_idx] == "Ignore":
@@ -507,6 +567,7 @@ class MAMElyApp:
                         
                 self.confirm_action = do_ignore
                 self.confirm_message = confirm_str
+                log.info("confirm ask %s", confirm_str)
 
         elif action == self.input.ACTION_RUN:
             self.run_rom()
@@ -516,21 +577,25 @@ class MAMElyApp:
 
         elif action == self.input.ACTION_HELP:
             self._toggle_info_osd()
+            log.info("osd %s", "open" if self.show_info_osd else "close")
 
         elif action == self.input.ACTION_SKIN:
             self.open_skin_picker()
 
         elif action == self.input.ACTION_SEARCH:
+            log.info("search start")
             self.search_active = True
             self.search_query = ""
             self.update_view_lists()
 
         elif action == self.input.ACTION_WIZARD:
+            log.info("wizard requested")
             self.run_setup_wizard()
 
         elif action == self.input.ACTION_PAUSE:
             if self.ui.video_cap:
                 self.video_paused = not self.video_paused
+                log.info("video %s rom=%s", "paused" if self.video_paused else "playing", self._selected_rom().name if self._selected_rom() else "-")
                 self.set_message("Video Paused" if self.video_paused else "Video Playing", duration=1)
 
     def run_randomizer(self):
@@ -564,7 +629,10 @@ class MAMElyApp:
         cancelled = False
         last_tick_idx = start_idx
 
-        print(f"Randomizer: {total_rows} reel steps → [{target_idx}] {self.rom_list[target_idx].name}")
+        log.info(
+            "randomizer start listed=%d from=%s target=%s steps=%d",
+            n, self.rom_list[start_idx].name, self.rom_list[target_idx].name, total_rows,
+        )
 
         def ease_out_quint(t):
             u = 1.0 - t
@@ -602,6 +670,7 @@ class MAMElyApp:
 
         if cancelled or not self.running:
             self.randomizing = False
+            log.info("randomizer cancelled")
             self.set_message("Randomizer cancelled", duration=1)
             pygame.event.clear()
             self.input.current_action = self.input.ACTION_NONE
@@ -610,7 +679,7 @@ class MAMElyApp:
         # Snap exactly onto the winner
         self.selected_rom_idx = target_idx
         winner = self.rom_list[target_idx]
-        print(f"Randomizer landed on: {winner.name} — launching")
+        log.info("randomizer land rom=%s desc=%r launching", winner.name, winner.description)
 
         # --- WIN CELEBRATION ---
         win_t0 = time.time()
@@ -860,13 +929,13 @@ class MAMElyApp:
         click ends attract mode.
         """
         import cv2
-        print(f"Starting attract mode for: {video_path}")
+        log.info("attract start path=%s", video_path)
 
         self.ui.close_video()
 
         cap = cv2.VideoCapture(video_path)
         if not cap.isOpened():
-            print(f"Failed to open attract video: {video_path}")
+            log.warning("attract failed to open path=%s", video_path)
             self.last_interaction_time = time.time()
             return
 
@@ -886,11 +955,13 @@ class MAMElyApp:
                 video_path,
             ])
         except Exception as e:
-            print(f"Attract audio unavailable (ffplay): {e}")
+            log.warning("attract audio unavailable (ffplay): %s", e)
 
         screen_w = self.ui.screen_width
         screen_h = self.ui.screen_height
         next_frame_at = time.time()
+        attract_t0 = time.time()
+        reason = "ended"
         running_attract = True
         pygame.event.clear()  # Drop queued input so attract doesn't exit immediately
 
@@ -899,9 +970,11 @@ class MAMElyApp:
                 if event.type == pygame.QUIT:
                     self.running = False
                     running_attract = False
+                    reason = "quit"
                     break
                 if event.type in (pygame.KEYDOWN, pygame.JOYBUTTONDOWN, pygame.MOUSEBUTTONDOWN):
                     running_attract = False
+                    reason = "interrupt"
                     break
 
             if not running_attract:
@@ -928,7 +1001,8 @@ class MAMElyApp:
                 self.ui.screen.blit(scaled, ((screen_w - new_w) // 2, (screen_h - new_h) // 2))
                 pygame.display.flip()
             except Exception as e:
-                print(f"Attract frame error: {e}")
+                log.warning("attract frame error: %s", e)
+                reason = "error"
                 break
 
             next_frame_at = now + frame_delay
@@ -952,7 +1026,7 @@ class MAMElyApp:
         self.last_interaction_time = time.time() - 5.0
         self.video_paused = False
         pygame.event.clear()
-        print("Attract mode ended.")
+        log.info("attract end reason=%s elapsed=%.1fs path=%s", reason, time.time() - attract_t0, video_path)
 
     def run_setup_wizard(self):
         from wizard import SetupWizard
@@ -990,6 +1064,10 @@ class MAMElyApp:
             all_broken = True
 
         if self.launch_wizard or all_broken:
+            log.info(
+                "startup wizard launch_wizard=%s all_broken=%s platforms=%d",
+                self.launch_wizard, all_broken, len(self.config.platforms),
+            )
             self.run_setup_wizard()
         else:
             self.load_platform()
@@ -998,6 +1076,7 @@ class MAMElyApp:
             self.handle_input()
             self.draw()
         
+        log.info("shutdown elapsed=%.0fs", time.time() - self._started_at)
         if self.ui:
             self.ui.close_video()
         pygame.quit()

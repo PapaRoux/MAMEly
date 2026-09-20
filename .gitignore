@@ -34,3 +34,5 @@ config2.xml
 platform_*.txt
 !platform_*.example.txt
 debug.log
+mamely.log
+mamely.log.*

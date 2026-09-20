@@ -32,6 +32,7 @@ MAMEly configuration map
 App entry / launcher
   MAMEly.py                 Start the frontend
   main.py                   Application logic
+  mamely.log                Rotating app event log (debug.log = emulator stdout)
   config.xml                Screen size + platform list (landscape)
   config-vertical.xml       Platform list for portrait layout
 

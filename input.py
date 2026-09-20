@@ -1,5 +1,8 @@
 import pygame
 import time
+from mamely_log import get_logger
+
+log = get_logger("input")
 
 class InputManager:
     def __init__(self):
@@ -31,6 +34,17 @@ class InputManager:
              j = pygame.joystick.Joystick(i)
              j.init()
              self.joysticks.append(j)
+
+        names = []
+        for i, joy in enumerate(self.joysticks):
+            try:
+                names.append(joy.get_name())
+            except Exception:
+                names.append(f"#{i}")
+        if names:
+            log.info("joysticks count=%d names=%s", len(names), ", ".join(names))
+        else:
+            log.info("joysticks count=0")
 
         # Timers for repeat suppression
         self.last_action_time = 0
