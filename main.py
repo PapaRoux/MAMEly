@@ -20,6 +20,33 @@ from mamely_log import setup_logging, get_logger
 
 log = get_logger("main")
 
+SETTINGS_ROWS = [
+    {"section": "Startup"},
+    {
+        "key": "remember_emulator",
+        "label": "Remember emulator",
+        "hint": "On boot, return to the last platform",
+    },
+    {
+        "key": "remember_game",
+        "label": "Remember game",
+        "hint": "On boot, return to the last selected game",
+    },
+    {"section": "Browser"},
+    {
+        "key": "play_demo_video",
+        "label": "Play small demo video",
+        "hint": "Play the preview clip after a few seconds idle",
+    },
+    {
+        "key": "attract_mode",
+        "label": "Attract mode",
+        "hint": "Fullscreen attract video after a long idle",
+    },
+]
+MOUSE_CURSOR_TIMEOUT = 2.0
+SETTINGS_TOGGLE_KEYS = [row["key"] for row in SETTINGS_ROWS if row.get("key")]
+
 class MAMElyApp:
     def __init__(self):
         self.base_path = os.path.dirname(os.path.abspath(__file__))
@@ -94,7 +121,13 @@ class MAMElyApp:
         self.skin_picker_idx = 0
         self.skin_picker_initial_skin = None
 
-    def load_platform(self):
+        # Settings OSD
+        self.show_settings_osd = False
+        self.settings_idx = 0
+        self.settings_hit_rects = []
+        self._mouse_cursor_visible = False
+
+    def load_platform(self, restore_session=False):
         if not self.config.platforms:
             log.error("no platform definitions found")
             self.running = False
@@ -130,15 +163,20 @@ class MAMElyApp:
         self.rom_manager.load_skips_and_flags()
         self.rom_manager.load_roms() # Synchronous for now, could add progress callback
         
-        # Default to Favorites if available
         self.genre_list = self.rom_manager.get_genre_list()
-        if "Favorites" in self.genre_list:
-             try:
-                 self.current_genre_idx = self.genre_list.index("Favorites")
-             except ValueError:
-                 self.current_genre_idx = 0
-        
-        self.update_view_lists()
+        restored = False
+        if restore_session:
+            restored = self._restore_session_selection()
+        if not restored:
+            # Default to Favorites if available
+            if "Favorites" in self.genre_list:
+                try:
+                    self.current_genre_idx = self.genre_list.index("Favorites")
+                except ValueError:
+                    self.current_genre_idx = 0
+            else:
+                self.current_genre_idx = 0
+            self.update_view_lists()
         genre = self.genre_list[self.current_genre_idx] if self.genre_list else "-"
         favs = sum(1 for r in self.rom_manager.roms.values() if r.favorite)
         ignored = sum(1 for r in self.rom_manager.roms.values() if r.ignore)
@@ -201,6 +239,7 @@ class MAMElyApp:
         self.confirm_message = ""
         self.search_active = False
         self.show_info_osd = False
+        self.show_settings_osd = False
 
     def _refresh_info_osd(self):
         p_def = self._current_platform_def()
@@ -210,6 +249,7 @@ class MAMElyApp:
         )
 
     def _toggle_info_osd(self):
+        self.show_settings_osd = False
         self.show_info_osd = not self.show_info_osd
         if self.show_info_osd:
             self.info_osd_scroll = 0
@@ -273,6 +313,154 @@ class MAMElyApp:
         if self.rom_list and 0 <= self.selected_rom_idx < len(self.rom_list):
             return self.rom_list[self.selected_rom_idx]
         return None
+
+    def _save_session(self):
+        if not self.config.platforms:
+            return
+        p_def = self._current_platform_def()
+        rom = self._selected_rom()
+        genre = self.genre_list[self.current_genre_idx] if self.genre_list else ""
+        self.config.session_platform = p_def.name
+        self.config.session_rom = rom.name if rom else ""
+        self.config.session_genre = genre
+        self.config.save_main_config()
+        log.debug(
+            "session saved platform=%s genre=%s rom=%s",
+            self.config.session_platform, self.config.session_genre, self.config.session_rom,
+        )
+
+    def _restore_startup_platform(self):
+        if not self.config.remember_emulator or not self.config.session_platform:
+            return
+        wanted = self.config.session_platform
+        for i, p_def in enumerate(self.config.platforms):
+            if p_def.name == wanted or p_def.folder == wanted:
+                self.platform_idx = i
+                log.info("session restore platform=%s", p_def.name)
+                return
+
+    def _restore_session_selection(self):
+        if not self.config.remember_game:
+            return False
+        genre = self.config.session_genre
+        rom_name = self.config.session_rom
+        if not genre and not rom_name:
+            return False
+
+        if genre and genre in self.genre_list:
+            self.current_genre_idx = self.genre_list.index(genre)
+        elif "Favorites" in self.genre_list:
+            self.current_genre_idx = self.genre_list.index("Favorites")
+        else:
+            self.current_genre_idx = 0
+        self.update_view_lists()
+
+        if rom_name:
+            for i, rom in enumerate(self.rom_list):
+                if rom.name == rom_name:
+                    self.selected_rom_idx = i
+                    log.info("session restore genre=%s rom=%s", self.genre_list[self.current_genre_idx], rom_name)
+                    return True
+            if "All Games" in self.genre_list:
+                self.current_genre_idx = self.genre_list.index("All Games")
+                self.update_view_lists()
+                for i, rom in enumerate(self.rom_list):
+                    if rom.name == rom_name:
+                        self.selected_rom_idx = i
+                        log.info("session restore via All Games rom=%s", rom_name)
+                        return True
+            log.info("session restore missed rom=%s on this platform", rom_name)
+        return True
+
+    def _settings_rows(self):
+        values = {
+            "remember_emulator": self.config.remember_emulator,
+            "remember_game": self.config.remember_game,
+            "play_demo_video": self.config.play_demo_video,
+            "attract_mode": self.config.attract_mode,
+        }
+        rows = []
+        for row in SETTINGS_ROWS:
+            if row.get("section"):
+                rows.append(row)
+            else:
+                item = dict(row)
+                item["value"] = values.get(row["key"], True)
+                rows.append(item)
+        return rows
+
+    def _open_settings_osd(self):
+        if self.skin_picker_active:
+            self.switch_skin(self.skin_picker_initial_skin, save=False)
+            self.skin_picker_active = False
+        self.show_info_osd = False
+        self.search_active = False
+        self.confirm_action = None
+        self.confirm_message = ""
+        self.show_settings_osd = True
+        self.settings_idx = 0
+        pygame.mouse.set_visible(True)
+        self._mouse_cursor_visible = True
+        log.info("settings open")
+
+    def _close_settings_osd(self):
+        if self.show_settings_osd:
+            log.info("settings close")
+        self.show_settings_osd = False
+
+    def _toggle_setting(self, key):
+        if key == "remember_emulator":
+            self.config.remember_emulator = not self.config.remember_emulator
+        elif key == "remember_game":
+            self.config.remember_game = not self.config.remember_game
+        elif key == "play_demo_video":
+            self.config.play_demo_video = not self.config.play_demo_video
+            if not self.config.play_demo_video and self.ui:
+                self.ui.close_video()
+        elif key == "attract_mode":
+            self.config.attract_mode = not self.config.attract_mode
+        else:
+            return
+        self.config.save_main_config()
+        value = getattr(self.config, key)
+        log.info("setting %s=%s", key, value)
+
+    def _update_mouse_chrome(self):
+        if not self.ui:
+            return
+        now = time.time()
+        moving = (now - self.input.last_mouse_move_time) < MOUSE_CURSOR_TIMEOUT
+        overlays = (
+            self.show_settings_osd or self.show_info_osd or self.skin_picker_active
+            or self.confirm_action or self.search_active or self.randomizing
+        )
+        show_cursor = moving or self.show_settings_osd
+        if show_cursor != self._mouse_cursor_visible:
+            pygame.mouse.set_visible(show_cursor)
+            self._mouse_cursor_visible = show_cursor
+
+        in_corner = self.ui.settings_gear_rect().collidepoint(self.input.mouse_pos)
+        show_gear = moving and in_corner and not overlays
+        return show_gear
+
+    def _handle_mouse_click(self, pos):
+        if not pos or not self.ui:
+            return False
+        self.last_interaction_time = time.time()
+        if self.show_settings_osd:
+            for key, rect in self.settings_hit_rects:
+                if rect.collidepoint(pos):
+                    self._toggle_setting(key)
+                    return True
+            return True
+        overlays = (
+            self.show_info_osd or self.skin_picker_active
+            or self.confirm_action or self.search_active or self.randomizing
+        )
+        if not overlays and self.ui.settings_gear_rect().collidepoint(pos):
+            self._open_settings_osd()
+            return True
+        return False
 
     def _resolve_emulator_flags(self, flags_str):
         if not flags_str:
@@ -351,6 +539,7 @@ class MAMElyApp:
 
         quoted = " ".join(shlex.quote(arg) for arg in cmd)
         platform_name = self._current_platform_def().name
+        self._save_session()
         log.info(
             "launch start platform=%s rom=%s desc=%r plays=%s cmd=%s",
             platform_name, rom.name, rom.description, rom.play_count, quoted,
@@ -388,6 +577,9 @@ class MAMElyApp:
                         self.search_active = False
                         self.search_query = ""
                         self.update_view_lists()
+                    elif event.key in (pygame.K_F3, pygame.K_ASTERISK, pygame.K_KP_MULTIPLY):
+                        self.search_active = False
+                        self._open_settings_osd()
                     elif event.key == pygame.K_RETURN:
                         rom = self._selected_rom()
                         log.info(
@@ -411,12 +603,46 @@ class MAMElyApp:
             return
 
         action = self.input.get_action()
+        click = self.input.consume_mouse_click()
+        if click and self._handle_mouse_click(click):
+            return
         if action != self.input.ACTION_NONE:
             self.last_interaction_time = time.time()  # Reset idle timer!
             if action != self.input.ACTION_PAUSE:
                 self.video_paused = False
 
+        if self.show_settings_osd:
+            if action in (self.input.ACTION_SETTINGS, self.input.ACTION_EXIT):
+                self._close_settings_osd()
+                pygame.event.clear()
+                return
+            if action == self.input.ACTION_HELP:
+                self._close_settings_osd()
+                self._toggle_info_osd()
+                return
+            if action == self.input.ACTION_UP:
+                self.settings_idx = (self.settings_idx - 1) % len(SETTINGS_TOGGLE_KEYS)
+                return
+            if action == self.input.ACTION_DOWN:
+                self.settings_idx = (self.settings_idx + 1) % len(SETTINGS_TOGGLE_KEYS)
+                return
+            if action in (
+                self.input.ACTION_RUN,
+                self.input.ACTION_LEFT,
+                self.input.ACTION_RIGHT,
+                self.input.ACTION_PAGE_UP,
+                self.input.ACTION_PAGE_DOWN,
+                self.input.ACTION_PAUSE,
+            ):
+                self._toggle_setting(SETTINGS_TOGGLE_KEYS[self.settings_idx])
+                return
+            return
+
         if self.show_info_osd:
+            if action == self.input.ACTION_SETTINGS:
+                self.show_info_osd = False
+                self._open_settings_osd()
+                return
             if action == self.input.ACTION_HELP:
                 log.info("osd close")
                 self.show_info_osd = False
@@ -431,12 +657,19 @@ class MAMElyApp:
                 self.info_osd_scroll = max(0, self.info_osd_scroll - 1)
                 return
             if action == self.input.ACTION_DOWN:
-                max_scroll = max(0, len(self.info_osd_lines) - 1)
+                page = self.ui.info_panel_page_size() if self.ui else 1
+                max_scroll = max(0, len(self.info_osd_lines) - page)
                 self.info_osd_scroll = min(self.info_osd_scroll + 1, max_scroll)
                 return
             return
 
         if self.skin_picker_active:
+            if action == self.input.ACTION_SETTINGS:
+                self.switch_skin(self.skin_picker_initial_skin, save=False)
+                self.skin_picker_active = False
+                self._open_settings_osd()
+                pygame.event.clear()
+                return
             if action in (self.input.ACTION_SKIN, self.input.ACTION_EXIT):
                 log.info("skin picker cancel restored=%s", self.skin_picker_initial_skin)
                 self.switch_skin(self.skin_picker_initial_skin, save=False)
@@ -465,6 +698,12 @@ class MAMElyApp:
         
         # Confirmation Overlay Logic
         if self.confirm_action:
+            if action == self.input.ACTION_SETTINGS:
+                log.info("confirm cancelled for settings message=%r", self.confirm_message)
+                self.confirm_action = None
+                self.confirm_message = ""
+                self._open_settings_osd()
+                return
             if action == self.input.ACTION_RUN:
                 log.info("confirm yes message=%r", self.confirm_message)
                 self.confirm_action()
@@ -501,6 +740,7 @@ class MAMElyApp:
         elif action == self.input.ACTION_PLATFORM:
             self.platform_idx = (self.platform_idx + 1) % len(self.config.platforms)
             self.load_platform()
+            self._save_session()
             
         elif action == self.input.ACTION_GENRE:
             self.current_genre_idx = (self.current_genre_idx + 1) % len(self.genre_list)
@@ -582,6 +822,9 @@ class MAMElyApp:
         elif action == self.input.ACTION_SKIN:
             self.open_skin_picker()
 
+        elif action == self.input.ACTION_SETTINGS:
+            self._open_settings_osd()
+
         elif action == self.input.ACTION_SEARCH:
             log.info("search start")
             self.search_active = True
@@ -608,6 +851,7 @@ class MAMElyApp:
         self.confirm_message = ""
         self.search_active = False
         self.show_info_osd = False
+        self.show_settings_osd = False
         self.ui.close_video()
         self.video_paused = False
         self.message = ""
@@ -818,12 +1062,17 @@ class MAMElyApp:
                         elapsed = time.time() - self.last_interaction_time
                         
                         # Attract Mode check: Idle for 65 seconds (5s image snap + 60s video snap) triggers fullscreen playback
-                        if elapsed >= 65.0 and video_path:
+                        overlays = (
+                            self.show_settings_osd or self.show_info_osd
+                            or self.skin_picker_active or self.confirm_action
+                            or self.search_active
+                        )
+                        if elapsed >= 65.0 and video_path and self.config.attract_mode and not overlays:
                             self.run_attract_mode(video_path)
                             return
                         
                         video_rendered = False
-                        if elapsed >= 5.0 and video_path:
+                        if elapsed >= 5.0 and video_path and self.config.play_demo_video and not overlays:
                             self.ui.set_active_video(video_path)
                             video_rendered = self.ui.draw_video_frame(
                                 snap_x1, snap_y1, snap_x2, snap_y2,
@@ -896,7 +1145,11 @@ class MAMElyApp:
                                       align=f_align)
 
 
-        if self.show_info_osd:
+        if self.show_settings_osd:
+            self.settings_hit_rects = self.ui.draw_settings_panel(
+                self._settings_rows(), self.settings_idx,
+            )
+        elif self.show_info_osd:
             self.ui.draw_info_panel(self.info_osd_lines, self.info_osd_scroll)
         elif self.skin_picker_active:
             p_def = self._current_platform_def()
@@ -917,6 +1170,11 @@ class MAMElyApp:
 
         if self.search_active or self.search_query:
             self.ui.draw_search_bar(self.search_query, self.search_active)
+
+        show_gear = self._update_mouse_chrome()
+        if show_gear:
+            highlighted = self.ui.settings_gear_rect().collidepoint(self.input.mouse_pos)
+            self.ui.draw_settings_gear(highlighted=highlighted)
             
         self.ui.end_frame()
 
@@ -1070,12 +1328,14 @@ class MAMElyApp:
             )
             self.run_setup_wizard()
         else:
-            self.load_platform()
+            self._restore_startup_platform()
+            self.load_platform(restore_session=True)
         
         while self.running:
             self.handle_input()
             self.draw()
         
+        self._save_session()
         log.info("shutdown elapsed=%.0fs", time.time() - self._started_at)
         if self.ui:
             self.ui.close_video()

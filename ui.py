@@ -15,6 +15,7 @@ NAV_KEY_ITEMS = [
     ("E / B3:", "Next Emu"),
     ("F / B4:", "+/- Favorite"),
     ("S / F4:", "Skin Switcher"),
+    ("F3 / *:", "Settings"),
     ("D / F1:", "Diagnostics"),
     ("ESC / B9+10:", "Exit"),
 ]
@@ -658,6 +659,31 @@ class UIManager:
         # Subtext
         self.draw_text(subtext, cx, cy + 30, None, 25, (200, 200, 200), shadow=True)
 
+    def info_panel_page_size(self):
+        """How many help lines fit between the MORE cues and footer."""
+        margin = 40
+        panel_h = self.screen_height - margin * 2
+        line_height = 30
+        cue_h = 48
+        footer_h = 40
+        return max(1, (panel_h - cue_h * 2 - footer_h) // line_height)
+
+    def _draw_more_cue(self, cx, y, pointing_up):
+        """Bright ▲ MORE / ▼ MORE hint for the F1 help panel."""
+        pulse = 0.55 + 0.45 * (0.5 + 0.5 * math.sin(pygame.time.get_ticks() / 220.0))
+        color = (int(255 * pulse), int(230 * pulse), int(80 * pulse))
+        half_w, h = 16, 14
+        if pointing_up:
+            pts = [(cx, y), (cx - half_w, y + h), (cx + half_w, y + h)]
+            text_y = y + h + 2
+        else:
+            pts = [(cx, y + h), (cx - half_w, y), (cx + half_w, y)]
+            text_y = y - 22
+        pygame.draw.polygon(self.screen, color, pts)
+        pygame.draw.polygon(self.screen, (255, 255, 200), pts, 2)
+        label = self.get_font(None, 22).render("MORE", True, color)
+        self.screen.blit(label, label.get_rect(midtop=(cx, text_y)))
+
     def draw_info_panel(self, lines, scroll_line=0):
         overlay = pygame.Surface((self.screen_width, self.screen_height))
         overlay.set_alpha(210)
@@ -671,12 +697,22 @@ class UIManager:
         pygame.draw.rect(self.screen, (255, 255, 0), (margin, margin, panel_w, panel_h), 2)
 
         font_size = 22
-        line_height = 28
+        line_height = 30
         font = self.get_font(None, font_size)
-        max_visible = (panel_h - 50) // line_height
+        cue_h = 48
+        footer_h = 40
+        max_visible = self.info_panel_page_size()
+        more_above = scroll_line > 0
+        more_below = scroll_line + max_visible < len(lines)
         visible = lines[scroll_line:scroll_line + max_visible]
 
-        y = margin + 20
+        text_x = margin + 28
+        tab_x = text_x + 300
+        y = margin + cue_h
+        cx = margin + panel_w // 2
+        if more_above:
+            self._draw_more_cue(cx, margin + 8, pointing_up=True)
+
         for line in visible:
             color = (255, 255, 100) if line.startswith("MAMEly") else (220, 220, 220)
             if line.startswith("  !"):
@@ -686,15 +722,129 @@ class UIManager:
             elif line in ("Paths", "Emulator", "Controls", "Settings live in:", "Troubleshooting:", "Issues"):
                 color = (180, 220, 255)
 
-            text_surf = font.render(line, True, color)
-            self.screen.blit(text_surf, (margin + 20, y))
+            if "\t" in line:
+                left, right = line.split("\t", 1)
+                left_surf = font.render(left, True, (255, 255, 255))
+                right_surf = font.render(right, True, (180, 190, 205))
+                self.screen.blit(left_surf, (text_x, y))
+                rx = max(tab_x, text_x + left_surf.get_width() + 28)
+                self.screen.blit(right_surf, (rx, y))
+            else:
+                text_surf = font.render(line, True, color)
+                self.screen.blit(text_surf, (text_x, y))
             y += line_height
 
-        footer = "F1 or Esc to close"
-        if len(lines) > max_visible:
-            footer += f"   |   Up/Down scroll ({scroll_line + 1}-{min(scroll_line + max_visible, len(lines))} of {len(lines)})"
-        footer_surf = font.render(footer, True, (160, 160, 160))
-        self.screen.blit(footer_surf, (margin + 20, margin + panel_h - 35))
+        if more_below:
+            self._draw_more_cue(cx, margin + panel_h - footer_h - 28, pointing_up=False)
+
+        footer_surf = font.render("F1 or Esc to close", True, (160, 160, 160))
+        self.screen.blit(footer_surf, (margin + 20, margin + panel_h - 32))
+
+    def settings_gear_rect(self):
+        size = 72
+        margin = 16
+        return pygame.Rect(self.screen_width - size - margin, margin, size, size)
+
+    def draw_settings_gear(self, highlighted=False):
+        """Top-right gear affordance for mouse users."""
+        rect = self.settings_gear_rect()
+        overlay = pygame.Surface((rect.w, rect.h), pygame.SRCALPHA)
+        ox, oy = rect.w // 2, rect.h // 2
+        fill = (255, 220, 100, 240) if highlighted else (220, 225, 235, 220)
+        pygame.draw.circle(overlay, (20, 22, 32, 210), (ox, oy), ox - 2)
+        pygame.draw.circle(overlay, fill, (ox, oy), ox - 6, 2)
+        r_outer = ox - 16
+        for i in range(6):
+            ang = math.radians(i * 60)
+            x = ox + int(math.cos(ang) * r_outer)
+            y = oy + int(math.sin(ang) * r_outer)
+            pygame.draw.circle(overlay, fill, (x, y), 7)
+        pygame.draw.circle(overlay, fill, (ox, oy), 15, 3)
+        pygame.draw.circle(overlay, (20, 22, 32, 240), (ox, oy), 7)
+        pygame.draw.circle(overlay, fill, (ox, oy), 7, 2)
+        self.screen.blit(overlay, rect.topleft)
+        return rect
+
+    def draw_settings_panel(self, rows, selected_idx):
+        """Draw the Settings OSD. Returns a list of (key, rect) for mouse hits."""
+        overlay = pygame.Surface((self.screen_width, self.screen_height), pygame.SRCALPHA)
+        overlay.fill((0, 0, 0, 210))
+        self.screen.blit(overlay, (0, 0))
+
+        box_w = min(820, self.screen_width - 80)
+        box_h = min(560, self.screen_height - 80)
+        box = pygame.Rect(
+            (self.screen_width - box_w) // 2,
+            (self.screen_height - box_h) // 2,
+            box_w,
+            box_h,
+        )
+        pygame.draw.rect(self.screen, (24, 26, 38), box, border_radius=14)
+        pygame.draw.rect(self.screen, (255, 220, 100), box, width=3, border_radius=14)
+
+        title_font = self.get_font(None, 36)
+        title = title_font.render("SETTINGS", True, (255, 220, 100))
+        self.screen.blit(title, title.get_rect(center=(box.centerx, box.top + 42)))
+
+        sub_font = self.get_font(None, 20)
+        sub = sub_font.render("Startup & browser preferences", True, (180, 190, 210))
+        self.screen.blit(sub, sub.get_rect(center=(box.centerx, box.top + 78)))
+
+        label_font = self.get_font(None, 26)
+        hint_font = self.get_font(None, 18)
+        section_font = self.get_font(None, 20)
+        y = box.top + 110
+        hit_rects = []
+        toggle_i = 0
+        for row in rows:
+            if row.get("section"):
+                y += 8
+                hdr = section_font.render(row["section"].upper(), True, (137, 180, 250))
+                self.screen.blit(hdr, (box.left + 40, y))
+                y += 34
+                continue
+
+            selected = toggle_i == selected_idx
+            row_rect = pygame.Rect(box.left + 28, y - 8, box_w - 56, 64)
+            if selected:
+                pygame.draw.rect(self.screen, (45, 48, 70), row_rect, border_radius=10)
+                pygame.draw.rect(self.screen, (255, 220, 100), row_rect, width=2, border_radius=10)
+
+            on = bool(row.get("value"))
+            box_color = (166, 227, 161) if on else (88, 91, 112)
+            check_rect = pygame.Rect(box.left + 48, y + 8, 28, 28)
+            pygame.draw.rect(self.screen, box_color, check_rect, border_radius=4)
+            pygame.draw.rect(self.screen, (255, 255, 255), check_rect, width=2, border_radius=4)
+            if on:
+                cx, cy = check_rect.centerx, check_rect.centery
+                check = [
+                    (cx - 7, cy + 1),
+                    (cx - 2, cy + 7),
+                    (cx + 8, cy - 6),
+                ]
+                pygame.draw.lines(self.screen, (20, 40, 28), False, check, 4)
+
+            label_color = (255, 255, 255) if selected else (220, 225, 235)
+            label = label_font.render(row["label"], True, label_color)
+            self.screen.blit(label, (check_rect.right + 16, y + 2))
+            hint = hint_font.render(row.get("hint") or "", True, (160, 168, 185))
+            self.screen.blit(hint, (check_rect.right + 16, y + 32))
+
+            on_lbl = hint_font.render("ON" if on else "OFF", True, box_color)
+            self.screen.blit(on_lbl, on_lbl.get_rect(midright=(box.right - 48, y + 22)))
+
+            hit_rects.append((row["key"], row_rect))
+            toggle_i += 1
+            y += 70
+
+        footer_font = self.get_font(None, 18)
+        footer = footer_font.render(
+            "Up/Down select   Enter, Space, or Left/Right toggle   F3 or Esc close",
+            True,
+            (160, 160, 160),
+        )
+        self.screen.blit(footer, footer.get_rect(center=(box.centerx, box.bottom - 28)))
+        return hit_rects
 
     def draw_search_bar(self, query, active=True):
         # Position at the bottom center of the screen

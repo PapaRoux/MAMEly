@@ -33,7 +33,7 @@ App entry / launcher
   MAMEly.py                 Start the frontend
   main.py                   Application logic
   mamely.log                Rotating app event log (debug.log = emulator stdout)
-  config.xml                Screen size + platform list (landscape)
+  config.xml                Screen size, platforms, Settings OSD (F3)
   config-vertical.xml       Platform list for portrait layout
 
 Per-platform folder: platforms/<PLATFORM>/
@@ -496,9 +496,9 @@ def build_osd_lines(base_path, platform_def, platform_config, rom_count, issues)
         f"Config folder: {platform_path}",
         "",
         "Paths",
-        f"  emulatorBasePath: {platform_config.emulator_base_path or '(not set)'}",
-        f"  romDirectory:     {platform_config.rom_directory or '(not set)'}",
-        f"  romSnapDirectory: {platform_config.rom_snap_directory or '(not set)'}",
+        f"  emulatorBasePath\t{platform_config.emulator_base_path or '(not set)'}",
+        f"  romDirectory\t{platform_config.rom_directory or '(not set)'}",
+        f"  romSnapDirectory\t{platform_config.rom_snap_directory or '(not set)'}",
         "",
         "Emulator",
         f"  {platform_config.emulator_executable or '(not set)'}",
@@ -506,17 +506,26 @@ def build_osd_lines(base_path, platform_def, platform_config, rom_count, issues)
         f"ROMs in list: {rom_count}",
         "",
         "Controls",
-        "  Up/Down     scroll   Tab      genre",
-        "  Enter       launch   E        platform",
-        "  F           favorite I        ignore",
-        "  S / F4      skin     F1       this panel",
-        "  Esc         quit",
+        "  Up / Down\tScroll list",
+        "  Left / Right\tPage up / down",
+        "  Enter\tLaunch game",
+        "  Tab\tCycle genre",
+        "  E\tNext platform",
+        "  F\tFavorite",
+        "  I\tIgnore",
+        "  S / F4\tSkin switcher",
+        "  F1\tThis panel",
+        "  F3 / *\tSettings",
+        "  1 / 5\tRandomizer",
+        "  Space\tPause video",
+        "  Esc\tQuit",
         "",
         "Settings live in:",
-        "  config.xml              — platforms & resolution",
-        "  platforms/<P>/config_*.txt — emulator & ROM paths",
-        "  platforms/<P>/config_*.skin — UI layout",
-        "  platforms/<P>/MAMEly.db     — game database",
+        "  F3 Settings OSD\tstartup & browser toggles",
+        "  config.xml\tplatforms & resolution",
+        "  platforms/<P>/config_*.txt\temulator & ROM paths",
+        "  platforms/<P>/config_*.skin\tUI layout",
+        "  platforms/<P>/MAMEly.db\tgame database",
         "  Emulator prefs (e.g. Snap Snes9x):",
         "    ~/snap/snes9x-gtk/current/.config/snes9x/snes9x.conf",
         "",

@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <platforms>
     <screensize screenX="1080" screenY="1920"/>
+    <settings rememberEmulator="true" rememberGame="true" playDemoVideo="true" attractMode="true"/>
+    <session platform="" rom="" genre=""/>
     <platform name="MAME">
         <folder>MAME</folder>
         <config>platform_MAME.txt</config>

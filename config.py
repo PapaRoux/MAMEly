@@ -76,6 +76,30 @@ def _as_int(value, default=0):
         return default
 
 
+def _as_bool(value, default=True):
+    """Parse config booleans. Missing/unknown values use default (ON)."""
+    if value is None:
+        return default
+    if isinstance(value, bool):
+        return value
+    text = str(value).strip().lower()
+    if text in ("true", "1", "yes", "on"):
+        return True
+    if text in ("false", "0", "no", "off"):
+        return False
+    return default
+
+
+def _xml_escape(value):
+    return (
+        str(value or "")
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+    )
+
+
 def parse_sprite_defs(config):
     """Build ordered sprite dicts from sprite.<id>.<prop> skin keys.
 
@@ -175,6 +199,13 @@ class Config:
         self.screen_width = 800
         self.screen_height = 600
         self.platforms = []
+        self.remember_emulator = True
+        self.remember_game = True
+        self.play_demo_video = True
+        self.attract_mode = True
+        self.session_platform = ""
+        self.session_rom = ""
+        self.session_genre = ""
         self.load_main_config()
 
     def load_main_config(self):
@@ -212,9 +243,21 @@ class Config:
                     if name and folder and config and skin:
                         self.platforms.append(Platform(name, folder, config, skin))
 
+                if child.tag == "settings":
+                    self.remember_emulator = _as_bool(child.attrib.get("rememberEmulator"), True)
+                    self.remember_game = _as_bool(child.attrib.get("rememberGame"), True)
+                    self.play_demo_video = _as_bool(child.attrib.get("playDemoVideo"), True)
+                    self.attract_mode = _as_bool(child.attrib.get("attractMode"), True)
+
+                if child.tag == "session":
+                    self.session_platform = (child.attrib.get("platform") or "").strip()
+                    self.session_rom = (child.attrib.get("rom") or "").strip()
+                    self.session_genre = (child.attrib.get("genre") or "").strip()
+
             log.info(
-                "main config loaded path=%s size=%dx%d platforms=%d",
+                "main config loaded path=%s size=%dx%d platforms=%d remember_emu=%s remember_game=%s demo=%s attract=%s",
                 config_path, self.screen_width, self.screen_height, len(self.platforms),
+                self.remember_emulator, self.remember_game, self.play_demo_video, self.attract_mode,
             )
         except ET.ParseError as e:
             log.error("error parsing config.xml: %s", e)
@@ -275,6 +318,11 @@ class Config:
             f.write('<?xml version="1.0"?>\n')
             f.write('<platforms>\n')
             f.write('    <screensize screenX="1920" screenY="1080"/>\n')
+            f.write(
+                '    <settings rememberEmulator="true" rememberGame="true"'
+                ' playDemoVideo="true" attractMode="true"/>\n'
+            )
+            f.write('    <session platform="" rom="" genre=""/>\n')
             for name, folder, config_f, skin_f in found_platforms:
                 f.write(f'    <platform name="{name}">\n')
                 f.write(f'        <folder>{folder}</folder>\n')
@@ -284,6 +332,22 @@ class Config:
             f.write('</platforms>\n')
         log.info("generated default main config path=%s platforms=%d", config_path, len(found_platforms))
 
+    def _bool_attr(self, value):
+        return "true" if value else "false"
+
+    def _settings_xml_lines(self):
+        return [
+            '    <settings'
+            f' rememberEmulator="{self._bool_attr(self.remember_emulator)}"'
+            f' rememberGame="{self._bool_attr(self.remember_game)}"'
+            f' playDemoVideo="{self._bool_attr(self.play_demo_video)}"'
+            f' attractMode="{self._bool_attr(self.attract_mode)}"/>\n',
+            '    <session'
+            f' platform="{_xml_escape(self.session_platform)}"'
+            f' rom="{_xml_escape(self.session_rom)}"'
+            f' genre="{_xml_escape(self.session_genre)}"/>\n',
+        ]
+
     def save_main_config(self):
         config_path = os.path.join(self.base_path, self.config_file)
         try:
@@ -291,6 +355,8 @@ class Config:
                 f.write('<?xml version="1.0"?>\n')
                 f.write('<platforms>\n')
                 f.write(f'    <screensize screenX="{self.screen_width}" screenY="{self.screen_height}"/>\n')
+                for line in self._settings_xml_lines():
+                    f.write(line)
                 for p in self.platforms:
                     f.write(f'    <platform name="{p.name}">\n')
                     f.write(f'        <folder>{p.folder}</folder>\n')

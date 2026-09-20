@@ -26,6 +26,7 @@ class InputManager:
         self.ACTION_PAUSE = 16
         self.ACTION_RANDOMIZE = 17
         self.ACTION_SKIN = 18
+        self.ACTION_SETTINGS = 19
 
         # Initialize Joysticks
         pygame.joystick.init()
@@ -52,6 +53,9 @@ class InputManager:
         self.first_repeat_delay = 0.25 # Snappier initial hold (was 0.5)
         self.current_action = self.ACTION_NONE
         self.hold_start_time = 0
+        self.mouse_pos = (0, 0)
+        self.mouse_click_pos = None
+        self.last_mouse_move_time = 0
 
     def get_action(self):
         """Process inputs and return the highest priority action."""
@@ -72,9 +76,15 @@ class InputManager:
                     return self.ACTION_WIZARD
                 elif event.key == pygame.K_F4:
                     return self.ACTION_SKIN
+                elif event.key in (pygame.K_F3, pygame.K_ASTERISK, pygame.K_KP_MULTIPLY):
+                    return self.ACTION_SETTINGS
                 elif event.key == pygame.K_SLASH:
                     return self.ACTION_SEARCH
                 elif event.key == pygame.K_SPACE:
+                    # Edge-triggered only — also listed in get_pressed it would fire twice.
+                    self.current_action = self.ACTION_PAUSE
+                    self.hold_start_time = time.time()
+                    self.last_action_time = time.time()
                     return self.ACTION_PAUSE
                 elif event.key in (pygame.K_1, pygame.K_5):
                     # Cabinet start (1) / coin (5) — slot-machine randomizer
@@ -87,6 +97,13 @@ class InputManager:
                 # Edge-triggered so it does not fight the held-button maps below.
                 if event.button in (1, 5, 9):
                     return self.ACTION_RANDOMIZE
+            elif event.type == pygame.MOUSEMOTION:
+                self.mouse_pos = event.pos
+                self.last_mouse_move_time = time.time()
+            elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                self.mouse_pos = event.pos
+                self.mouse_click_pos = event.pos
+                self.last_mouse_move_time = time.time()
 
         # Check raw states for hold/repeat
         keys = pygame.key.get_pressed()
@@ -107,7 +124,6 @@ class InputManager:
         elif keys[pygame.K_i]: action = self.ACTION_IGNORE
         elif keys[pygame.K_s] or keys[pygame.K_k]: action = self.ACTION_SKIN
         elif keys[pygame.K_SLASH]: action = self.ACTION_SEARCH
-        elif keys[pygame.K_SPACE]: action = self.ACTION_PAUSE
         
         # Joystick Map override
         if action == self.ACTION_NONE:
@@ -162,3 +178,8 @@ class InputManager:
                      return action
                      
         return self.ACTION_NONE
+
+    def consume_mouse_click(self):
+        pos = self.mouse_click_pos
+        self.mouse_click_pos = None
+        return pos
