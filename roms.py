@@ -433,6 +433,70 @@ class RomManager:
             log.exception("error reading flags rom=%s", rom_name)
         return self.flag_options.get(rom_name, "")
 
+    def find_snap(self, rom_name):
+        return find_media_file(
+            self.config.rom_snap_directory,
+            rom_name,
+            self.config.snap_extension,
+            self.config.rom_extension,
+        )
+
+    def find_video(self, rom_name):
+        return find_media_file(
+            self.config.rom_video_directory,
+            rom_name,
+            self.config.video_extension,
+            self.config.rom_extension,
+        )
+
+
+def _dot_ext(ext):
+    if not ext:
+        return ""
+    return ext if ext.startswith(".") else f".{ext}"
+
+
+def rom_media_stems(rom_name, rom_ext=""):
+    """ROM key plus the same name with the ROM extension stripped.
+
+    SNES/NES catalogs store `Act Raiser (U).smc`; snap files are `Act Raiser (U).png`.
+    MAME catalogs store `pacman` with no extension, so the stem list is just that name.
+    """
+    names = []
+    if not rom_name:
+        return names
+    names.append(rom_name)
+    ext = _dot_ext(rom_ext)
+    if ext and rom_name.lower().endswith(ext.lower()) and len(rom_name) > len(ext):
+        stem = rom_name[: -len(ext)]
+        if stem and stem not in names:
+            names.append(stem)
+    return names
+
+
+def media_candidates(directory, rom_name, media_ext, rom_ext=""):
+    if not directory or not media_ext:
+        return []
+    media_ext = _dot_ext(media_ext)
+    paths = []
+    seen = set()
+    for name in rom_media_stems(rom_name, rom_ext):
+        for path in (
+            os.path.join(directory, name + media_ext),
+            os.path.join(directory, name, "0000" + media_ext),
+        ):
+            if path not in seen:
+                seen.add(path)
+                paths.append(path)
+    return paths
+
+
+def find_media_file(directory, rom_name, media_ext, rom_ext=""):
+    for path in media_candidates(directory, rom_name, media_ext, rom_ext):
+        if os.path.exists(path):
+            return path
+    return None
+
 
 def read_user_backup(platform_path):
     """Load rebuild backups: favorites.txt, ignore.txt, playstats.txt."""

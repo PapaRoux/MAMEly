@@ -1048,19 +1048,7 @@ class MAMElyApp:
                     if self.randomizing:
                         pass
                     else:
-                        # Video Snap path check
-                        video_dir = self.rom_manager.config.rom_video_directory
-                        video_ext = self.rom_manager.config.video_extension
-                        rom_name = rom.name
-                        
-                        video_path = None
-                        if video_dir:
-                            vp1 = os.path.join(video_dir, rom_name + video_ext)
-                            vp2 = os.path.join(video_dir, rom_name, "0000" + video_ext)
-                            if os.path.exists(vp1):
-                                video_path = vp1
-                            elif os.path.exists(vp2):
-                                video_path = vp2
+                        video_path = self.rom_manager.find_video(rom.name)
                                 
                         # Render Video (if idle for 5s) or Fallback to Static Snap
                         elapsed = time.time() - self.last_interaction_time
@@ -1086,13 +1074,9 @@ class MAMElyApp:
                             self.ui.set_active_video(None)
                             
                         if not video_rendered:
-                            snap_dir = self.rom_manager.config.rom_snap_directory
-                            ext = self.rom_manager.config.snap_extension
-                            
-                            path1 = os.path.join(snap_dir, rom_name + ext)
-                            path2 = os.path.join(snap_dir, rom_name, "0000" + ext)
-                            
-                            self.ui.draw_image(path1, snap_x1, snap_y1, snap_x2, snap_y2, fallback_path=path2)
+                            snap_path = self.rom_manager.find_snap(rom.name)
+                            if snap_path:
+                                self.ui.draw_image(snap_path, snap_x1, snap_y1, snap_x2, snap_y2)
                                        
                     # Draw Genre and Rating
                     gy = self.skin.get("romGenreYCenter_effective", self.skin.get("romGenreYCenter"))

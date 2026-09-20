@@ -106,7 +106,35 @@ def test_backup_roundtrip():
         assert plays["a.zip"] == (4, "2024-03-01")
 
 
+def test_snap_lookup_strips_rom_extension():
+    from roms import find_media_file, media_candidates
+
+    mame = media_candidates("/snaps", "pacman", ".png", ".zip")
+    assert mame[0] == "/snaps/pacman.png"
+    assert "/snaps/pacman/0000.png" in mame
+
+    snes = media_candidates("/snaps", "Act Raiser (U).smc", ".png", ".smc")
+    assert "/snaps/Act Raiser (U).smc.png" in snes
+    assert "/snaps/Act Raiser (U).png" in snes
+
+    with tempfile.TemporaryDirectory() as tmp:
+        snap = os.path.join(tmp, "snap")
+        os.makedirs(snap)
+        wanted = os.path.join(snap, "Act Raiser (U).png")
+        with open(wanted, "wb") as f:
+            f.write(b"x")
+        nested = os.path.join(snap, "pacman", "0000.png")
+        os.makedirs(os.path.dirname(nested))
+        with open(nested, "wb") as f:
+            f.write(b"x")
+
+        assert find_media_file(snap, "Act Raiser (U).smc", ".png", ".smc") == wanted
+        assert find_media_file(snap, "pacman", ".png", ".zip") == nested
+        assert find_media_file(snap, "missing.smc", ".png", ".smc") is None
+
+
 if __name__ == "__main__":
     test_playlists_search_and_backup()
     test_backup_roundtrip()
+    test_snap_lookup_strips_rom_extension()
     print("All roms SQL tests passed.")
