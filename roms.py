@@ -1,7 +1,6 @@
 import os
 import sqlite3
 import datetime
-import operator
 from mamely_log import get_logger
 
 log = get_logger("roms")
@@ -32,13 +31,14 @@ class RomManager:
         self.skip_genres = set()
         self.skip_ratings = set()
         self.flag_options = {}
+        self._disk_names = None  # None = no directory filter
 
         self._ensure_db()
 
     def _ensure_db(self):
         """Initializes SQLite schema and handles automatic migration if needed."""
         try:
-            with sqlite3.connect(self.db_path) as conn:
+            with self._connect() as conn:
                 cur = conn.cursor()
                 cur.execute("""
                     CREATE TABLE IF NOT EXISTS games (
@@ -79,24 +79,7 @@ class RomManager:
             import xml.etree.ElementTree as ET
             log.info("auto-migrating legacy XML path=%s", xml_path)
             
-            # Check for companion txt files to ensure 100% data preservation
-            fav_set = set()
-            fav_file = os.path.join(self.platform_path, "favorites.txt")
-            if os.path.exists(fav_file):
-                with open(fav_file, "r", encoding="utf-8", errors="ignore") as f:
-                    for line in f:
-                        line = line.strip()
-                        if line and not line.startswith("#"):
-                            fav_set.add(line)
-
-            ign_set = set()
-            ign_file = os.path.join(self.platform_path, "ignore.txt")
-            if os.path.exists(ign_file):
-                with open(ign_file, "r", encoding="utf-8", errors="ignore") as f:
-                    for line in f:
-                        line = line.strip()
-                        if line and not line.startswith("#"):
-                            ign_set.add(line)
+            fav_set, ign_set, plays = read_user_backup(self.platform_path)
 
             flags_dict = {}
             flags_file = os.path.join(self.platform_path, "_flags.txt")
@@ -124,9 +107,12 @@ class RomManager:
                     fav = 1
                 if name in ign_set:
                     ign = 1
+                play_count, last_played = 0, None
+                if name in plays:
+                    play_count, last_played = plays[name]
                 flags = flags_dict.get(name, "")
 
-                rows.append((name, desc, genre, rating, fav, ign, 0, None, flags))
+                rows.append((name, desc, genre, rating, fav, ign, play_count, last_played, flags))
             
             cur = conn.cursor()
             cur.executemany("""
@@ -137,6 +123,45 @@ class RomManager:
             log.info("auto-migrated games=%d db=%s", len(rows), self.db_path)
         except Exception:
             log.exception("failed to auto-migrate XML path=%s", xml_path)
+
+    def _connect(self):
+        conn = sqlite3.connect(self.db_path, timeout=5.0)
+        conn.execute("PRAGMA journal_mode=WAL")
+        conn.execute("PRAGMA synchronous=NORMAL")
+        return conn
+
+    @staticmethod
+    def _row_to_rom(row):
+        name, desc, genre, rating, favorite, ignore, play_count, last_played, custom_flags = row
+        return Rom(
+            name=name,
+            description=desc or "",
+            genre=genre or "General",
+            rating=rating or "General",
+            favorite=favorite,
+            ignore=ignore,
+            play_count=play_count,
+            last_played=last_played,
+            custom_flags=custom_flags or "",
+        )
+
+    def _skip_sql(self):
+        clauses = ["(genre IS NULL OR genre NOT LIKE 'Ttl -%')"]
+        params = []
+        if self.skip_genres:
+            placeholders = ",".join("?" * len(self.skip_genres))
+            clauses.append(f"(genre IS NULL OR genre NOT IN ({placeholders}))")
+            params.extend(self.skip_genres)
+        if self.skip_ratings:
+            placeholders = ",".join("?" * len(self.skip_ratings))
+            clauses.append(f"(rating IS NULL OR rating NOT IN ({placeholders}))")
+            params.extend(self.skip_ratings)
+        return " AND ".join(clauses), params
+
+    def _on_disk(self, name):
+        if self._disk_names is None:
+            return True
+        return name in self._disk_names
 
     def load_skips_and_flags(self):
         """Load skip lists and run flags from files."""
@@ -175,153 +200,171 @@ class RomManager:
             pass
 
     def load_roms(self, callback_progress=None):
-        """Load ROMs from SQLite database with optional directory comparison."""
+        """Open the catalog and optional on-disk filter. Playlists are queried live."""
         self.roms = {}
         self.genres.clear()
         self.ratings.clear()
-        db_roms = {}
+        self._disk_names = None
 
         if not os.path.exists(self.db_path):
             self._ensure_db()
 
-        try:
-            with sqlite3.connect(self.db_path) as conn:
-                cur = conn.cursor()
-                cur.execute("""
-                    SELECT name, description, genre, rating, favorite, ignore, play_count, last_played, custom_flags
-                    FROM games
-                """)
-                rows = cur.fetchall()
-                total_nodes = len(rows)
-
-                for i, row in enumerate(rows):
-                    name, desc, genre, rating, favorite, ignore, play_count, last_played, custom_flags = row
-                    
-                    if not genre:
-                        genre = "General"
-                    if not rating:
-                        rating = "General"
-
-                    # Filtering Logic
-                    if genre in self.skip_genres:
-                        continue
-                    if "Ttl -" in genre:
-                        continue
-                    if rating in self.skip_ratings:
-                        continue
-
-                    rom_obj = Rom(
-                        name=name,
-                        description=desc,
-                        genre=genre,
-                        rating=rating,
-                        favorite=favorite,
-                        ignore=ignore,
-                        play_count=play_count,
-                        last_played=last_played,
-                        custom_flags=custom_flags
-                    )
-                    db_roms[name] = rom_obj
-
-                    if genre != "General":
-                        self.genres.add(genre)
-                    if rating != "General":
-                        self.ratings.add(rating)
-
-                    if callback_progress and total_nodes > 0:
-                        callback_progress((i + 1) / total_nodes * 100)
-
-        except Exception:
-            log.exception("error loading ROMs from SQLite database path=%s", self.db_path)
-
-        # Directory Comparison Logic
         if self.config.compare_xml_to_roms:
-            self.roms = {}
-            if os.path.exists(self.config.rom_directory):
-                with os.scandir(self.config.rom_directory) as it:
+            names = set()
+            rom_dir = self.config.rom_directory
+            ext = self.config.rom_extension or ""
+            if rom_dir and os.path.exists(rom_dir):
+                with os.scandir(rom_dir) as it:
                     for entry in it:
-                        if entry.is_file():
-                            f = entry.name
-                            base_name = f
-                            if self.config.rom_extension and self.config.rom_extension in f:
-                                base_name = f.replace(self.config.rom_extension, "")
+                        if not entry.is_file():
+                            continue
+                        names.add(entry.name)
+                        if ext and entry.name.endswith(ext):
+                            names.add(entry.name[: -len(ext)] if ext.startswith(".") else entry.name.replace(ext, ""))
+            self._disk_names = names
+            log.info("roms directory filter names=%d dir=%s", len(names), rom_dir)
 
-                            if base_name in db_roms:
-                                self.roms[base_name] = db_roms[base_name]
-                            elif f in db_roms:
-                                self.roms[f] = db_roms[f]
-            log.info(
-                "roms filtered to directory kept=%d db=%d dir=%s",
-                len(self.roms), len(db_roms), self.config.rom_directory,
-            )
-        else:
-            self.roms = db_roms
-            log.debug("roms loaded db=%s count=%d genres=%d", self.db_path, len(self.roms), len(self.genres))
+        try:
+            total, favs, ignored = self.counts()
+            log.debug("catalog ready db=%s count=%d favorites=%d ignored=%d", self.db_path, total, favs, ignored)
+        except Exception:
+            log.exception("error reading catalog path=%s", self.db_path)
+        if callback_progress:
+            callback_progress(100)
+
+    def counts(self):
+        """(total, favorites, ignored) from SQLite, honoring skip/disk filters in Python for disk."""
+        skip_sql, skip_params = self._skip_sql()
+        try:
+            with self._connect() as conn:
+                total = conn.execute(f"SELECT COUNT(*) FROM games WHERE {skip_sql}", skip_params).fetchone()[0]
+                favs = conn.execute(
+                    f"SELECT COUNT(*) FROM games WHERE favorite = 1 AND {skip_sql}", skip_params
+                ).fetchone()[0]
+                ignored = conn.execute(
+                    f"SELECT COUNT(*) FROM games WHERE ignore = 1 AND {skip_sql}", skip_params
+                ).fetchone()[0]
+            return total, favs, ignored
+        except Exception:
+            log.exception("error counting games path=%s", self.db_path)
+            return 0, 0, 0
 
     def toggle_favorite(self, rom_name):
-        """Toggle favorite status in memory and persist immediately to SQLite."""
-        if rom_name in self.roms:
-            rom = self.roms[rom_name]
-            rom.favorite = 1 - rom.favorite
-            try:
-                with sqlite3.connect(self.db_path) as conn:
-                    conn.execute("UPDATE games SET favorite = ? WHERE name = ?", (rom.favorite, rom_name))
-                # Sync text list for companion tooling
-                self._sync_txt_lists()
-            except Exception:
-                log.exception("error updating favorite rom=%s", rom_name)
-            return rom.favorite == 1
-        return False
+        """Toggle favorite in SQLite and refresh the rebuild backup files."""
+        try:
+            with self._connect() as conn:
+                conn.execute(
+                    "UPDATE games SET favorite = 1 - favorite WHERE name = ?",
+                    (rom_name,),
+                )
+                row = conn.execute(
+                    "SELECT favorite FROM games WHERE name = ?", (rom_name,)
+                ).fetchone()
+            self._sync_user_backup()
+            is_fav = bool(row and row[0] == 1)
+            if rom_name in self.roms:
+                self.roms[rom_name].favorite = 1 if is_fav else 0
+            return is_fav
+        except Exception:
+            log.exception("error updating favorite rom=%s", rom_name)
+            return False
 
     def toggle_ignore(self, rom_name):
-        """Toggle ignore status in memory and persist immediately to SQLite."""
-        if rom_name in self.roms:
-            rom = self.roms[rom_name]
-            rom.ignore = 1 - rom.ignore
-            try:
-                with sqlite3.connect(self.db_path) as conn:
-                    conn.execute("UPDATE games SET ignore = ? WHERE name = ?", (rom.ignore, rom_name))
-                self._sync_txt_lists()
-            except Exception:
-                log.exception("error updating ignore rom=%s", rom_name)
-            return rom.ignore == 1
-        return False
+        """Toggle ignore in SQLite and refresh the rebuild backup files."""
+        try:
+            with self._connect() as conn:
+                conn.execute(
+                    "UPDATE games SET ignore = 1 - ignore WHERE name = ?",
+                    (rom_name,),
+                )
+                row = conn.execute(
+                    "SELECT ignore FROM games WHERE name = ?", (rom_name,)
+                ).fetchone()
+            self._sync_user_backup()
+            is_ign = bool(row and row[0] == 1)
+            if rom_name in self.roms:
+                self.roms[rom_name].ignore = 1 if is_ign else 0
+            return is_ign
+        except Exception:
+            log.exception("error updating ignore rom=%s", rom_name)
+            return False
 
     def record_play(self, rom_name):
         """Increment play count and update last played timestamp."""
-        if rom_name in self.roms:
-            rom = self.roms[rom_name]
-            rom.play_count += 1
-            now = datetime.datetime.now().isoformat()
-            rom.last_played = now
-            try:
-                with sqlite3.connect(self.db_path) as conn:
-                    conn.execute(
-                        "UPDATE games SET play_count = play_count + 1, last_played = ? WHERE name = ?",
-                        (now, rom_name)
-                    )
-            except Exception:
-                log.exception("error recording play stats rom=%s", rom_name)
-
-    def _sync_txt_lists(self):
-        """Write out companion favorites.txt and ignore.txt lists."""
+        now = datetime.datetime.now().isoformat()
         try:
-            fav_path = os.path.join(self.platform_path, "favorites.txt")
-            ign_path = os.path.join(self.platform_path, "ignore.txt")
-            with open(fav_path, "w") as f_fav, open(ign_path, "w") as f_ign:
-                for rom in self.roms.values():
-                    if rom.favorite == 1:
-                        f_fav.write(f"{rom.name}\n")
-                    if rom.ignore == 1:
-                        f_ign.write(f"{rom.name}\n")
+            with self._connect() as conn:
+                conn.execute(
+                    "UPDATE games SET play_count = play_count + 1, last_played = ? WHERE name = ?",
+                    (now, rom_name),
+                )
+                row = conn.execute(
+                    "SELECT play_count, last_played FROM games WHERE name = ?",
+                    (rom_name,),
+                ).fetchone()
+            if rom_name in self.roms and row:
+                self.roms[rom_name].play_count = row[0]
+                self.roms[rom_name].last_played = row[1]
+            self._sync_user_backup()
+            return row
         except Exception:
-            log.exception("error syncing favorites/ignore text lists")
+            log.exception("error recording play stats rom=%s", rom_name)
+            return None
+
+    def _sync_user_backup(self):
+        """Write favorites/ignore/playstats text files so a DB rebuild can restore them."""
+        try:
+            skip_sql, skip_params = self._skip_sql()
+            with self._connect() as conn:
+                favs = [
+                    r[0]
+                    for r in conn.execute(
+                        f"SELECT name FROM games WHERE favorite = 1 AND {skip_sql} ORDER BY name",
+                        skip_params,
+                    )
+                ]
+                igns = [
+                    r[0]
+                    for r in conn.execute(
+                        f"SELECT name FROM games WHERE ignore = 1 AND {skip_sql} ORDER BY name",
+                        skip_params,
+                    )
+                ]
+                plays = conn.execute(
+                    f"""SELECT name, play_count, last_played FROM games
+                        WHERE play_count > 0 AND {skip_sql} ORDER BY name""",
+                    skip_params,
+                ).fetchall()
+            write_user_backup(self.platform_path, favs, igns, plays)
+        except Exception:
+            log.exception("error syncing user backup lists")
 
     def get_genre_list(self):
         """Return sorted list of genres including dynamic playlist categories."""
-        genre_list = sorted(list(self.genres))
-        has_played = any(r.play_count > 0 for r in self.roms.values())
-        has_recent = any(r.last_played for r in self.roms.values())
+        skip_sql, skip_params = self._skip_sql()
+        genre_list = []
+        has_played = False
+        has_recent = False
+        try:
+            with self._connect() as conn:
+                for (genre,) in conn.execute(
+                    f"""SELECT DISTINCT genre FROM games
+                        WHERE genre IS NOT NULL AND genre != '' AND genre != 'General'
+                          AND {skip_sql}
+                        ORDER BY genre COLLATE NOCASE""",
+                    skip_params,
+                ):
+                    genre_list.append(genre)
+                has_played = conn.execute(
+                    f"SELECT 1 FROM games WHERE play_count > 0 AND ignore = 0 AND {skip_sql} LIMIT 1",
+                    skip_params,
+                ).fetchone() is not None
+                has_recent = conn.execute(
+                    f"SELECT 1 FROM games WHERE last_played IS NOT NULL AND last_played != '' AND ignore = 0 AND {skip_sql} LIMIT 1",
+                    skip_params,
+                ).fetchone() is not None
+        except Exception:
+            log.exception("error listing genres path=%s", self.db_path)
 
         full_list = ["All Games", "Favorites"]
         if has_played:
@@ -332,28 +375,112 @@ class RomManager:
         full_list.append("Ignore")
         return full_list
 
-    def get_roms_by_genre(self, genre_name):
-        """Return filtered list of ROMs for a given playlist / genre category."""
-        results = []
-        sorted_roms = sorted(self.roms.values(), key=operator.attrgetter('description'))
+    def get_roms_by_genre(self, genre_name, search_query=""):
+        """Return the current playlist from SQLite (not the whole catalog)."""
+        skip_sql, params = self._skip_sql()
+        where = [skip_sql]
+        order = "description COLLATE NOCASE, name COLLATE NOCASE"
 
         if genre_name == "All Games":
-            return [rom for rom in sorted_roms if rom.ignore == 0]
+            where.append("ignore = 0")
         elif genre_name == "Favorites":
-            return [rom for rom in sorted_roms if rom.favorite == 1 and rom.ignore == 0]
+            where.append("favorite = 1 AND ignore = 0")
         elif genre_name == "Most Played":
-            played_roms = [rom for rom in self.roms.values() if rom.play_count > 0 and rom.ignore == 0]
-            return sorted(played_roms, key=operator.attrgetter('play_count'), reverse=True)
+            where.append("play_count > 0 AND ignore = 0")
+            order = "play_count DESC, description COLLATE NOCASE"
         elif genre_name == "Recently Played":
-            recent_roms = [rom for rom in self.roms.values() if rom.last_played and rom.ignore == 0]
-            return sorted(recent_roms, key=lambda r: str(r.last_played), reverse=True)
+            where.append("last_played IS NOT NULL AND last_played != '' AND ignore = 0")
+            order = "last_played DESC"
         elif genre_name == "Ignore":
-            return [rom for rom in sorted_roms if rom.ignore == 1]
+            where.append("ignore = 1")
         else:
-            return [rom for rom in sorted_roms if rom.genre == genre_name and rom.ignore == 0]
+            where.append("genre = ? AND ignore = 0")
+            params = list(params) + [genre_name]
+
+        query = search_query.strip()
+        if query:
+            where.append("(name LIKE ? OR description LIKE ?)")
+            like = f"%{query}%"
+            params = list(params) + [like, like]
+
+        sql = f"""
+            SELECT name, description, genre, rating, favorite, ignore, play_count, last_played, custom_flags
+              FROM games
+             WHERE {' AND '.join(where)}
+             ORDER BY {order}
+        """
+        roms = []
+        try:
+            with self._connect() as conn:
+                for row in conn.execute(sql, params):
+                    if not self._on_disk(row[0]):
+                        continue
+                    roms.append(self._row_to_rom(row))
+        except Exception:
+            log.exception("error querying playlist genre=%s", genre_name)
+        return roms
 
     def get_rom_flags(self, rom_name):
         """Return emulator run flags for the specified ROM."""
-        if rom_name in self.roms and self.roms[rom_name].custom_flags:
-            return self.roms[rom_name].custom_flags
+        try:
+            with self._connect() as conn:
+                row = conn.execute(
+                    "SELECT custom_flags FROM games WHERE name = ?", (rom_name,)
+                ).fetchone()
+            if row and row[0]:
+                return row[0]
+        except Exception:
+            log.exception("error reading flags rom=%s", rom_name)
         return self.flag_options.get(rom_name, "")
+
+
+def read_user_backup(platform_path):
+    """Load rebuild backups: favorites.txt, ignore.txt, playstats.txt."""
+    fav, ign = set(), set()
+    plays = {}
+    fav_file = os.path.join(platform_path, "favorites.txt")
+    if os.path.exists(fav_file):
+        with open(fav_file, "r", encoding="utf-8", errors="ignore") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#"):
+                    fav.add(line)
+    ign_file = os.path.join(platform_path, "ignore.txt")
+    if os.path.exists(ign_file):
+        with open(ign_file, "r", encoding="utf-8", errors="ignore") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#"):
+                    ign.add(line)
+    play_file = os.path.join(platform_path, "playstats.txt")
+    if os.path.exists(play_file):
+        with open(play_file, "r", encoding="utf-8", errors="ignore") as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                parts = line.split("\t")
+                if len(parts) >= 2:
+                    try:
+                        count = int(parts[1])
+                    except ValueError:
+                        continue
+                    last = parts[2] if len(parts) > 2 else None
+                    plays[parts[0]] = (count, last or None)
+    return fav, ign, plays
+
+
+def write_user_backup(platform_path, fav_names, ign_names, play_rows):
+    fav_path = os.path.join(platform_path, "favorites.txt")
+    ign_path = os.path.join(platform_path, "ignore.txt")
+    play_path = os.path.join(platform_path, "playstats.txt")
+    with open(fav_path, "w", encoding="utf-8") as f_fav:
+        for name in fav_names:
+            f_fav.write(f"{name}\n")
+    with open(ign_path, "w", encoding="utf-8") as f_ign:
+        for name in ign_names:
+            f_ign.write(f"{name}\n")
+    with open(play_path, "w", encoding="utf-8") as f_play:
+        f_play.write("# name, play_count, last_played — rebuild backup, not the live DB\n")
+        for name, count, last in play_rows:
+            f_play.write(f"{name}\t{count}\t{last or ''}\n")

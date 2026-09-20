@@ -7,6 +7,7 @@ import xml.etree.ElementTree as ET
 from config import PlatformConfig
 from diagnostics import check_platform, check_all, has_errors
 from mamely_log import get_logger
+from roms import read_user_backup
 
 log = get_logger("wizard")
 
@@ -711,23 +712,41 @@ class SetupWizard:
             cur.execute("CREATE INDEX IF NOT EXISTS idx_games_ignore ON games(ignore)")
             cur.execute("CREATE INDEX IF NOT EXISTS idx_games_description ON games(description)")
             
-            # Preserve existing user metadata
+            # Preserve catalog + user metadata already in the DB
             existing_meta = {}
             try:
-                cur.execute("SELECT name, favorite, ignore, play_count, last_played, custom_flags FROM games")
+                cur.execute(
+                    "SELECT name, description, genre, rating, favorite, ignore, "
+                    "play_count, last_played, custom_flags FROM games"
+                )
                 for row in cur.fetchall():
-                    existing_meta[row[0]] = (row[1], row[2], row[3], row[4], row[5])
+                    existing_meta[row[0]] = row[1:]
             except Exception:
                 pass
-                
+
+            fav_set, ign_set, plays = read_user_backup(platform_path)
+
             rows = []
             for r_file in sorted(rom_files):
-                desc = make_description(r_file, rom_ext)
                 if r_file in existing_meta:
-                    fav, ign, pc, lp, flags = existing_meta[r_file]
+                    desc, genre, rating, fav, ign, pc, lp, flags = existing_meta[r_file]
                 else:
+                    desc = make_description(r_file, rom_ext)
+                    genre, rating = "General", "Rating: General"
                     fav, ign, pc, lp, flags = 0, 0, 0, None, ""
-                rows.append((r_file, desc, "General", "Rating: General", fav, ign, pc, lp, flags))
+                if r_file in fav_set:
+                    fav = 1
+                if r_file in ign_set:
+                    ign = 1
+                if r_file in plays:
+                    bcount, blast = plays[r_file]
+                    try:
+                        pc = max(int(pc or 0), int(bcount or 0))
+                    except (TypeError, ValueError):
+                        pass
+                    if blast and (not lp or str(blast) > str(lp)):
+                        lp = blast
+                rows.append((r_file, desc, genre, rating, fav, ign, pc, lp, flags))
                 
             cur.executemany("""
                 INSERT OR REPLACE INTO games (name, description, genre, rating, favorite, ignore, play_count, last_played, custom_flags)

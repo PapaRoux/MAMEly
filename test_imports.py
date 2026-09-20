@@ -4,6 +4,7 @@ try:
     import input
     import ui
     import main
+    import state
     print("All modules imported successfully.")
 except ImportError as e:
     print(f"Import failed: {e}")

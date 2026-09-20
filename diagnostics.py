@@ -33,13 +33,15 @@ App entry / launcher
   MAMEly.py                 Start the frontend
   main.py                   Application logic
   mamely.log                Rotating app event log (debug.log = emulator stdout)
-  config.xml                Screen size, platforms, Settings OSD (F3)
+  mamely-state.db           Settings OSD, last position, play sessions
+  config.xml                Screen size, platforms (settings snapshot)
   config-vertical.xml       Platform list for portrait layout
 
 Per-platform folder: platforms/<PLATFORM>/
   config_*_<resolution>.txt Emulator command, ROM paths, extensions
   config_*_<resolution>.skin UI layout, fonts, colors, background image
   MAMEly.db                 Game database (titles, genres, favorites, stats)
+  favorites.txt / ignore.txt / playstats.txt  Rebuild backups of user data
   _flags.txt                Per-ROM emulator flags (optional)
   _skipGenre.txt / _skipRating.txt  Filter lists (optional)
 

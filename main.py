@@ -17,6 +17,7 @@ from input import InputManager
 from version import __version__
 from diagnostics import build_osd_lines, check_platform, startup_message, check_all, has_errors
 from mamely_log import setup_logging, get_logger
+from state import MamelyState
 
 log = get_logger("main")
 
@@ -73,7 +74,9 @@ class MAMElyApp:
         log.info("config file=%s wizard=%s", self.config_file, self.launch_wizard)
 
         # Load Main Config
+        self.state = MamelyState(self.base_path)
         self.config = Config(self.base_path, self.config_file)
+        self.state.pull_into_config(self.config)
         
         # State
         self.running = True
@@ -178,11 +181,10 @@ class MAMElyApp:
                 self.current_genre_idx = 0
             self.update_view_lists()
         genre = self.genre_list[self.current_genre_idx] if self.genre_list else "-"
-        favs = sum(1 for r in self.rom_manager.roms.values() if r.favorite)
-        ignored = sum(1 for r in self.rom_manager.roms.values() if r.ignore)
+        total, favs, ignored = self.rom_manager.counts()
         log.info(
             "platform ready name=%s roms=%d favorites=%d ignored=%d genre=%s listed=%d",
-            p_def.name, len(self.rom_manager.roms), favs, ignored, genre, len(self.rom_list),
+            p_def.name, total, favs, ignored, genre, len(self.rom_list),
         )
         self._report_platform_diagnostics(p_def)
 
@@ -285,15 +287,7 @@ class MAMElyApp:
             self.current_genre_idx = 0
             
         current_genre = self.genre_list[self.current_genre_idx]
-        self.rom_list = self.rom_manager.get_roms_by_genre(current_genre)
-        
-        # Real-time search filtering
-        if self.search_query:
-            query = self.search_query.lower()
-            self.rom_list = [
-                rom for rom in self.rom_list 
-                if query in rom.description.lower() or query in rom.name.lower()
-            ]
+        self.rom_list = self.rom_manager.get_roms_by_genre(current_genre, self.search_query)
         
         if reset_selection:
             self.selected_rom_idx = 0
@@ -323,16 +317,18 @@ class MAMElyApp:
         self.config.session_platform = p_def.name
         self.config.session_rom = rom.name if rom else ""
         self.config.session_genre = genre
-        self.config.save_main_config()
+        self.state.save_position(p_def.name, genre, rom.name if rom else "")
         log.debug(
             "session saved platform=%s genre=%s rom=%s",
             self.config.session_platform, self.config.session_genre, self.config.session_rom,
         )
 
     def _restore_startup_platform(self):
-        if not self.config.remember_emulator or not self.config.session_platform:
+        if not self.config.remember_emulator:
             return
-        wanted = self.config.session_platform
+        wanted = self.state.get_last_platform() or self.config.session_platform
+        if not wanted:
+            return
         for i, p_def in enumerate(self.config.platforms):
             if p_def.name == wanted or p_def.folder == wanted:
                 self.platform_idx = i
@@ -342,8 +338,11 @@ class MAMElyApp:
     def _restore_session_selection(self):
         if not self.config.remember_game:
             return False
-        genre = self.config.session_genre
-        rom_name = self.config.session_rom
+        p_def = self._current_platform_def()
+        genre, rom_name = self.state.get_position(p_def.name)
+        if not genre and not rom_name:
+            genre = self.config.session_genre
+            rom_name = self.config.session_rom
         if not genre and not rom_name:
             return False
 
@@ -421,7 +420,7 @@ class MAMElyApp:
             self.config.attract_mode = not self.config.attract_mode
         else:
             return
-        self.config.save_main_config()
+        self.state.set_setting(key, getattr(self.config, key))
         value = getattr(self.config, key)
         log.info("setting %s=%s", key, value)
 
@@ -505,7 +504,10 @@ class MAMElyApp:
             return
 
         rom = self.rom_list[self.selected_rom_idx]
-        self.rom_manager.record_play(rom.name)
+        play_row = self.rom_manager.record_play(rom.name)
+        if play_row:
+            rom.play_count = play_row[0]
+            rom.last_played = play_row[1]
         rom_file = rom.name
         ext = self.rom_manager.config.rom_extension
         if ext and not rom_file.endswith(ext):
@@ -540,6 +542,7 @@ class MAMElyApp:
         quoted = " ".join(shlex.quote(arg) for arg in cmd)
         platform_name = self._current_platform_def().name
         self._save_session()
+        session_id = self.state.start_play(platform_name, rom.name)
         log.info(
             "launch start platform=%s rom=%s desc=%r plays=%s cmd=%s",
             platform_name, rom.name, rom.description, rom.play_count, quoted,
@@ -561,6 +564,7 @@ class MAMElyApp:
             else:
                 log.info("launch end rom=%s rc=%s elapsed=%.1fs", rom.name, rc, elapsed)
         finally:
+            self.state.end_play(session_id, rc, time.time() - t0)
             self._init_joysticks()
             pygame.event.clear()
 
@@ -777,6 +781,7 @@ class MAMElyApp:
                 
                 def do_fav():
                     is_fav = self.rom_manager.toggle_favorite(rom.name)
+                    rom.favorite = 1 if is_fav else 0
                     state = "added to" if is_fav else "removed from"
                     log.info("favorite rom=%s %s favorites", rom.name, state)
                     self.set_message(f"{rom.name} {state} Favorites")
@@ -798,12 +803,11 @@ class MAMElyApp:
                 
                 def do_ignore():
                     is_ign = self.rom_manager.toggle_ignore(rom.name)
+                    rom.ignore = 1 if is_ign else 0
                     state = "added to" if is_ign else "removed from"
                     log.info("ignore rom=%s %s ignore list", rom.name, state)
                     self.set_message(f"{rom.name} {state} Ignore List")
-                    # Reload list if we are in Ignore view
-                    if self.genre_list[self.current_genre_idx] == "Ignore":
-                        self.update_view_lists(reset_selection=False)
+                    self.update_view_lists(reset_selection=False)
                         
                 self.confirm_action = do_ignore
                 self.confirm_message = confirm_str
@@ -1303,6 +1307,7 @@ class MAMElyApp:
         
         # Reload configuration
         self.config = Config(self.base_path, self.config_file)
+        self.state.pull_into_config(self.config)
         self.platform_idx = 0
         self.load_platform()
 

@@ -11,13 +11,16 @@ mame-listxml.xml
 *.xml.tmp
 *.tar
 
-# User favorites & ignore lists
+# User favorites & ignore lists (rebuild backups)
 favorites.txt
 ignore.txt
+playstats.txt
 favorites.xml
 
 # Databases & logs
 *.db
+*.db-wal
+*.db-shm
 history/
 
 # OS / Editor temporary files
