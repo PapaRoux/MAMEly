@@ -607,33 +607,61 @@ class UIManager:
             color = self.skin.get("defaultMessageColor", (255, 230, 90))
 
         font = self.get_font(font_name, size)
-        
-        # Truncation check
-        truncate_len = self.skin.get("messageTruncateLen", 60)
-        if isinstance(truncate_len, int) and truncate_len > 0 and len(message) > truncate_len:
-            display_text = message[:truncate_len]
-        else:
-            display_text = message
-
-        # Measure text size
-        text_surf = font.render(display_text, True, color)
-        t_w, t_h = text_surf.get_size()
 
         pad_x, pad_y = 28, 14
-        box_w = min(self.screen_width - 40, t_w + pad_x * 2)
-        box_h = t_h + pad_y * 2
+        max_text_w = self.screen_width - 40 - pad_x * 2
+        lines = self._wrap_text(font, message, max_text_w, max_lines=4)
+
+        line_h = font.get_linesize()
+        text_w = max(font.size(line)[0] for line in lines)
+        box_w = min(self.screen_width - 40, text_w + pad_x * 2)
+        box_h = line_h * len(lines) + pad_y * 2
 
         # Draw semi-transparent contrast background card
         card = pygame.Surface((box_w, box_h), pygame.SRCALPHA)
         pygame.draw.rect(card, (15, 17, 26, 220), card.get_rect(), border_radius=10)
         pygame.draw.rect(card, (137, 180, 250, 200), card.get_rect(), width=2, border_radius=10)
-        
+
         draw_x = cx - box_w // 2
         draw_y = cy - box_h // 2
         self.screen.blit(card, (draw_x, draw_y))
 
-        # Render centered text on top of contrast box
-        self.draw_text(display_text, cx, cy, font_name, size, color, shadow=True, shadow_color=(0, 0, 0))
+        # Render centered text lines on top of contrast box
+        for i, line in enumerate(lines):
+            line_y = draw_y + pad_y + i * line_h + line_h // 2
+            self.draw_text(line, cx, line_y, font_name, size, color, shadow=True, shadow_color=(0, 0, 0))
+
+    @staticmethod
+    def _wrap_text(font, text, max_width, max_lines=4):
+        """Word-wrap text to max_width pixels. Words wider than a line (long
+        paths) are split by character. Overflow past max_lines ends in '...'."""
+        lines, current = [], ""
+        for word in text.split():
+            candidate = f"{current} {word}" if current else word
+            if font.size(candidate)[0] <= max_width:
+                current = candidate
+                continue
+            if current:
+                lines.append(current)
+            current = ""
+            while font.size(word)[0] > max_width:
+                cut = len(word) - 1
+                while cut > 1 and font.size(word[:cut])[0] > max_width:
+                    cut -= 1
+                lines.append(word[:cut])
+                word = word[cut:]
+            current = word
+        if current:
+            lines.append(current)
+        if not lines:
+            return [""]
+        if len(lines) > max_lines:
+            lines = lines[:max_lines]
+            last = lines[-1]
+            while last and font.size(last + "...")[0] > max_width:
+                last = last[:-1]
+            lines[-1] = last + "..."
+        return lines
 
     def show_message(self, message, color=None):
         """Show transient toast message in screen center with contrast box."""
