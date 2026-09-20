@@ -39,3 +39,6 @@ platform_*.txt
 debug.log
 mamely.log
 mamely.log.*
+
+# link_softlist_videos.py output
+video_match_report*.tsv
